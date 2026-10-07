@@ -1312,7 +1312,8 @@
     "sections": [],
     "batches": [
       "S-20261006-08-astra-multiplayer-and-repro-recipes",
-      "S-20261007-34-astraflight-prompts-and-artifacts"
+      "S-20261007-34-astraflight-prompts-and-artifacts",
+      "S-20261007-82-firsthand-game-prompt-and-session-source-audit"
     ],
     "path": "records/B0045.md"
   },
@@ -1437,11 +1438,15 @@
     "sources": [
       "https://arxiv.org/abs/2610.02563",
       "https://github.com/Roblox/open-game-eval",
-      "https://github.com/Roblox/open-game-eval/blob/main/LLM_LEADERBOARD.md"
+      "https://github.com/Roblox/open-game-eval/blob/main/LLM_LEADERBOARD.md",
+      "https://github.com/Roblox/open-game-eval/blob/main/EvalPlugin/README.md",
+      "https://github.com/Roblox/open-game-eval/commit/9070ee70cf7e479f83f6cfe684937a6225ae3b77",
+      "https://github.com/Roblox/open-game-eval/commit/8001cac2fa733aad1e743f00aa701e1f4e426541"
     ],
     "sections": [],
     "batches": [
-      "S-20261007-40-formal-generation-benchmark-audit"
+      "S-20261007-40-formal-generation-benchmark-audit",
+      "S-20261007-86-benchmark-playable-output-and-eval-plugin-delta"
     ],
     "path": "records/B0050.md"
   },
@@ -1473,19 +1478,22 @@
       "KRAFTON GameSpec-Bench"
     ],
     "type": "benchmark",
-    "status": "目前最貼近長規格完整遊戲／自主迭代需求的強候選；100 題資料及執行程式尚待正式釋出",
+    "status": "強追蹤候選；官方頁新增完整模型結果與 GPT-6 Astra 3D gameplay captures，適合任務／美術參照；100 題 GDD、contracts、source build 與 evaluator 仍未可下載，不能立即完整重跑",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
       "https://arxiv.org/abs/2609.39564",
       "https://arxiv.org/html/2609.39564",
       "https://github.com/krafton-ai/a2z-gamespec-bench",
-      "https://a2z-gamespec-bench.github.io/"
+      "https://a2z-gamespec-bench.github.io/",
+      "https://a2z-gamespec-bench.github.io/at-a-glance.html",
+      "https://huggingface.co/datasets/KRAFTON/A2Z-GameSpec-Bench"
     ],
     "sections": [],
     "batches": [
       "S-20261007-40-formal-generation-benchmark-audit",
-      "S-20261007-44-formal-benchmark-artifact-and-roster-audit"
+      "S-20261007-44-formal-benchmark-artifact-and-roster-audit",
+      "S-20261007-76-a2z-gamespec-bench-artifacts-and-release-audit"
     ],
     "path": "records/B0052.md"
   },
@@ -1553,7 +1561,7 @@
       "Haruka same-task game builds"
     ],
     "type": "benchmark",
-    "status": "高價值非正式同題成品組：3 份共用任務、6 個 playable source build、機械驗收及手動遊玩發現已公開；one-task feedback flow 未有原始 session 可稽核，不能作模型排名",
+    "status": "高價值非正式同題成品組：3 份共用任務、6 個 playable source build、機械驗收及手動遊玩發現已公開；one-task feedback flow 未有原始 session 可稽核，六款美術均不合格（使用者判定），不能作模型排名",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -1625,6 +1633,44 @@
       "visual polish"
     ],
     "path": "records/B0057.md"
+  },
+  {
+    "id": "B0058",
+    "name": "GameGoBench: 124-query game-development benchmark",
+    "aliases": [
+      "GameGo",
+      "GameGoData",
+      "GameGoCoder benchmark",
+      "GAMEGO: Training Game-Dev Agents with Synthetic Trajectories Anchored in Real-World Assets"
+    ],
+    "type": "benchmark",
+    "status": "高價值高系統遊戲生成 benchmark；12 款 GameGoCoder 3.8 source/playable samples、10-model 12-task screenshots、124 held-out task aggregates 與 six-expert blind pairwise method 公開；匿名 HF dataset endpoint 回 401，原始 124 prompts／full source trajectories 未確認可下載；模型 roster 未含 GPT-6.1 Sol／Sonnet 5.5",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://arxiv.org/abs/2610.06910",
+      "https://arxiv.org/html/2610.06910",
+      "https://github.com/Haoyue-Yang/GameGo",
+      "https://github.com/Haoyue-Yang/GameGo/tree/main/games",
+      "https://huggingface.co/datasets/Y36521478Y/GameGo",
+      "https://huggingface.co/Y36521478Y/GameGoCoder3_8",
+      "https://haoyue-yang.github.io/GameGo/games/"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-79-gamego-benchmark-outputs-and-release-audit"
+    ],
+    "keywords": [
+      "124 game tasks",
+      "55,060 development trajectories",
+      "GPT-5.6",
+      "Claude Opus 5",
+      "GameGoCoder 3.8",
+      "human pairwise playtest",
+      "artifacts",
+      "visual showcase"
+    ],
+    "path": "records/B0058.md"
   },
   {
     "id": "C0001",
@@ -1707,7 +1753,11 @@
       "https://github.com/AgentsLoop/awesome-opus-5.5-games/commit/7839811da5cc",
       "https://github.com/AgentsLoop/awesome-opus-5.5-games/commit/dd786c160f3a",
       "https://github.com/dippy34/Ai-vr-game",
-      "https://github.com/PieterMey/theboys"
+      "https://github.com/PieterMey/theboys",
+      "https://github.com/AgentsLoop/awesome-gpt-astra-games",
+      "https://github.com/AgentsLoop/awesome-gpt-astra-games/blob/main/README.md",
+      "https://github.com/AgentsLoop/awesome-gpt-astra-games/blob/main/games/neural-sight/readme.md",
+      "https://github.com/AgentsLoop/awesome-gpt-astra-games/blob/main/games/turbo-kart-rally/readme.md"
     ],
     "keywords": [
       "作品庫",
@@ -1716,6 +1766,9 @@
       "遊戲截圖評分",
       "來源核查",
       "版本對照"
+    ],
+    "batches": [
+      "S-20261007-77-recent-model-visual-builds"
     ],
     "path": "records/C0003.md"
   },
@@ -1915,16 +1968,29 @@
       "data directory"
     ],
     "type": "catalog",
-    "status": "方法參考",
-    "updated": "2026-10-06",
+    "status": "發現目錄／AI 遊戲資料庫；創作者自述型，不能證明單次委託或模型表現",
+    "updated": "2026-10-07",
     "origin": "legacy-migration",
     "sections": [
       "N0046",
       "N0056"
     ],
     "context_sources": [],
-    "sources": [],
+    "sources": [
+      "https://huggingface.co/datasets/kvickan/games-made-with-ai",
+      "https://huggingface.co/datasets/kvickan/games-made-with-ai/resolve/main/games.json",
+      "https://huggingface.co/datasets/kvickan/games-made-with-ai/resolve/main/games.csv",
+      "https://gamesbyai.win/",
+      "https://gamesbyai.win/games/jellyblob/",
+      "https://gamesbyai.win/games/rimehold/",
+      "https://gamesbyai.win/games/sumo-boulders/",
+      "https://github.com/gamesbyai/catalog/issues/54",
+      "https://github.com/gamesbyai/catalog/issues/94"
+    ],
     "keywords": [],
+    "batches": [
+      "S-20261007-84-ai-game-catalog-3d-highlights-audit"
+    ],
     "path": "records/C0013.md"
   },
   {
@@ -2207,6 +2273,69 @@
     "path": "records/C0025.md"
   },
   {
+    "id": "C0026",
+    "name": "Google Playground text-to-game platform",
+    "aliases": [
+      "Playground Google",
+      "Google Playground games",
+      "Playground experimental gaming platform"
+    ],
+    "type": "catalog",
+    "status": "方法／平台參考；官方明示可用多輪對話修改遊戲，不能作一次委託成果；公開作品 gallery 需登入，未核任何具名成品",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/",
+      "https://playground.google/",
+      "https://unity.com/spark"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-78-google-playground-prompt-to-game-platform-audit"
+    ],
+    "keywords": [
+      "Google",
+      "text-to-game",
+      "conversational iteration",
+      "community gallery",
+      "login required",
+      "one-shot excluded"
+    ],
+    "path": "records/C0026.md"
+  },
+  {
+    "id": "C0027",
+    "name": "awesome-gpt-6-astra curated playable games catalog",
+    "aliases": [
+      "awesome-gpt-6-astra",
+      "Astra Games",
+      "GPT-6 Astra gameplay gallery"
+    ],
+    "type": "catalog",
+    "status": "作者聲明型的 GPT-6 Astra 遊戲發現目錄；收錄可玩作品和 gameplay screenshot，未逐項提供原始任務、run/session 或零介入證據；不作 one-shot benchmark",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra",
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/blob/main/README.md",
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/blob/main/docs/x-games-2026-10-06.md",
+      "https://astragames.aigccreative.com/en"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-80-gpt6-astra-curated-gallery-audit"
+    ],
+    "keywords": [
+      "GPT-6 Astra",
+      "playable games",
+      "curated gallery",
+      "creator attribution",
+      "gameplay screenshot",
+      "prompt provenance"
+    ],
+    "path": "records/C0027.md"
+  },
+  {
     "id": "E0001",
     "name": "AI Browser Game Jam 4",
     "aliases": [
@@ -2422,7 +2551,7 @@
       "使用者美術回饋"
     ],
     "type": "event",
-    "status": "已記錄；只適用於驗收時檢閱頁中已列出的作品",
+    "status": "已記錄並依 2026-10-07 後續回覆校正；個案結果與檢閱表同步",
     "updated": "2026-10-07",
     "origin": "user-evaluation",
     "sources": [
@@ -3157,7 +3286,7 @@
       "bioneural.de"
     ],
     "type": "game",
-    "status": "強重跑題（開放式多人遊戲／部署壓力；首次交付部分可查）",
+    "status": "強重跑題（開放式多人遊戲／部署壓力；首次交付部分可查）；美術不合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "legacy-migration",
     "sections": [
@@ -3632,7 +3761,7 @@
       "BridgeBench Dead Signal prompt"
     ],
     "type": "game",
-    "status": "高價值完整 FPS 重跑題；Sonnet 5.5 同系列源碼可重建（原始 prompt／trace 未公開）",
+    "status": "高價值完整 FPS 重跑題；Sonnet 5.5 同系列源碼可重建（原始 prompt／trace 未公開）；美術不合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "legacy-migration",
     "sections": [
@@ -4333,7 +4462,7 @@
       "GPT-6.1 Sol Hill Climb Racing"
     ],
     "type": "game",
-    "status": "方法參考／可玩的一次委託物理與自主 QA 副測；有 GPT-6.1 Sol 與 Opus 5.5 build、作者 hands-on 測試和明確任務描述；單關不代表大型完整遊戲上限；原始 prompt／session 未公開；美術待使用者評價",
+    "status": "方法參考／可玩的一次委託物理與自主 QA 副測；有 GPT-6.1 Sol 與 Opus 5.5 build、作者 hands-on 測試和明確任務描述；單關不代表大型完整遊戲上限；原始 prompt／session 未公開；使用者判定美術不合格（2026-10-07；E0008）",
     "updated": "2026-10-07",
     "origin": "legacy-migration",
     "sections": [
@@ -5757,8 +5886,8 @@
       "The Tallow Deep"
     ],
     "type": "game",
-    "status": "推薦",
-    "updated": "2026-10-06",
+    "status": "推薦；美術不合格（使用者判定 2026-10-07）",
+    "updated": "2026-10-07",
     "origin": "legacy-migration",
     "sections": [
       "N0017"
@@ -6443,7 +6572,7 @@
       "Frontier Games 五Opus子代理"
     ],
     "type": "game",
-    "status": "適合賽車副題重跑；有獨立一圈 build 檢查，零介入僅作者自述",
+    "status": "適合賽車副題重跑；有獨立一圈 build 檢查，零介入僅作者自述；美術不合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "legacy-migration",
     "sections": [
@@ -6456,7 +6585,9 @@
       "https://github.com/bridge-mind/turbo-kart-rally",
       "https://bridge-mind.github.io/turbo-kart-rally/",
       "https://x.com/bridgemindai/status/2102451997395866021",
-      "https://tikgame.org/game/turbo-kart-rally/"
+      "https://tikgame.org/game/turbo-kart-rally/",
+      "https://github.com/AgentsLoop/awesome-gpt-astra-games/blob/main/games/turbo-kart-rally/readme.md",
+      "https://github.com/bridge-mind/turbo-kart-rally/blob/main/docs/screenshots/race.jpg"
     ],
     "keywords": [
       "Claude Opus 5.5",
@@ -6466,7 +6597,8 @@
     ],
     "batches": [
       "S-20261006-04-long-form-one-shot-games",
-      "S-20261007-27-repo-history-and-curated-gallery-provenance"
+      "S-20261007-27-repo-history-and-curated-gallery-provenance",
+      "S-20261007-77-recent-model-visual-builds"
     ],
     "path": "records/G0164.md"
   },
@@ -6974,7 +7106,7 @@
       "Sunset City"
     ],
     "type": "game",
-    "status": "備選",
+    "status": "備選；美術勉強合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -7089,7 +7221,7 @@
       "rawprogress Fable Cities"
     ],
     "type": "game",
-    "status": "備選",
+    "status": "系統上限／長時多代理自主開發參照；美術由使用者列為特例，無法確認是否合格（E0008）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -8099,7 +8231,7 @@
       "Cuphead-inspired Tesana LOOP game"
     ],
     "type": "game",
-    "status": "高價值開放式重跑題／平台專屬原生成績，不可直接比較通用模型",
+    "status": "高價值開放式重跑題／平台專屬原生成績，不可直接比較通用模型；美術勉強合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -8574,7 +8706,7 @@
       "Crossy Road one-shot"
     ],
     "type": "game",
-    "status": "官方可重現一次生成案例；中階遊戲範圍，作視覺／流程參照，不是上限主測",
+    "status": "官方可重現一次生成案例；中階遊戲範圍，作視覺／流程參照，不是上限主測；美術不合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -8605,7 +8737,7 @@
       "procedural dungeon one-shot"
     ],
     "type": "game",
-    "status": "高難度 3D 動作 Roguelike one-shot 成品與重跑候選；流程為作者自述，美術待使用者評價",
+    "status": "高難度 3D 動作 Roguelike one-shot 成品與重跑候選；流程為作者自述，使用者判定美術不合格（2026-10-07；E0008）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -8634,7 +8766,7 @@
       "Three.js chunk meshing benchmark"
     ],
     "type": "game",
-    "status": "高技術密度建造副測；玩法閉環不足，不列完整遊戲上限主測；美術待使用者評價",
+    "status": "高技術密度建造副測；玩法閉環不足，不列完整遊戲上限主測；使用者判定美術不合格（2026-10-07；E0008）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -8663,7 +8795,7 @@
       "procedural survival benchmark Test 1"
     ],
     "type": "game",
-    "status": "高難度程序 3D 生存系統 one-shot 重跑候選；作者申報流程，無敵對生物／長程存檔；美術待使用者評價",
+    "status": "高難度程序 3D 生存系統 one-shot 重跑候選；作者申報流程，無敵對生物／長程存檔；使用者判定美術不合格（2026-10-07；E0008）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -8693,7 +8825,7 @@
       "third-person shooter shrinking storm one-shot"
     ],
     "type": "game",
-    "status": "高複雜度 one-shot 重跑題種子；創作者提供原 prompt 與影片，流程未獨立核實；美術待使用者評價",
+    "status": "高複雜度 one-shot 重跑題種子；創作者提供原 prompt 與影片，流程未獨立核實；使用者判定美術不合格（2026-10-07；E0008）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -8856,7 +8988,7 @@
       "HoH autonomous FPS"
     ],
     "type": "game",
-    "status": "強自主長程成品案例：單一 PRD 後逾 70 輪無人介入建置；GPT-5.6-Sol；公開遊戲影片／source；70 輪凍結 build 與原始 PRD 未公開核實；美術待使用者評價",
+    "status": "強自主長程成品案例：單一 PRD 後逾 70 輪無人介入建置；GPT-5.6-Sol；公開遊戲影片／source；70 輪凍結 build 與原始 PRD 未公開核實；美術合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -8952,7 +9084,7 @@
       "Game Bench GPT-6 Astra 2026-09-24"
     ],
     "type": "game",
-    "status": "新近可玩輸出與詳盡任務；單循環短遊戲副測，不列完整遊戲上限主測；作者宣稱 no-feedback one-shot，但個別 run 標 process review",
+    "status": "新近可玩輸出與詳盡任務；單循環短遊戲副測，不列完整遊戲上限主測；作者宣稱 no-feedback one-shot，但個別 run 標 process review；美術不合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -9279,11 +9411,14 @@
     "sources": [
       "https://openai.com/index/playco-game-prototyping-with-astra/",
       "https://player.vimeo.com/video/1223381989?h=db54ade737",
-      "https://vimeo.com/1223381989/db54ade737"
+      "https://vimeo.com/1223381989/db54ade737",
+      "https://openai.com/sitemap.xml/startup/",
+      "https://images.ctfassets.net/kftzwdyauwt9/28ZM0n7QF2RlXDOMBkLgXY/d47e2a4059f529c346950b385b9430a5/playco-astra-seo-image-option-b.png?w=1600&h=900&fit=fill"
     ],
     "sections": [],
     "batches": [
-      "S-20261007-67-official-model-game-showcase-trace"
+      "S-20261007-67-official-model-game-showcase-trace",
+      "S-20261007-88-playco-showcase-visual-artifact-delta"
     ],
     "keywords": [
       "GPT-6 Astra",
@@ -9478,18 +9613,20 @@
       "Slapjam 2026 candle paper-plane game"
     ],
     "type": "game",
-    "status": "公開 HTML5 風格化短遊戲；作者稱 Claude 經 oh-my-pi 製作程式、關卡、shader、程序美術與特效，但人工負責方向／整合／測試，無原始 prompt 或 session，非已核一次委託；封面另由 OpenAI image generation 生成，不當遊戲畫面，美術待使用者評價",
+    "status": "公開 Godot HTML5 runtime 與 PCK/WASM build 已直接定位並記錄雜湊；本次受限 headless 環境未產出 runtime screenshot。作者稱 Claude 經 oh-my-pi 製作程序美術，但人工負責方向／整合／測試，無原始 prompt 或 session，非已核一次委託；封面另由 OpenAI image generation 生成，不當遊戲畫面；美術待使用者評價",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
       "https://theblazehen.itch.io/candle-keepers-parchment",
+      "https://html-classic.itch.zone/html/19486036/index.html?v=1790779853",
       "https://itch.io/jam/slapjam-ai-1/entries",
       "https://img.itch.zone/aW1nLzMwNDA3NTE5LnBuZw==/original/p9GIxO.png",
       "https://img.itch.zone/aW1nLzMwNDA3NTE5LnBuZw==/508x254%23mb/l%2FWjFZ.png"
     ],
     "sections": [],
     "batches": [
-      "S-20261007-74-high-visual-game-jam-build-provenance"
+      "S-20261007-74-high-visual-game-jam-build-provenance",
+      "S-20261007-75-candle-keepers-runtime-build-audit"
     ],
     "keywords": [
       "Slapjam AI 2026",
@@ -9498,11 +9635,395 @@
       "procedural art",
       "low-poly",
       "HTML5",
+      "Godot PCK/WASM",
+      "build hashes",
       "human integration",
       "cover art separate",
       "one-shot unverified"
     ],
     "path": "records/G0282.md"
+  },
+  {
+    "id": "G0283",
+    "name": "Sonic: Cascade Coast (A2Z GPT-6 Astra 3D build)",
+    "aliases": [
+      "Sonic Cascade Coast",
+      "Cascade Coast GPT-6 Astra",
+      "A2Z Sonic Three.js build"
+    ],
+    "type": "game",
+    "status": "論文列出的 GPT-6 Astra Three.js 3D 輸出；有原始 gameplay capture 與三軸 benchmark 分數，但無 playable URL/source、完整原始 GDD、模型 session 或 one-shot/no-human-intervention trace；美術不合格（使用者判定 2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://arxiv.org/html/2609.39564",
+      "https://arxiv.org/html/2609.39564v1/assets/appendix/showcase/sonic_2.png",
+      "https://a2z-gamespec-bench.github.io/at-a-glance.html"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-76-a2z-gamespec-bench-artifacts-and-release-audit"
+    ],
+    "keywords": [
+      "GPT-6 Astra",
+      "Three.js",
+      "3D platformer",
+      "gameplay screenshot",
+      "GDD fidelity",
+      "art review: user failed",
+      "one-shot unverified"
+    ],
+    "path": "records/G0283.md"
+  },
+  {
+    "id": "G0284",
+    "name": "Diablo Cathedral (A2Z GPT-6 Astra 3D build)",
+    "aliases": [
+      "Diablo Cathedral",
+      "A2Z Diablo Cathedral Three.js build"
+    ],
+    "type": "game",
+    "status": "A2Z 論文列出的 GPT-6 Astra Three.js 3D dungeon exploration/combat build；有三軸評分與錯誤診斷，未找到此作專屬 screenshot、playable URL/source、完整原始 GDD 或 session；one-shot 未核實",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://arxiv.org/html/2609.39564",
+      "https://a2z-gamespec-bench.github.io/at-a-glance.html"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-76-a2z-gamespec-bench-artifacts-and-release-audit"
+    ],
+    "keywords": [
+      "GPT-6 Astra",
+      "Three.js",
+      "3D dungeon exploration",
+      "combat",
+      "GDD fidelity",
+      "no gameplay capture",
+      "one-shot unverified"
+    ],
+    "path": "records/G0284.md"
+  },
+  {
+    "id": "G0285",
+    "name": "Rocket League (A2Z GPT-6 Astra 3D build)",
+    "aliases": [
+      "A2Z Rocket League",
+      "Rocket League GPT-6 Astra Three.js build",
+      "Rocket League 3D benchmark build"
+    ],
+    "type": "game",
+    "status": "A2Z 論文明載 GPT-6 Astra Three.js 3D vehicle-ball game build；有一張原始 gameplay capture 與三軸 benchmark scores，但無 playable URL/source、完整原始 GDD 或 session；與 G0131 同名題材記錄非同一已確認 build；one-shot 未核實；美術不合格（使用者判定 2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://arxiv.org/html/2609.39564",
+      "https://arxiv.org/html/2609.39564v1/assets/appendix/showcase/rocket_league_1.png",
+      "https://a2z-gamespec-bench.github.io/at-a-glance.html"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-76-a2z-gamespec-bench-artifacts-and-release-audit"
+    ],
+    "keywords": [
+      "GPT-6 Astra",
+      "Three.js",
+      "3D vehicle soccer",
+      "gameplay screenshot",
+      "GDD fidelity",
+      "art review: user failed",
+      "one-shot unverified",
+      "same-name disambiguation"
+    ],
+    "path": "records/G0285.md"
+  },
+  {
+    "id": "G0286",
+    "name": "Neural Sight (GPT-6 Astra captured-world FPS)",
+    "aliases": [
+      "Neural Sight",
+      "GPT-6 Astra Neural Sight",
+      "Neural Sight Gaussian-splat FPS"
+    ],
+    "type": "game",
+    "status": "近期寫實風格 FPS 與可玩系統參照；README 稱約 24 小時 GPT-6 Astra 協作建置，非已核 one-shot；場景為第三方 Gaussian-splat captures、手與武器為預製 AI 生成影格；美術不合格（使用者判定 2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/monstercameron/Neural-Sight",
+      "https://github.com/monstercameron/Neural-Sight/blob/main/README.md",
+      "https://monstercameron.github.io/Neural-Sight/",
+      "https://monstercameron.github.io/Neural-Sight/experiment.html",
+      "https://github.com/monstercameron/Neural-Sight/blob/main/docs/images/nelson-ghost-town.jpg",
+      "https://github.com/AgentsLoop/awesome-gpt-astra-games/blob/main/games/neural-sight/readme.md"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-77-recent-model-visual-builds"
+    ],
+    "keywords": [
+      "GPT-6 Astra",
+      "first-person shooter",
+      "Gaussian splatting",
+      "photorealistic captured world",
+      "WebGPU",
+      "art review pending",
+      "one-shot unverified"
+    ],
+    "path": "records/G0286.md"
+  },
+  {
+    "id": "G0287",
+    "name": "Wayforge: Frontier Reclamation (GameGoCoder 3.8)",
+    "aliases": [
+      "Wayforge",
+      "Wayforge GameGo",
+      "steam_41340 GameGoCoder 3.8"
+    ],
+    "type": "game",
+    "status": "公開 playable/source 的 2.5D 手繪 diorama 建造／重建遊戲；GameGoCoder 3.8（Qwen3.8-27B fine-tune）selected evaluation set 成功輸出；任務原文/session 未公開；美術不合格（使用者判定 2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/Haoyue-Yang/GameGo/blob/main/games/manifest.json",
+      "https://haoyue-yang.github.io/GameGo/games/41340/index.html",
+      "https://haoyue-yang.github.io/GameGo/games/41340/preview.png",
+      "https://github.com/Haoyue-Yang/GameGo/blob/main/games/41340/source.tar",
+      "https://github.com/Haoyue-Yang/GameGo"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-79-gamego-benchmark-outputs-and-release-audit"
+    ],
+    "keywords": [
+      "GameGoCoder 3.8",
+      "Qwen3.8-27B fine-tune",
+      "2.5D diorama",
+      "hand-painted art direction",
+      "browser playable",
+      "source archive",
+      "art review: user failed"
+    ],
+    "path": "records/G0287.md"
+  },
+  {
+    "id": "G0288",
+    "name": "Jabberwock Rumble (GPT-6 Astra Danganronpa fighting game)",
+    "aliases": [
+      "Jabberwock Rumble",
+      "cubres/jabberwock-rumble",
+      "Akane Owari vs Nekomaru Nidai"
+    ],
+    "type": "game",
+    "status": "公開原始 prompt、source、測試程式與 browser/offline build；作者稱由 GPT-6 Astra 起始單 prompt 生成，但明載已接受角色、服裝、pose、UI 和 typography 的後續使用者修改，非 strict one-shot；簡單 2D fan fighting game，無原始 session 或使用者美術評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/cubres/jabberwock-rumble",
+      "https://github.com/cubres/jabberwock-rumble/blob/main/ORIGINAL_PROMPT.txt",
+      "https://github.com/cubres/jabberwock-rumble/blob/main/README.md",
+      "https://github.com/cubres/jabberwock-rumble/blob/main/ARTWORK.json",
+      "https://cubres.github.io/jabberwock-rumble/"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-82-firsthand-game-prompt-and-session-source-audit"
+    ],
+    "keywords": [
+      "GPT-6 Astra",
+      "one initial prompt claimed",
+      "subsequent user requests",
+      "Danganronpa fan game",
+      "2D fighting game",
+      "generated sprites",
+      "one-shot excluded"
+    ],
+    "path": "records/G0288.md"
+  },
+  {
+    "id": "G0289",
+    "name": "Historical Flight: Amiens 1918 (GPT-6 Astra attributed aviation game)",
+    "aliases": [
+      "Historical Flight",
+      "Historical Flight Amiens 1918",
+      "itsleon21/historical-flight-contribute"
+    ],
+    "type": "game",
+    "status": "公開可玩的 3D biplane／偵察遊戲，creator README 歸因 GPT-6 Astra；有六段 1918 campaign 概述及實機畫面，但無原始 prompt、session、模型 snapshot 或零介入證據；production source、資產與製作腳本只部分公開；美術仍待使用者評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/itsleon21/historical-flight-contribute",
+      "https://github.com/itsleon21/historical-flight-contribute/blob/main/README.md",
+      "https://github.com/itsleon21/historical-flight-contribute/blob/main/README.en.md",
+      "https://itsleon21.github.io/historical-flight-contribute/",
+      "https://github.com/itsleon21/historical-flight-contribute/blob/main/docs/images/showcase/flight-mission.jpg",
+      "https://github.com/itsleon21/historical-flight-contribute/blob/main/ASSETS.md",
+      "https://github.com/itsleon21/historical-flight-contribute/blob/main/ASSET_POLICY.md",
+      "https://github.com/itsleon21/historical-flight-contribute/blob/main/WITHHELD_FILES.json",
+      "https://github.com/itsleon21/historical-flight-contribute/commits/main",
+      "https://api.github.com/repos/itsleon21/historical-flight-contribute/commits?per_page=100",
+      "https://api.github.com/repos/itsleon21/historical-flight-contribute/releases",
+      "https://api.github.com/users/itsleon21/repos?per_page=100",
+      "https://github.com/itsleon21/historical-flight-contribute/blob/main/docs/publication/AUDIT.md",
+      "https://api.github.com/users/itsleon21/repos?per_page=100&sort=updated",
+      "https://api.github.com/repos/itsleon21/historical-flight-contribute/forks?per_page=100",
+      "https://api.github.com/repos/itsleon21/historical-flight-contribute/pulls?state=all&per_page=100",
+      "https://api.github.com/repos/itsleon21/historical-flight-contribute/issues?state=all&per_page=100",
+      "https://api.github.com/repos/itsleon21/historical-flight-contribute/branches?per_page=100",
+      "https://api.github.com/repos/itsleon21/historical-flight-contribute/releases?per_page=100"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-82-firsthand-game-prompt-and-session-source-audit",
+      "S-20261007-83-historical-flight-source-and-asset-provenance",
+      "S-20261007-87-historical-flight-release-network-trace"
+    ],
+    "keywords": [
+      "GPT-6 Astra attribution",
+      "3D biplane",
+      "Amiens 1918",
+      "reconnaissance photography",
+      "combat support",
+      "public playable",
+      "assets partly withheld",
+      "one-shot unverified",
+      "art review pending"
+    ],
+    "path": "records/G0289.md"
+  },
+  {
+    "id": "G0290",
+    "name": "Sonnet 5.5 RPG (newmodel-games matched build)",
+    "aliases": [
+      "Sonnet 5.5 RPG (newmodel-games matched build)"
+    ],
+    "type": "game",
+    "status": "具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "benchmark-run",
+    "sources": [
+      "https://haruka8846.github.io/newmodel-games/sonnet-5.5/rpg/",
+      "https://github.com/haruka8846/newmodel-games/tree/main/sonnet-5.5/rpg",
+      "https://github.com/haruka8846/newmodel-games/blob/main/tasks/rpg.md",
+      "https://github.com/haruka8846/newmodel-games"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-53-frontier-model-github-game-artifacts"
+    ],
+    "path": "records/G0290.md"
+  },
+  {
+    "id": "G0291",
+    "name": "GPT-6.1 Sol RPG (newmodel-games matched build)",
+    "aliases": [
+      "GPT-6.1 Sol RPG (newmodel-games matched build)"
+    ],
+    "type": "game",
+    "status": "具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "benchmark-run",
+    "sources": [
+      "https://haruka8846.github.io/newmodel-games/gpt-6.1-sol/rpg/",
+      "https://github.com/haruka8846/newmodel-games/tree/main/gpt-6.1-sol/rpg",
+      "https://github.com/haruka8846/newmodel-games/blob/main/tasks/rpg.md",
+      "https://github.com/haruka8846/newmodel-games"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-53-frontier-model-github-game-artifacts"
+    ],
+    "path": "records/G0291.md"
+  },
+  {
+    "id": "G0292",
+    "name": "Sonnet 5.5 Kart (newmodel-games matched build)",
+    "aliases": [
+      "Sonnet 5.5 Kart (newmodel-games matched build)"
+    ],
+    "type": "game",
+    "status": "具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "benchmark-run",
+    "sources": [
+      "https://haruka8846.github.io/newmodel-games/sonnet-5.5/kart/",
+      "https://github.com/haruka8846/newmodel-games/tree/main/sonnet-5.5/kart",
+      "https://github.com/haruka8846/newmodel-games/blob/main/tasks/kart.md",
+      "https://github.com/haruka8846/newmodel-games"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-53-frontier-model-github-game-artifacts"
+    ],
+    "path": "records/G0292.md"
+  },
+  {
+    "id": "G0293",
+    "name": "GPT-6.1 Sol Kart (newmodel-games matched build)",
+    "aliases": [
+      "GPT-6.1 Sol Kart (newmodel-games matched build)"
+    ],
+    "type": "game",
+    "status": "具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "benchmark-run",
+    "sources": [
+      "https://haruka8846.github.io/newmodel-games/gpt-6.1-sol/kart/",
+      "https://github.com/haruka8846/newmodel-games/tree/main/gpt-6.1-sol/kart",
+      "https://github.com/haruka8846/newmodel-games/blob/main/tasks/kart.md",
+      "https://github.com/haruka8846/newmodel-games"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-53-frontier-model-github-game-artifacts"
+    ],
+    "path": "records/G0293.md"
+  },
+  {
+    "id": "G0294",
+    "name": "Sonnet 5.5 FPS (newmodel-games matched build)",
+    "aliases": [
+      "Sonnet 5.5 FPS (newmodel-games matched build)"
+    ],
+    "type": "game",
+    "status": "具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "benchmark-run",
+    "sources": [
+      "https://haruka8846.github.io/newmodel-games/sonnet-5.5/fps/",
+      "https://github.com/haruka8846/newmodel-games/tree/main/sonnet-5.5/fps",
+      "https://github.com/haruka8846/newmodel-games/blob/main/tasks/fps.md",
+      "https://github.com/haruka8846/newmodel-games"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-53-frontier-model-github-game-artifacts"
+    ],
+    "path": "records/G0294.md"
+  },
+  {
+    "id": "G0295",
+    "name": "GPT-6.1 Sol FPS (newmodel-games matched build)",
+    "aliases": [
+      "GPT-6.1 Sol FPS (newmodel-games matched build)"
+    ],
+    "type": "game",
+    "status": "具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07）",
+    "updated": "2026-10-07",
+    "origin": "benchmark-run",
+    "sources": [
+      "https://haruka8846.github.io/newmodel-games/gpt-6.1-sol/fps/",
+      "https://github.com/haruka8846/newmodel-games/tree/main/gpt-6.1-sol/fps",
+      "https://github.com/haruka8846/newmodel-games/blob/main/tasks/fps.md",
+      "https://github.com/haruka8846/newmodel-games"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-53-frontier-model-github-game-artifacts"
+    ],
+    "path": "records/G0295.md"
   },
   {
     "id": "M0001",
@@ -10099,5 +10620,40 @@
       "evidence-grounded QA"
     ],
     "path": "records/M0028.md"
+  },
+  {
+    "id": "M0029",
+    "name": "AVR-Eval / AVR-Agent audiovisual recording evaluation method",
+    "aliases": [
+      "AVR-Eval",
+      "AVR-Agent",
+      "Audio-Visual Recordings evaluation"
+    ],
+    "type": "method",
+    "status": "多模態遊戲畫面／聲音比較方法與反覆生成框架；評估面向可供美術／可玩性 rubric 參考，但一對一自動 judge 未在人類偏好上直接驗證；AVR-Agent 屬多輪而非一次委託",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://arxiv.org/abs/2508.00632",
+      "https://arxiv.org/html/2508.00632",
+      "https://github.com/SamsungSAILMontreal/AVR-Eval-Agent",
+      "https://github.com/SamsungSAILMontreal/AVR-Eval-Agent/blob/main/README.md",
+      "https://alexiajm.github.io/2025/03/15/avr.html"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-85-audiovisual-game-generation-evaluation-methods"
+    ],
+    "keywords": [
+      "AVR-Eval",
+      "AVR-Agent",
+      "audiovisual recording",
+      "multimodal evaluation",
+      "visual design",
+      "gameplay quality",
+      "one-shot comparison",
+      "iterative generation"
+    ],
+    "path": "records/M0029.md"
   }
 ]

@@ -55,12 +55,13 @@
 | [B0049](records/B0049.md) | Brendan Jowett 五題 UE5 生成遊戲對照（GPT-6 Astra × Claude Opus 5.5） | 基準／評測 | 近期高價值實測與畫面參照；原始 prompts／build 未公開，不是可完整重現的正式基準 |
 | [B0050](records/B0050.md) | OpenGameEval | 基準／評測 | 可重跑的 Roblox 工作階段／除錯補充基準；非完整遊戲生成 |
 | [B0051](records/B0051.md) | JAMER / JamBench | 基準／評測 | 高價值 Godot 專案級評測方法；可重跑題庫尚未核實釋出 |
-| [B0052](records/B0052.md) | A2Z GameSpec-Bench | 基準／評測 | 目前最貼近長規格完整遊戲／自主迭代需求的強候選；100 題資料及執行程式尚待正式釋出 |
+| [B0052](records/B0052.md) | A2Z GameSpec-Bench | 基準／評測 | 強追蹤候選；官方頁新增完整模型結果與 GPT-6 Astra 3D gameplay captures，適合任務／美術參照；100 題 GDD、contracts、source build 與 evaluator 仍未可下載，不能立即完整重跑 |
 | [B0053](records/B0053.md) | Spec2Game | 基準／評測 | 可重現的規格忠實度評估參考；遊戲範圍偏小，generation 不含自主除錯迭代，官方 artifact URL 待釐清 |
 | [B0054](records/B0054.md) | GameWorld: Multimodal Game Agents Benchmark | 基準／評測 | 鄰接的方法參考；評估 agent 操作既有遊戲，不評估 AI 從一次委託生成完整遊戲，因此排除於遊戲生成主候選 |
-| [B0055](records/B0055.md) | newmodel-games: GPT-6.1 Sol vs Sonnet 5.5 matched browser-game trial | 基準／評測 | 高價值非正式同題成品組：3 份共用任務、6 個 playable source build、機械驗收及手動遊玩發現已公開；one-task feedback flow 未有原始 session 可稽核，不能作模型排名 |
+| [B0055](records/B0055.md) | newmodel-games: GPT-6.1 Sol vs Sonnet 5.5 matched browser-game trial | 基準／評測 | 高價值非正式同題成品組：3 份共用任務、6 個 playable source build、機械驗收及手動遊玩發現已公開；one-task feedback flow 未有原始 session 可稽核，六款美術均不合格（使用者判定），不能作模型排名 |
 | [B0056](records/B0056.md) | WHAT IF? Civilization Lab: GPT-6 Astra vs Gemini 3.8 same-brief build comparison | 基準／評測 | 高系統同題建置任務與手動 QA 參考；有 prompt、互動錄影與差異發現，沒有 source／可下載 playable build／完整 agent traces，模型版本已非最新 |
 | [B0057](records/B0057.md) | Code Bench Fun | 基準／評測 | 可重現的一次 completion 多模型建置與成本／tokens／延遲展示工具；現行樣本為自動播放 2D physics toy 而非完整互動遊戲，評審依 source code 而非實際畫面，僅作 one-shot 方法與視覺 prompt 參考，不列完整遊戲候選 |
+| [B0058](records/B0058.md) | GameGoBench: 124-query game-development benchmark | 基準／評測 | 高價值高系統遊戲生成 benchmark；12 款 GameGoCoder 3.8 source/playable samples、10-model 12-task screenshots、124 held-out task aggregates 與 six-expert blind pairwise method 公開；匿名 HF dataset endpoint 回 401，原始 124 prompts／full source trajectories 未確認可下載；模型 roster 未含 GPT-6.1 Sol／Sonnet 5.5 |
 | [C0001](records/C0001.md) | 3d-prompt.com | 作品庫／平台 | 方法參考 |
 | [C0002](records/C0002.md) | Agent Games | 作品庫／平台 | 方法參考 |
 | [C0003](records/C0003.md) | AgentsLoop awesome-opus-5.5-games | 作品庫／平台 | 方法參考 |
@@ -73,7 +74,7 @@
 | [C0010](records/C0010.md) | Create with Mark | 作品庫／平台 | 方法參考 |
 | [C0011](records/C0011.md) | Frontier Games | 作品庫／平台 | 方法參考 |
 | [C0012](records/C0012.md) | GameDaily | 作品庫／平台 | 方法參考 |
-| [C0013](records/C0013.md) | GamesByAI | 作品庫／平台 | 方法參考 |
+| [C0013](records/C0013.md) | GamesByAI | 作品庫／平台 | 發現目錄／AI 遊戲資料庫；創作者自述型，不能證明單次委託或模型表現 |
 | [C0014](records/C0014.md) | JarvisUni TopAI | 作品庫／平台 | 方法參考 |
 | [C0015](records/C0015.md) | llm-bench.io | 作品庫／平台 | 方法參考 |
 | [C0016](records/C0016.md) | OhMyOpus | 作品庫／平台 | 方法參考 |
@@ -86,6 +87,8 @@
 | [C0023](records/C0023.md) | Wavedash | 作品庫／平台 | 方法參考 |
 | [C0024](records/C0024.md) | GPT-6.1 Sol light seven-game build collection | 作品庫／平台 | 高價值近期模型任務／成品組；可重建 source 與逐題 prompt，one-shot 流程僅作者申報、session 未公開 |
 | [C0025](records/C0025.md) | VeltosGames | 作品庫／平台 | 可玩生成作品庫；作品的生成模型、原始 prompt 與人工介入均未公開，不能由平台行銷宣稱推定為 one-shot |
+| [C0026](records/C0026.md) | Google Playground text-to-game platform | 作品庫／平台 | 方法／平台參考；官方明示可用多輪對話修改遊戲，不能作一次委託成果；公開作品 gallery 需登入，未核任何具名成品 |
+| [C0027](records/C0027.md) | awesome-gpt-6-astra curated playable games catalog | 作品庫／平台 | 作者聲明型的 GPT-6 Astra 遊戲發現目錄；收錄可玩作品和 gameplay screenshot，未逐項提供原始任務、run/session 或零介入證據；不作 one-shot benchmark |
 | [E0001](records/E0001.md) | AI Browser Game Jam 4 | 活動 | 方法參考 |
 | [E0002](records/E0002.md) | AI Browser Game Jam 5 | 活動 | 方法參考 |
 | [E0003](records/E0003.md) | Jamference: AI Game Jam Hack 1 | 活動 | 開放至 2026-10-09；可作單 prompt 線索池，逐作品仍須核 AI／人類互動與 build |
@@ -93,7 +96,7 @@
 | [E0005](records/E0005.md) | Slapjam AI #1 | 活動 | 方法參考；48 小時 AI-assisted game jam，官方 human judges rubric 含 Visual Appeal，規則允許 autonomous agent 但非一次委託 protocol；作品流程需逐項查證 |
 | [E0006](records/E0006.md) | Ultimate AI-Powered Game Jam #5 | 活動 | 方法參考 |
 | [E0007](records/E0007.md) | profiq Summer Coding Challenge 2026 | 活動 | 一次委託／自主 QA／同 prompt 重跑的方法參考；迷你遊戲範圍與 60 分鐘限制，不適合完整遊戲上限主測 |
-| [E0008](records/E0008.md) | 使用者美術驗收：檢閱頁作品 | 活動 | 已記錄；只適用於驗收時檢閱頁中已列出的作品 |
+| [E0008](records/E0008.md) | 使用者美術驗收：檢閱頁作品 | 活動 | 已記錄並依 2026-10-07 後續回覆校正；個案結果與檢閱表同步 |
 | [E0009](records/E0009.md) | GDMC 2026 AI Settlement Generation Challenge | 活動 | 公開的程序內容生成競賽；作品是既有 Minecraft 的 settlement generator 輸出，不是新遊戲；無單一使用者 prompt 或零介入 agent run 規則，排除於完整遊戲一次委託候選 |
 | [E0010](records/E0010.md) | Ultimate AI-Powered Game Jam #4 | 活動 | 2026 long-term AI-assisted game jam with 44 entries and broad human-directed development; no one-user-task/no-follow-up protocol or run provenance; exclude as one-shot evidence, retain only event-scope reference |
 | [G0001](records/G0001.md) | 10/03–04農場／殭屍夢想遊戲 | 遊戲／具體題目 | 排除 |
@@ -121,7 +124,7 @@
 | [G0023](records/G0023.md) | Backrooms | 遊戲／具體題目 | 推薦 |
 | [G0024](records/G0024.md) | Bastion | 遊戲／具體題目 | 備選 |
 | [G0025](records/G0025.md) | Bikini Bottom Survivor | 遊戲／具體題目 | 推薦 |
-| [G0026](records/G0026.md) | BioNeural | 遊戲／具體題目 | 強重跑題（開放式多人遊戲／部署壓力；首次交付部分可查） |
+| [G0026](records/G0026.md) | BioNeural | 遊戲／具體題目 | 強重跑題（開放式多人遊戲／部署壓力；首次交付部分可查）；美術不合格（使用者判定 2026-10-07） |
 | [G0027](records/G0027.md) | Blockworld | 遊戲／具體題目 | 備選 |
 | [G0028](records/G0028.md) | Bowling | 遊戲／具體題目 | 方法參考 |
 | [G0029](records/G0029.md) | Castle Courier | 遊戲／具體題目 | 備選 |
@@ -142,7 +145,7 @@
 | [G0044](records/G0044.md) | CS Brasil | 遊戲／具體題目 | 排除 |
 | [G0045](records/G0045.md) | Daily mini-games六款 | 遊戲／具體題目 | 排除 |
 | [G0046](records/G0046.md) | Dark Souls | 遊戲／具體題目 | 排除 |
-| [G0047](records/G0047.md) | Dead Signal | 遊戲／具體題目 | 高價值完整 FPS 重跑題；Sonnet 5.5 同系列源碼可重建（原始 prompt／trace 未公開） |
+| [G0047](records/G0047.md) | Dead Signal | 遊戲／具體題目 | 高價值完整 FPS 重跑題；Sonnet 5.5 同系列源碼可重建（原始 prompt／trace 未公開）；美術不合格（使用者判定 2026-10-07） |
 | [G0048](records/G0048.md) | Deadgrid | 遊戲／具體題目 | 待核實 |
 | [G0049](records/G0049.md) | Diablo-style ARPG | 遊戲／具體題目 | 推薦 |
 | [G0050](records/G0050.md) | DOOM AI autoplay | 遊戲／具體題目 | 備選 |
@@ -172,7 +175,7 @@
 | [G0074](records/G0074.md) | GTA Rio | 遊戲／具體題目 | 待核實 |
 | [G0075](records/G0075.md) | Happy Wheels Bottle Run | 遊戲／具體題目 | 待核實 |
 | [G0076](records/G0076.md) | Higgsfield Sol/Astra game | 遊戲／具體題目 | 待核實 |
-| [G0077](records/G0077.md) | Hill Climb Racing (BitsMinds single-brief tests) | 遊戲／具體題目 | 方法參考／可玩的一次委託物理與自主 QA 副測；有 GPT-6.1 Sol 與 Opus 5.5 build、作者 hands-on 測試和明確任務描述；單關不代表大型完整遊戲上限；原始 prompt／session 未公開；美術待使用者評價 |
+| [G0077](records/G0077.md) | Hill Climb Racing (BitsMinds single-brief tests) | 遊戲／具體題目 | 方法參考／可玩的一次委託物理與自主 QA 副測；有 GPT-6.1 Sol 與 Opus 5.5 build、作者 hands-on 測試和明確任務描述；單關不代表大型完整遊戲上限；原始 prompt／session 未公開；使用者判定美術不合格（2026-10-07；E0008） |
 | [G0078](records/G0078.md) | Hollow County | 遊戲／具體題目 | 排除 |
 | [G0079](records/G0079.md) | Ink Field | 遊戲／具體題目 | 排除 |
 | [G0080](records/G0080.md) | Kart Blitz | 遊戲／具體題目 | 推薦 |
@@ -232,7 +235,7 @@
 | [G0134](records/G0134.md) | Ruinseed | 遊戲／具體題目 | 推薦：高系統長流程強重跑題；四模型同題可玩參照（Astra 有 follow-up） |
 | [G0135](records/G0135.md) | Sakura Rally | 遊戲／具體題目 | 排除嚴格一次委託；保留 Opus 5.5 賽車視覺／物理多輪成果參照 |
 | [G0136](records/G0136.md) | Siege Labyrinth | 遊戲／具體題目 | 備選 |
-| [G0137](records/G0137.md) | Single HTML Game Bench 3D horror game | 遊戲／具體題目 | 推薦 |
+| [G0137](records/G0137.md) | Single HTML Game Bench 3D horror game | 遊戲／具體題目 | 推薦；美術不合格（使用者判定 2026-10-07） |
 | [G0138](records/G0138.md) | SkaLab dungeon crawler | 遊戲／具體題目 | 待核實 |
 | [G0139](records/G0139.md) | Sketch RTS | 遊戲／具體題目 | 備選 |
 | [G0140](records/G0140.md) | Sky Reach | 遊戲／具體題目 | 待核實 |
@@ -259,7 +262,7 @@
 | [G0161](records/G0161.md) | Tiny Necromancer | 遊戲／具體題目 | 備選 |
 | [G0162](records/G0162.md) | Topple Pier | 遊戲／具體題目 | 排除上限主測；保留 strict one-prompt 物理小題參照 |
 | [G0163](records/G0163.md) | Tumble | 遊戲／具體題目 | 待核實 |
-| [G0164](records/G0164.md) | Turbo Kart Rally | 遊戲／具體題目 | 適合賽車副題重跑；有獨立一圈 build 檢查，零介入僅作者自述 |
+| [G0164](records/G0164.md) | Turbo Kart Rally | 遊戲／具體題目 | 適合賽車副題重跑；有獨立一圈 build 檢查，零介入僅作者自述；美術不合格（使用者判定 2026-10-07） |
 | [G0165](records/G0165.md) | Turbo Karts | 遊戲／具體題目 | 備選 |
 | [G0166](records/G0166.md) | Twilight Crossing | 遊戲／具體題目 | 排除 |
 | [G0167](records/G0167.md) | UE5.8 tropical open-world island | 遊戲／具體題目 | 備選 |
@@ -283,12 +286,12 @@
 | [G0185](records/G0185.md) | Minecraft-style One-Prompt Voxel Sandbox | 遊戲／具體題目 | 待美術檢閱 |
 | [G0186](records/G0186.md) | TOKYO DRIFT (Fable 5.1) | 遊戲／具體題目 | 待核實 |
 | [G0187](records/G0187.md) | Mortal Shadows | 遊戲／具體題目 | 排除 |
-| [G0188](records/G0188.md) | OneShotGTA driving sandbox (Palm Bay / Golden Hour) | 遊戲／具體題目 | 備選 |
+| [G0188](records/G0188.md) | OneShotGTA driving sandbox (Palm Bay / Golden Hour) | 遊戲／具體題目 | 備選；美術勉強合格（使用者判定 2026-10-07） |
 | [G0189](records/G0189.md) | REGOLITH / Moon Rover (Claude Opus 5) | 遊戲／具體題目 | 排除 |
 | [G0190](records/G0190.md) | The Dark Stair (Claude Fable 5) | 遊戲／具體題目 | 排除 |
 | [G0191](records/G0191.md) | Fable Theft Auto 5.1 | 遊戲／具體題目 | 備選 |
 | [G0192](records/G0192.md) | Raccoon Heist (Claude Fable 5) | 遊戲／具體題目 | 方法參考 |
-| [G0193](records/G0193.md) | Fable Cities | 遊戲／具體題目 | 備選 |
+| [G0193](records/G0193.md) | Fable Cities | 遊戲／具體題目 | 系統上限／長時多代理自主開發參照；美術由使用者列為特例，無法確認是否合格（E0008） |
 | [G0194](records/G0194.md) | NOVA LANCER | 遊戲／具體題目 | 強候選 |
 | [G0195](records/G0195.md) | FALL LINE | 遊戲／具體題目 | 強候選 |
 | [G0196](records/G0196.md) | Descente | 遊戲／具體題目 | 排除 |
@@ -332,7 +335,7 @@
 | [G0234](records/G0234.md) | Low Thunder | 遊戲／具體題目 | 排除嚴格一次委託；保留多日 AI 資產管線／視覺成品參照 |
 | [G0235](records/G0235.md) | PixelArtGameOpus (Ravenshore project) | 遊戲／具體題目 | 排除嚴格一次委託成品；保留視覺／長程工程參照 |
 | [G0236](records/G0236.md) | Dead Signal: Exclusion Zone (Sonnet 5.5 build) | 遊戲／具體題目 | 有力 one-shot 成品線索；作者流程自述、原始 prompt／trace 缺失 |
-| [G0237](records/G0237.md) | Rubberhose Ruckus (Tesana LOOP) | 遊戲／具體題目 | 高價值開放式重跑題／平台專屬原生成績，不可直接比較通用模型 |
+| [G0237](records/G0237.md) | Rubberhose Ruckus (Tesana LOOP) | 遊戲／具體題目 | 高價值開放式重跑題／平台專屬原生成績，不可直接比較通用模型；美術勉強合格（使用者判定 2026-10-07） |
 | [G0238](records/G0238.md) | DRIFTWING V1 | 遊戲／具體題目 | 高價值 3D 飛行技術副題／原 run 有兩次人工 continue，不符合嚴格零介入 |
 | [G0239](records/G0239.md) | Cindermere (Sonnet 5.5 voxel sandbox) | 遊戲／具體題目 | 近期 one-shot 可玩成品線索；原始 prompt／source 受限，遊戲深度與畫面待核 |
 | [G0240](records/G0240.md) | Long Wind | 遊戲／具體題目 | 排除嚴格一次委託；保留高系統武俠成品／視覺參照 |
@@ -349,19 +352,19 @@
 | [G0251](records/G0251.md) | Reactor Town | 遊戲／具體題目 | 高系統密度待查線索；作者明確描述多輪人類遊玩回饋，不納入一次委託成績 |
 | [G0252](records/G0252.md) | AGI Soon | 遊戲／具體題目 | 高價值流程待核：作者稱 Astra 自主生成並用 bot 執行大量模擬；是否只有一次委託及完整 build 範圍未公開 |
 | [G0253](records/G0253.md) | Astra Attack | 遊戲／具體題目 | 多人 FPS 系統／品質參照；已有 v2 與多人次迭代跡象且無 prompt／session，不納入一次委託成績 |
-| [G0254](records/G0254.md) | Muse Spark 1.3 Crossy Road 單次生成配方 | 遊戲／具體題目 | 官方可重現一次生成案例；中階遊戲範圍，作視覺／流程參照，不是上限主測 |
-| [G0255](records/G0255.md) | DUNGEONFALL 3D Roguelike | 遊戲／具體題目 | 高難度 3D 動作 Roguelike one-shot 成品與重跑候選；流程為作者自述，美術待使用者評價 |
-| [G0256](records/G0256.md) | Muse Spark 1.3 Voxel Sandbox | 遊戲／具體題目 | 高技術密度建造副測；玩法閉環不足，不列完整遊戲上限主測；美術待使用者評價 |
-| [G0257](records/G0257.md) | Muse Spark 1.3 Open-World Survival | 遊戲／具體題目 | 高難度程序 3D 生存系統 one-shot 重跑候選；作者申報流程，無敵對生物／長程存檔；美術待使用者評價 |
-| [G0258](records/G0258.md) | Fortnite-style One-shot Battle Royale (Sonnet 5.5) | 遊戲／具體題目 | 高複雜度 one-shot 重跑題種子；創作者提供原 prompt 與影片，流程未獨立核實；美術待使用者評價 |
+| [G0254](records/G0254.md) | Muse Spark 1.3 Crossy Road 單次生成配方 | 遊戲／具體題目 | 官方可重現一次生成案例；中階遊戲範圍，作視覺／流程參照，不是上限主測；美術不合格（使用者判定 2026-10-07） |
+| [G0255](records/G0255.md) | DUNGEONFALL 3D Roguelike | 遊戲／具體題目 | 高難度 3D 動作 Roguelike one-shot 成品與重跑候選；流程為作者自述，使用者判定美術不合格（2026-10-07；E0008） |
+| [G0256](records/G0256.md) | Muse Spark 1.3 Voxel Sandbox | 遊戲／具體題目 | 高技術密度建造副測；玩法閉環不足，不列完整遊戲上限主測；使用者判定美術不合格（2026-10-07；E0008） |
+| [G0257](records/G0257.md) | Muse Spark 1.3 Open-World Survival | 遊戲／具體題目 | 高難度程序 3D 生存系統 one-shot 重跑候選；作者申報流程，無敵對生物／長程存檔；使用者判定美術不合格（2026-10-07；E0008） |
+| [G0258](records/G0258.md) | Fortnite-style One-shot Battle Royale (Sonnet 5.5) | 遊戲／具體題目 | 高複雜度 one-shot 重跑題種子；創作者提供原 prompt 與影片，流程未獨立核實；使用者判定美術不合格（2026-10-07；E0008） |
 | [G0259](records/G0259.md) | Astroman | 遊戲／具體題目 | 高系統密度 3D 任務上限候選；GameASG 官方規格可重跑，無已核實 AI 成品；美術待使用者評價 |
 | [G0260](records/G0260.md) | Tankor Arena | 遊戲／具體題目 | 範圍較可控的 3D 戰鬥系統重跑候選；無已核實 AI 成品；美術待使用者評價 |
 | [G0261](records/G0261.md) | Tycoon Submarine Pressure Rescue | 遊戲／具體題目 | 高系統密度自主任務實測；GPT-5.5/Codex 官方輸出可玩；官方藝術分數偏低；美術待使用者評價 |
 | [G0262](records/G0262.md) | Tycoon Garden Ecosystem Keeper | 遊戲／具體題目 | 有實測遊戲影片、系統分項與官方藝術分數較高的視覺參照；非最新模型；美術待使用者評價 |
-| [G0263](records/G0263.md) | Fusepoint | 遊戲／具體題目 | 強自主長程成品案例：單一 PRD 後逾 70 輪無人介入建置；GPT-5.6-Sol；公開遊戲影片／source；70 輪凍結 build 與原始 PRD 未公開核實；美術待使用者評價 |
+| [G0263](records/G0263.md) | Fusepoint | 遊戲／具體題目 | 強自主長程成品案例：單一 PRD 後逾 70 輪無人介入建置；GPT-5.6-Sol；公開遊戲影片／source；70 輪凍結 build 與原始 PRD 未公開核實；美術合格（使用者判定 2026-10-07） |
 | [G0264](records/G0264.md) | Ridge Run (redirect to G0077) | 遊戲／具體題目 | 合併轉向紀錄；此同題作品與任務已併入 G0077，保留固定編號，不再作獨立案例計數 |
 | [G0265](records/G0265.md) | IDF v Hamas (GPT-6.1 Sol initial / Opus 5.5 rebuild) | 遊戲／具體題目 | 高系統軍事 FPS 任務種子；repo 明示 GPT-6.1 Sol 初版後由 Claude Opus 5.5 重建，沒有保存可辨認的 Sol frozen build，故不作 Sol 成品或 one-shot run |
-| [G0266](records/G0266.md) | Itsy Bitsy Spider V3 — GPT-6 Astra run | 遊戲／具體題目 | 新近可玩輸出與詳盡任務；單循環短遊戲副測，不列完整遊戲上限主測；作者宣稱 no-feedback one-shot，但個別 run 標 process review |
+| [G0266](records/G0266.md) | Itsy Bitsy Spider V3 — GPT-6 Astra run | 遊戲／具體題目 | 新近可玩輸出與詳盡任務；單循環短遊戲副測，不列完整遊戲上限主測；作者宣稱 no-feedback one-shot，但個別 run 標 process review；美術不合格（使用者判定 2026-10-07） |
 | [G0267](records/G0267.md) | Bash Fighter — AI-agent-maintained 20-player online platform fighter | 遊戲／具體題目 | 高系統 AI-agent product lead；有完整公開 source／線上 playable build，但 README 明言日常持續開發，無原始一次任務、模型版本或 agent session；不作 one-shot candidate |
 | [G0268](records/G0268.md) | 夜巡录：荒庙篇 / Night Patrol: Abandoned Temple Chapter | 遊戲／具體題目 | 完整第一幕牌組 roguelike 切片；Codex 多輪人機協作成果，不符合零 follow-up 一次委託；高價值重跑任務線索 |
 | [G0269](records/G0269.md) | Bolt Tower — AI-themed tower defense | 遊戲／具體題目 | 有公開 playable 網址與 2025 Bolt Hackathon One-Shot Track 自述的塔防作品；涵蓋波次、佈塔／升級、敵人與勝敗循環；原 Bolt session 目前需登入，無 prompt/model/frozen-run 可核，列待核實副候選，不算已確認成績 |
@@ -377,7 +380,20 @@
 | [G0279](records/G0279.md) | DEAD AIR (Claude Opus 5.5 co-op browser horror) | 遊戲／具體題目 | 高系統多人遊戲與 playtest QA 參照；多輪建置，任務及可玩畫面未公開，非 one-shot 候選；美術證據不足 |
 | [G0280](records/G0280.md) | Hearthlight (Opus 5.5 procedural pixel-art adventure) | 遊戲／具體題目 | 公開可玩、具多章故事與多人模式的 stylized pixel-art 參照；Claude Code／Opus 5.5 歸因來自作者文章引用的社群貼文；原始任務、session、人工介入 timeline 未核，非 one-shot 候選；美術待使用者評價 |
 | [G0281](records/G0281.md) | Blocky Realm: Cloud Parkour (SeaVerse GPT-6 claim) | 遊戲／具體題目 | 待核高視覺短題副候選：SeaVerse 公開一行 prompt、託管輸出及 single-prompt／unedited 聲稱；沒有模型精確版本、session、source 或可獨立驗證的互動通關證據。美術待使用者評價 |
-| [G0282](records/G0282.md) | Candle-Keeper's Parchment (Slapjam / Claude via oh-my-pi) | 遊戲／具體題目 | 公開 HTML5 風格化短遊戲；作者稱 Claude 經 oh-my-pi 製作程式、關卡、shader、程序美術與特效，但人工負責方向／整合／測試，無原始 prompt 或 session，非已核一次委託；封面另由 OpenAI image generation 生成，不當遊戲畫面，美術待使用者評價 |
+| [G0282](records/G0282.md) | Candle-Keeper's Parchment (Slapjam / Claude via oh-my-pi) | 遊戲／具體題目 | 公開 Godot HTML5 runtime 與 PCK/WASM build 已直接定位並記錄雜湊；本次受限 headless 環境未產出 runtime screenshot。作者稱 Claude 經 oh-my-pi 製作程序美術，但人工負責方向／整合／測試，無原始 prompt 或 session，非已核一次委託；封面另由 OpenAI image generation 生成，不當遊戲畫面；美術待使用者評價 |
+| [G0283](records/G0283.md) | Sonic: Cascade Coast (A2Z GPT-6 Astra 3D build) | 遊戲／具體題目 | 論文列出的 GPT-6 Astra Three.js 3D 輸出；有原始 gameplay capture 與三軸 benchmark 分數，但無 playable URL/source、完整原始 GDD、模型 session 或 one-shot/no-human-intervention trace；美術不合格（使用者判定 2026-10-07） |
+| [G0284](records/G0284.md) | Diablo Cathedral (A2Z GPT-6 Astra 3D build) | 遊戲／具體題目 | A2Z 論文列出的 GPT-6 Astra Three.js 3D dungeon exploration/combat build；有三軸評分與錯誤診斷，未找到此作專屬 screenshot、playable URL/source、完整原始 GDD 或 session；one-shot 未核實 |
+| [G0285](records/G0285.md) | Rocket League (A2Z GPT-6 Astra 3D build) | 遊戲／具體題目 | A2Z 論文明載 GPT-6 Astra Three.js 3D vehicle-ball game build；有一張原始 gameplay capture 與三軸 benchmark scores，但無 playable URL/source、完整原始 GDD 或 session；與 G0131 同名題材記錄非同一已確認 build；one-shot 未核實；美術不合格（使用者判定 2026-10-07） |
+| [G0286](records/G0286.md) | Neural Sight (GPT-6 Astra captured-world FPS) | 遊戲／具體題目 | 近期寫實風格 FPS 與可玩系統參照；README 稱約 24 小時 GPT-6 Astra 協作建置，非已核 one-shot；場景為第三方 Gaussian-splat captures、手與武器為預製 AI 生成影格；美術不合格（使用者判定 2026-10-07） |
+| [G0287](records/G0287.md) | Wayforge: Frontier Reclamation (GameGoCoder 3.8) | 遊戲／具體題目 | 公開 playable/source 的 2.5D 手繪 diorama 建造／重建遊戲；GameGoCoder 3.8（Qwen3.8-27B fine-tune）selected evaluation set 成功輸出；任務原文/session 未公開；美術不合格（使用者判定 2026-10-07） |
+| [G0288](records/G0288.md) | Jabberwock Rumble (GPT-6 Astra Danganronpa fighting game) | 遊戲／具體題目 | 公開原始 prompt、source、測試程式與 browser/offline build；作者稱由 GPT-6 Astra 起始單 prompt 生成，但明載已接受角色、服裝、pose、UI 和 typography 的後續使用者修改，非 strict one-shot；簡單 2D fan fighting game，無原始 session 或使用者美術評價 |
+| [G0289](records/G0289.md) | Historical Flight: Amiens 1918 (GPT-6 Astra attributed aviation game) | 遊戲／具體題目 | 公開可玩的 3D biplane／偵察遊戲，creator README 歸因 GPT-6 Astra；有六段 1918 campaign 概述及實機畫面，但無原始 prompt、session、模型 snapshot 或零介入證據；production source、資產與製作腳本只部分公開；美術仍待使用者評價 |
+| [G0290](records/G0290.md) | Sonnet 5.5 RPG (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
+| [G0291](records/G0291.md) | GPT-6.1 Sol RPG (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
+| [G0292](records/G0292.md) | Sonnet 5.5 Kart (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
+| [G0293](records/G0293.md) | GPT-6.1 Sol Kart (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
+| [G0294](records/G0294.md) | Sonnet 5.5 FPS (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
+| [G0295](records/G0295.md) | GPT-6.1 Sol FPS (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
 | [M0001](records/M0001.md) | Age of Empires | 方法／鄰接研究 | 方法參考 |
 | [M0002](records/M0002.md) | CoD Zombies | 方法／鄰接研究 | 方法參考 |
 | [M0003](records/M0003.md) | Doom | 方法／鄰接研究 | 方法參考 |
@@ -406,3 +422,4 @@
 | [M0026](records/M0026.md) | Code4Scene | 方法／鄰接研究 | 鄰接場景建構評測；不含完整遊戲玩法，不列候選 |
 | [M0027](records/M0027.md) | 自主遊戲代理的長流程任務與可觀測方法 | 方法／鄰接研究 | 鄰接方法參考；測自主玩既有遊戲，不測遊戲生成，不能納入生成成績 |
 | [M0028](records/M0028.md) | Harness-of-Harness (HoH) | 方法／鄰接研究 | 高相關自主長程遊戲開發方法；公開角色協定、跨輪證據、受控基準對照與 Fusepoint 案例；完整複現材料有限 |
+| [M0029](records/M0029.md) | AVR-Eval / AVR-Agent audiovisual recording evaluation method | 方法／鄰接研究 | 多模態遊戲畫面／聲音比較方法與反覆生成框架；評估面向可供美術／可玩性 rubric 參考，但一對一自動 judge 未在人類偏好上直接驗證；AVR-Agent 屬多輪而非一次委託 |
