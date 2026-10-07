@@ -4,7 +4,7 @@
 
 **證據標記**
 
-**使用者美術驗收（2026-10-07；完整逐項範圍見 [檢閱頁評價表](ai-game-one-shot-review.html#user-art-evaluations) 及 [E0008](ai-game-research/records/E0008.md)）：**合格：Kart Blitz、Pelican Bicycle、Void Explorer、Fusepoint。**勉強合格：**OneShotGTA：Palm Bay／Golden Hour、Rubberhose Ruckus；Rubberhose 的畫素解析度不足由美術設計補足。**不合格：**BioNeural、B0055 六款同題輸出、Itsy Bitsy Spider、DUNGEONFALL、Open-World Survival、Crossy Road、Voxel Sandbox、Ridge Run、Fortnite-style Battle Royale、THE NINTH BELL、已檢視舊作品及新畫面 Sonic、Rocket League、Turbo Kart Rally、Neural Sight、Wayforge。**無法確認：**Fable Cities。Diablo Cathedral 缺可供評價的遊戲畫面，仍待評。美術結論與玩法／系統重跑價值分開評估。
+**使用者美術驗收（2026-10-07；完整逐項範圍見 [檢閱頁評價表](ai-game-one-shot-review.html#user-art-evaluations) 及 [E0008](ai-game-research/records/E0008.md)）：**合格：Kart Blitz、Pelican Bicycle、Void Explorer、Fusepoint。**勉強合格：**OneShotGTA：Palm Bay／Golden Hour、Rubberhose Ruckus；Rubberhose 的畫素解析度不足由美術設計補足。**不合格：**BioNeural、B0055 六款同題輸出、Itsy Bitsy Spider、DUNGEONFALL、Open-World Survival、Crossy Road、Voxel Sandbox、Ridge Run、Fortnite-style Battle Royale、THE NINTH BELL、已檢視舊作品及新畫面 Sonic、Rocket League、Turbo Kart Rally、Neural Sight、Wayforge、MoxRide、MIDWAY 1942: Air Strike、Generational Survival Australia。**無法確認：**Fable Cities。Diablo Cathedral 缺可供評價的遊戲畫面，仍待評。美術結論與玩法／系統重跑價值分開評估。
 
 
 ### 待使用者評價的近期 3D gameplay 視覺參照：Historical Flight｜G0289
@@ -593,8 +593,8 @@ OpenGame 已能從空白遊戲資料夾接收單一 prompt，在固定 template�
 
 ## 新增風格化 3D 遊戲畫面參照（one-shot 不成立）
 
-- **MoxRide｜G0296。**作者公開 itch.io playable embed 與三張遊戲內畫面：下坡城市、rail trick、pause/help UI；比單一低解析 curator capture 更能檢閱風格一致性與介面。作者指定 Vice City 視覺方向，並明說三次要求模型提升畫面。這是高權重美術軸的風格化 3D 參照，**美術待你評價**；不列 one-shot，沒有原始 prompt、source 或版本 freeze。[遊戲內圖一](https://img.itch.zone/aW1hZ2UvNTEwNDM5Ny8zMDU1ODI1Mi5wbmc=/original/2GjlDZ.png) · [遊戲內圖二](https://github.com/user-attachments/assets/db720e91-89c1-4c26-81ae-9616b0332352) · [Pause/help 畫面](https://img.itch.zone/aW1hZ2UvNTEwNDM5Ny8zMDU1Nzc0MS5wbmc=/original/yP7Yev.png) · [直接玩](https://moxazza.itch.io/moxride) · [完整紀錄](ai-game-research/records/G0296.md)
-- **MIDWAY 1942: Air Strike｜G0297。**可看 2026-09-29 gameplay capture 和公開 Three.js 作品：雲海、戰機編隊、海面、雷達與投彈 HUD；作者以本地記錄摘要稱 GPT-6 Astra／Codex 十條 context、多輪修改，並列第三方飛機／艦船資產。適合作風格化空戰視覺／系統重跑題，不是一次交付成績；**美術待你評價**。[實機圖](https://github.com/user-attachments/assets/421ae870-9583-47c1-8e02-cedd5e12f2da) · [直接玩](https://ihca.cn/midway/) · [完整紀錄](ai-game-research/records/G0297.md)
+- **MoxRide｜G0296。**作者公開 itch.io playable embed 與三張遊戲內畫面：下坡城市、rail trick、pause/help UI；作者指定 Vice City 視覺方向並稱曾三次要求模型提升畫面。使用者已判定美術不合格；它仍可作多輪流程、駕駛題型參照，但不列 one-shot。[遊戲內圖一](https://img.itch.zone/aW1hZ2UvNTEwNDM5Ny8zMDU1ODI1Mi5wbmc=/original/2GjlDZ.png) · [遊戲內圖二](https://github.com/user-attachments/assets/db720e91-89c1-4c26-81ae-9616b0332352) · [Pause/help 畫面](https://img.itch.zone/aW1hZ2UvNTEwNDM5Ny8zMDU1Nzc0MS5wbmc=/original/yP7Yev.png) · [直接玩](https://moxazza.itch.io/moxride) · [完整紀錄](ai-game-research/records/G0296.md)
+- **MIDWAY 1942: Air Strike｜G0297。**有 2026-09-29 gameplay capture 和公開 Three.js 作品；作者稱 GPT-6 Astra／Codex 經十條 context 多輪修改，且混用第三方飛機／艦船資產。使用者已判定美術不合格；流程仍可作為多輪空戰題型參照，不是一次交付成績。[實機圖](https://github.com/user-attachments/assets/421ae870-9583-47c1-8e02-cedd5e12f2da) · [直接玩](https://ihca.cn/midway/) · [完整紀錄](ai-game-research/records/G0297.md)
 - **同期目錄排除線索：**TinyGCA 作者稱 GPT-6 Sol 寫 code，但玩法由作者反覆測試／修改，且屬單一 GCA 進場小題；VybeCiv 由人類主導設計、平衡和 polish，使用 Sonnet/Grok 多模型；Swarmfall 投稿是 Gaussian-splat engine 測試，S89 取得的是宣傳 OG 圖，不能拿來評遊戲內美術。Bash Fighter 是長期 agent product、model version unknown 且持續依真人 telemetry 修改。[S89](ai-game-research/search/S-20261007-89-current-catalog-gameplay-artifact-audit.md)
 
 ## 美術評分方法補充（S91）
@@ -603,4 +603,4 @@ OpenGame 已能從空白遊戲資料夾接收單一 prompt，在固定 template�
 
 ### 近期排除項
 
-- **Generational Survival Australia｜G0298。**GPT-6-assisted 的 Godot 4 2D 城市／生活模擬專案，包含步行、駕車、車流、NPC、地圖與大規模地址／建築資料；作者公開 source 和 gameplay/map previews。repo 沒有初始 prompt、session 或無介入證據，ART_DIRECTION 還引用使用者提供的地圖作方向；呈現是簡潔 top-down pixel map，不符合本輪高美術候選範圍。記為排除參照，使用者美術未評。[G0298](ai-game-research/records/G0298.md) · [S93](ai-game-research/search/S-20261007-93-recent-coding-agent-game-repositories.md)
+- **Generational Survival Australia｜G0298。**GPT-6-assisted 的 Godot 4 2D 城市／生活模擬專案，包含步行、駕車、車流、NPC、地圖與大規模地址／建築資料；作者公開 source 和 gameplay/map previews。repo 沒有初始 prompt、session 或無介入證據，ART_DIRECTION 還引用使用者提供的地圖作方向；使用者判定美術不合格。玩法／系統內容仍獨立存檔，該項不列 one-shot 候選。[G0298](ai-game-research/records/G0298.md) · [S93](ai-game-research/search/S-20261007-93-recent-coding-agent-game-repositories.md)

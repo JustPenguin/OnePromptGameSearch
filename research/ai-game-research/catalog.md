@@ -96,7 +96,7 @@
 | [E0005](records/E0005.md) | Slapjam AI #1 | 活動 | 方法參考；48 小時 AI-assisted game jam，官方 human judges rubric 含 Visual Appeal，規則允許 autonomous agent 但非一次委託 protocol；作品流程需逐項查證 |
 | [E0006](records/E0006.md) | Ultimate AI-Powered Game Jam #5 | 活動 | 方法參考 |
 | [E0007](records/E0007.md) | profiq Summer Coding Challenge 2026 | 活動 | 一次委託／自主 QA／同 prompt 重跑的方法參考；迷你遊戲範圍與 60 分鐘限制，不適合完整遊戲上限主測 |
-| [E0008](records/E0008.md) | 使用者美術驗收：檢閱頁作品 | 活動 | 已記錄並依 2026-10-07 後續回覆校正；個案結果與檢閱表同步 |
+| [E0008](records/E0008.md) | 使用者美術驗收：檢閱頁作品 | 活動 | 已記錄並依 2026-10-07 後續回覆校正；個案結果、檢閱表與候選索引同步；共 51 款 |
 | [E0009](records/E0009.md) | GDMC 2026 AI Settlement Generation Challenge | 活動 | 公開的程序內容生成競賽；作品是既有 Minecraft 的 settlement generator 輸出，不是新遊戲；無單一使用者 prompt 或零介入 agent run 規則，排除於完整遊戲一次委託候選 |
 | [E0010](records/E0010.md) | Ultimate AI-Powered Game Jam #4 | 活動 | 2026 long-term AI-assisted game jam with 44 entries and broad human-directed development; no one-user-task/no-follow-up protocol or run provenance; exclude as one-shot evidence, retain only event-scope reference |
 | [G0001](records/G0001.md) | 10/03–04農場／殭屍夢想遊戲 | 遊戲／具體題目 | 排除 |
@@ -394,9 +394,9 @@
 | [G0293](records/G0293.md) | GPT-6.1 Sol Kart (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
 | [G0294](records/G0294.md) | Sonnet 5.5 FPS (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
 | [G0295](records/G0295.md) | GPT-6.1 Sol FPS (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
-| [G0296](records/G0296.md) | MoxRide | 遊戲／具體題目 | 近期風格化 3D 畫面參照；創作者稱 GPT-6 Astra 並按三次要求提升畫面；有創作者提供的實機截圖、itch.io playable embed 和三張額外 gameplay/menu captures；明確多輪引導，非 one-shot；美術待使用者評價 |
-| [G0297](records/G0297.md) | MIDWAY 1942: Air Strike | 遊戲／具體題目 | 可玩 3D 空戰／風格化視覺參照；創作者以自己 2026-09-27 開發紀錄確認 GPT-6 Astra 經 Codex 多輪參與；明確不是 one-shot；第三方資產混用；美術待使用者評價 |
-| [G0298](records/G0298.md) | Generational Survival Australia (GPT-6 assisted Godot project) | 遊戲／具體題目 | 排除嚴格一次委託候選；公開 Godot source 與高密度 2D 地圖／交通系統，repo 稱以 GPT-6 協作開發但無原始 task/session/model run trace；畫面是簡潔像素 top-down map，非本輪高美術方向強候選；使用者美術未評 |
+| [G0296](records/G0296.md) | MoxRide | 遊戲／具體題目 | 近期風格化 3D 畫面參照；創作者稱 GPT-6 Astra 並按三次要求提升畫面；有創作者提供的實機截圖、itch.io playable embed 和三張額外 gameplay/menu captures；明確多輪引導，非 one-shot；美術不合格（使用者判定 2026-10-07） |
+| [G0297](records/G0297.md) | MIDWAY 1942: Air Strike | 遊戲／具體題目 | 可玩 3D 空戰／風格化視覺參照；創作者以自己 2026-09-27 開發紀錄確認 GPT-6 Astra 經 Codex 多輪參與；明確不是 one-shot；第三方資產混用；美術不合格（使用者判定 2026-10-07） |
+| [G0298](records/G0298.md) | Generational Survival Australia (GPT-6 assisted Godot project) | 遊戲／具體題目 | 排除嚴格一次委託候選；公開 Godot source 與高密度 2D 地圖／交通系統，repo 稱以 GPT-6 協作開發但無原始 task/session/model run trace；使用者判定美術不合格（2026-10-07） |
 | [M0001](records/M0001.md) | Age of Empires | 方法／鄰接研究 | 方法參考 |
 | [M0002](records/M0002.md) | CoD Zombies | 方法／鄰接研究 | 方法參考 |
 | [M0003](records/M0003.md) | Doom | 方法／鄰接研究 | 方法參考 |

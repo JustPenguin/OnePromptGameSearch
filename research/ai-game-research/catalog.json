@@ -2563,7 +2563,7 @@
       "使用者美術回饋"
     ],
     "type": "event",
-    "status": "已記錄並依 2026-10-07 後續回覆校正；個案結果與檢閱表同步",
+    "status": "已記錄並依 2026-10-07 後續回覆校正；個案結果、檢閱表與候選索引同步；共 51 款",
     "updated": "2026-10-07",
     "origin": "user-evaluation",
     "sources": [
@@ -10048,7 +10048,7 @@
       "Street Sesh remake"
     ],
     "type": "game",
-    "status": "近期風格化 3D 畫面參照；創作者稱 GPT-6 Astra 並按三次要求提升畫面；有創作者提供的實機截圖、itch.io playable embed 和三張額外 gameplay/menu captures；明確多輪引導，非 one-shot；美術待使用者評價",
+    "status": "近期風格化 3D 畫面參照；創作者稱 GPT-6 Astra 並按三次要求提升畫面；有創作者提供的實機截圖、itch.io playable embed 和三張額外 gameplay/menu captures；明確多輪引導，非 one-shot；美術不合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -10079,7 +10079,7 @@
       "MIDWAY 1942: Air Strike"
     ],
     "type": "game",
-    "status": "可玩 3D 空戰／風格化視覺參照；創作者以自己 2026-09-27 開發紀錄確認 GPT-6 Astra 經 Codex 多輪參與；明確不是 one-shot；第三方資產混用；美術待使用者評價",
+    "status": "可玩 3D 空戰／風格化視覺參照；創作者以自己 2026-09-27 開發紀錄確認 GPT-6 Astra 經 Codex 多輪參與；明確不是 one-shot；第三方資產混用；美術不合格（使用者判定 2026-10-07）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
@@ -10121,7 +10121,7 @@
       "Generational Survival Australia"
     ],
     "type": "game",
-    "status": "排除嚴格一次委託候選；公開 Godot source 與高密度 2D 地圖／交通系統，repo 稱以 GPT-6 協作開發但無原始 task/session/model run trace；畫面是簡潔像素 top-down map，非本輪高美術方向強候選；使用者美術未評",
+    "status": "排除嚴格一次委託候選；公開 Godot source 與高密度 2D 地圖／交通系統，repo 稱以 GPT-6 協作開發但無原始 task/session/model run trace；使用者判定美術不合格（2026-10-07）",
     "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
