@@ -1,0 +1,2337 @@
+[
+  {
+    "name": "Ruinseed: The Shattered World",
+    "aliases": [
+      "8-Bit AI Arena",
+      "Ruinseed"
+    ],
+    "type": "game",
+    "lines": [
+      13
+    ],
+    "summary": "518行冒險規格、程序世界與地城Boss閉環；最新澄清後主測優先",
+    "status": "推薦"
+  },
+  {
+    "name": "MALL ACTION",
+    "aliases": [
+      "Mall Action"
+    ],
+    "type": "game",
+    "lines": [
+      14
+    ],
+    "summary": "長規格、多視角完整逃脫，新模型分支與驗證可查；條件未完全標準化",
+    "status": "推薦"
+  },
+  {
+    "name": "Kart Blitz",
+    "aliases": [
+      "Nathan Onn Max五小時run"
+    ],
+    "type": "game",
+    "lines": [
+      15
+    ],
+    "summary": "單task自主代理測試，8賽道多模式；作者報測試，缺公開原始結果",
+    "status": "推薦"
+  },
+  {
+    "name": "Turbo Karts",
+    "aliases": [
+      "Nathan Onn High 67分鐘Mario Kart clone run"
+    ],
+    "type": "game",
+    "lines": [
+      142
+    ],
+    "summary": "與Kart Blitz不同run／prompt工具effort；可玩但不能混算",
+    "status": "備選"
+  },
+  {
+    "name": "Open-World Airship Trader",
+    "aliases": [
+      "Airship Trader",
+      "浮空島商人"
+    ],
+    "type": "game",
+    "lines": [
+      16
+    ],
+    "summary": "完整經濟燃料戰鬥升級規格、舊模型可玩、固定回放驗收；公開rubric需隔離",
+    "status": "推薦"
+  },
+  {
+    "name": "Backrooms",
+    "aliases": [
+      "AI for Mortals Backrooms horror game",
+      "Backrooms FPS"
+    ],
+    "type": "game",
+    "lines": [
+      17
+    ],
+    "summary": "五同prompt可玩版與實圖；單task自主修正，harness不同各一次",
+    "status": "推薦"
+  },
+  {
+    "name": "Armor Alley",
+    "aliases": [
+      "GameASG Armor Alley"
+    ],
+    "type": "game",
+    "lines": [
+      19
+    ],
+    "summary": "高系統規格及瀏覽器測試；缺近期AI成品圖廊",
+    "status": "推薦"
+  },
+  {
+    "name": "Tiny Necromancer",
+    "aliases": [
+      "Slapjam塔防資源遊戲"
+    ],
+    "type": "game",
+    "lines": [
+      23
+    ],
+    "summary": "可玩近期showcase，缺prompt和受控紀錄，作機制素材",
+    "status": "備選"
+  },
+  {
+    "name": "Bastion",
+    "aliases": [
+      "Slapjam Bastion"
+    ],
+    "type": "game",
+    "lines": [
+      23
+    ],
+    "summary": "可玩基地資源Boss showcase，缺prompt與受控條件",
+    "status": "備選"
+  },
+  {
+    "name": "Chainmate",
+    "aliases": [
+      "sneid1棋類roguelite"
+    ],
+    "type": "game",
+    "lines": [
+      23
+    ],
+    "summary": "Opus四參考圖加短回饋，非strict one-shot",
+    "status": "備選"
+  },
+  {
+    "name": "3D Mini Golf",
+    "aliases": [
+      "Leon van Zyl三模型mini-golf比較"
+    ],
+    "type": "game",
+    "lines": [
+      32
+    ],
+    "summary": "三模型實玩影片、Opus/Fable repo核實；原prompt與Sonnet成果未取得",
+    "status": "備選"
+  },
+  {
+    "name": "Adventure Mini Golf",
+    "aliases": [
+      "Opus九洞Mini Golf",
+      "leonvanzyl/3d-golf-opus"
+    ],
+    "type": "game",
+    "lines": [
+      35
+    ],
+    "summary": "可玩源碼、自製球物理與逐洞求解",
+    "status": "備選"
+  },
+  {
+    "name": "Puttopia",
+    "aliases": [
+      "Fable九洞Mini Golf",
+      "leonvanzyl/3d-golf-fable"
+    ],
+    "type": "game",
+    "lines": [
+      35
+    ],
+    "summary": "可玩源碼、headless逐洞通關與碰撞fuzz",
+    "status": "備選"
+  },
+  {
+    "name": "Yuzzy Itaba PUBG-style browser game",
+    "aliases": [
+      "Opus/Astra PUBG battle royale"
+    ],
+    "type": "game",
+    "lines": [
+      41
+    ],
+    "summary": "原貼核實高複雜特徵；缺exact prompt/build pair/tests，工具不對稱",
+    "status": "待核實"
+  },
+  {
+    "name": "Opus pirate survival showcase",
+    "aliases": [
+      "Reddit 1wws7lh海盜遊戲"
+    ],
+    "type": "game",
+    "lines": [
+      58
+    ],
+    "summary": "多年人類資產、三天290 commits與人類試玩回饋，非一次",
+    "status": "排除"
+  },
+  {
+    "name": "Lander",
+    "aliases": [
+      "Opus launch-vs-10/02 rerun",
+      "Godot Braben Lander"
+    ],
+    "type": "game",
+    "lines": [
+      62
+    ],
+    "summary": "N=1重跑缺prompt/build，不能證明退步",
+    "status": "方法參考"
+  },
+  {
+    "name": "Deadgrid",
+    "aliases": [
+      "Qwen3.8/OpenCode Deadgrid"
+    ],
+    "type": "game",
+    "lines": [
+      63
+    ],
+    "summary": "repo核實但無exact prompt",
+    "status": "待核實"
+  },
+  {
+    "name": "The Big Suck",
+    "aliases": [
+      "既有遊戲3D改作"
+    ],
+    "type": "game",
+    "lines": [
+      63
+    ],
+    "summary": "既有作品轉3D，20+5小時",
+    "status": "排除"
+  },
+  {
+    "name": "Space Federation",
+    "aliases": [
+      "Star Reach"
+    ],
+    "type": "game",
+    "lines": [
+      63
+    ],
+    "summary": "DOS既有遊戲重製",
+    "status": "排除"
+  },
+  {
+    "name": "Zombie game WIP",
+    "aliases": [
+      "近期Zombie WIP"
+    ],
+    "type": "game",
+    "lines": [
+      63
+    ],
+    "summary": "持續開發與人類回饋",
+    "status": "排除"
+  },
+  {
+    "name": "MMO WIP",
+    "aliases": [
+      "近期MMO WIP"
+    ],
+    "type": "game",
+    "lines": [
+      63
+    ],
+    "summary": "持續開發與人類回饋",
+    "status": "排除"
+  },
+  {
+    "name": "NEON WARDEN",
+    "aliases": [
+      "Nipale-ai Fable one-prompt game"
+    ],
+    "type": "game",
+    "lines": [
+      89
+    ],
+    "summary": "prompt/live/source/screenshot與首輪metrics；重型5090多模態鏈",
+    "status": "推薦"
+  },
+  {
+    "name": "VESPERA",
+    "aliases": [
+      "Nipale-ai GLM-5.3同prompt game"
+    ],
+    "type": "game",
+    "lines": [
+      89
+    ],
+    "summary": "同prompt可玩與自動勝利紀錄；各一次工具依賴重",
+    "status": "備選"
+  },
+  {
+    "name": "BioNeural",
+    "aliases": [
+      "bioneural.de"
+    ],
+    "type": "game",
+    "lines": [
+      91
+    ],
+    "summary": "原prompt與一次五小時自述，現版多次更新不可算首輪",
+    "status": "備選"
+  },
+  {
+    "name": "Diablo-style ARPG",
+    "aliases": [
+      "AI for Mortals Diablo ARPG"
+    ],
+    "type": "game",
+    "lines": [
+      93
+    ],
+    "summary": "四層地城技能掉寶商店Boss存檔、四可玩版；跨harness",
+    "status": "推薦"
+  },
+  {
+    "name": "Ashenmoor",
+    "aliases": [
+      "Sonnet Diablo ARPG build"
+    ],
+    "type": "game",
+    "lines": [
+      416
+    ],
+    "summary": "Diablo同題命名成品可玩實圖",
+    "status": "備選"
+  },
+  {
+    "name": "Glassmourn",
+    "aliases": [
+      "Opus Diablo ARPG build"
+    ],
+    "type": "game",
+    "lines": [
+      416
+    ],
+    "summary": "Diablo同題命名成品可玩實圖",
+    "status": "備選"
+  },
+  {
+    "name": "Hill Climb Racing",
+    "aliases": [
+      "BitsMinds Hill Climb",
+      "Hill Climb"
+    ],
+    "type": "game",
+    "lines": [
+      97
+    ],
+    "summary": "原樣可玩同題兩組比較；一關物理校準非盲",
+    "status": "方法參考"
+  },
+  {
+    "name": "鵜鶘騎自行車",
+    "aliases": [
+      "riba2534 bicycle one-line demo"
+    ],
+    "type": "game",
+    "lines": [
+      148
+    ],
+    "summary": "一行prompt/source/play/驗證，布料晝夜音效",
+    "status": "備選"
+  },
+  {
+    "name": "FPS團隊槍戰",
+    "aliases": [
+      "riba2534 FPS one-line demo"
+    ],
+    "type": "game",
+    "lines": [
+      148
+    ],
+    "summary": "一行prompt、地圖武器bots、source/play",
+    "status": "備選"
+  },
+  {
+    "name": "QQ飛車風格漂移競速",
+    "aliases": [
+      "riba2534 racing one-line demo"
+    ],
+    "type": "game",
+    "lines": [
+      148
+    ],
+    "summary": "四賽道漂移氮氣重置，source/play",
+    "status": "備選"
+  },
+  {
+    "name": "Single HTML Game Bench 3D horror game",
+    "aliases": [
+      "單HTML horror/RPG/roguelike任務"
+    ],
+    "type": "game",
+    "lines": [
+      162
+    ],
+    "summary": "模糊GOTY/production-ready共用題，原樣可玩主觀排序",
+    "status": "備選"
+  },
+  {
+    "name": "Tumble",
+    "aliases": [
+      "Promptslove彈珠建造遊戲"
+    ],
+    "type": "game",
+    "lines": [
+      173
+    ],
+    "summary": "180Hz無引擎物理、15構件/編輯器/謎題/100球；缺獨立build硬測",
+    "status": "推薦"
+  },
+  {
+    "name": "Planet Pop",
+    "aliases": [
+      "Tiny Comic Planet",
+      "Tinyworld"
+    ],
+    "type": "game",
+    "lines": [
+      193
+    ],
+    "summary": "Sonnet四run Opus一run星球，可玩；非高難度遊戲",
+    "status": "方法參考"
+  },
+  {
+    "name": "EvalMap Jeep",
+    "aliases": [
+      "3D jeep racing brief"
+    ],
+    "type": "game",
+    "lines": [
+      202
+    ],
+    "summary": "119build含39失敗，實玩边界；短brief/harness不一",
+    "status": "方法參考"
+  },
+  {
+    "name": "Vibecode RTS",
+    "aliases": [
+      "Senko simple RTS"
+    ],
+    "type": "game",
+    "lines": [
+      212
+    ],
+    "summary": "資源建造探索，不要求敵AI/多人；simple校準",
+    "status": "方法參考"
+  },
+  {
+    "name": "Vibecode Voxel",
+    "aliases": [
+      "Senko Minecraft風格voxel"
+    ],
+    "type": "game",
+    "lines": [
+      212
+    ],
+    "summary": "方塊採礦mob，simple單HTML校準",
+    "status": "方法參考"
+  },
+  {
+    "name": "Vibecode Flysim",
+    "aliases": [
+      "Senko一戰雙翼機飛行模擬"
+    ],
+    "type": "game",
+    "lines": [
+      212
+    ],
+    "summary": "地形物理飛機空戰，簡化副題",
+    "status": "方法參考"
+  },
+  {
+    "name": "Vibecode Minesweeper",
+    "aliases": [
+      "Senko Minesweeper"
+    ],
+    "type": "game",
+    "lines": [
+      212
+    ],
+    "summary": "第四固定小題非上限",
+    "status": "方法參考"
+  },
+  {
+    "name": "Lunar Scream",
+    "aliases": [
+      "尖叫月球著陸器"
+    ],
+    "type": "game",
+    "lines": [
+      217
+    ],
+    "summary": "四同題無澄清修正；小型strict校準",
+    "status": "方法參考"
+  },
+  {
+    "name": "Dragonrealm",
+    "aliases": [
+      "Goldie冰雪開放世界題"
+    ],
+    "type": "game",
+    "lines": [
+      237
+    ],
+    "summary": "雪地拔劍可玩，短brief作者評分",
+    "status": "備選"
+  },
+  {
+    "name": "Skyrim",
+    "aliases": [
+      "Goldie Skyrim task"
+    ],
+    "type": "game",
+    "lines": [
+      332
+    ],
+    "summary": "Goldie具名可玩題線索，需逐筆核",
+    "status": "待核實"
+  },
+  {
+    "name": "RPG",
+    "aliases": [
+      "Goldie RPG task"
+    ],
+    "type": "game",
+    "lines": [
+      332
+    ],
+    "summary": "Goldie具名可玩題線索",
+    "status": "待核實"
+  },
+  {
+    "name": "Flightsim",
+    "aliases": [
+      "Goldie Flightsim task"
+    ],
+    "type": "game",
+    "lines": [
+      332
+    ],
+    "summary": "Goldie具名可玩題線索",
+    "status": "待核實"
+  },
+  {
+    "name": "Slipstream",
+    "aliases": [
+      "KJLKurt Sol waterslide"
+    ],
+    "type": "game",
+    "lines": [
+      257
+    ],
+    "summary": "可玩source/QA、12NPC模式存檔觸控；prompt不完整",
+    "status": "備選"
+  },
+  {
+    "name": "Splash Rush",
+    "aliases": [
+      "KJLKurt Sonnet waterslide"
+    ],
+    "type": "game",
+    "lines": [
+      257
+    ],
+    "summary": "同系列線索，是否同prompt未核",
+    "status": "待核實"
+  },
+  {
+    "name": "KJLKurt Opus waterslide",
+    "aliases": [
+      "waterslide-game-opus-5.5"
+    ],
+    "type": "game",
+    "lines": [
+      351
+    ],
+    "summary": "可玩source/自動檢查，prompt重建",
+    "status": "備選"
+  },
+  {
+    "name": "KJLKurt Astra waterslide",
+    "aliases": [
+      "waterslide-game-astra"
+    ],
+    "type": "game",
+    "lines": [
+      351
+    ],
+    "summary": "可玩source比賽手機QA，未證同prompt",
+    "status": "備選"
+  },
+  {
+    "name": "Minecart ride",
+    "aliases": [
+      "Reddit Opus/Sonnet Godot mine-cart"
+    ],
+    "type": "game",
+    "lines": [
+      342
+    ],
+    "summary": "Godot+MCP自玩影片，兩者缺核心物理；缺prompt/build",
+    "status": "方法參考"
+  },
+  {
+    "name": "Promptslove Sol marble-run",
+    "aliases": [
+      "Ultra marble editor/physics build"
+    ],
+    "type": "game",
+    "lines": [
+      345
+    ],
+    "summary": "prompt親玩可借，缺playable artifact",
+    "status": "備選"
+  },
+  {
+    "name": "Promptslove Sol flight simulator",
+    "aliases": [
+      "Ultra flight sim build"
+    ],
+    "type": "game",
+    "lines": [
+      345
+    ],
+    "summary": "單模型規格主觀回饋，題目素材",
+    "status": "備選"
+  },
+  {
+    "name": "Chase AI World of Tanks",
+    "aliases": [
+      "Sol/Sonnet browser WoT test"
+    ],
+    "type": "game",
+    "lines": [
+      346
+    ],
+    "summary": "二手影片線索，缺prompt/source/build pair",
+    "status": "待核實"
+  },
+  {
+    "name": "Powerhub Godot kart comparison",
+    "aliases": [
+      "Sonnet/Opus kart"
+    ],
+    "type": "game",
+    "lines": [
+      347
+    ],
+    "summary": "影片無exact prompt/build/驗收，與Kart Blitz不同",
+    "status": "待核實"
+  },
+  {
+    "name": "Dead Signal",
+    "aliases": [
+      "Dead Signal: Exclusion Zone",
+      "bridge-mind zombie FPS"
+    ],
+    "type": "game",
+    "lines": [
+      348
+    ],
+    "summary": "兩source/Vitest/relay升級boss撤離，規格未證相同且無部署build",
+    "status": "備選"
+  },
+  {
+    "name": "Sonnet vs Sol chess match",
+    "aliases": [
+      "MCP完整棋局"
+    ],
+    "type": "game",
+    "lines": [
+      349
+    ],
+    "summary": "玩同一GPT建app，非生成",
+    "status": "排除"
+  },
+  {
+    "name": "TETHER",
+    "aliases": [
+      "agentgames.dev Sonnet roguelite"
+    ],
+    "type": "game",
+    "lines": [
+      354
+    ],
+    "summary": "可玩開放prompt五區18升級結局，缺repo/transcript",
+    "status": "備選"
+  },
+  {
+    "name": "Moe Lueker runner",
+    "aliases": [
+      "四模型跑步",
+      "跑酷"
+    ],
+    "type": "game",
+    "lines": [
+      358
+    ],
+    "summary": "刻意簡單，公開playable是後續加關",
+    "status": "方法參考"
+  },
+  {
+    "name": "Moe Lueker island builder",
+    "aliases": [
+      "四模型島嶼建造"
+    ],
+    "type": "game",
+    "lines": [
+      358
+    ],
+    "summary": "多系統同題自述，公開playable已後改",
+    "status": "備選"
+  },
+  {
+    "name": "GTA Rio",
+    "aliases": [
+      "Cheer Self AI Sonnet/Opus"
+    ],
+    "type": "game",
+    "lines": [
+      360
+    ],
+    "summary": "二手索引，prompt/playable pair未核",
+    "status": "待核實"
+  },
+  {
+    "name": "足球遊戲",
+    "aliases": [
+      "Cheer Self AI Sonnet/Opus soccer"
+    ],
+    "type": "game",
+    "lines": [
+      360
+    ],
+    "summary": "二手索引未核",
+    "status": "待核實"
+  },
+  {
+    "name": "Squid Game",
+    "aliases": [
+      "Cheer Self AI Sonnet/Opus"
+    ],
+    "type": "game",
+    "lines": [
+      360
+    ],
+    "summary": "二手索引未核",
+    "status": "待核實"
+  },
+  {
+    "name": "Mario Kart",
+    "aliases": [
+      "Cheer Self AI索引Mario Kart"
+    ],
+    "type": "game",
+    "lines": [
+      360
+    ],
+    "summary": "未核具體原始案例，不與Turbo Karts混同",
+    "status": "待核實"
+  },
+  {
+    "name": "Fortnite",
+    "aliases": [
+      "Cheer Self AI索引Fortnite"
+    ],
+    "type": "game",
+    "lines": [
+      360
+    ],
+    "summary": "二手索引未核",
+    "status": "待核實"
+  },
+  {
+    "name": "Sakura Rally",
+    "aliases": [
+      "SummerEngine rally"
+    ],
+    "type": "game",
+    "lines": [
+      361
+    ],
+    "summary": "源碼QA深，後續兩輪人類回饋非一次",
+    "status": "備選"
+  },
+  {
+    "name": "SkaLab dungeon crawler",
+    "aliases": [
+      "Sol/Sonnet/Opus三階段地城"
+    ],
+    "type": "game",
+    "lines": [
+      362
+    ],
+    "summary": "builder/critic多輪二手整理缺prompt/build",
+    "status": "待核實"
+  },
+  {
+    "name": "Duncan Rogoff 3D browser game",
+    "aliases": [
+      "六任務盲測遊戲題"
+    ],
+    "type": "game",
+    "lines": [
+      363
+    ],
+    "summary": "新模型無follow-up自述，缺prompt/artifact完整結果",
+    "status": "待核實"
+  },
+  {
+    "name": "Fallout: New York",
+    "aliases": [
+      "Opus fan game"
+    ],
+    "type": "game",
+    "lines": [
+      365
+    ],
+    "summary": "宏大多代理非一次、下線、缺原條件",
+    "status": "排除"
+  },
+  {
+    "name": "AI for Mortals FPS shooter",
+    "aliases": [
+      "Astra vs Fable FPS"
+    ],
+    "type": "game",
+    "lines": [
+      367
+    ],
+    "summary": "詳細FPS QA prompt/輸出；成本含後續build passes",
+    "status": "備選"
+  },
+  {
+    "name": "Fireship rocket-launch simulator",
+    "aliases": [
+      "Astra/Fable火箭建造入軌"
+    ],
+    "type": "game",
+    "lines": [
+      368
+    ],
+    "summary": "影片玩感成本，缺原prompt/public build",
+    "status": "待核實"
+  },
+  {
+    "name": "Pokémon Red",
+    "aliases": [
+      "Sonnet starter replay21次"
+    ],
+    "type": "game",
+    "lines": [
+      370
+    ],
+    "summary": "玩既有遊戲非生成",
+    "status": "排除"
+  },
+  {
+    "name": "GBA enemy sprite task",
+    "aliases": [
+      "16色敵人素材對照"
+    ],
+    "type": "method",
+    "lines": [
+      371
+    ],
+    "summary": "已有專案素材編輯非完整生成",
+    "status": "排除"
+  },
+  {
+    "name": "OhMyOpus platformer comparison",
+    "aliases": [
+      "Opus/Sol平台跳躍"
+    ],
+    "type": "game",
+    "lines": [
+      383
+    ],
+    "summary": "同brief四成果自述，YouTube未載入prompt/build未核",
+    "status": "待核實"
+  },
+  {
+    "name": "OhMyOpus rhythm game comparison",
+    "aliases": [
+      "Opus/Sol節奏遊戲"
+    ],
+    "type": "game",
+    "lines": [
+      383
+    ],
+    "summary": "同影片未核原條件",
+    "status": "待核實"
+  },
+  {
+    "name": "MiaAI_lab Fortnite battle royale",
+    "aliases": [
+      "Opus空降storm/minimap"
+    ],
+    "type": "game",
+    "lines": [
+      384
+    ],
+    "summary": "X展示缺exact prompt/playable",
+    "status": "待核實"
+  },
+  {
+    "name": "DOOM AI autoplay",
+    "aliases": [
+      "vasu-devs/doom-ai-autoplay"
+    ],
+    "type": "game",
+    "lines": [
+      385
+    ],
+    "summary": "遊戲加autoplay 8/8自述，非共同prompt對照",
+    "status": "備選"
+  },
+  {
+    "name": "Blockworld",
+    "aliases": [
+      "Semper Phoenix Minecraft clone"
+    ],
+    "type": "game",
+    "lines": [
+      406
+    ],
+    "summary": "可玩一句prompt；外部auto-review促修bug非未修首次",
+    "status": "備選"
+  },
+  {
+    "name": "Ink Field",
+    "aliases": [
+      "Opus one-hour Godot platformer"
+    ],
+    "type": "game",
+    "lines": [
+      407
+    ],
+    "summary": "通關實玩片，無exact brief/source/build規模不大",
+    "status": "方法參考"
+  },
+  {
+    "name": "Sonnet Fortnite-style Battle Royale",
+    "aliases": [
+      "Aman @mdaman010",
+      "JasonZhu prompt"
+    ],
+    "type": "game",
+    "lines": [
+      408
+    ],
+    "summary": "445字prompt/42秒片，原X403無穩定build/source",
+    "status": "備選"
+  },
+  {
+    "name": "Ashen Vigil",
+    "aliases": [
+      "Ruocco Sol Souls-like boss"
+    ],
+    "type": "game",
+    "lines": [
+      409
+    ],
+    "summary": "可玩單模型雙階boss，缺prompt同題對照",
+    "status": "備選"
+  },
+  {
+    "name": "WebGL2 survival sandbox",
+    "aliases": [
+      "TripoGrowthLab survival prompt"
+    ],
+    "type": "game",
+    "lines": [
+      410
+    ],
+    "summary": "高上限無library/chunks/biome/crafting/mobs/save prompt，未核成品",
+    "status": "備選"
+  },
+  {
+    "name": "UE5.8 tropical open-world island",
+    "aliases": [
+      "TripoGrowthLab熱帶島prompt"
+    ],
+    "type": "game",
+    "lines": [
+      410
+    ],
+    "summary": "徒步載具動物天候36小時subagents，長goal素材",
+    "status": "備選"
+  },
+  {
+    "name": "AI Fire Browser OS",
+    "aliases": [
+      "Browser OS+GTA+3D flight"
+    ],
+    "type": "game",
+    "lines": [
+      411
+    ],
+    "summary": "完整prompt圖像高整合，無repo/build驗收，混合OS",
+    "status": "備選"
+  },
+  {
+    "name": "AI Fire GTA-style city sandbox",
+    "aliases": [
+      "Browser OS內嵌GTA"
+    ],
+    "type": "game",
+    "lines": [
+      411
+    ],
+    "summary": "內嵌遊戲高整合素材",
+    "status": "備選"
+  },
+  {
+    "name": "AI Fire 3D flight checkpoint game",
+    "aliases": [
+      "Browser OS內嵌飛行"
+    ],
+    "type": "game",
+    "lines": [
+      411
+    ],
+    "summary": "內嵌遊戲高整合素材",
+    "status": "備選"
+  },
+  {
+    "name": "Conveyor Courier",
+    "aliases": [
+      "Godot conveyor puzzle"
+    ],
+    "type": "game",
+    "lines": [
+      434
+    ],
+    "summary": "固定小型題prompt/reference/tests/playable，方法佳",
+    "status": "方法參考"
+  },
+  {
+    "name": "Age of Empires II browser-clone",
+    "aliases": [
+      "Barty-Bart effort sweep"
+    ],
+    "type": "game",
+    "lines": [
+      451
+    ],
+    "summary": "六fresh projects/source/metrics固定prompt，單模型effort",
+    "status": "備選"
+  },
+  {
+    "name": "Pool",
+    "aliases": [
+      "Sol/Qwen桌上球"
+    ],
+    "type": "game",
+    "lines": [
+      452
+    ],
+    "summary": "小型cost/harness案例無共用tests",
+    "status": "方法參考"
+  },
+  {
+    "name": "Bowling",
+    "aliases": [
+      "Sol/Qwen桌上球"
+    ],
+    "type": "game",
+    "lines": [
+      452
+    ],
+    "summary": "小型cost/harness案例",
+    "status": "方法參考"
+  },
+  {
+    "name": "Foosball",
+    "aliases": [
+      "Sol/Qwen桌上球"
+    ],
+    "type": "game",
+    "lines": [
+      452
+    ],
+    "summary": "小型cost/harness案例",
+    "status": "方法參考"
+  },
+  {
+    "name": "Stefan 3D MMO town square",
+    "aliases": [
+      "elf archer/quest chat"
+    ],
+    "type": "game",
+    "lines": [
+      453
+    ],
+    "summary": "36小時高tokens自述無prompt/source/QA/session",
+    "status": "待核實"
+  },
+  {
+    "name": "Ornith llm-bench.io single HTML game",
+    "aliases": [
+      "Ornith-1.5-35B-A3B INT4"
+    ],
+    "type": "game",
+    "lines": [
+      505
+    ],
+    "summary": "可玩缺prompt/同題/驗收",
+    "status": "待核實"
+  },
+  {
+    "name": "CS Brasil",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      505
+    ],
+    "summary": "多輪對話後修改",
+    "status": "排除"
+  },
+  {
+    "name": "OpenCiv3",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      505
+    ],
+    "summary": "模型操作既有遊戲",
+    "status": "排除"
+  },
+  {
+    "name": "城門增兵攔截敵潮Boss影片",
+    "aliases": [
+      "森下航9/25 army defense"
+    ],
+    "type": "method",
+    "lines": [
+      506
+    ],
+    "summary": "交付影片非可玩game；可借effort/rubric",
+    "status": "排除"
+  },
+  {
+    "name": "Nutlope Snake",
+    "aliases": [
+      "ai-browser-games Snake"
+    ],
+    "type": "game",
+    "lines": [
+      507
+    ],
+    "summary": "固定prompt/gallery但簡單retry",
+    "status": "方法參考"
+  },
+  {
+    "name": "Nutlope Tetris-lite",
+    "aliases": [
+      "ai-browser-games Tetris-lite"
+    ],
+    "type": "game",
+    "lines": [
+      507
+    ],
+    "summary": "固定prompt/gallery但簡單retry",
+    "status": "方法參考"
+  },
+  {
+    "name": "Nutlope Breakout",
+    "aliases": [
+      "ai-browser-games Breakout"
+    ],
+    "type": "game",
+    "lines": [
+      507
+    ],
+    "summary": "固定prompt/gallery但簡單retry",
+    "status": "方法參考"
+  },
+  {
+    "name": "CatDoom",
+    "aliases": [
+      "The Neuron livestream"
+    ],
+    "type": "game",
+    "lines": [
+      509
+    ],
+    "summary": "build-review-fix多輪",
+    "status": "排除"
+  },
+  {
+    "name": "Dark Souls",
+    "aliases": [
+      "The Neuron livestream"
+    ],
+    "type": "game",
+    "lines": [
+      509
+    ],
+    "summary": "build-review-fix多輪",
+    "status": "排除"
+  },
+  {
+    "name": "Higgsfield Sol/Astra game",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      509
+    ],
+    "summary": "只有二手材料",
+    "status": "待核實"
+  },
+  {
+    "name": "GPT-6.1 Sol jungle safari",
+    "aliases": [
+      "jungle safari post"
+    ],
+    "type": "game",
+    "lines": [
+      512
+    ],
+    "summary": "改prompt無成品",
+    "status": "排除"
+  },
+  {
+    "name": "Last Round",
+    "aliases": [
+      "sniper demo"
+    ],
+    "type": "game",
+    "lines": [
+      512
+    ],
+    "summary": "簡單狙擊demo非完整上限",
+    "status": "排除"
+  },
+  {
+    "name": "Magehold Fairwinds",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      514
+    ],
+    "summary": "僅精確搜尋標題線索無可重現一次證據",
+    "status": "待核實"
+  },
+  {
+    "name": "The Ship Remembers",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      514
+    ],
+    "summary": "僅精確搜尋標題線索無可重現一次證據",
+    "status": "待核實"
+  },
+  {
+    "name": "Procedural Pixel Creature Workshop",
+    "aliases": [
+      "creature tool/framework"
+    ],
+    "type": "method",
+    "lines": [
+      514
+    ],
+    "summary": "工具framework非遊戲",
+    "status": "排除"
+  },
+  {
+    "name": "Pukerud Plants vs Zombies",
+    "aliases": [
+      "model-output-arena PvZ"
+    ],
+    "type": "game",
+    "lines": [
+      520
+    ],
+    "summary": "小PvZ固定prompt原HTML，部分harness追問修复",
+    "status": "方法參考"
+  },
+  {
+    "name": "Pukerud animated car",
+    "aliases": [
+      "Model Output Arena動畫車"
+    ],
+    "type": "method",
+    "lines": [
+      520
+    ],
+    "summary": "非遊戲相鄰輸出",
+    "status": "方法參考"
+  },
+  {
+    "name": "Pukerud Thriller dance",
+    "aliases": [
+      "Three.js舞蹈"
+    ],
+    "type": "method",
+    "lines": [
+      520
+    ],
+    "summary": "非遊戲相鄰輸出",
+    "status": "方法參考"
+  },
+  {
+    "name": "Fez-style 2.5D game",
+    "aliases": [
+      "LINUX DO",
+      "cc.36.re/fez"
+    ],
+    "type": "game",
+    "lines": [
+      526
+    ],
+    "summary": "旋轉場景收集/editor缺漏、V2後續修改，play未獨立載入",
+    "status": "備選"
+  },
+  {
+    "name": "沖洗AI開發者遊戲",
+    "aliases": [
+      "gigabit_million日文9/29"
+    ],
+    "type": "game",
+    "lines": [
+      527
+    ],
+    "summary": "簡單題後續多語修改",
+    "status": "排除"
+  },
+  {
+    "name": "Tibo simulator",
+    "aliases": [
+      "Grok/Qwen simulator"
+    ],
+    "type": "game",
+    "lines": [
+      528
+    ],
+    "summary": "多模型輪流修",
+    "status": "排除"
+  },
+  {
+    "name": "Tibo karting",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      528
+    ],
+    "summary": "缺prompt對稱條件",
+    "status": "待核實"
+  },
+  {
+    "name": "Rocket League showcase",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      528
+    ],
+    "summary": "社群片缺完整條件",
+    "status": "待核實"
+  },
+  {
+    "name": "Create with Mark 10/01 showcase",
+    "aliases": [
+      "youtube-fvrv_ex8kiq"
+    ],
+    "type": "game",
+    "lines": [
+      528
+    ],
+    "summary": "明確多輪修訂",
+    "status": "排除"
+  },
+  {
+    "name": "Create with Mark 10/02 three 3D showcases",
+    "aliases": [
+      "youtube-yd_okn0vdg4"
+    ],
+    "type": "game",
+    "lines": [
+      528
+    ],
+    "summary": "三可視作品無逐字prompt可信條件",
+    "status": "待核實"
+  },
+  {
+    "name": "Krystian Alps combat flight",
+    "aliases": [
+      "Astra/Fable阿爾卑斯戰鬥飛行"
+    ],
+    "type": "game",
+    "lines": [
+      529
+    ],
+    "summary": "可玩自述，Astra反問後追加指示，prompt未取得",
+    "status": "待核實"
+  },
+  {
+    "name": "Krystian CS-like 1v1",
+    "aliases": [
+      "Astra/Fable CS-like shooter"
+    ],
+    "type": "game",
+    "lines": [
+      529
+    ],
+    "summary": "同片可玩自述但條件不全",
+    "status": "待核實"
+  },
+  {
+    "name": "Krystian retro music player",
+    "aliases": [],
+    "type": "method",
+    "lines": [
+      529
+    ],
+    "summary": "同片非遊戲",
+    "status": "排除"
+  },
+  {
+    "name": "Aditya passenger flight simulator",
+    "aliases": [
+      "9/5 flight-sim prompt archive"
+    ],
+    "type": "game",
+    "lines": [
+      530
+    ],
+    "summary": "exact prompt起降失敗HUD自測，缺對稱build原片",
+    "status": "備選"
+  },
+  {
+    "name": "Happy Wheels Bottle Run",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      530
+    ],
+    "summary": "僅目錄提及無原帖／成品",
+    "status": "待核實"
+  },
+  {
+    "name": "Aster Vault",
+    "aliases": [
+      "SandBase三房間3D puzzle"
+    ],
+    "type": "game",
+    "lines": [
+      531
+    ],
+    "summary": "各三次15檢查圖與cost，缺payload/build小規模",
+    "status": "方法參考"
+  },
+  {
+    "name": "Super Mario 1-1 recreation",
+    "aliases": [
+      "JarvisUni TopAI Super-Mario"
+    ],
+    "type": "game",
+    "lines": [
+      534
+    ],
+    "summary": "17新模型卡/整關規格，iframe未獨立載入",
+    "status": "備選"
+  },
+  {
+    "name": "The Last Bridge",
+    "aliases": [
+      "JarvisUni TopAI海橋防守"
+    ],
+    "type": "game",
+    "lines": [
+      534
+    ],
+    "summary": "模糊題意自主設計舊兩模型，build未載入",
+    "status": "備選"
+  },
+  {
+    "name": "World of Tanks",
+    "aliases": [
+      "JarvisUni TopAI 9/13"
+    ],
+    "type": "game",
+    "lines": [
+      534
+    ],
+    "summary": "長系統線索roster舊",
+    "status": "備選"
+  },
+  {
+    "name": "KOF XIV",
+    "aliases": [
+      "JarvisUni TopAI 9/11"
+    ],
+    "type": "game",
+    "lines": [
+      534
+    ],
+    "summary": "固定邏輯線索roster舊",
+    "status": "備選"
+  },
+  {
+    "name": "Opus fantasy RPG",
+    "aliases": [],
+    "type": "game",
+    "lines": [
+      535
+    ],
+    "summary": "prompt截圖無verified playable",
+    "status": "待核實"
+  },
+  {
+    "name": "Topple Pier",
+    "aliases": [
+      "Rapier物理多world/shop"
+    ],
+    "type": "game",
+    "lines": [
+      536
+    ],
+    "summary": "design doc未公開僅自述，題材素材",
+    "status": "備選"
+  },
+  {
+    "name": "Opus cozy game",
+    "aliases": [
+      "overnight自評8.5+"
+    ],
+    "type": "game",
+    "lines": [
+      536
+    ],
+    "summary": "持續迭代多參考連結",
+    "status": "排除"
+  },
+  {
+    "name": "10/03–04長期卡牌遊戲",
+    "aliases": [
+      "兩年自製卡牌"
+    ],
+    "type": "game",
+    "lines": [
+      538
+    ],
+    "summary": "長期開發非one-prompt",
+    "status": "排除"
+  },
+  {
+    "name": "10/03–04農場／殭屍夢想遊戲",
+    "aliases": [
+      "Sol素材Opus寫碼數月"
+    ],
+    "type": "game",
+    "lines": [
+      538
+    ],
+    "summary": "作者明示非one-prompt",
+    "status": "排除"
+  },
+  {
+    "name": "Daily mini-games六款",
+    "aliases": [
+      "AI協作每日小遊戲"
+    ],
+    "type": "game",
+    "lines": [
+      538
+    ],
+    "summary": "人類定題反覆改UI計分",
+    "status": "排除"
+  },
+  {
+    "name": "GameCraft-Bench",
+    "aliases": [
+      "GameCraft"
+    ],
+    "type": "benchmark",
+    "lines": [
+      16
+    ],
+    "summary": "140完整2D任務replay/rubric，工具迭代模型舊",
+    "status": "方法參考"
+  },
+  {
+    "name": "One Shot Challenge",
+    "aliases": [
+      "1shotchallenge",
+      "Round01"
+    ],
+    "type": "event",
+    "lines": [
+      43
+    ],
+    "summary": "單call hash/失敗保存，自由prompt不均模型非固定榜",
+    "status": "方法參考"
+  },
+  {
+    "name": "GameDaily",
+    "aliases": [
+      "GameDaily.ai"
+    ],
+    "type": "catalog",
+    "lines": [
+      59
+    ],
+    "summary": "生成流水線QA，prompt/model不公開，目錄日非建立日",
+    "status": "方法參考"
+  },
+  {
+    "name": "MAGIC",
+    "aliases": [
+      "Transition-Aware Generation of Navigable Multi-Scene Game Worlds"
+    ],
+    "type": "benchmark",
+    "lines": [
+      60
+    ],
+    "summary": "Unity多場景可達转換非完整game loop、資料需索取",
+    "status": "方法參考"
+  },
+  {
+    "name": "Unity Scene Generation Failure Taxonomy",
+    "aliases": [
+      "Unity scene failure taxonomy"
+    ],
+    "type": "benchmark",
+    "lines": [
+      61
+    ],
+    "summary": "10400 no-repair scene compilation非完整遊戲",
+    "status": "方法參考"
+  },
+  {
+    "name": "Mage",
+    "aliases": [
+      "Mage companion"
+    ],
+    "type": "benchmark",
+    "lines": [
+      61
+    ],
+    "summary": "相關858 scene attempts非完整遊戲",
+    "status": "方法參考"
+  },
+  {
+    "name": "Scene-level grounding benchmark",
+    "aliases": [
+      "anon-neurips-2026-0502 HF dataset"
+    ],
+    "type": "benchmark",
+    "lines": [
+      61
+    ],
+    "summary": "Unity scene grounding相鄰資料集",
+    "status": "方法參考"
+  },
+  {
+    "name": "NEXUS Game Benchmark Agent Arena",
+    "aliases": [
+      "NEXUS",
+      "BATTLE_PROMPT"
+    ],
+    "type": "benchmark",
+    "lines": [
+      69
+    ],
+    "summary": "長單task開發盲評schema，v17/v21待定artifacts不足",
+    "status": "方法參考"
+  },
+  {
+    "name": "GAMED.AI",
+    "aliases": [
+      "GamED-AI"
+    ],
+    "type": "method",
+    "lines": [
+      70
+    ],
+    "summary": "多代理教育模板validator pass非單模型能力",
+    "status": "方法參考"
+  },
+  {
+    "name": "RSIGame",
+    "aliases": [],
+    "type": "method",
+    "lines": [
+      71
+    ],
+    "summary": "重用GameCraft迭代訓練非新題庫",
+    "status": "方法參考"
+  },
+  {
+    "name": "PacBench",
+    "aliases": [
+      "Pac-Man bake-off",
+      "Pac-Bench"
+    ],
+    "type": "benchmark",
+    "lines": [
+      97
+    ],
+    "summary": "一句Pac-Man透明rubric，小題不同harness/評分家族",
+    "status": "方法參考"
+  },
+  {
+    "name": "Single HTML Game Bench",
+    "aliases": [
+      "single-html-game-bench"
+    ],
+    "type": "benchmark",
+    "lines": [
+      159
+    ],
+    "summary": "20組原樣輸出，主觀排序模糊要求",
+    "status": "方法參考"
+  },
+  {
+    "name": "EvalMap Jeep gallery",
+    "aliases": [
+      "EvalMap"
+    ],
+    "type": "benchmark",
+    "lines": [
+      202
+    ],
+    "summary": "同brief多build失敗保存短題harness不一",
+    "status": "方法參考"
+  },
+  {
+    "name": "Vibecode Bench",
+    "aliases": [
+      "Senko Bench",
+      "Senko三類題組"
+    ],
+    "type": "benchmark",
+    "lines": [
+      209
+    ],
+    "summary": "四simple固定題prompt/gist/play，harness不同",
+    "status": "方法參考"
+  },
+  {
+    "name": "Game Bench",
+    "aliases": [
+      "game-bench.piccini.app"
+    ],
+    "type": "benchmark",
+    "lines": [
+      229
+    ],
+    "summary": "固定task權重自主工具，規模有限",
+    "status": "方法參考"
+  },
+  {
+    "name": "Goldie Bench",
+    "aliases": [
+      "Goldie"
+    ],
+    "type": "benchmark",
+    "lines": [
+      235
+    ],
+    "summary": "短单HTML題人工分矩陣數量動態",
+    "status": "方法參考"
+  },
+  {
+    "name": "OneShotLM",
+    "aliases": [
+      "oneshotlm.com"
+    ],
+    "type": "catalog",
+    "lines": [
+      242
+    ],
+    "summary": "大型作品索引數字日期不一roster舊",
+    "status": "方法參考"
+  },
+  {
+    "name": "AgentsLoop latest-games",
+    "aliases": [
+      "awesome-opus-5.5-games latest-games"
+    ],
+    "type": "catalog",
+    "lines": [
+      256
+    ],
+    "summary": "近期發現入口策展分非遊玩分",
+    "status": "方法參考"
+  },
+  {
+    "name": "AgentsLoop Mall Action verification",
+    "aliases": [
+      "awesome-gpt-astra-games Mall Action頁"
+    ],
+    "type": "catalog",
+    "lines": [
+      131
+    ],
+    "summary": "來源完整度人工圖評非runtime",
+    "status": "方法參考"
+  },
+  {
+    "name": "WorldBuild Bench",
+    "aliases": [
+      "Sandscape July round"
+    ],
+    "type": "benchmark",
+    "lines": [
+      334
+    ],
+    "summary": "10模型3題29build，舊模型有限題",
+    "status": "方法參考"
+  },
+  {
+    "name": "GameASG-Bench",
+    "aliases": [
+      "GameASG"
+    ],
+    "type": "benchmark",
+    "lines": [
+      335
+    ],
+    "summary": "47browser-native隔離靜動態，strict task success",
+    "status": "方法參考"
+  },
+  {
+    "name": "A2Z GameSpec-Bench",
+    "aliases": [
+      "A2Z",
+      "GameSpec"
+    ],
+    "type": "benchmark",
+    "lines": [
+      336
+    ],
+    "summary": "100長GDD依賴requirements含revision，repo不全",
+    "status": "方法參考"
+  },
+  {
+    "name": "GameXpert-Bench",
+    "aliases": [
+      "GameXpert"
+    ],
+    "type": "benchmark",
+    "lines": [
+      337
+    ],
+    "summary": "97生成題及修復track，coming soon舊roster",
+    "status": "方法參考"
+  },
+  {
+    "name": "SWE-Game",
+    "aliases": [
+      "SWE game"
+    ],
+    "type": "benchmark",
+    "lines": [
+      339
+    ],
+    "summary": "41Godot247任務操作探針，資料未公開",
+    "status": "方法參考"
+  },
+  {
+    "name": "AI Game Case catalog",
+    "aliases": [
+      "aigame.zhumang.dev"
+    ],
+    "type": "catalog",
+    "lines": [
+      340
+    ],
+    "summary": "source-first playable/showcase索引需原證據",
+    "status": "方法參考"
+  },
+  {
+    "name": "OhMyOpus",
+    "aliases": [
+      "ohmyopus149-case collection"
+    ],
+    "type": "catalog",
+    "lines": [
+      341
+    ],
+    "summary": "導航而非基準，未核線索",
+    "status": "方法參考"
+  },
+  {
+    "name": "Play2Code",
+    "aliases": [
+      "GUI continual game generation"
+    ],
+    "type": "method",
+    "lines": [
+      350
+    ],
+    "summary": "最多五輪玩家回饋memory，不與Direct單pass混算",
+    "status": "方法參考"
+  },
+  {
+    "name": "Testing Models Coding Arena",
+    "aliases": [
+      "Testing Models"
+    ],
+    "type": "benchmark",
+    "lines": [
+      359
+    ],
+    "summary": "54題148變體盲票短題新舊混合，cost檔案估算",
+    "status": "方法參考"
+  },
+  {
+    "name": "Cheer Self AI",
+    "aliases": [
+      "Sonnet usecase index"
+    ],
+    "type": "catalog",
+    "lines": [
+      360
+    ],
+    "summary": "二手案例入口",
+    "status": "方法參考"
+  },
+  {
+    "name": "Deep20Bench",
+    "aliases": [
+      "Twenty Questions benchmark"
+    ],
+    "type": "benchmark",
+    "lines": [
+      364
+    ],
+    "summary": "玩二十問非生成；借重跑transcript CI",
+    "status": "方法參考"
+  },
+  {
+    "name": "GameLogicBench",
+    "aliases": [
+      "GameLogic"
+    ],
+    "type": "benchmark",
+    "lines": [
+      372
+    ],
+    "summary": "Godot逐tick/mutation非完整生成",
+    "status": "方法參考"
+  },
+  {
+    "name": "WebGameBench",
+    "aliases": [
+      "WebGame"
+    ],
+    "type": "benchmark",
+    "lines": [
+      373
+    ],
+    "summary": "111browser真互動分级，較小舊",
+    "status": "方法參考"
+  },
+  {
+    "name": "DogLM",
+    "aliases": [
+      "dog-interaction PRD benchmark"
+    ],
+    "type": "benchmark",
+    "lines": [
+      374
+    ],
+    "summary": "5小題cued/uncued靜態judge，窄機制補測",
+    "status": "方法參考"
+  },
+  {
+    "name": "GameDevBench",
+    "aliases": [],
+    "type": "benchmark",
+    "lines": [
+      375
+    ],
+    "summary": "333既有Godot任务，best多模態harness非從零",
+    "status": "方法參考"
+  },
+  {
+    "name": "OpenGame",
+    "aliases": [
+      "OpenGame-Bench"
+    ],
+    "type": "benchmark",
+    "lines": [
+      376
+    ],
+    "summary": "150prompt/3seeds，模板debug迭代，evaluator未全開",
+    "status": "方法參考"
+  },
+  {
+    "name": "TripoGrowthLab prompt collection",
+    "aliases": [
+      "awesome-opus-5.5-prompts"
+    ],
+    "type": "catalog",
+    "lines": [
+      410
+    ],
+    "summary": "高上限prompt素材無受控成品",
+    "status": "方法參考"
+  },
+  {
+    "name": "Godot LLM GameBench",
+    "aliases": [
+      "godot-llm-gamebench"
+    ],
+    "type": "benchmark",
+    "lines": [
+      434
+    ],
+    "summary": "Conveyor Courier delegate/median/quality-efficiency小凍結round",
+    "status": "方法參考"
+  },
+  {
+    "name": "PlaytestArena",
+    "aliases": [
+      "continual-game-generation"
+    ],
+    "type": "benchmark",
+    "lines": [
+      437
+    ],
+    "summary": "200短prompt可觀察rubric，Direct与Play2Code分開",
+    "status": "方法參考"
+  },
+  {
+    "name": "lmarcade",
+    "aliases": [
+      "LLM arcade盲玩偏好"
+    ],
+    "type": "benchmark",
+    "lines": [
+      444
+    ],
+    "summary": "pairwise fun/harness榜，無prompt/session",
+    "status": "方法參考"
+  },
+  {
+    "name": "AutoUE",
+    "aliases": [
+      "PlayGen-20",
+      "AutoUE_DataSet"
+    ],
+    "type": "benchmark",
+    "lines": [
+      445
+    ],
+    "summary": "20UE5多LLM/assetRAG系統，借題卡非模型榜",
+    "status": "方法參考"
+  },
+  {
+    "name": "3DGameAgentBench",
+    "aliases": [
+      "private research preview"
+    ],
+    "type": "benchmark",
+    "lines": [
+      446
+    ],
+    "summary": "多輪Three.js/private無公開題gallery",
+    "status": "待核實"
+  },
+  {
+    "name": "GameHorizon Suite",
+    "aliases": [
+      "GameHorizon"
+    ],
+    "type": "benchmark",
+    "lines": [
+      447
+    ],
+    "summary": "操作既有AAA非生成，10/25預計釋出",
+    "status": "排除"
+  },
+  {
+    "name": "AI GameStore",
+    "aliases": [],
+    "type": "benchmark",
+    "lines": [
+      487
+    ],
+    "summary": "模型玩遊戲非生成",
+    "status": "排除"
+  },
+  {
+    "name": "Awesome AI Games",
+    "aliases": [
+      "source-backed catalog872 game units/598 repos"
+    ],
+    "type": "catalog",
+    "lines": [
+      501
+    ],
+    "summary": "作品索引非共用prompt benchmark",
+    "status": "方法參考"
+  },
+  {
+    "name": "llm-bench.io",
+    "aliases": [],
+    "type": "catalog",
+    "lines": [
+      505
+    ],
+    "summary": "Ornith可玩線索缺prompt驗收",
+    "status": "方法參考"
+  },
+  {
+    "name": "Nutlope AI Browser Games",
+    "aliases": [
+      "ai-browser-games"
+    ],
+    "type": "benchmark",
+    "lines": [
+      507
+    ],
+    "summary": "三簡單題prompt/gallery metadata但retry",
+    "status": "方法參考"
+  },
+  {
+    "name": "Godmark",
+    "aliases": [],
+    "type": "benchmark",
+    "lines": [
+      507
+    ],
+    "summary": "簡單Godot prompt五session測方差",
+    "status": "方法參考"
+  },
+  {
+    "name": "GamesByAI",
+    "aliases": [
+      "new feed/JSON"
+    ],
+    "type": "catalog",
+    "lines": [
+      514
+    ],
+    "summary": "ingestion date非建立日期",
+    "status": "方法參考"
+  },
+  {
+    "name": "Pukerud Model Output Arena",
+    "aliases": [
+      "model-output-arena"
+    ],
+    "type": "benchmark",
+    "lines": [
+      520
+    ],
+    "summary": "三固定輸出部分harness追問修復",
+    "status": "方法參考"
+  },
+  {
+    "name": "V-GameGym",
+    "aliases": [],
+    "type": "benchmark",
+    "lines": [
+      525
+    ],
+    "summary": "既有Pygame重新生成非新完整題庫",
+    "status": "排除"
+  },
+  {
+    "name": "SKYLENAGE GameCodeGym",
+    "aliases": [
+      "GameCodeGym"
+    ],
+    "type": "benchmark",
+    "lines": [
+      525
+    ],
+    "summary": "重用Pygame重新生成",
+    "status": "排除"
+  },
+  {
+    "name": "Create with Mark",
+    "aliases": [
+      "10/1与10/2 showreel"
+    ],
+    "type": "catalog",
+    "lines": [
+      528
+    ],
+    "summary": "展示入口多輪或條件缺失",
+    "status": "方法參考"
+  },
+  {
+    "name": "SandBase",
+    "aliases": [
+      "Aster Vault評測"
+    ],
+    "type": "benchmark",
+    "lines": [
+      531
+    ],
+    "summary": "strict first-pass三run操作校準小題缺payload",
+    "status": "方法參考"
+  },
+  {
+    "name": "JarvisUni TopAI",
+    "aliases": [
+      "TopAI",
+      "topai.jarvisuni.com"
+    ],
+    "type": "catalog",
+    "lines": [
+      534
+    ],
+    "summary": "日期卡片新roster，iframe未獨立載入",
+    "status": "方法參考"
+  },
+  {
+    "name": "OneHack 48 builds",
+    "aliases": [
+      "newest-browser-games shelf"
+    ],
+    "type": "catalog",
+    "lines": [
+      535
+    ],
+    "summary": "自稱live-checked發現索引非受控基準",
+    "status": "方法參考"
+  },
+  {
+    "name": "Frontier Games",
+    "aliases": [
+      "theolundqvist/frontier-games"
+    ],
+    "type": "catalog",
+    "lines": [
+      535
+    ],
+    "summary": "可玩成品發現索引",
+    "status": "方法參考"
+  },
+  {
+    "name": "ChinaAPI cards",
+    "aliases": [
+      "TopAI/ChinaAPI"
+    ],
+    "type": "catalog",
+    "lines": [
+      536
+    ],
+    "summary": "第三方小遊戲汇總部分iteration需原來源",
+    "status": "方法參考"
+  },
+  {
+    "name": "VibeGame",
+    "aliases": [],
+    "type": "method",
+    "lines": [
+      537
+    ],
+    "summary": "多代理框架非固定題對稱比較",
+    "status": "方法參考"
+  },
+  {
+    "name": "GameEngineBench",
+    "aliases": [],
+    "type": "benchmark",
+    "lines": [
+      537
+    ],
+    "summary": "既有Unreal C++任务非從零完整遊戲",
+    "status": "排除"
+  },
+  {
+    "name": "Slapjam AI 48-hour game jam",
+    "aliases": [
+      "Slapjam"
+    ],
+    "type": "event",
+    "lines": [
+      23
+    ],
+    "summary": "Tiny Necromancer/Bastion來源showcase活動",
+    "status": "方法參考"
+  },
+  {
+    "name": "AI Browser Game Jam 4",
+    "aliases": [
+      "itch jam4"
+    ],
+    "type": "event",
+    "lines": [
+      313
+    ],
+    "summary": "125評分与作品披露待追",
+    "status": "待核實"
+  },
+  {
+    "name": "AI Browser Game Jam 5",
+    "aliases": [
+      "itch jam5"
+    ],
+    "type": "event",
+    "lines": [
+      313
+    ],
+    "summary": "10/17開放待結果",
+    "status": "待核實"
+  },
+  {
+    "name": "Jamference: AI Game Jam Hack 1",
+    "aliases": [
+      "Jamference Hack1"
+    ],
+    "type": "event",
+    "lines": [
+      313
+    ],
+    "summary": "10/09截止待結果",
+    "status": "待核實"
+  },
+  {
+    "name": "Ultimate AI-Powered Game Jam #5",
+    "aliases": [
+      "Ultimate AI Game Jam5"
+    ],
+    "type": "event",
+    "lines": [
+      313
+    ],
+    "summary": "10/09–12待結果",
+    "status": "待核實"
+  },
+  {
+    "name": "Sky Reach",
+    "aliases": [
+      "Tesana playable"
+    ],
+    "type": "game",
+    "lines": [
+      314
+    ],
+    "summary": "待查啟動和探索循環，該範圍無更多詳情",
+    "status": "待核實"
+  }
+]

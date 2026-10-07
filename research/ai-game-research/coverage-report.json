@@ -1,0 +1,18 @@
+{
+  "historical_bytes": 273084,
+  "historical_lines": 954,
+  "sections": 93,
+  "inventory_entries": 342,
+  "mapped_inventory_entries": 342,
+  "records": 394,
+  "types": {
+    "game": 275,
+    "benchmark": 56,
+    "catalog": 25,
+    "event": 10,
+    "method": 28
+  },
+  "lossless_history": true,
+  "every_migrated_record_has_source_section": true,
+  "name_inventory_scope": "人工盤點具名案例、題目、基準、平台和活動；泛稱未命名項目仍保留於完整歷史段落。"
+}

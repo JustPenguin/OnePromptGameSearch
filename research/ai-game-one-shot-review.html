@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI 一次委託遊戲評測｜候選檢閱</title>
+<style>
+:root{--ink:#18212f;--muted:#667386;--paper:#f4f6f8;--card:#fff;--line:#e1e7ee;--navy:#14243a;--blue:#3867d6;--teal:#087e78;--gold:#bd7c18;--rose:#a74751;--shadow:0 16px 40px rgba(28,44,66,.08)}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 "Aptos","Segoe UI","Microsoft JhengHei UI","Noto Sans TC",sans-serif}
+a{color:#245bc2;text-decoration:none}a:hover{text-decoration:underline} .wrap{max-width:1160px;margin:auto;padding:32px 24px 72px}
+.hero{background:linear-gradient(122deg,#14243a 0%,#203b5b 62%,#176d70 100%);color:white;border-radius:26px;padding:42px 44px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:370px;height:370px;border:1px solid rgba(255,255,255,.14);border-radius:50%;right:-85px;top:-190px;box-shadow:0 0 0 35px rgba(255,255,255,.035),0 0 0 75px rgba(255,255,255,.025)}
+.kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#b8d4e8;font-weight:700}.hero h1{font-size:clamp(30px,5vw,50px);line-height:1.15;letter-spacing:-.03em;margin:12px 0 16px;max-width:760px}.hero p{max-width:790px;color:#e0e8f0;margin:0;font-size:18px}.definition{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px;position:relative;z-index:1}.def{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:13px 15px;border-radius:14px;font-size:14px;color:#f2f6fa}.def b{display:block;color:white;font-size:13px;margin-bottom:3px}
+.section{margin-top:30px}.section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin:0 2px 14px}.section h2{font-size:25px;line-height:1.25;margin:0;letter-spacing:-.02em}.section-head p{margin:0;color:var(--muted);font-size:14px}
+.art-verdict{margin-top:18px;padding:16px 19px;border:1px solid #d9c9a1;border-left:5px solid #aa7b19;border-radius:14px;background:#fff8e8;color:#493d23;font-size:14px}.art-verdict b{color:#302710}.art-verdict p{margin:4px 0 0}.recommend{background:#e8f3f2;border:1px solid #c7e2df;padding:22px 24px;border-radius:18px;display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}.recommend h2{margin:0 0 6px;font-size:23px}.recommend p{margin:0;color:#394c56}.badge{display:inline-block;background:#d1e9e5;color:#176660;padding:5px 10px;border-radius:99px;font-weight:700;font-size:12px;letter-spacing:.03em}.cta{white-space:nowrap;background:var(--teal);color:white;padding:11px 16px;border-radius:11px;font-weight:700}.cta:hover{color:white;text-decoration:none;background:#066b66}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.group-label{grid-column:1/-1;margin:12px 2px -4px;font-size:17px;color:#435366}.card{background:var(--card);border:1px solid var(--line);border-radius:19px;box-shadow:var(--shadow);overflow:hidden}.card.primary{grid-column:1/-1}.card.ruinseed{order:-1}.card-top{padding:22px 24px 10px}.card h3{font-size:23px;line-height:1.25;margin:9px 0 5px}.subtitle{color:var(--muted);font-size:14px;margin:0}.chips{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0}.chip{background:#eef2f6;color:#354457;border-radius:99px;padding:4px 9px;font-size:12px;font-weight:650}.chip.green{background:#e5f4ec;color:#216940}.chip.gold{background:#fff3dd;color:#81570d}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:0 20px 18px}.gallery.two{grid-template-columns:repeat(2,1fr)}.gallery img{width:100%;height:178px;object-fit:cover;object-position:top;border-radius:10px;background:#e5e9ee;border:1px solid #e6ebf0}.gallery .wide{grid-column:span 2}.caption{color:var(--muted);font-size:12px;padding:0 24px 8px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;padding:0 24px 18px}.fact{padding:10px 0;border-top:1px solid #edf0f3}.fact b{display:block;font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:3px}.fact span{font-size:14px}.card-body{padding:0 24px 22px}.card-body p{margin:0 0 12px}.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.links a{display:inline-flex;padding:7px 11px;border:1px solid #dbe3ec;border-radius:9px;font-size:13px;font-weight:650;background:#fff}.callout{padding:12px 14px;border-radius:11px;background:#f4f7fa;border-left:3px solid var(--blue);font-size:14px;margin-top:13px}.callout.warn{background:#fff8eb;border-left-color:var(--gold)}
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:14px 24px 20px}.metric{background:#f5f7fa;border-radius:12px;text-align:center;padding:11px 8px}.metric strong{display:block;font-size:19px;color:var(--navy)}.metric small{font-size:11px;color:var(--muted)}
+.compare{width:100%;border-collapse:collapse;background:white;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);font-size:14px}.compare th,.compare td{text-align:left;vertical-align:top;padding:13px 15px;border-bottom:1px solid var(--line)}.compare th{background:#eaf0f5;font-size:12px;color:#435366;letter-spacing:.04em}.compare tr:last-child td{border-bottom:0}.compare td:first-child{font-weight:700;white-space:nowrap}
+.art-table-wrap{overflow-x:auto;margin-top:12px}.art-table{width:100%;border-collapse:collapse;background:#fff;border-radius:14px;overflow:hidden;font-size:13px}.art-table th,.art-table td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}.art-table th{background:#eaf0f5;color:#435366;font-size:12px}.art-table tr:last-child td{border-bottom:0}.art-table .group-row th{background:#f3f6f9;color:#394b60;text-align:left;font-size:13px;padding:10px 12px;border-top:1px solid var(--line)}.art-status{white-space:nowrap;font-weight:750}.art-pass{color:#216940}.art-fail{color:#9a3930}.art-exception{color:#81570d}
+.rubric{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.rubric article{background:white;border:1px solid var(--line);border-radius:15px;padding:17px 18px}.rubric h3{font-size:16px;margin:0 0 6px}.rubric p{font-size:13px;color:var(--muted);margin:0}.weight{display:inline-block;color:var(--blue);font-weight:800;font-size:13px;margin-bottom:6px}
+.footer{margin-top:32px;border-top:1px solid #dce2e8;padding:18px 2px;color:var(--muted);font-size:13px;display:flex;justify-content:space-between;gap:18px}.sources{font-size:13px;color:var(--muted)}
+@media(max-width:760px){.wrap{padding:16px 13px 42px}.hero{padding:28px 23px}.definition,.cards,.rubric{grid-template-columns:1fr}.card.primary{grid-column:auto}.recommend{grid-template-columns:1fr}.cta{justify-self:start}.gallery,.gallery.two{grid-template-columns:repeat(2,1fr)}.gallery img{height:145px}.metrics{grid-template-columns:repeat(2,1fr)}.facts{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:5px}.compare{font-size:12px}.compare th,.compare td{padding:9px 8px}.footer{display:block}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+  <div class="kicker">模型比較提案 · 2026.10.07</div>
+  <h1>一次交代，AI 自己做到交件</h1>
+  <p>候選不必先有多模型對照。你會用同一題自行比較模型；這份檢閱只挑任務本身有足夠難度、並有可信成品可看，能測出自主完成上限差距的遊戲。每次只給一則使用者任務，之後讓 AI 自己規劃、測試、修正，最後只驗收交付成品。</p>
+  <div class="definition">
+    <div class="def"><b>使用者輸入</b>每個模型收到同一份完整遊戲 brief 一次</div>
+    <div class="def"><b>AI 可做的事</b>自行測試、除錯、重做、使用工具與代理</div>
+    <div class="def"><b>驗收對象</b>只評 AI 最後交付的 playable build</div>
+  </div>
+</header>
+<div class="art-verdict"><b>使用者美術驗收紀錄（2026-10-07）</b><p>美術合格：Kart Blitz、Pelican Bicycle、OneShotGTA：Palm Bay／Golden Hour、Void Explorer。Void Explorer 的主要通過理由是任務提示詞含美術精修指引。BioNeural：美術不合格，但整體遊戲品質各項已達遊玩程度。Fable Cities：無法確認，列為例外。其餘 22 款當時已列遊戲作品美術不合格。下表逐一列出已評作品；後續新增作品尚未評價，不沿用這次判定。美術與玩法、系統及可玩性分開記錄。完整驗收紀錄見 <a href="ai-game-research/records/E0008.md">E0008</a>。</p></div>
+
+<section class="section" id="user-art-evaluations">
+  <div class="section-head"><h2>你已評價過的作品美術</h2><p>共 28 款：4 款合格、23 款不合格、1 款無法確認</p></div>
+  <p class="sources">下列 28 款都已納入你的美術評價範圍：前六款是你逐項點名或補充理由的作品；其餘 22 款依你「當時頁面上的其他作品美術都不合格」這項整體意見列名。因此你可以在此確認每一款目前記錄的判定；分組只區分回饋方式，不表示後 22 款尚未評價。表外後續新增作品仍是待評。</p>
+  <div class="art-table-wrap"><table class="art-table"><thead><tr><th>作品</th><th>你的美術判定</th><th>判定來源／補充說明</th></tr></thead><tbody>
+    <tr class="group-row"><th colspan="3">你逐項點名或補充過的評價（6 款）</th></tr>
+    <tr><td><a href="ai-game-research/records/G0080.md">Kart Blitz｜G0080</a></td><td class="art-status art-pass">合格</td><td>使用者明確判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0117.md">Pelican Bicycle｜G0117</a></td><td class="art-status art-pass">合格</td><td>使用者明確判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0188.md">OneShotGTA：Palm Bay／Golden Hour｜G0188</a></td><td class="art-status art-pass">合格</td><td>使用者明確判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0226.md">Void Explorer｜太空至地表的連續探索｜G0226</a></td><td class="art-status art-pass">合格</td><td>你補充主要原因是任務提示詞含美術精修指引。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0026.md">BioNeural｜G0026</a></td><td class="art-status art-fail">不合格</td><td>你補充遊戲各項品質都達遊玩程度。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0193.md">Fable Cities｜G0193</a></td><td class="art-status art-exception">無法確認／例外</td><td>不歸入合格或不合格。</td></tr>
+    <tr class="group-row"><th colspan="3">你對當時頁面其餘遊戲作品的整體評價（22 款）</th></tr>
+    <tr><td><a href="ai-game-research/records/G0047.md">Dead Signal: Exclusion Zone｜G0047</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0049.md">Diablo-style ARPG｜G0049</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0191.md">Fable Theft Auto 5.1｜G0191</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0194.md">NOVA LANCER｜G0194</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0195.md">FALL LINE｜G0195</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0201.md">Call of Duty-Style Browser FPS Brief｜G0201</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0203.md">CrossFire: Transport Ship｜G0203</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0204.md">QQ Speed 3D Drift｜G0204</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0205.md">Happy Wheels One-Level Replica｜G0205</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0206.md">GPT-6 Astra Smash Karts Arena｜G0206</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0207.md">Shift Zero: Rifle Assembly and Alien Factory FPS｜G0207</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0209.md">DASH / DINNER｜G0209</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0211.md">Afterlight｜G0211</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0214.md">SUNBREAK — Downhill Club｜G0214</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0221.md">FROM ZERO｜G0221</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0223.md">DEAD AHEAD｜G0223</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0224.md">Tank Rush｜G0224</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0225.md">Hollowflux｜G0225</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0230.md">Drone Backlash｜G0230</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0233.md">No Man's Sky Planet Landing｜G0233</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0237.md">Rubberhose Ruckus｜G0237</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+    <tr><td><a href="ai-game-research/records/G0242.md">Phantasy Codex Adventure｜G0242</a></td><td class="art-status art-fail">不合格</td><td>使用者對當時頁面其餘遊戲作品的整體判定。</td></tr>
+  </tbody></table></div>
+  <p class="sources">未列入本表的後續新增遊戲尚未由使用者評價；依據完整紀錄 <a href="ai-game-research/records/E0008.md">E0008</a>。</p>
+</section>
+
+<section class="section" id="matched-game-builds-b0055">
+  <div class="section-head"><h2>同題比較：GPT-6.1 Sol 與 Sonnet 5.5 的六個 playable build</h2><p>三份相同任務、六款可直接遊玩的成品，並有逐題測試與作者手動遊玩發現；所有新畫面均待你評價美術。</p></div>
+  <div class="cards"><article class="card primary">
+    <div class="card-top"><span class="badge">作者報告：2026-09-30 · xhigh · 不同 harness · 各模型／任務 N=1</span><h3>RPG／Kart／FPS 六款同題輸出｜B0055</h3><p class="subtitle">六款公開 source 與 GitHub Pages playable builds；每款 machine tests 10/10，但作者手動遊玩仍發現遊戲問題。</p><div class="chips"><span class="chip">相同逐字任務</span><span class="chip">可玩 build 與 source</span><span class="chip">自動驗收＋手動 QA</span><span class="chip gold">六款美術待你評價</span></div></div>
+    <div style="padding:0 20px 18px"><iframe title="GPT-6.1 Sol 與 Sonnet 5.5 的六款遊戲對照與實玩入口" src="https://haruka8846.github.io/newmodel-games/" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:780px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div>
+    <div class="facts"><div class="fact"><b>六個成品可直接開啟</b><span><a href="https://haruka8846.github.io/newmodel-games/sonnet-5.5/rpg/">Sonnet RPG</a> · <a href="https://haruka8846.github.io/newmodel-games/gpt-6.1-sol/rpg/">Sol RPG</a> · <a href="https://haruka8846.github.io/newmodel-games/sonnet-5.5/kart/">Sonnet Kart</a> · <a href="https://haruka8846.github.io/newmodel-games/gpt-6.1-sol/kart/">Sol Kart</a> · <a href="https://haruka8846.github.io/newmodel-games/sonnet-5.5/fps/">Sonnet FPS</a> · <a href="https://haruka8846.github.io/newmodel-games/gpt-6.1-sol/fps/">Sol FPS</a></span></div><div class="fact"><b>作者手動試玩記錄</b><span>六個 build 都通過公開的 10 項機器檢查；作者仍觀察到 Sol FPS 敵人不射擊、Sol kart 轉向相反／單一橢圓賽道、Sonnet kart 對手較弱，以及 RPG 地城偏暗。功能測試分數不能取代實際通關、玩法完整度或美術判斷。</span></div><div class="fact"><b>獨立機器重跑</b><span>本研究在 Linux Chromium 用原版 grader 重跑兩款 RPG，兩者 10/10、無 browser errors。Kart／FPS 因 CDN 憑證及 WebGL/D3D11 測試環境限制尚未取得有效結果；不將環境載入失敗視為遊戲失敗。</span></div><div class="fact"><b>一次委託證據</b><span>作者稱各題只做一個起始 run、模型自改且人手沒有直接修 code；機器失敗項會回饋至多五輪。repo 沒有完整 session，無法查回饋是否全自動或使用者是否曾提供指示；工具環境不同，不能用作公平模型排名。</span></div></div>
+    <div class="card-body"><div class="callout warn">美術、真實可玩性、系統完整度、一次委託條件和 evidence strength 分開評。這裡只記錄作者報告與公開 artifact；六款畫面都等你直接判斷。</div><div class="links"><a href="https://haruka8846.github.io/newmodel-games/">開啟作者比較頁與全部遊戲</a><a href="https://github.com/haruka8846/newmodel-games/tree/main/tasks">讀三份共同任務</a><a href="https://github.com/haruka8846/newmodel-games/tree/main/tests">讀驗收規格</a><a href="ai-game-research/records/B0055.md">完整研究紀錄 B0055</a><a href="ai-game-research/search/S-20261007-53-frontier-model-github-game-artifacts.md">S53 原始查核</a></div></div>
+  </article></div>
+</section>
+
+<section class="section" id="itsy-bitsy-spider-g0266">
+  <div class="section-head"><h2>短循環自主 QA 副測：Itsy Bitsy Spider｜GPT-6 Astra</h2><p>有完整凍結任務與可玩輸出；作者標示 95.5 分，但 Astra run 的流程狀態仍待核實，且此 small game 不作完整遊戲上限主測。</p></div>
+  <div class="cards"><article class="card primary">
+    <div class="card-top"><span class="badge">GPT-6 Astra high · run 日期 2026-09-24 · 作者分數</span><h3>Itsy Bitsy Spider V3｜G0266</h3><p class="subtitle">牆面爬行、耐力、飛蟲、暴雨避難、程序音效與行動控制</p><div class="chips"><span class="chip">公開原始 frozen prompt</span><span class="chip">成品明列自主完整 playtest</span><span class="chip gold">單一短循環，不是上限主測</span><span class="chip gold">美術待你評價</span></div></div>
+    <div style="padding:0 20px 18px"><iframe title="GPT-6 Astra Itsy Bitsy Spider 實際遊戲 build" src="https://game-bench.piccini.app/games/gpt-6-astra-20260924/" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen" style="display:block;width:100%;height:640px;border:1px solid #d9e0e8;border-radius:12px;background:#f2f0e6"></iframe></div>
+    <div class="facts"><div class="fact"><b>凍結任務要求</b><span>無盡牆面爬行、移動耗 stamina、飛蟲恢復、2–3 秒雨警、避難洞、漸進難度、桌機與真手機觸控、程序音效、分數／重開；模型需親自在瀏覽器玩到 game over、查效能與修 bug。</span></div><div class="fact"><b>頁面分數（作者提供）</b><span>總分 95.5；Gameplay 92.6、Adherence 99.8、Engineering 96.2、Art 98.5。這些不是本研究獨立測分，也不是使用者的美術驗收。</span></div><div class="fact"><b>流程待查</b><span>榜頁個別 Astra row 標 `processStatus: review`，附註第三次嘗試才通過 process/play，VM-host containment canary 仍未解；故通用 one-shot 無回饋說明不能解除此 run 的 attempt／隔離疑問。沒有完整 trajectory、frozen build hash 或已發布 blind-test 回覆彙總。</span></div><div class="fact"><b>美術與用途</b><span>美術待你直接評價；author Art 98.5 不代替你的標準。這是 short-loop 的自我 QA／mobile／audio 副測，任務自稱 small game，不代表大型完整遊戲系統上限。</span></div></div>
+    <div class="card-body"><div class="callout warn">頁面另有 25 款匿名盲玩流程，要求玩家理解循環、至少死亡與重開，再評 Fun、Onboarding、Engineering、QA、Audio 等面向；目前查到的是評分介面，沒有公開實際玩家結果。不要把它當成已完成盲測。</div><div class="links"><a href="https://game-bench.piccini.app/games/gpt-6-astra-20260924/">直接開啟遊戲</a><a href="https://game-bench.piccini.app/frozen-prompt.md">讀取完整凍結 prompt</a><a href="https://game-bench.piccini.app/blind-tests/">開啟匿名試玩流程</a><a href="ai-game-research/records/G0266.md">完整研究紀錄 G0266</a><a href="ai-game-research/records/B0009.md">Game Bench 方法與版本紀錄 B0009</a><a href="ai-game-research/search/S-20261007-54-player-facing-evaluation-coverage.md">S54 搜尋與核查</a></div></div>
+  </article></div>
+</section>
+
+<section class="section" id="muse-spark-one-shot">
+  <div class="section-head"><h2>近期一次生成樣本：Muse Spark 1.3</h2><p>下列新作品尚未由你評價美術；點作者頁可檢視原任務、成品及更多遊戲內截圖。</p></div>
+  <div class="cards">
+    <article class="card primary">
+      <div class="card-top"><span class="badge">優先重跑候選 · 原任務／遊玩頁公開 · 2026-09-11</span><h3>DUNGEONFALL｜程序地城 3D Roguelike｜G0255</h3><p class="subtitle">Muse Spark 1.3 xhigh · 作者稱單 prompt、736 行、無 follow-up</p><div class="chips"><span class="chip">程序房間／迴圈走廊</span><span class="chip">三階敵人／Boss／掉落成長</span><span class="chip">死亡重開與資源清理</span><span class="chip gold">美術待你評價</span></div></div>
+      <div class="facts"><div class="fact"><b>任務範圍</b><span>8–11 個程序地城房間、通往 Boss／寶藏的探索路線、三種追擊敵人、俯視近戰、藥水／寶箱升級、小地圖、永久死亡及 New Game 重開。</span></div><div class="fact"><b>為什麼值得先看</b><span>程序地圖、戰鬥、敵人、掉落、Boss 勝負循環和重開互相依賴；比短篇小遊戲更能測任務完整度。作者也公開實際 playable build 和多張遊戲內畫面。</span></div><div class="fact"><b>作者報告的限制</b><span>敵人以位移避障但不是完整 A*；轉角追擊時可能暫時卡牆，走廊裝飾和攻擊預備動畫也較少。這些是該次輸出的可見缺陷，適合放進重跑驗收條件。</span></div><div class="fact"><b>證據界線</b><span>一次生成、模型設定及成功描述來自同一位實測作者；沒有 session 匯出或本地獨立重跑。Muse Spark 1.3 不是今天最新型號；新模型比較時重跑相同原任務，記錄當日模型版本。</span></div></div>
+      <div class="card-body"><div class="callout">建議讓模型自行測地圖可達、完整打 Boss、死亡後連續重開數次；你不介入，只驗收最後 build。美術與玩法／系統分開評分。</div><div class="links"><a href="https://www.mdaakibansari.com.np/articles/meta-muse-spark-1-3-dungeon-crawler">開啟原任務、可玩成品與實際遊戲截圖</a><a href="ai-game-research/records/G0255.md">完整研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">互補重跑題 · 2026-09-07</span><h3>Open-World Survival｜程序生存沙盒｜G0257</h3><p class="subtitle">五種生態區 · 採集／製作 · 生存狀態與日夜循環</p><div class="chips"><span class="chip">第一人稱 3D 探索</span><span class="chip">資源到工具／建物製作</span><span class="chip gold">美術待你評價</span></div></div>
+      <div class="facts"><div class="fact"><b>任務範圍</b><span>程序地形、生態區、樹／石／莓果採集、飢餓／體力、六格 hotbar、四種配方、放置預覽、動態日夜、死亡重開。</span></div><div class="fact"><b>主要缺口</b><span>沒有野外敵人或聲音，也沒有刷新頁面後的持續存檔；它是高系統密度 sandbox，不應把大地圖等同長流程完整遊戲。</span></div><div class="fact"><b>作者報告</b><span>Muse Spark 1.3、一次生成／零後續修補、793 行。頁面有原 prompt、可玩的 demo 和多張場景截圖；流程仍未有獨立 session 核實。</span></div><div class="fact"><b>怎麼用</b><span>測探索、生存狀態、採集／製作與時間光照的整合；和 DUNGEONFALL 搭配可比較不同完整遊戲循環。</span></div></div>
+      <div class="card-body"><div class="links"><a href="https://www.mdaakibansari.com.np/articles/meta-muse-spark-1-3-open-world-survival-game">開啟原任務、可玩成品與實際遊戲截圖</a><a href="ai-game-research/records/G0257.md">完整研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">官方實際 run 畫面 · 校準參考，不列上限主測</span><h3>Muse Spark 1.3 Crossy Road｜G0254</h3><p class="subtitle">Meta one-shot cookbook · 使用 Kenney 角色與載具模型</p><div class="chips"><span class="chip">模型供應商實際輸出圖片</span><span class="chip">單 prompt、無外層修補</span><span class="chip gold">美術待你評價</span></div></div>
+      <div class="gallery two"><a href="https://dev.meta.ai/docs-assets/one-shot-game-dev/02_gameplay.png"><img src="https://dev.meta.ai/docs-assets/one-shot-game-dev/02_gameplay.png" alt="Meta 官方 Muse Spark 1.3 Crossy Road 一次生成 run 的實際遊戲畫面" loading="lazy"></a><a href="https://dev.meta.ai/docs-assets/one-shot-game-dev/01_start_screen.png"><img src="https://dev.meta.ai/docs-assets/one-shot-game-dev/01_start_screen.png" alt="同一 run 的開始畫面與角色選擇" loading="lazy"></a></div>
+      <div class="caption">Meta 官方說明這兩張圖片出自一次實際 run。任務用 Kenney 角色／車輛／火車素材，並預載 AGENTS.md；因此是實際 3D 輸出參照，不代表純空白環境或無素材單次提示。</div>
+      <div class="card-body"><div class="links"><a href="https://dev.meta.ai/docs/cookbook/one-shot-game-dev">查看官方完整 prompt、環境和生成步驟</a><a href="ai-game-research/records/G0254.md">完整研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">技術副測 · 不列完整遊戲主測</span><h3>Voxel Sandbox｜破壞式建造與區塊網格｜G0256</h3><p class="subtitle">59,345 方塊 · 分塊更新 · 第一人稱挖掘／放置</p><div class="chips"><span class="chip">高密度 WebGL／效能壓力</span><span class="chip gold">玩法沒有資源或勝負閉環</span><span class="chip gold">美術待你評價</span></div></div>
+      <div class="card-body"><p>強項是射線選取、碰撞、方塊操作與分塊效能；但材料無限，缺任務、敵人和完成目標。原頁提供 prompt、live demo 和實際截圖，適合另作技術上限副測。</p><div class="links"><a href="https://www.mdaakibansari.com.np/articles/meta-muse-spark-1-3-voxel-sandbox">開啟原任務與 playable demo</a><a href="ai-game-research/records/G0256.md">完整研究紀錄</a></div></div>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="ridge-run-g0077">
+  <div class="section-head"><h2>近期模型的單關物理與自主 QA 副測：Ridge Run</h2><p>有可玩的 GPT-6.1 Sol 成品與實際遊戲截圖；任務規模不代表完整大型遊戲上限。</p></div>
+  <div class="cards"><article class="card primary">
+    <div class="card-top"><span class="badge">GPT-6.1 Sol · 作者稱 Codex max · run 日期 2026-09-30</span><h3>Ridge Run｜單檔爬坡賽車｜G0077</h3><p class="subtitle">作者報告 57 分 38 秒；以一份 brief 建置、遊玩測試並修正後交付</p><div class="chips"><span class="chip">懸吊與車輛物理</span><span class="chip">完整單關、翻車失敗與重開</span><span class="chip">可直接玩的 HTML build</span><span class="chip gold">美術待你評價</span></div></div>
+    <div class="gallery two"><a href="https://www.bitsminds.com/buildoff-2026-09/hillclimb_sol61_play.jpg"><img src="https://www.bitsminds.com/buildoff-2026-09/hillclimb_sol61_play.jpg" alt="BitsMinds 作者保存的 GPT-6.1 Sol Ridge Run 實際遊戲畫面" loading="lazy"></a></div>
+    <div class="caption">上圖為作者保存的 GPT-6.1 Sol 輸出遊戲畫面；不是使用者美術驗收。</div>
+    <div class="facts"><div class="fact"><b>任務範圍</b><span>單檔、無外部網路資源的 HTML 賽車；包含選單、單一長關、鍵盤／觸控、雙輪懸吊、空中控制、翻車判敗、重開與結算。</span></div><div class="fact"><b>作者報告的 QA</b><span>提交前使用 headless Chrome 測完整賽道、油耗、翻車、重開、多點觸控與畫面截圖；這是作者對流程的描述，沒有公開完整 session。</span></div><div class="fact"><b>作者評分</b><span>Graphics 3/5、physics 4/5、sound 3/5、gameplay 3/5，合計 13/20。這是單一作者 hands-on 評分，不是使用者美術判定；你尚待直接檢視。</span></div><div class="fact"><b>證據限制</b><span>可玩 build、遊戲畫面和作者測試文章公開，但原始 prompt 與完整 session 未公開。作者稱同題 Opus 5.5 得 19/20，然而兩次使用不同 harness，且 Sol run 讀過一般 Codex build memory；不能當嚴格模型排名。</span></div></div>
+    <div class="card-body"><div class="callout warn">這是有實物可檢查的單關物理／自主 QA 副測。五段路面與約 900 公尺的賽道能測車輛操控和重玩閉環，但內容量及跨系統深度有限，不取代長流程主測。新作品美術仍待你評價。</div><div class="links"><a href="https://www.bitsminds.com/buildoff-2026-09/hillclimb_sol61.html">直接玩 GPT-6.1 Sol build</a><a href="https://www.bitsminds.com/buildoff-2026-09/hillclimb_sol61_play.jpg">開啟實際輸出截圖</a><a href="https://www.bitsminds.com/news/claude-opus-5-5-vs-gpt-6-1-sol-hill-climb-2026">閱讀作者 hands-on 測試</a><a href="ai-game-research/records/G0077.md">完整研究紀錄</a><a href="ai-game-research/search/S-20261007-47-latest-model-one-prompt-game-runs.md">S47 查詢與證據限制</a></div></div>
+  </article></div>
+</section>
+
+<section class="section" id="sonnet-battle-royale">
+  <div class="section-head"><h2>近期高系統一次生成題種子：Sonnet 5.5 Battle Royale</h2><p>原任務與實玩錄影可看；作者流程自述，尚無 playable build 或 session 可獨立核實。</p></div>
+  <div class="cards"><article class="card primary"><div class="card-top"><span class="badge">高複雜度重跑題種子 · 2026-09-29 · 作者自述 one-shot</span><h3>Fortnite-style Battle Royale｜G0258</h3><p class="subtitle">Claude Sonnet 5.5 · 約 2 小時 54 分鐘（作者報告）· 445 字元 prompt</p><div class="chips"><span class="chip">第三人稱射擊與敵方 bot</span><span class="chip">武器／生命／護盾／背包</span><span class="chip">牆與斜坡建造</span><span class="chip">縮小安全區</span><span class="chip gold">美術待你評價</span></div></div><div class="facts"><div class="fact"><b>原任務</b><span>第三人稱移動、瞄準、射擊、換彈；敵方 bot、武器拾取、生命與護盾、背包、小地圖；建牆／斜坡，以及迫使玩家接近的縮圈。</span></div><div class="fact"><b>影片可以檢視</b><span>約 42 秒的實際遊戲片段，能看見角色、草地與城鎮環境、射擊介面和 HUD。影片不是可玩的 build，也不能證明每個 prompt 功能都正常。</span></div><div class="fact"><b>為何列重跑題</b><span>戰鬥、物品狀態、建造和縮圈必須形成一局遊戲循環；這比簡單射擊 demo 更能測系統整合與 AI 自我修正。</span></div><div class="fact"><b>證據限制</b><span>模型、一次生成和耗時由創作者自述；無 source、可玩 build、完整 session 或獨立測試。因此不列為已驗證的一次交付成績。</span></div></div><div class="card-body"><div class="callout">重跑時實測 bot 戰鬥、拾取後狀態變化、建造生效、縮圈傷害、勝敗結算及再開局。新作品美術尚未由你評價。</div><div class="links"><a href="https://jasonzhu.ai/en/prompts/claude-opus-5-5/2104779190277181699">檢視原 prompt 與實玩影片</a><a href="ai-game-research/records/G0258.md">完整研究紀錄</a><a href="ai-game-research/search/S-20261007-42-frontier-model-high-complexity-runs.md">S42 查詢與排除紀錄</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="recommend" style="background:#eef1fa;border-color:#d7dcef">
+    <div><span class="badge" style="background:#f7e7e4;color:#9a3930">美術不合格（使用者判定）</span><h2>THE NINTH BELL｜GPT-6.1 Sol Max／GPT-6 Astra Max</h2><p>目前找到最接近你條件的新候選：公開基準明訂同一 prompt、one-pass、不得人工修整；實際成品是可玩的第一人稱 3D 恐怖 roguelike，包含修道院探索、戰鬥、地圖、角色資源與多層下降。使用者已判定本頁 THE NINTH BELL 的美術不合格；這不影響它作為一次性 3D 恐怖 roguelike 任務的系統重跑題。</p><p style="margin:10px 0 0;color:#394c56;font-size:14px"><b>先看實際 build：</b>兩版都有鐘樓修道院、標題字和 HUD；進入遊戲後再看場景細節、操作與戰鬥。bench 作者個人排名把 Sol Max 列第 6、Astra Max 列第 5、Opus 5.5 Max 列第 1，這不是正式盲測，也不是推薦理由。該 benchmark 不記錄 AI 自主修正流程；你重跑時可保留一則 brief、允許 agent 自測修正。</p></div>
+    <div style="display:flex;flex-direction:column;gap:9px"><a class="cta" style="background:#465ba4" href="https://chojondocho.github.io/single-html-game-bench/codex-gpt-6-1-sol-max.html">親自玩 GPT-6.1 Sol Max 版 →</a><a class="cta" style="background:#65738f" href="https://chojondocho.github.io/single-html-game-bench/codex-gpt-6-astra-max.html">並排玩 GPT-6 Astra Max 版 →</a><a class="cta" style="background:#65738f" href="https://chojondocho.github.io/single-html-game-bench/claudecode-opus-5-5-max.html">並排看 THE TALLOW DEEP →</a><a class="cta" style="background:#087e78" href="https://claude.ai/artifact/PFZaJiiXukDjHaU9Nbv65m">對照 Kart Blitz →</a></div>
+  </div>
+</section>
+
+<section class="section" id="fusepoint">
+  <div class="section-head"><h2>單一任務後自主迭代的完整遊戲案例：Fusepoint</h2><p>這個案例最直接符合「你交一次任務，AI 自行修正，最後只驗收成品」的流程；並非單次模型呼叫。</p></div>
+  <div class="cards"><article class="card primary">
+    <div class="card-top"><span class="badge">一份初始 PRD · 70+ 輪自主建置 · 有正式論文和公開遊戲影片</span><h3>Fusepoint｜敘事型單人 FPS｜G0263</h3><p class="subtitle">Codex CLI + GPT-5.6-Sol high · Godot 4.7 · 上海人工智慧實驗室案例</p><div class="chips"><span class="chip green">人類只處理網路／API 中斷</span><span class="chip">拆彈任務／三個遭遇區</span><span class="chip">自主規劃、實作、QA 循環</span><span class="chip gold">美術尚待你評價</span></div></div>
+    <div style="padding:0 20px 12px"><video controls preload="none" poster="https://flesymeb.github.io/HarnessOfHarness/assets/figures/fusepoint-real-gameplay-poster.jpg" style="display:block;width:100%;max-height:560px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"><source src="https://flesymeb.github.io/HarnessOfHarness/assets/video/fusepoint-real-gameplay-preview.mp4" type="video/mp4">你的瀏覽器無法播放內嵌影片，請使用下方影片連結。</video></div>
+    <div class="caption">官方研究展示中的實際遊戲畫面。論文作者稱其 visuals polished；這不是你的美術驗收，頁面暫列「美術待你評價」。</div>
+    <div class="facts"><div class="fact"><b>原始任務摘要</b><span>五分鐘單人拆彈 FPS：依序攻下兩處控制點，在最終目標完成三階段拆彈；18 名敵人分布於三區（3／5／10），並有成功與炸彈引爆結局。完整 PRD 原文未公開找到。</span></div><div class="fact"><b>自主程度</b><span>論文記錄 70 輪規劃、實作、測試循環。人類只在網路或 API 中斷時恢復服務，沒有介入規劃、實作、除錯、測試或驗收。</span></div><div class="fact"><b>目前能看到什麼</b><span>官方遊戲實玩影片、下載入口與公開 source／部分迭代紀錄。沒有 Fusepoint 專屬數值評分；QA 檢查 live 操作反應、音訊與 3D 資產整合。</span></div><div class="fact"><b>成果界線</b><span>Loop 70 時 81 個 issue 有 16 個未解；公開 repo 後續更新到 Loop 96，仍有 QA 缺口。原始 PRD 與 Loop 70 凍結 build 未找到，因此不能把 evolving repo 誤當成論文截止版。</span></div></div>
+    <div class="card-body"><div class="callout warn">我建議把它列為自主長程流程的強實例，並用現行模型重跑；GPT-5.6-Sol 已非最新模型。它最有價值的是符合「一次交代後退出、由 AI 自行把遊戲補完整」的執行方式。最終驗收時仍要獨立通關，且由你判斧美術。</div><div class="links"><a href="https://flesymeb.github.io/HarnessOfHarness/assets/video/fusepoint-real-gameplay-preview.mp4">看官方實玩影片</a><a href="https://arxiv.org/abs/2609.01481">讀論文與自主介入界線</a><a href="https://github.com/Flesymeb/fusepoint">檢視 source 與迭代紀錄</a><a href="https://drive.google.com/drive/folders/1gch3D5HKa3n3gxM0LNrzubcJxlFFLaXy?usp=sharing">開啟官方遊戲下載入口</a><a href="ai-game-research/records/G0263.md">完整研究紀錄</a><a href="ai-game-research/records/M0028.md">HoH 方法紀錄</a><a href="ai-game-research/search/S-20261007-46-long-horizon-autonomous-game-runs.md">S46 搜尋與核查過程</a></div></div>
+  </article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>新找到的自主修正重跑題</h2><p>把「公開成品」和「一次輸入證據」分開看：這裡有一份流程最吻合的重跑規格，以及兩個現行 GPT-6 Astra 官方可玩參照。</p></div>
+  <div class="cards">
+    <article class="card primary">
+      <div class="card-top"><span class="badge">優先重跑 · 一則任務內允許自主測試／修正</span><h3>DEAD SIGNAL: EXCLUSION ZONE｜殭屍撤離 FPS｜G0047</h3><p class="subtitle">BridgeBench 完整任務規格 · 438 行 · 約 19,740 字 · 提交於 2026-09-04</p><div class="chips"><span class="chip green">8–10 分鐘完整撤離任務</span><span class="chip">槍械／殭屍 AI／任務／經濟</span><span class="chip">明確要求 AI 自主 browser QA</span><span class="chip gold">同規格原作 playable 尚未核實</span></div></div>
+      <div class="facts"><div class="fact"><b>完整玩法</b><span>三個威脅區、守點與狩獵合約、殭屍尋路、三種槍械、彈藥／裝甲／升級經濟、污染倒數、呼叫直升機、守最後一波並實際登機；死亡與逾時可敗北，勝敗後都能重新開始。</span></div><div class="fact"><b>為何難以蒙混</b><span>規格要求牆壁實際擋子彈和攻擊、殭屍避障、獎勵只發一次、升級真的改變武器、地圖反映遊戲位置、提取須玩家到場互動；不是只做有按鈕的展示頁。</span></div><div class="fact"><b>符合你的流程</b><span>只交一份使用者 brief；AI 可在任務內自行規劃、實作、跑實際遊戲、檢查錯誤、測玩法、修正和 polish。最後凍結 build 由你驗收。</span></div><div class="fact"><b>證據界線</b><span>BridgeBench 規格是獨立重跑 challenge，不是 Opus 5.5 或 Sonnet 5.5 作者 run 的原 prompt。Sonnet 5.5 同系列 source 可在本機建置；未證明它使用這份 438 行規格，也沒有完整 session trace。</span></div></div>
+      <div class="card-body"><div class="callout">我的建議：它目前最適合當「複雜規格＋自主 QA」主測；可搭一題更短、更開放的 Claude of Duty prompt，分別看規格執行與模型自行設計能力。長規格把不少設計答案寫得很細，這是此題的限制。</div><div class="links"><a href="https://www.bridgebench.ai/prompts/30220eea-7128-4a4f-abb6-eba65412eb68">閱讀完整 438 行任務 →</a><a href="https://github.com/bridge-mind/sonnet-5-5-zombies-game">看 Sonnet 5.5 source／測試 →</a><a href="ai-game-research/records/G0047.md">完整研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">GPT-6 Astra · 官方可玩輸出 · 多輪引導</span><h3>Hollowflux｜程序地城與水系戰鬥｜G0225</h3><p class="subtitle">七層地城、裝備與 Boss；官方保留建置階段與實際 playable build</p><div class="chips"><span class="chip green">水流影響移動與戰鬥</span><span class="chip">六種武器／成長／交易</span><span class="chip gold">不是一次輸入成果</span></div></div>
+      <div style="padding:0 20px 18px"><iframe title="Hollowflux GPT-6 Astra 實際遊戲預覽" src="https://tideglass-drowned-vein.openai.chatgpt.site/" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:520px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div>
+      <div class="caption">以上為 GPT-6 Astra 的實際遊戲 build。OpenAI 官方建置頁記錄多輪後續提示；這是畫面與玩法參照，不是一次輸入的驗收結果。</div>
+      <div class="card-body"><div class="links"><a href="https://developers.openai.com/showcase/hollowflux">官方 build process</a><a href="https://developers.openai.com/blog/how-to-build-games-with-astra">官方遊戲文章／錄影</a><a href="ai-game-research/records/G0225.md">完整研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">GPT-6 Astra · 官方可玩輸出 · 多輪引導</span><h3>Void Explorer｜太空至地表的連續探索｜G0226</h3><p class="subtitle">2,048 個星系／10,000 多顆程序星球 · 高風險 3D 空間副測</p><div class="chips"><span class="chip green">美術合格（使用者判定）</span><span class="chip green">太空飛行／進大氣／著陸</span><span class="chip">下船探索後返船起飛</span><span class="chip gold">任務／勝負循環較少</span></div></div>
+      <div style="padding:0 20px 18px"><iframe title="Void Explorer GPT-6 Astra 實際遊戲預覽" src="https://void-explorer.openai.chatgpt.site/" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:520px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div>
+      <div class="caption">美術合格是你的判定；你補充主要原因是原任務提示詞含美術精修指引。官方文章另有 gameplay supercut 和遊戲內截圖。模型／正式日期為 GPT-6 Astra／2026-09-04；同文說明有多輪人類指示與反覆修改。</div>
+      <div class="card-body"><div class="links"><a href="https://developers.openai.com/showcase/void-explorer">官方 build process</a><a href="https://developers.openai.com/blog/how-to-build-games-with-astra">看 gameplay 錄影與技術說明</a><a href="ai-game-research/records/G0226.md">完整研究紀錄</a></div></div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="recommend">
+    <div><span class="badge">系統／長流程上限題</span><h2>Ruinseed：完整冒險遊戲的長流程整合</h2><p>518 行任務規格要求程序生成連通世界、三座各異地城、探索與戰鬥、收集符印、解鎖並擊敗最終 Boss，還明訂可達性驗證、美術、動畫、引導與 10–15 分鐘完整流程。它能測系統與流程是否完整；使用者已判定本檢閱頁當時列出的 Ruinseed 美術不合格；仍可依系統與流程完整度評估重跑價值。2026-09-24 同題 run 中，Opus 5.5、GPT-6 Sol、GPT-6 Luna 聲稱單 prompt；Astra 有 continue，應分開計入。</p></div>
+    <a class="cta" href="https://github.com/FrostSource/8bit-ai-arena/blob/master/PROMPT.md">看 Ruinseed 完整任務 →</a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>新找到的長時自主建置強候選</h2><p>兩個不同方向：明確規格下的長程自我 QA，以及開放式一句委託後自行設計完整遊戲。</p></div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-top"><span class="badge">長程自主 QA · 6 小時 brief</span><h3>FALL LINE｜自由滑雪山域</h3><p class="subtitle">Claude Opus 5.5 xhigh · 339 分鐘 · 作者稱零人工介入</p><div class="chips"><span class="chip green">程序山域／滑雪物理</span><span class="chip">競速、技巧賽、存檔</span><span class="chip gold">美術不合格（使用者判定）</span></div></div>
+      <div class="gallery two"><img class="wide" src="https://raw.githubusercontent.com/theolundqvist/frontier-games/main/media/fall-line/preview.webp" alt="FALL LINE 真實遊戲畫面預覽，近期遊戲作品集所保存的截圖" loading="lazy"></div>
+      <div class="caption">作品集提供的實際遊戲預覽；請打開作者可玩 build 親自檢視畫面與玩法。這張圖不代表已通過你的美術門檻。</div>
+      <div class="facts"><div class="fact"><b>任務內容</b><span>一座大型連續雪山、九個落點、滑雪／單板、雪地物理、技巧和著地評分、三類活動、鏡頭／天候與手把操作。</span></div><div class="fact"><b>自主 QA</b><span>prompt 要求 Playwright 示範滑行、定點截圖／錄影、檢查物理數值／FPS／錯誤，反覆修正最弱環節；載入時還會自動示範。</span></div><div class="fact"><b>公開 run</b><span>Claude Code headless 新 session、xhigh、六小時上限；作者稱模型自行停止於 339 分鐘，留下 111 commits，無人回答問題或改碼。</span></div><div class="fact"><b>限制</b><span>任務規格非常密，測的是長時執行複雜要求；以《Steep》作玩法參照。run 條件需公平對齊，作者聲明未獨立稽核。</span></div></div>
+      <div class="card-body"><div class="callout">適合測模型能否長時間維持脈絡、完成運動物理與整個遊戲循環，並根據真實遊玩和截圖自我修正。它與「讓 AI 自己發想遊戲」是不同測量面向。</div><div class="links"><a href="https://nipale-ai.github.io/opus-5-5-overnight-builds/fall-line/">玩實際 build</a><a href="https://raw.githubusercontent.com/Nipale-ai/opus-5-5-overnight-builds/main/briefs/fall-line-prompt-as-sent.md">讀完整 prompt</a><a href="https://github.com/Nipale-ai/opus-5-5-overnight-builds">看 run 條件與紀錄</a><a href="ai-game-research/records/G0195.md">研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">開放式創意擴展 · 一句委託</span><h3>NOVA LANCER｜3D 軌道射擊</h3><p class="subtitle">Claude Opus 5.5 MAX · 約 100 分鐘 · 有自動通關 bot</p><div class="chips"><span class="chip green">三段場景與 Boss</span><span class="chip">僚機／武器／成長</span><span class="chip gold">現行 build 含後續人工修補</span></div></div>
+      <div class="gallery two"><img class="wide" src="https://raw.githubusercontent.com/theolundqvist/frontier-games/main/media/nova-lancer/preview.webp" alt="NOVA LANCER 真實遊戲畫面預覽，近期遊戲作品集所保存的截圖" loading="lazy"></div>
+      <div class="caption">作品集提供的實際遊戲預覽；請打開作者可玩 build 親自檢視畫面與玩法。這張圖不代表已通過你的美術門檻。</div>
+      <div class="facts"><div class="fact"><b>原始委託</b><span>只用一句話請 Opus 做一款「盡可能豐富」的 Star Fox 類遊戲；模型自行決定實際玩法和關卡結構。</span></div><div class="fact"><b>遊戲內容</b><span>夕照海岸、紅岩峽谷、霓虹要塞城串成完整任務；含僚機救援、蓄力鎖定、炸彈、護盾升級、檢查點與機械海龍 Boss。</span></div><div class="fact"><b>自主 QA</b><span>作者稱模型建立逐幀遊戲和自動駕駛 bot，從頭到尾玩過一輪；兩個子代理另做音樂／音效及通訊肖像。</span></div><div class="fact"><b>限制</b><span>作者公開更新紀錄列出發佈後手動修正子彈不顯示及手機 UI bug。線上 build 不是原始 frozen 交件；比較時要重跑並保存模型停止時版本。</span></div></div>
+      <div class="card-body"><div class="callout">適合測模型拿到短而開放的請求時，能否自行設計並交付完整單關作品；遊戲規模仍比長流程 RPG 窄，視覺是否合格由你判斷。</div><div class="links"><a href="https://tanuu5.github.io/nova-lancer/">玩目前公開 build</a><a href="https://github.com/tanuu5/nova-lancer">讀原始 prompt、run 與 bug 更新</a><a href="ai-game-research/records/G0194.md">研究紀錄</a></div></div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>值得拿來測上限的候選</h2><p>依玩法與系統整合難度挑選；現有模型數量、版本新舊只影響參考價值，不決定是否入選。</p></div>
+  <div class="cards">
+
+    <article class="card">
+      <div class="card-top">
+        <span class="badge">互補候選 · 商場動作與雙視角整合</span>
+        <h3>MALL ACTION</h3>
+        <p class="subtitle">8-bit 間諜動作遊戲｜跨模型同題｜有可玩版本、源碼及測試紀錄</p>
+        <div class="chips"><span class="chip green">跨系統整合難度高</span><span class="chip">有可玩成品與測試紀錄</span><span class="chip">玩法類型互補</span></div>
+      </div>
+      <div class="gallery">
+        <img src="https://raw.githubusercontent.com/rlorca/mall-action/opus-5-5/docs/screenshots/mall.png" alt="Opus 5.5 的 MALL ACTION 實際遊戲畫面：多層商場與電梯" loading="lazy">
+        <img src="https://raw.githubusercontent.com/rlorca/mall-action/sonnet-5-5/docs/mall.png" alt="Sonnet 5.5 的 MALL ACTION 實際遊戲畫面：商場走廊" loading="lazy">
+        <img src="https://raw.githubusercontent.com/rlorca/mall-action/gpt-6-1-sol/public/screenshots/mall.png" alt="GPT-6.1 Sol 的 MALL ACTION 實際遊戲畫面：商店走廊與電梯角色" loading="lazy">
+      </div>
+      <div class="caption">以上皆為各模型分支的原始遊戲截圖。畫面構圖不同，只供查看各 build 的實際樣貌，不應直接以截圖評排名。</div>
+      <div class="metrics">
+        <div class="metric"><strong>488 行</strong><small>共用 one-task 規格</small></div>
+        <div class="metric"><strong>6 層</strong><small>多層商場與移動路徑</small></div>
+        <div class="metric"><strong>3+ 模型</strong><small>含 GPT-6.1 / Sonnet 5.5 / Opus 5.5</small></div>
+        <div class="metric"><strong>約 50 分</strong><small>GPT-6.1 Sol 公開紀錄</small></div>
+      </div>
+      <div class="facts">
+        <div class="fact"><b>核心玩法</b><span>穿梭六層商場、使用電梯與手扶梯、進入俯視商店、找齊包裹、避開敵人並逃脫，之後進入更難循環。</span></div>
+        <div class="fact"><b>同時測什麼</b><span>平台移動與俯視探索、敵人與守衛、武器／道具、地圖、狀態切換、分數與升難度、聲音與原創程序美術。</span></div>
+        <div class="fact"><b>自主完成證據</b><span>repo 有共同 prompt、不同模型 branch 和 playable 部署；GPT-6.1 Sol 留有自動化與 Playwright 紀錄。其它模型的測試紀錄較不齊。</span></div>
+        <div class="fact"><b>需要留心</b><span>不同 branch 的 harness、effort 和 QA 記錄不完全對齊。正式重跑時應重新固定執行環境並記錄每個模型的自我修正流程。</span></div>
+      </div>
+      <div class="card-body">
+        <div class="callout">我的判斷：這是強候選之一，尤其適合測橫向動作與俯視探索切換時，狀態和玩法能否接得起來。已有模型分支只是額外參照；你重跑時應按最終 build 評分，另記修正輪數、耗時和成本。</div>
+        <div class="links">
+          <a href="https://rlorca.github.io/mall-action/gpt-6.1-sol/">玩 GPT-6.1 Sol</a><a href="https://rlorca.github.io/mall-action/sonnet-5.5/">玩 Sonnet 5.5</a><a href="https://rlorca.github.io/mall-action/opus-5.5/">玩 Opus 5.5</a><a href="https://github.com/rlorca/mall-action">看 repo 與完整模型清單</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <span class="badge">強力候選 · 即時戰場多系統整合</span>
+        <h3>Armor Alley</h3>
+        <p class="subtitle">直升機動作 × 橫向即時戰略｜GameASG-Bench 官方任務與行為測試</p>
+        <div class="chips"><span class="chip green">高度耦合的即時系統</span><span class="chip">可做自動行為驗收</span><span class="chip gold">下方是原作參考圖</span></div>
+      </div>
+      <div class="gallery two">
+        <img class="wide" src="https://www.schillmania.com/image/content/entries/2013/armor-alley-dosbox-2.png" alt="Armor Alley 原作的 DOSBox 實際遊戲畫面：玩家直升機、地面單位、運補車與戰場 HUD" loading="lazy">
+      </div>
+      <div class="caption">原作實際遊戲畫面，用來看玩法構成；不是 GameASG-Bench 的 AI 生成成品。來源為原作網頁版作者的 DOSBox 示範。</div>
+      <div class="facts">
+        <div class="fact"><b>核心玩法</b><span>玩家一邊直接駕駛直升機偵察、攻擊、空降士兵與補給，一邊花資源生產地面部隊，保護己方運補車推進敵方基地。</span></div>
+        <div class="fact"><b>勝敗閉環</b><span>己方運補車抵達敵方基地獲勝；敵方運補車抵達己方基地則失敗，之後必須能重開或回主選單。</span></div>
+        <div class="fact"><b>系統整合難點</b><span>飛行與碰撞、燃料和彈藥、降落整補、生產佇列、地面單位 AI、碉堡控制、雷達／HUD、暫停與終局狀態需在同一場即時戰局同步。</span></div>
+        <div class="fact"><b>自動驗收</b><span>GameASG-Bench 把遊戲規格與可觀察操作介面交給 agent；agent 可在單一任務中使用工具建置及修正，完成後再由獨立瀏覽器行為測試驗收。</span></div>
+      </div>
+      <div class="card-body">
+        <div class="callout">我的判斷：它應列為強候選。若你想測「AI 能不能把多個互相影響的即時系統做成可玩戰局」，Armor Alley 很有辨別力；在主題上也能補足 Ruinseed 的冒險關卡與 Kart Blitz 的競速物理。</div>
+        <div class="callout warn">證據界線：目前可直接看的圖是原作，不是近期 AI build；GameASG-Bench 的公開模型跑次也不是最新 roster。這不妨礙你拿公開規格重跑現行模型，但評分時要沿用同一套工具／時間和行為測試。</div>
+        <div class="links"><a href="https://raw.githubusercontent.com/areal-project/GameASG-Bench/main/task/armor-alley/game-spec.md">看完整遊戲規格</a><a href="https://github.com/areal-project/GameASG-Bench/tree/main/task/armor-alley">看任務、介面與測試</a><a href="https://www.schillmania.com/content/entries/2013/armor-alley-web-prototype/">看原作畫面與網頁示範</a></div>
+      </div>
+    </article>
+
+    <article class="card primary ruinseed">
+      <div class="card-top">
+        <span class="badge">最廣的完整遊戲壓力測試 · 優先推薦</span>
+        <h3>Ruinseed: The Shattered World</h3>
+        <p class="subtitle">程序生成像素動作冒險｜探索、戰鬥、地城、Boss、完整結局</p>
+        <div class="chips"><span class="chip green">多系統長流程</span><span class="chip">518 行詳細任務</span><span class="chip">可玩成品可檢閱</span></div>
+      </div>
+      <div class="card-body">
+        <p><b>任務規模：</b>建立一個約 10–15 分鐘可通關的完整冒險。玩家穿越森林、濕地、峽谷、海岸等程序生成且彼此連通的地區，找到三座不同地城、取得三枚符印、打開守護者巢穴並擊敗最終 Boss。</p>
+        <p><b>真正拉開差距的地方：</b>不同 seed 要改變世界地形與地城；生成後需驗證所有必要路徑可達。敵人要有不同移動與攻擊方式；玩家有攻擊、閃避、生命、掉落與進度；還要求像素美術、地形轉接、動畫、教學引導與勝利流程彼此一致。</p>
+        <p><b>適合你的測法：</b>把同一份完整 prompt 原樣交給每個模型各一次，給它們相同工具與時間預算；允許同一任務內自行建置、遊玩和修正。最後實際從新遊戲玩到 Boss，檢查不同 seed、地城進出、戰鬥和結局是否成立。</p>
+        <div class="callout warn">原公開成果來自 Opus 5.5、GPT-6 Astra、GPT-6 Sol、GPT-6 Luna；Astra 因額度中斷曾收到一次「continue」。不論既有模型數量，這題的價值在 518 行規格本身；你可用現行模型、統一工具和預算重新跑。</div>
+        <div class="links"><a href="https://github.com/FrostSource/8bit-ai-arena/blob/master/PROMPT.md">看 518 行任務原文</a><a href="https://frostsource.github.io/8bit-ai-arena/">檢閱四個實際成品</a><a href="https://frostsource.github.io/8bit-ai-arena/play.html?game=opus">玩 Opus 5.5 成品</a><a href="https://github.com/FrostSource/8bit-ai-arena">看來源與執行紀錄</a></div>
+      </div>
+    </article>
+
+    <article class="card primary">
+      <div class="card-top"><span class="badge">高系統重跑題 · ARPG 完整閉環</span><h3>Diablo-style ARPG｜G0049</h3><p class="subtitle">城鎮、四層程序地城、裝備成長、Boss 與 AI 自動通關</p><div class="chips"><span class="chip green">任務明確要求自動打通</span><span class="chip">真實 build 截圖</span><span class="chip gold">尚無可直接玩的公開版本</span></div></div>
+      <div class="gallery">
+        <img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/diablo-arpg-opus-5-5.jpg" alt="Opus 5.5 生成的 Diablo-style ARPG 實際 build 截圖" loading="lazy">
+        <img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/diablo-arpg-gpt-6-astra.jpg" alt="GPT-6 Astra 生成的 Diablo-style ARPG 實際 build 截圖" loading="lazy">
+        <img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/diablo-arpg-fable-5-1.jpg" alt="Fable 5.1 生成的 Diablo-style ARPG 實際 build 截圖" loading="lazy">
+        <img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/diablo-arpg-sonnet-5-5.jpg" alt="Sonnet 5.5 生成的 Diablo-style ARPG 實際 build 截圖" loading="lazy">
+      </div>
+      <div class="caption">四張圖是作者頁面連出的模型實際 build 截圖，供你預覽呈現。它們不是本地可玩的遊戲，也不代表任何美術通過判定。</div>
+      <div class="facts"><div class="fact"><b>完整循環</b><span>城鎮出發、下四層隨機地城、探索迷霧、升級角色和技能、蒐集／買賣裝備、挑戰多階段 Boss；死亡須帶懲罰返回城鎮，通關要有勝利收尾。</span></div><div class="fact"><b>多系統整合</b><span>至少五種敵人行為、精英怪、技能魔力／冷卻、稀有度與詞綴、背包格、角色裝備比較、商人、存檔和難度隨深度增加，都需實際互相影響。</span></div><div class="fact"><b>AI 自我驗收</b><span>prompt 明確要求自動化從城鎮打敗 Boss、修復途中問題、確認 Chrome 無 console error，並調到熟悉類型玩家可在約 15–30 分鐘通關。</span></div><div class="fact"><b>證據限制</b><span>作者提供四個真實 build 截圖與部分時間／token／成本，但至少 Sonnet 頁面明示為 native app、沒有 web version；原始 ARPG run 也未像後來測試那樣明確說明零追問、不重跑。</span></div></div>
+      <div class="card-body"><div class="callout">目前我會把它列作最值得用最新模型重跑的 ARPG brief 之一：要求本身是完整產品閉環，且把 AI 自主通關納入交付標準。公開結果只能看截圖，正式比較要由你保存各模型停止時的 playable build，再自行驗收。</div><div class="links"><a href="https://www.aiformortals.co/built-by-pat/build-a-diablo-style-action-rpg-5koom8">看完整原始 prompt 與四張 build</a><a href="https://www.aiformortals.co/blog/sonnet-5-5">看模型執行方式、時間和成本</a><a href="ai-game-research/records/G0049.md">看完整研究紀錄</a></div></div>
+    </article>
+
+    <article class="card primary">
+      <div class="card-top"><span class="badge">新列入高視覺門檻重跑 brief</span><h3>Call of Duty-Style Browser FPS｜G0201</h3><p class="subtitle">Rigged 3D 角色、真動畫、槍械手感、掩體 AI、killcam、完整比賽</p><div class="chips"><span class="chip green">刻意拒絕低階 primitive 人形</span><span class="chip">要求自我遊玩與截圖修正</span><span class="chip gold">原 run 做過 follow-up</span></div></div>
+      <div class="gallery"><img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/fps-nuketown-gpt-astra.jpg" alt="GPT-6 Astra 生成的 browser FPS 實際 build 截圖" loading="lazy"><img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/fps-nuketown-fable-5-1.jpg" alt="Fable 5.1 生成的 browser FPS 實際 build 截圖" loading="lazy"></div>
+      <div class="caption">兩張都是作者原文連出的 AI build 實際輸出；只供你查看呈現，不代表零追問成品、可玩連結或美術通過。</div>
+      <div class="facts"><div class="fact"><b>角色與畫面</b><span>要求 rigged／textured／skinned 人形、真實 locomotion clips、瞄準與移動動畫混合、腳步接地；明確禁止方塊、球體、圓柱拼人形或滑步。</span></div><div class="fact"><b>系統整合</b><span>武器裝配與 loadout、後座／ADS／命中、killfeed、五種 killstreak、會找掩體和換彈的敵人、死亡回放 killcam、重生、計分與完整比賽結果。</span></div><div class="fact"><b>模型自我驗收</b><span>需驗證整場流程、逐段走過地圖避免卡住、測 60fps，並截圖 loadout、出生點、近距離角色、狙擊鏡、命中和 killcam 後檢查修正。</span></div><div class="fact"><b>證據界線</b><span>AI for Mortals 有 GPT-6 Astra 和 Fable 5.1 實際畫面，但作者明說此題是唯一做過 follow-up passes 的 build。最適合把同一規格交給最新模型嚴格重跑。</span></div></div>
+      <div class="card-body"><div class="callout">在新發現裡，這份 brief 最直接把「畫面不能靠低階人形佔位」寫成驗收條件，同時保留完整 FPS 系統。重跑時要把零人類追問、允許 AI 自主測修、凍結最後 build 三件事列清楚；視覺結果仍由你判斷。</div><div class="links"><a href="https://www.aiformortals.co/blog/gpt-6-astra-vs-fable-5-1">讀完整 prompt、截圖與 follow-up 說明</a><a href="ai-game-research/records/G0201.md">看研究紀錄</a></div></div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <span class="badge">視覺對照強 · 第二候選</span>
+        <h3>Backrooms 五模型</h3>
+        <p class="subtitle">第一人稱 3D 恐怖迷宮｜同 prompt｜作者實玩影片與五組成品圖</p>
+        <div class="chips"><span class="chip green">最容易直接比較畫面</span><span class="chip">有影片</span><span class="chip gold">不同原廠工具環境</span></div>
+      </div>
+      <div class="gallery">
+        <img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/backrooms-sonnet-5-5.jpg" alt="Sonnet 5.5 Backrooms 實際輸出截圖" loading="lazy">
+        <img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/backrooms-opus-5-5.jpg" alt="Opus 5.5 Backrooms 實際輸出截圖" loading="lazy">
+        <img src="https://uzgqbjufkfadoprvamcs.supabase.co/storage/v1/object/public/simmonsbench/shots/backrooms-gpt-astra.jpg" alt="GPT-6 Astra Backrooms 實際輸出截圖" loading="lazy">
+      </div>
+      <div class="caption">作者原始遊戲輸出截圖；不是 AI 生成的示意圖。原文另有 Sonnet 5、Fable 5.1 畫面。</div>
+      <div class="facts">
+        <div class="fact"><b>核心玩法</b><span>第一人稱探索程序迷宮，利用聲音、線索和移動躲避怪物，最後找到出口。</span></div>
+        <div class="fact"><b>工作流程</b><span>作者稱各模型各收一個 user prompt，不接受追問、不重跑；可用自家 coding agent 自主測試、修正。</span></div>
+        <div class="fact"><b>公開模型與時間</b><span>Sonnet 5.5：114 分；Opus 5.5：91 分；GPT-6 Astra：28 分。其餘版本與作者估算成本見原文。</span></div>
+        <div class="fact"><b>需要留心</b><span>Claude 使用 Claude Code、Astra 使用 Codex；評分為作者盲玩觀感，未公開統一數值 rubric。</span></div>
+      </div>
+      <div class="card-body">
+        <div class="callout warn">我的判斷：這是補測第一人稱 3D 氛圍、聲音線索和追逐壓力的好題。若主測重點是長流程、多系統和通關閉環，Ruinseed 或 MALL ACTION 的規格更廣；正式重跑時要統一工具環境。</div>
+        <div class="links"><a href="https://www.aiformortals.co/blog/sonnet-5-5">看實測文章、prompt 與 46 分鐘影片</a><a href="https://www.aiformortals.co/builds/backrooms-sonnet-5-5">玩 Sonnet 5.5 版本</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <span class="badge">高難度成品範例 · 賽車系統整合</span>
+        <h3>Kart Blitz</h3>
+        <p class="subtitle">完整卡丁車競速遊戲｜一個模型自主完成｜有實際遊玩與成品畫面</p>
+        <div class="chips"><span class="chip green">玩法系統豐富</span><span class="chip">適合作為上限參照</span><span class="chip gold">一次委託自主開發</span></div>
+      </div>
+      <div class="gallery two">
+        <img src="https://www.nathanonn.com/wp-content/uploads/2026/09/kart-blitz-launch-trailer.gif" alt="Kart Blitz 實際遊戲宣傳片畫面，展示賽道與卡丁車" loading="lazy">
+        <img src="https://www.nathanonn.com/wp-content/uploads/2026/09/06-results.png" alt="Kart Blitz 實際遊戲賽後結果畫面" loading="lazy">
+      </div>
+      <div class="caption">作者公開的遊戲畫面與結果畫面；可從文章查看完整說明及可玩的 Claude Artifact。</div>
+      <div class="facts">
+        <div class="fact"><b>完成內容</b><span>8 條賽道、8 名車手、三種模式、50cc 至 200cc、甩尾加速、13 種道具、11 名 AI 對手，並支援鍵盤、手把與觸控。</span></div>
+        <div class="fact"><b>自主流程</b><span>Sonnet 5.5 Max 約 5 小時完成；Claude Code on the web 自行分派 5 個建置代理、用 Playwright 測試並修正。作者稱全程沒有再輸入提示。</span></div>
+        <div class="fact"><b>實玩證據</b><span>作者報告自己用手機遊玩並跑完比賽；文章有影片、畫面和成品連結。</span></div>
+        <div class="fact"><b>證據範圍</b><span>文章公開單一模型的 prompt、實玩影片與成品，但沒有獨立盲測分數或完整測試明細；可用作高完成度任務與成品參照。</span></div>
+      </div>
+      <div class="card-body">
+        <div class="callout">我的判斷：這是值得直接重跑的完整賽車題。它對物理手感、賽道差異、AI 對手、道具平衡、賽事流程與多種輸入裝置的整合要求很高；文章附的原始 prompt 和實玩結果可當任務設計與成品範例。</div>
+        <div class="links"><a href="https://www.nathanonn.com/sonnet-5-5-one-prompt-game/">看作者完整實測與圖片</a><a href="https://claude.ai/artifact/PFZaJiiXukDjHaU9Nbv65m">開啟可玩成品</a><a href="https://youtu.be/k7oO3ZLmPwE">觀看遊玩影片</a></div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-top">
+        <span class="badge">可重跑的正式基準 · 現有模型偏舊</span>
+        <h3>GameCraft-Bench：Airship Trader</h3>
+        <p class="subtitle">浮空島商人模擬遊戲｜Godot 4｜官方行為回放與量化 rubric</p>
+        <div class="chips"><span class="chip green">驗收方法最明確</span><span class="chip">多系統互相牽動</span><span class="chip gold">要用新模型重新跑</span></div>
+      </div>
+      <div class="gallery two">
+        <img class="wide" src="https://tongxuluo.github.io/gamecraft-bench-website/static/godot/codex55__openworld-airship-trader/index.png" alt="GameCraft-Bench Airship Trader 的 GPT-5.5 成品畫面" loading="lazy">
+      </div>
+      <div class="caption">目前公開的 GPT-5.5 成品截圖；可直接操作官方 build，作為歷史實物參照。</div>
+      <div class="facts">
+        <div class="fact"><b>任務內容</b><span>駕船往返浮空島、看動態價格買賣貨物、管理燃料與庫存、升級船隻；航途中可能遭遇海盜，可戰鬥或付費脫身。</span></div>
+        <div class="fact"><b>怎麼驗收</b><span>官方用固定 JSON 操作軌跡在 1280×720 回放，分項檢查核心玩法、內容深度、功能畫面和美術呈現。</span></div>
+        <div class="fact"><b>已公開基線</b><span>GPT-5.5 / Codex 的公開成品得分 60.40；可把它當歷史基線，不代表現在最佳模型水準。</span></div>
+        <div class="fact"><b>證據範圍</b><span>公開成品是 GPT-5.5 / Codex；分數與互動回放可參考評分方式，並不限制你拿這題重跑現行模型。</span></div>
+      </div>
+      <div class="card-body">
+        <div class="callout">我的判斷：如果你最在意「最後成品有沒有真的完成規格」，這題比純主觀展示更好評。正式比較時可沿用公開題目和固定回放，另讓模型在生成期間自由測試、自我修正，最後只凍結交付版本評分。</div>
+        <div class="links"><a href="https://github.com/FreedomIntelligence/gamecraft-bench/blob/main/tasks/openworld-airship-trader/instruction.md">讀原始任務 brief</a><a href="https://tongxuluo.github.io/gamecraft-bench-website/static/godot/codex55__openworld-airship-trader/index.html">玩 GPT-5.5 基線</a><a href="https://tongxuluo.github.io/gamecraft-bench-website/">看 benchmark 與評分方式</a></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>先看美術與整合：Shift Zero</h2><p>GPT-6 Astra 的公開單次 run：同一個可玩網頁先做槍械部件 3D 組裝展示，再轉入工廠防守 FPS。</p></div>
+  <div class="cards"><article class="card primary"><div class="card-top"><span class="badge">GPT-6 Astra · Codex high effort · 2026-09-04</span><h3>Shift Zero｜槍械組裝展示＋工廠 FPS｜G0207</h3><p class="subtitle">Model test 頁列 1 prompt／1 run｜可直接開啟和操作實際成品</p><div class="chips"><span class="chip green">兩種互動 3D 組裝展示</span><span class="chip">救人／守電／三波敵潮</span><span class="chip gold">美術不合格（使用者判定）</span></div></div><div style="padding:0 20px 18px"><iframe title="Shift Zero 實際 playable 成品預覽" src="https://adam.holter.com/tests/runs/2026-09-04-gpt-6-astra-rifle-factory-alien-invasion/index.html" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:620px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="caption">可互動實際成品：往下瀏覽零件分解／組裝和成品模型，再進入工廠 FPS。使用者已判定美術不合格；此評價不影響其遊戲系統及射擊流程的檢視價值。</div><div class="facts"><div class="fact"><b>委託範圍</b><span>AK-47 和 AR-15 零件沿頁面捲動逐步組合；要求材質、光照、鏡頭與零件動態，再把完成資產重用於瀏覽器 FPS。</span></div><div class="fact"><b>遊戲目標</b><span>工廠被外星人攻擊；救出同事、維持電力、打完三波敵潮；有完整開始／暫停／結束／重開與射擊操作。</span></div><div class="fact"><b>run 證據</b><span>作者 Model test 頁記載 1 prompt／1 run、GPT-6 Astra、Codex high effort，並稱要求模型自主完成與檢查。沒公開完整 agent transcript 或 source repo。</span></div><div class="fact"><b>如何評估</b><span>分開看槍械幾何與材質、組裝轉場、FPS 中資產重用、場景辨識、敵人與同伴狀態、勝負和 restart。brief 要求高質感不等於實際達標。</span></div></div><div class="card-body"><div class="links"><a href="https://adam.holter.com/tests/rifle-factory-alien-invasion/">讀原始任務與 run 紀錄</a><a href="https://adam.holter.com/tests/runs/2026-09-04-gpt-6-astra-rifle-factory-alien-invasion/published-x-2095986388663439614.mp4">看作者錄影</a><a href="ai-game-research/records/G0207.md">研究紀錄</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>城市配送與職涯系統：DASH / DINNER</h2><p>適合以當前模型重跑的系統題備選。它的公開任務將駕駛、路線、訂單、記憶、疲勞與跨日升級放在同一個循環；歷史 run 尚無完整對話稽核。</p></div>
+  <div class="cards"><article class="card primary"><div class="card-top"><span class="badge">GPT-6 Astra／Codex · 作者公開 prompt 和 playable build</span><h3>DASH / DINNER｜G0209</h3><p class="subtitle">第一人稱 3D 城市外送模擬 · 作者頁另列 Node.js tests</p><div class="chips"><span class="chip green">開放城市駕駛／步行</span><span class="chip">門禁碼／食物完整度／疲勞</span><span class="chip gold">無 transcript／首版快照</span></div></div><div class="gallery"><img src="https://raw.githubusercontent.com/MartinDelophy/awesome-gpt-6-astra/main/assets/screenshots/dash-dinner/gameplay.jpg" alt="研究員於 2026-09-21 在 DASH / DINNER 實際成品截取的第一人稱踏板車與城市外送畫面" loading="lazy"></div><div class="caption">這是遊戲實際畫面的存檔截圖，收錄來源記錄標明於 2026-09-21 開啟 playable build 後截取。它展示視角、城市與任務 HUD，使用者已判定美術不合格；點下方按鈕可直接操作目前版本。</div><div class="facts"><div class="fact"><b>任務內容</b><span>完整 prompt 要求第一人稱外送；限時取送、超時／門碼錯誤罰款、速度獎金、踏板車到電動自行車和可升級汽車、疲勞以及宿舍睡到隔日。</span></div><div class="fact"><b>系統整合難點</b><span>路線駕駛與步行互動、取餐／送達、訂單時限、食物品質與小費、門碼記憶、每日工作和休息、經濟與載具升級及存檔，構成一條跨日職涯循環。</span></div><div class="fact"><b>可用證據</b><span>作者頁公開 prompt、GPT-6 Astra／Codex 標示及 playable browser build；目錄研究員接到一張訂單並進入 scooter view。Node.js 測試只有標示，未提供內容或結果；亦未驗完送貨閉環。</span></div><div class="fact"><b>流程限制</b><span>沒公開原始 session、是否有人 follow-up、日期／耗時或首版快照，所以只視為 prompt＋作品參照，不能宣稱已證實是一次自主交付。美術不合格（使用者判定）。</span></div></div><div class="card-body"><div class="callout">重跑建議：把作者頁原 prompt 原樣交給目前模型，允許模型自行測試和修正；結束時驗收至少一筆成功配送、錯誤門碼／食物損壞／疲勞等失敗條件、睡眠跨日及載具升級持久化。</div><div class="links"><a href="https://play.agentgames.dev/g/g_Gkna3a8DsdOR3NCL/index.html">直接玩目前成品</a><a href="https://agentgames.dev/play/dash-dinner">讀作者 prompt 和模型資訊</a><a href="https://github.com/MartinDelophy/awesome-gpt-6-astra/blob/main/assets/screenshots/dash-dinner/SOURCE.md">看截圖來源與檢查範圍</a><a href="ai-game-research/records/G0209.md">完整研究紀錄</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>最新模型玩法輸出：Afterlight｜GPT-6.1 Sol</h2><p>九場 roguelite campaign，可直接操作目前交付版。這裡嵌入的是遊戲實際畫面，不使用作者另外生成的 key art 當成 gameplay 證據。</p></div>
+  <div class="cards"><article class="card primary"><div class="card-top"><span class="badge">GPT-6.1 Sol · Codex desktop · high effort · 2026-10-01</span><h3>Afterlight｜G0211</h3><p class="subtitle">三名角色、九場遭遇、三個守護者 · 約 41 分鐘作者申報</p><div class="chips"><span class="chip green">run 強化＋永久成長</span><span class="chip">鍵盤／觸控／本機存檔</span><span class="chip gold">session／no-follow-up 未核實</span></div></div><div style="padding:0 20px 18px"><iframe title="Afterlight GPT-6.1 Sol 實際遊戲畫面" src="https://play.agentgames.dev/g/g_5bDBTNoVMJLfPNeZ/index.html" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:620px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="caption">實際 playable build：選角、移動閃避、戰鬥、boss、獎勵和存檔都可直接檢閱。作者頁另有 AI 生成 key art，但這個 iframe 展示的是程序 Canvas gameplay；請以遊戲內畫面判斷美術。</div><div class="facts"><div class="fact"><b>任務原文方向</b><span>讓模型自由設計一款原創 progression game，具體要求三角色、三聖所、九 encounter、三 boss、run upgrades、永久成長、程序視覺／音效、觸控、存檔，並自行驗證後發布。</span></div><div class="fact"><b>完成循環</b><span>選角色進入連續戰鬥，邊閃避近戰／彈幕／區域攻擊邊收集資源；勝利後三選一疊加能力，局外將 embers 換永久強化，保存 expedition 後再挑戰。</span></div><div class="fact"><b>用量資訊</b><span>作者頁記錄約 41 分鐘、4.78M 文字 tokens（約 4.49M 為 cached context）。$1.52 是標準 API text-token hypothetical estimate，不是實際花費；排除 ImageGen 與 tools。</span></div><div class="fact"><b>證據限制</b><span>prompt 和 build 公開，但無完整 transcript、first-run hash 或無人 follow-up 確認。key art 是情境插圖，不能用來評 gameplay art；作者 QA 細項也未公開。</span></div></div><div class="card-body"><div class="callout">值得用相同 brief 重跑，以測多角色差異、遭遇節奏、boss、build 隨機性、跨 run 成長和 local save。預先約定至少完整走完一次 boss 流程及重載存檔再驗收。</div><div class="links"><a href="https://play.agentgames.dev/g/g_5bDBTNoVMJLfPNeZ/index.html">直接玩 Afterlight</a><a href="https://agentgames.dev/play/afterlight">查看原始 prompt、模型及 run 資料</a><a href="ai-game-research/records/G0211.md">完整研究紀錄</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>新增開放式上限候選：多人部署與長程物理／成長</h2><p>以下都能直接開啟實際遊戲。作者公開的流程是自述，現行網頁版本可能已在初次交付後更新；請用 playable build 自己驗收美術與手感。</p></div>
+  <div class="cards">
+    <article class="card primary"><div class="card-top"><span class="badge">Opus 5.5 Medium · 作者稱一次任務／單一 5 小時 session</span><h3>BioNeural｜G0026</h3><p class="subtitle">開放選題 × 線上多人 × 可破壞世界 × 伺服器部署</p><div class="chips"><span class="chip green">多系統／全棧整合</span><span class="chip">作者公開原始 prompt</span><span class="chip gold">現行版 1.8，已有後續更新</span></div></div><div style="padding:0 20px 18px"><iframe title="BioNeural 目前實際遊戲頁" src="https://bioneural.de/" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock; microphone" style="display:block;width:100%;height:620px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="caption">使用者判定 BioNeural 美術不合格，但整體遊戲品質各項已達可玩程度。這個 frame 開啟的是目前 BIONEURAL 網站，不是凍結的 1.0 首版。作者稱初版已有多人、bot、破壞地圖、武器、語音與天候；1.1–1.8 後續加入地圖、dedicated servers、5v5、clans 和 shop。用戶後來另下達手機支援要求。現行畫面只供你檢視遊戲，不代表所有功能都出自一次 prompt。</div><div class="facts"><div class="fact"><b>原始任務</b><span>讓模型用 Three.js 自行選題、完成可玩的線上多人遊戲，玩家輸入名字即可和線上玩家同場，並部署至作者網域。</span></div><div class="fact"><b>作者申報流程</b><span>Opus 5.5 Medium 在最多五小時 session 內完成；作者稱未碰電腦。它用到作者既有 Blender／PHP／Node／FileZilla、Cloudflare、Suno 與已登入主機，PC 權限非常寬。</span></div><div class="fact"><b>重跑時固定條件</b><span>對齊所有模型能用的 hosting、網路服務、帳號和本機工具；明確說明是否允許圖像／音樂外部服務；保存 AI 停止時的版本及過程，避免以後續修訂版評一次 run。</span></div><div class="fact"><b>建議定位</b><span>它測開放式產品選擇和多人／部署整合，與固定規格冒險題分開打分。使用者已判定美術不合格；其餘遊戲品質各項達可玩程度。實際同步品質與語音仍需另行檢驗；作者貼文和 patch notes 不是獨立 QA 證明。</span></div></div><div class="card-body"><div class="links"><a href="https://www.reddit.com/r/ChatGPT/comments/1wqd0gg/houston_we_have_a_problem_opus_55/">讀原始任務與作者說明</a><a href="https://bioneural.de/">開啟目前可玩版</a><a href="ai-game-research/records/G0026.md">完整研究紀錄</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">Fable 5.1 Max · 作者申報 415 分鐘／10.07M tokens</span><h3>DEAD AHEAD｜G0223</h3><p class="subtitle">車輛物理 × 殭屍碰撞 × 燃料經濟 × 跨日升級</p><div class="chips"><span class="chip green">作者稱有 Node bot 完整遊玩測試</span><span class="chip">公開原始 prompt／browser build</span><span class="chip gold">no-follow-up 尚無 transcript</span></div></div><div style="padding:0 20px 18px"><iframe title="DEAD AHEAD 實際遊戲畫面" src="https://play.agentgames.dev/g/g_1SsvvP0RL4fwJJal/index.html" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:560px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="caption">這是目前可玩的 build，不是作者凍結的首輪交付快照。若 iframe 無法載入，可開作者遊戲頁；美術與駕駛手感請在實際操作後判斷。</div><div class="facts"><div class="fact"><b>長流程閉環</b><span>燃料耗盡結束當日，按距離／擊殺領錢，回車庫調車與升級，再挑戰同一道路，逐日推進到直升機逃生點。</span></div><div class="fact"><b>真正的整合難點</b><span>剛體車體和彈簧懸吊、坡道／坑洞、油量、三款車輛、六條升級線、敵人和經濟曲線互相作用；不能只做一個直線駕駛片段。</span></div><div class="fact"><b>自動驗收線索</b><span>作者頁稱 Node bot 玩完整日常升級流程、平衡到約第 25 天逃生，並修正火箭穿牆和車輛卡住；沒有公開 bot、trace 或逐步結果。</span></div><div class="fact"><b>模型比較方法</b><span>用同一公開任務，允許同一 run 自己建置／play-test／修正；用固定駕駛策略及經濟起點驗收完整逃脫和存檔，再看失敗重試是否保留合理資源。</span></div></div><div class="card-body"><div class="links"><a href="https://agentgames.dev/play/dead-ahead">玩遊戲並讀 prompt</a><a href="ai-game-research/records/G0223.md">完整研究紀錄</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">Fable 5.1 High · 作者申報 337 分鐘／3.08M tokens</span><h3>FROM ZERO｜G0221</h3><p class="subtitle">極短題材提示，模型自行發明 Roguelite RPG 核心循環</p><div class="chips"><span class="chip green">創作自主性測試</span><span class="chip">可玩版及原始 prompt</span><span class="chip gold">可能承接前文／目前是 v1.6</span></div></div><div style="padding:0 20px 18px"><iframe title="FROM ZERO 實際遊戲畫面" src="https://play.agentgames.dev/g/g_yCQJ5wEa6WmdrBWp/index.html" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:560px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="caption">作者頁目前列 Version 1.6，不能還原最初停止時的交付。prompt 自述「another game」「第五或第六款」，可能帶有先前對話／工作區上下文；要做公平比較，應在乾淨任務中重跑公開 prompt。圖片與音效據作者稱皆由程式生成；實際視覺由你評判。</div><div class="facts"><div class="fact"><b>模型自行設計的循環</b><span>一天八分鐘且固定 seed；死亡後回到當天，金錢／裝備損失，但保留地圖、筆記、已知寶箱和付費傳聞；打敗三首領後移動重生點，推進章節。</span></div><div class="fact"><b>自我測試自述</b><span>Agent Games 頁稱用 headless Chrome 同步模擬完整八分鐘日並截圖。沒有公開 harness 或 session transcript，故只記為作者聲明。</span></div><div class="fact"><b>適合測什麼</b><span>從極少規則自行發明有辨識度的玩法，再把時間、重生、跨日狀態、夥伴、商店與首領進度做成一個可玩的循環。</span></div><div class="fact"><b>重跑注意</b><span>切乾淨上下文，避免「第幾款遊戲」的既有歷史造成模型得到 prompt 以外資訊；交付時凍結結果。不要用後續 build 代表一次輸出。</span></div></div><div class="card-body"><div class="links"><a href="https://agentgames.dev/play/from-zero">玩遊戲並讀 prompt</a><a href="ai-game-research/records/G0221.md">完整研究紀錄</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">較窄副測 · Fable 5.1 Max · 作者申報 169 分鐘</span><h3>Tank Rush｜G0224</h3><p class="subtitle">29 關坦克戰鬥、升級經濟、敵方尋路與難度曲線</p></div><div style="padding:0 20px 18px"><iframe title="Tank Rush 實際遊戲畫面" src="https://play.agentgames.dev/g/g_c-ZGUmM7WAMc1cX9/index.html" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:450px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="facts"><div class="fact"><b>為何保留</b><span>比普通 wave shooter 多出可持續升級、六種敵武器、程序地圖、戰利品階段與隨升級調整的敵人耐久／傷害。</span></div><div class="fact"><b>證據界線</b><span>公開 prompt 和可玩 build；作者描述長 play-test loop 及多個 AI 行為修正，但沒有 session transcript 或無人介入證明。範圍低於主候選。</span></div></div><div class="card-body"><div class="links"><a href="https://agentgames.dev/play/tank-rush">玩遊戲並讀 prompt</a><a href="ai-game-research/records/G0224.md">完整研究紀錄</a></div></div></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>GPT-6 Astra 官方互動作品：TIDAL RUSH — Paradise GP</h2><p>官方作品頁可連到直接遊玩的卡丁車；這是短循環視覺／物理副測，原始 prompt 與生成 session 未公開。美術由你判定。</p></div>
+  <div class="cards"><article class="card"><div class="card-top"><span class="badge">GPT-6 Astra · OpenAI 官方頁連結並標註 Pietro Schirano</span><h3>TIDAL RUSH — Paradise GP｜G0250</h3><p class="subtitle">熱帶海岸卡丁車｜三圈、八位車手、漂移／道具｜可直接玩</p><div class="chips"><span class="chip green">實際互動 build</span><span class="chip">原始遊戲畫面可看</span><span class="chip gold">美術待使用者判定／one-shot 未核實</span></div></div><div class="gallery two"><img class="wide" src="https://raw.githubusercontent.com/MartinDelophy/awesome-gpt-6-astra/main/assets/screenshots/tidal-rush/gameplay.jpg" alt="Tidal Rush 原始互動遊戲 build 畫面，由策展 repo 在瀏覽器檢視時擷取" loading="lazy"></div><div class="caption">這是策展者從公開遊戲 build 擷取的 gameplay 畫面，來源記錄注明可直接開始三圈賽；非外部宣傳圖。請以實際遊戲畫面自行判斷美術。</div><div style="padding:0 20px 18px"><iframe title="Tidal Rush Paradise GP 實際卡丁車遊戲" src="https://tidal-rush-paradise-gp.skirano.chatgpt.site/" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:620px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="facts"><div class="fact"><b>可實際檢視</b><span>賽道、車輛、七名對手、轉向與漂移、道具、三圈賽事 HUD、賽果和重賽。短賽車題不包含長期成長或多遊戲模式。</span></div><div class="fact"><b>證據界線</b><span>OpenAI 官方 Astra 發布頁直接連結作品並標註 Pietro Schirano；有 playable build。沒有原始 prompt、session、工具設定、source 或首版凍結證據，所以不宣稱符合一次輸入後無人介入。</span></div><div class="fact"><b>玩法檢查線索</b><span>OpenAI Developer Community 有使用者回報快速連按 Space 漂移會讓 kart 升空，並附重現步驟。這是社群問題回報，不是獨立品質評測。</span></div><div class="fact"><b>美術判定</b><span>待使用者檢視。新加入作品不繼承 2026-10-07 舊頁面的其他作品美術判斷。</span></div></div><div class="card-body"><div class="callout">可拿來檢視 Astra 的短程競速畫面與物理感；若你覺得畫面達標，它仍應只作副測，長流程主測需另選 Ruinseed、DEAD SIGNAL 等較高系統題。</div><div class="links"><a href="https://tidal-rush-paradise-gp.skirano.chatgpt.site/">直接玩 Tidal Rush</a><a href="https://openai.com/index/gpt-6-astra/">看 OpenAI 官方作品介紹</a><a href="https://community.openai.com/t/gpt-6-astra-launch-website-funny-physics-bug-in-the-astra-kart-racer-web-game/1395580">看漂移升空問題回報</a><a href="ai-game-research/records/G0250.md">研究紀錄與證據限制</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>GPT-6.1 Sol 自主 QA／物理副題：Slipstream</h2><p>可直接操作 GPT-6.1 Sol Extra-high 的 3D 水上滑道賽車。賽道物理、NPC、觸控與自動回歸測試證據相對完整；整體遊戲範圍仍是短賽事，不取代長流程主測。美術待你判定。</p></div>
+  <div class="cards"><article class="card primary"><div class="card-top"><span class="badge">GPT-6.1 Sol · Extra-high · repo 日期代理 2026-09-30</span><h3>Slipstream｜G0143</h3><p class="subtitle">3D 水上滑道競速｜12 名 NPC、坡道、捷徑缺口、Race／Practice</p><div class="chips"><span class="chip green">公開可玩 build 與 source</span><span class="chip">作者記錄完整 Playwright QA 覆蓋</span><span class="chip gold">美術待使用者判定／no-follow-up 未獨立核實</span></div></div><div style="padding:0 20px 18px"><iframe title="Slipstream GPT-6.1 Sol 實際水上滑道賽車" src="https://kjlkurt.github.io/waterslide-game-gpt-6.1-sol/" loading="lazy" referrerpolicy="no-referrer" allow="fullscreen; pointer-lock" style="display:block;width:100%;height:620px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="caption">這是公開 playable build，不是策展圖片。原 repo 沒有收錄遊戲截圖，請直接開啟操作後判斷美術；既有策展 8.5/10 分是對原始碼完整度、機制、run path、測試與模型歸因的評估，不是視覺分數。這款新加入作品不沿用舊頁面作品的美術判定。</div><div class="facts"><div class="fact"><b>作者保存的任務摘要</b><span>做一款可部署 GitHub Pages 的 mobile-first 3D waterslide racing PWA：13 位參賽者、彎道／坡道／缺口捷徑、穩定接觸與 raycast、人格化 NPC、觸控與桌面操作、直橫屏、倒數／暫停／賽果、離線快取與本機存檔。這是作者文件中的 prompt 摘要，不是原始聊天逐字稿。</span></div><div class="fact"><b>賽事與系統</b><span>12 名 NPC 對手；兩個自動起跳坡道、加速帶、checkpoint 和真正缺口捷徑。Race 摔落即 DNF；Practice 可回 checkpoint。NPC 的能力、風險與侵略性會影響超車、跳躍和捷徑決策。</span></div><div class="fact"><b>作者自述 run／QA</b><span>作者稱 0-shot、空白 workspace 起始；README 列 51 分 58 秒、49 次 API 呼叫、約 4.82M tokens、main run 加一個 auto-review child。作者記載 Playwright 測試涵蓋操作、著陸、摔落、捷徑、賽果、NPC 變化、觸控、直橫屏、快取隔離及離線遊玩，也記錄依測試與截圖修正問題；未公開完整 session trajectory。</span></div><div class="fact"><b>美術／範圍定位</b><span>美術待使用者判定；策展資料目前無實際 gameplay screenshot。完成度偏單一賽道 Race／Practice 短循環，沒有長期生涯或持續成長，故定位為 3D 物理／自主 QA 副題。</span></div></div><div class="card-body"><div class="callout">適合重跑時沿用同一任務，讓不同模型自行建置、實際玩捷徑與 checkpoint、跑觸控和離線回歸測試；固定工具／設備預算後，評交付 build 的賽道可讀性、操控、物理、NPC 差異及成功完賽。作者測試紀錄尚未經本研究獨立重跑。</div><div class="links"><a href="https://kjlkurt.github.io/waterslide-game-gpt-6.1-sol/">直接玩 Slipstream</a><a href="https://github.com/KJLKurt/waterslide-game-gpt-6.1-sol/blob/main/progress.md">讀任務摘要與進度紀錄</a><a href="https://github.com/KJLKurt/waterslide-game-gpt-6.1-sol/blob/main/README.md">讀玩法、操作及測試範圍</a><a href="https://github.com/AgentsLoop/awesome-opus-5.5-games/blob/main/games/slipstream/readme.md">看策展資料與評分定義</a><a href="ai-game-research/records/G0143.md">完整研究紀錄與證據界線</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>視覺／物理副測：SUNBREAK — Downhill Club</h2><p>這款不是已核實的一次 prompt 成績；它是值得你檢視的真實 3D 輸出與高整合度重跑題型，特別測高速地形、技巧物理與風格化畫面。</p></div>
+  <div class="cards"><article class="card"><div class="card-top"><span class="badge">GPT-6 Astra · 作者模型歸因貼文 · 原始 prompt／session 未找到</span><h3>SUNBREAK — Downhill Club｜G0214</h3><p class="subtitle">2.3 公里 cel-shaded BMX 下坡賽｜三名 AI 對手｜可看真實遊戲畫面</p><div class="chips"><span class="chip green">程序地形／風格化渲染</span><span class="chip">特技／車手動畫／雨天</span><span class="chip gold">非官方 playable mirror</span></div></div><div class="gallery two"><img class="wide" src="https://raw.githubusercontent.com/Imirushik/sunbreak-downhill-3D-game/main/media/SUNBREAK-showcase-poster.jpg" alt="SUNBREAK Downhill Club 來源 repo 中收錄的遊戲場景畫面；第三方策展者標記為實際可玩場景截圖" loading="lazy"></div><div class="caption">這是作者 repo 收錄、由第三方策展者作過人工畫面檢視的遊戲畫面；策展者評 8.9/10 只代表其視覺印象，不是你的美術判定或 gameplay playtest。repo 沒有作者官方 hosted build；下方可玩連結由第三方以開源碼建置，請把它視為非官方複本。</div><div class="facts"><div class="fact"><b>實際玩法</b><span>高速越野下坡、彎道選線、預壓跳躍、空中技巧、落地評分、boost、碰撞跌倒、checkpoint、ghost 和終點 cinematic replay。</span></div><div class="fact"><b>整合難點</b><span>2.3 公里程序山地、AI 車手、懸吊與抓地物理、車手姿勢與手腳接觸、cel-shader 輪廓、雨天粒子／反射及回放需共用同一賽事狀態。</span></div><div class="fact"><b>可查證的部分</b><span>作者貼文將作品歸因 GPT-6 Astra；repo 提供 source、程式模組、完整玩法說明和十項 browser gameplay/effects checks。沒有 original prompt、完整 session 或 no-follow-up 證據。</span></div><div class="fact"><b>測試定位</b><span>完整的一趟競賽和密集視覺／物理系統，適合視覺與操控副測；主要 loop 仍是單賽道競速，不涵蓋長流程角色成長或多模式冒險。</span></div></div><div class="card-body"><div class="callout">我建議把它列為「你先看畫面後再決定是否拿來重跑」的副測。它的畫面和技術整合有辨識度，但我不把作者模型歸因或第三方截圖分數說成已證實的一次交件或你的美術認可。</div><div class="links"><a href="https://tikgame.org/game/sunbreak/">試玩第三方建置版本</a><a href="https://github.com/Imirushik/sunbreak-downhill-3D-game">看作者原始 repo／source</a><a href="https://github.com/Imirushik/sunbreak-downhill-3D-game/blob/main/media/SUNBREAK-showcase-poster.jpg">開啟原始遊戲畫面</a><a href="https://x.com/Im_IrushiK/status/2096280064019353891">看作者模型歸因貼文</a><a href="ai-game-research/records/G0214.md">完整研究紀錄</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>多人網路系統上限：Smash Karts Arena</h2><p>本批最強系統新候選：一則 GPT-6 Astra 任務、可追主 session、8 人房間與 11 種武器。先看作者的實際遊戲錄影。</p></div>
+  <div class="cards"><article class="card primary"><div class="card-top"><span class="badge">GPT-6 Astra · 公開 trajectory 確認一則遊戲委託</span><h3>Smash Karts Arena｜G0206</h3><p class="subtitle">Codex CLI 0.153.4 · 2026-09-05 · 約 42 分鐘核心建置</p><div class="chips"><span class="chip green">8 人房間／11 種武器</span><span class="chip">WebSocket 服務端權威同步</span><span class="chip gold">沒有一鍵 hosted build</span></div></div><div style="padding:0 20px 18px"><iframe title="Smash Karts Arena 作者實際遊戲錄影" src="https://www.youtube-nocookie.com/embed/3laRe_z_gbI" loading="lazy" referrerpolicy="no-referrer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;width:100%;aspect-ratio:16/9;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="caption">作者上傳的實際遊戲錄影；不是可操作的 hosted build。它展示的是遊戲，不代表完成多人獨立實測；使用者已判定其美術不合格。</div><div class="facts"><div class="fact"><b>原始委託</b><span>單一韓文 task 要求實作 Smash Karts 風格 3D 多人遊戲、遵循遊戲規則／道具／按鍵、先查資料並清楚呈現子彈特效。</span></div><div class="fact"><b>完整遊戲閉環</b><span>三分鐘自由混戰、排行榜、重生保護、賽果與自動下一輪；最多 8 人、11 種武器、bot 補位／練習、房間碼、邀請、觸控及斷線恢復。</span></div><div class="fact"><b>一次委託證據</b><span>385 筆 Codex trajectory 中逐筆確認只有一則真正遊戲 user task、無中途補充。核心 session 約 42 分鐘；曾啟動一個 subagent，但其獨立 transcript 未公開。</span></div><div class="fact"><b>QA 與限制</b><span>repo 列 23 個同步、房間、武器、碰撞、回合和 bot 測試；這是作者的工程測試，不等於真實多人 playtest。沒有一鍵 demo，需本機啟 client/server；對照時要固定 server、工具、bot／真人條件。</span></div></div><div class="card-body"><div class="callout">值得當作多人系統主題的強備選。它把物品戰鬥、同場狀態、伺服器邏輯和回合閉環連在一起，挑戰面與單機 Kart Blitz 不同。成品美術不合格（使用者判定）。</div><div class="links"><a href="https://github.com/amsminn/gpt-6-astra-smash-karts">看 source、prompt 與本機啟動方式</a><a href="https://huggingface.co/datasets/amsminn/smash-karts-multiplayer-trajectory/blob/main/traces/rollout-2026-09-05T17-40-19-01a070b9-c9b8-7d00-8cbf-8fd0416df521.jsonl">查完整主 session</a><a href="ai-game-research/records/G0206.md">研究紀錄</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>近期前沿模型五題遊戲實測｜GPT-6 Astra × Opus 5.5</h2><p>這是作者實際展示的遊戲片段，可直接檢視不同遊戲類型的畫面與互動。原始 prompt、完整 session 和 build 未公開；不能當成已核實的零介入 one-shot 成績。</p></div>
+  <div class="cards"><article class="card primary"><div class="card-top"><span class="badge">2026-09-24 · UE5／C++／Blender · 創作者稱各題使用相同 single prompt</span><h3>五題從 2D 平台一路到 3D Boss 戰｜B0049</h3><p class="subtitle">短實玩影片＋逐題時間／API 成本面板｜五款新作品美術待使用者判定</p><div class="chips"><span class="chip green">平台／賽車／六軸空戰／FPS／Boss</span><span class="chip">可直接看真實遊戲畫面</span><span class="chip gold">原始 prompts／session 未公開</span></div></div><div style="padding:0 20px 18px"><iframe title="GPT-6 Astra 與 Claude Opus 5.5 五題遊戲生成對照影片" src="https://www.youtube-nocookie.com/embed/w4JMLjnY1xY" loading="lazy" referrerpolicy="no-referrer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;width:100%;aspect-ratio:16/9;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div><div class="facts"><div class="fact"><b>五款遊戲</b><span>Rampart 平台遊戲；Apex Circuit 3D 海岸賽車；Void Wing 六軸太空戰；Dead Signal 雪地生存 FPS；Colossus 第三人稱巨人 Boss 戰。</span></div><div class="fact"><b>影片可看什麼</b><span>每題的 build 實玩片段及作者展示的完成時間、首次可玩時間、API 成本與程式碼行數。可從 00:46、04:40、08:24、11:14、15:10 起看各題。</span></div><div class="fact"><b>證據限制</b><span>創作者稱同一 single prompt 對照 Astra／Opus 5.5、UE5 C++ 並在 Blender 做資產；但未找到原始逐字 prompts、完整 session、下載 build/source 或獨立評分規則。這是近期輸出／影片參照，不是已驗證的一次交付排名。</span></div><div class="fact"><b>美術評價</b><span>這五款是新加入的作品，不在 2026-10-07 舊驗收範圍內；目前五款皆待使用者判定。請依遊戲內畫面判斷，不以影片作者評語替代你的標準。</span></div></div><div class="card-body"><div class="callout">我建議先看影片，再決定是否有一個題型值得採用。它很適合作為近期畫面差異和題型靈感來源；如果要正式重跑，必須取得原 prompt，或把自行整理的新任務清楚標為重寫版。</div><div class="links"><a href="https://www.youtube.com/watch?v=w4JMLjnY1xY">在 YouTube 開啟原始影片</a><a href="https://www.skool.com/brendan/new-opus-55-is-insane-for-building-video-games-full-test">查看創作者測試說明</a><a href="ai-game-research/records/B0049.md">研究紀錄與證據限制</a></div></div></article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>近期單句 prompt 的可玩 3D 成品</h2><p>有逐字 prompt、原始碼與實際 build；適合重跑成駕駛、射擊、角色物理題，畫面是否達標仍由你看。</p></div>
+  <div class="cards">
+    <article class="card"><div class="card-top"><span class="badge">程序 3D · 駕駛與角色物理</span><h3>Pelican Bicycle</h3><p class="subtitle">Claude Opus 5.5 · 單句 prompt、source、可玩 build｜G0117</p><div class="chips"><span class="chip green">布料／海面／日夜</span><span class="chip">追魚、14 個成就、5 種鏡頭</span><span class="chip gold">美術合格（使用者判定）</span></div></div><div class="facts"><div class="fact"><b>任務</b><span>一句話請模型盡量發揮能力，做「鵜鶘騎單車」3D 頁面；遊戲設計由模型自行補出。</span></div><div class="fact"><b>玩法／系統</b><span>海岸公路、追魚、踩踏與煞車、變線、跳躍、wheelie、鏡頭、自動巡航；作者稱有程式布料物理與合成配樂。</span></div><div class="fact"><b>證據與限制</b><span>公開 build、prompt、source；作者稱單 session、320 秒 soak test 和子代理修正，但未附原始 session transcript。偏體驗和創意拓展，不是長流程重系統題。</span></div></div><div class="card-body"><div class="links"><a href="https://claude-opus-5-5.riba2534.cn/">玩實際成品</a><a href="https://github.com/chandan0000001/by_opus">看 prompt、source 與作者 QA 說明</a><a href="ai-game-research/records/G0117.md">研究紀錄</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">第一人稱射擊 · Bot 對戰</span><h3>CrossFire: Transport Ship</h3><p class="subtitle">Claude Opus 5.5 · 單句 prompt、source、可玩 build｜G0203</p><div class="chips"><span class="chip green">武器／AI／地圖閉環</span><span class="chip">4v4 至 8v8 bots</span><span class="chip gold">沒有網路多人</span></div></div><div class="facts"><div class="fact"><b>玩法／系統</b><span>貨輪地圖、四種武器、後座和散布、瞄準／換彈、bot 尋路交戰、擊殺紀錄、計分板、難度與畫質設定。</span></div><div class="fact"><b>工程與 QA</b><span>repo 列 18 個模組；作者稱 headless 操作、320 秒壓力測試及子代理檢查。沒有 session transcript 或第三方 QA。</span></div><div class="fact"><b>適合測什麼</b><span>FPS 操控、射擊回饋、bot 對戰和 3D 關卡；原 prompt 開放，模型比較時宜用同一份補充驗收規格。</span></div></div><div class="card-body"><div class="links"><a href="https://claude-opus-5-5-cf-transport-ship.pages.dev/">玩實際成品</a><a href="https://github.com/chandan0000001/by_opus">看 prompt、source 與作者 QA 說明</a><a href="ai-game-research/records/G0203.md">研究紀錄</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">漂移物理 · 四條 3D 賽道</span><h3>QQ Speed 3D Drift</h3><p class="subtitle">Claude Opus 5.5 · 單句 prompt、source、可玩 build｜G0204</p><div class="chips"><span class="chip green">四種地形／賽道幾何</span><span class="chip">漂移加速／nitro／AI 車手</span><span class="chip gold">美術不合格（使用者判定）</span></div></div><div class="facts"><div class="fact"><b>玩法／系統</b><span>夜城急彎、海岸坡道、金字塔跳台、雪地立體交叉；漂移回正 mini-boost、nitro、連續加速、AI 車手與快速重置。</span></div><div class="fact"><b>工程與 QA</b><span>repo 列 15 個模組，稱模型先以俯視預覽檢查賽道，再組 3D 場景；作者流程沒有 session transcript 可獨立確認。</span></div><div class="fact"><b>適合測什麼</b><span>駕駛物理、賽道可讀性、多場景一致性及 AI 對手；比 Kart Blitz 的範圍窄，適合作副題重跑。</span></div></div><div class="card-body"><div class="links"><a href="https://claude-opus-5-5-qqfeiche3d.pages.dev/">玩實際成品</a><a href="https://github.com/chandan0000001/by_opus">看 prompt、source 與作者 QA 說明</a><a href="ai-game-research/records/G0204.md">研究紀錄</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">物理專項副題 · 不作完整遊戲主測</span><h3>Happy Wheels Pogo 長關卡</h3><p class="subtitle">Claude Fable 5 Max · 約兩小時作者自述｜G0205</p><div class="chips"><span class="chip green">ragdoll／載具物理</span><span class="chip">長關卡實玩影片</span><span class="chip gold">無 prompt、source 或公開 build</span></div></div><div class="facts"><div class="fact"><b>作者回報</b><span>單關 Pogo stickman，首通約 25 分鐘；作者玩半小時後才找到傾斜加速 bug。</span></div><div class="fact"><b>測試價值</b><span>長關卡碰撞、失敗重置、速度與操控回歸；重跑可要求 AI 自動玩完整關卡並修正。</span></div><div class="fact"><b>限制</b><span>只有一關，缺原始 prompt、source 和 playable build；作者評語不是客觀品質分數。</span></div></div><div class="card-body"><div class="links"><a href="https://www.reddit.com/r/ClaudeAI/comments/1u29zj2/i_have_created_a_happy_wheels_replica_oneshot/">看原貼與實玩影片</a><a href="ai-game-research/records/G0205.md">研究紀錄</a></div></div></article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>其他高難度遊戲測試題</h2><p>分為「自主開發成品案例」與「正式規格任務」；前者可檢視 AI 實際產出，後者提供正式任務說明，可用同一份內容重新測試不同模型。</p></div>
+  <div class="cards">
+    <h3 class="group-label">自主開發成品案例</h3><article class="card"><div class="card-top"><span class="badge">可玩成品與自主測試紀錄</span><h3>NEON BAY</h3><p class="subtitle">程序城市 3D 駕駛｜Opus 5.5｜有可玩 build、repo 與建置紀錄</p><div class="chips"><span class="chip green">自主測試與修正紀錄</span><span class="chip">城市、交通、追捕、車輛物理</span><span class="chip gold">單一作者樣本</span></div></div><div class="facts"><div class="fact"><b>遊戲規模</b><span>約 310 個路口的程序城市、交通燈／車流／行人、1–5 星通緝與 A* 警車／直升機、7 款車。</span></div><div class="fact"><b>工程難點</b><span>剛體、懸吊、輪胎模型、ABS/TCS、車輛碰撞、道路與橋樑生成，要求物理和程序地形能一起工作。</span></div><div class="fact"><b>自主流程</b><span>作者稱 Opus 5.5 在 Claude Code 的單一 task 約 70 分鐘完成，並自動駕車測試車款、橋、跳台與車庫，修正物理／地形問題。</span></div><div class="fact"><b>範圍缺口</b><span>只有駕駛，沒有徒步、任務、音訊或存檔；沒有外部盲測。可測物理與系統整合，不是完整 GTA 類冒險。</span></div></div><div class="card-body"><div class="callout">我的判斷：這是成品案例中值得優先重跑的一題。它有可玩的 build 和自動測試過程，適合當「3D 物理＋程序世界」副主測；但不涵蓋徒步與完整冒險流程。</div><div class="links"><a href="https://github.com/L1vsun/NEONBAY">看原始 repo 與建置紀錄</a><a href="https://l1vsun.github.io/NEONBAY/">玩實際 build</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">可重跑的 FPS 任務 · 模型版本較早</span><h3>Claude of Duty</h3><p class="subtitle">Three.js 第一人稱射擊｜Opus 5｜有原始 prompt、程式與 playable build</p><div class="chips"><span class="chip green">長程自主建置</span><span class="chip">約 55,000 行</span><span class="chip gold">舊模型／非盲測評分</span></div></div><div class="facts"><div class="fact"><b>整合內容</b><span>FPS 核心、武器、敵人、動畫、程序資產、音效與場景渲染；原作者稱有 11 個系統，並用代理與視覺檢查迴圈。</span></div><div class="fact"><b>可重用性</b><span>原始 prompt、遊戲 repo、作者建置方法說明公開，可原樣交給現行模型重做。</span></div><div class="fact"><b>證據狀態</b><span>作者表示只啟動一個 task、交付後離開；可核對程式與 build，但品質評價不是盲測，成果未達 prompt 宣稱的 AAA 標準。</span></div><div class="fact"><b>限制</b><span>使用 Opus 5（較早版本），且大型程式行數本身不代表遊戲好玩；需以固定實玩流程評最終 build。</span></div></div><div class="card-body"><div class="callout">我的判斷：可作為長程 FPS 生成的壓力題與任務範本，但我會把它排在 NEON BAY、Ruinseed 之後：目前版本較舊，成品品質評價也較弱。</div><div class="links"><a href="https://github.com/mshumer/Claude-of-Duty/blob/main/prompt.md">看原始 prompt</a><a href="https://github.com/mshumer/Claude-of-Duty">看遊戲 repo</a><a href="https://t.co/xixH3xaJGH">看作者建置說明</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">高深度成品 · 一次任務流程待確認</span><h3>LAST COURIER</h3><p class="subtitle">程序 3D 地形配送冒險｜Opus 5.5｜有 playable build 與自動 bot 說明</p><div class="chips"><span class="chip green">系統深度高</span><span class="chip">可玩成品與 source</span><span class="chip gold">一次任務條件未證實</span></div></div><div class="facts"><div class="fact"><b>遊戲規模</b><span>穿越 7 個據點完成配送；載重平衡與摔落損壞、程序地形、河谷架梯、雨蝕、潛行敵人、電池／機體狀態、評級、設置物、存檔與結局。</span></div><div class="fact"><b>自動驗收</b><span>作者說明以路徑檢查和自動 bot 用真實物理從新檔跑到 ending。</span></div><div class="fact"><b>不確定處</b><span>作者未明確證實單一任務且全程無人工介入；repo 也有多日更新，因此不能當作已證實的一次生成案例。</span></div><div class="fact"><b>用途</b><span>可以借它做長流程 3D 任務種子，再另外向每個模型交付同一份固定 brief。</span></div></div><div class="card-body"><div class="links"><a href="https://github.com/tanuu5/last-courier">看 repo 與作者說明</a><a href="https://tanuu5.github.io/last-courier/">玩實際 build</a></div></div></article>
+    <h3 class="group-label">正式任務規格 · 可供各模型重跑</h3><article class="card"><div class="card-top"><span class="badge">3D 跨系統 · 高風險上限題</span><h3>Grand Theft Astro</h3><p class="subtitle">城市動作沙盒｜GameASG-Bench 正式規格與 browser 行為驗收</p><div class="chips"><span class="chip green">人物／載具／任務互鎖</span><span class="chip">完整測試契約</span><span class="chip gold">未找到 AI 成品圖廊</span></div></div><div class="facts"><div class="fact"><b>核心玩法</b><span>步行、駕駛與下車切換；探索、射擊、商店、任務、通緝與警察追捕、死亡重生。</span></div><div class="fact"><b>上限壓力</b><span>3D 碰撞導航、鏡頭、NPC 反應、瞄準、通緝、任務進度、經濟與小地圖共用同一世界狀態。</span></div><div class="fact"><b>限制</b><span>範圍很大，官方單次上限預設 60 分鐘、交付單 HTML；非常適合高風險壓力測試，但需留意任務尺度受限。</span></div></div><div class="card-body"><div class="callout">若要測 3D 城市多系統整合的高難度上限，這題值得優先考慮；目前有強規格與驗收設計，尚無已核實 AI 成品可供比較。</div><div class="links"><a href="https://github.com/areal-project/GameASG-Bench/blob/main/task/grand-theft-astro/target.md">初始任務</a><a href="https://github.com/areal-project/GameASG-Bench/blob/main/task/grand-theft-astro/game-spec.md">完整規格</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">戰術策略官方題 · 規則一致性</span><h3>Ancient Beast</h3><p class="subtitle">六角格回合制戰鬥｜官方規格與測試契約；原作可玩</p><div class="chips"><span class="chip green">合法性／狀態深度</span><span class="chip">有真實原作畫面</span><span class="chip gold">原作圖非 AI 輸出</span></div></div><div class="gallery two"><img class="wide" src="https://raw.githubusercontent.com/FreezingMoon/AncientBeast-Website/master/multimedia/screenshots/v0.3%20Dark%20Forest.jpg" alt="Ancient Beast 原作六角格戰鬥畫面" loading="lazy"></div><div class="caption">原作實際畫面，僅供了解題型；不是 AI build。</div><div class="facts"><div class="fact"><b>核心玩法</b><span>六角格移動、回合佇列、資源限制召喚、不同單位能力、勝負與重開。</span></div><div class="fact"><b>上限壓力</b><span>佔格、距離、能量、召喚成本、技能範圍、狀態效果與勝負條件相互牽動；非法操作需拒絕且保持狀態一致。</span></div><div class="fact"><b>限制</b><span>主要測規則與介面狀態，不測 3D 視聽或即時操作；當戰術方向互補題。</span></div></div><div class="card-body"><div class="links"><a href="https://github.com/areal-project/GameASG-Bench/blob/main/task/ancient-beast/game-spec.md">看遊戲規格</a><a href="https://github.com/areal-project/GameASG-Bench/blob/main/task/ancient-beast/tdd.md">看測試契約</a><a href="https://ancientbeast.com/">玩原作參考</a></div></div></article>
+    <article class="card"><div class="card-top"><span class="badge">3D 即時戰鬥官方題 · 生存循環</span><h3>Bikini Bottom Survivor</h3><p class="subtitle">生存 Roguelite｜GameASG-Bench 正式規格與行為測試</p><div class="chips"><span class="chip green">敵人／升級／節奏閉環</span><span class="chip">即時狀態切換</span><span class="chip gold">未找到 AI 成品圖廊</span></div></div><div class="facts"><div class="fact"><b>核心玩法</b><span>3D 場景移動、敵人生成追擊與接觸傷害、自動瞄準攻擊、擊殺掉經驗、升級暫停並選強化，最後敗北或重開。</span></div><div class="fact"><b>延伸系統</b><span>Boss、防護／變身、任務角色、場景旅行、成就與存檔等長程內容。</span></div><div class="fact"><b>上限壓力</b><span>AI、碰撞、命中、掉落、經驗、升級選單和時間暫停必須連成可玩閉環，避免只做出展示畫面。</span></div></div><div class="card-body"><div class="links"><a href="https://github.com/areal-project/GameASG-Bench/blob/main/task/bikini-bottom-survivor/target.md">初始任務</a><a href="https://github.com/areal-project/GameASG-Bench/blob/main/task/bikini-bottom-survivor/game-spec.md">完整規格</a></div></div></article>
+  </div>
+</section>
+<section class="section" id="s45-benchmark-candidates">
+  <div class="section-head"><h2>官方題庫新篩出的高難度選題與實際成品</h2><p>分開呈現「任務範圍高但尚無 AI 成品」與「有模型實物可看」。以下新作品的美術都還沒有你的判定；GameCraft 的 art 分數只作為公開基準參考。</p></div>
+  <div class="callout"><b>若要實測 3D 上限：</b>Astroman 是這批官方任務裡系統最廣、失敗風險最高的一題；Fast Food Tycoon 的 3D 經營閉環較容易驗收；Grand Theft Astro 是較收斂的 3D 城市題，Tankor Arena 則是範圍更短的戰鬥替代題。GameASG 原始任務包含 target、GDD 與測試契約，是同一份任務包，必須在比較設定中明確處理。<a href="ai-game-research/search/S-20261007-45-benchmark-task-screening.md">看逐題範圍與限制</a> · <a href="ai-game-research/records/G0259.md">Astroman</a> · <a href="ai-game-research/records/G0056.md">Fast Food Tycoon</a> · <a href="ai-game-research/records/G0072.md">Grand Theft Astro</a> · <a href="ai-game-research/records/G0260.md">Tankor Arena</a></div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-top"><span class="badge">系統深度高 · 官方 GPT-5.5 實測 build</span><h3>Tycoon Submarine Pressure Rescue｜G0261</h3><p class="subtitle">潛艇壓力救援模擬｜GameCraft-Bench｜GPT-5.5／Codex</p><div class="chips"><span class="chip green">Mechanics 90 · Depth 85</span><span class="chip">Visuals 75</span><span class="chip gold">官方 Art 41；非你的判定</span></div></div>
+      <div style="padding:0 20px 18px"><video controls muted playsinline preload="metadata" style="display:block;width:100%;max-height:430px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"><source src="https://tongxuluo.github.io/gamecraft-bench-website/static/videos/codex55__tycoon-submarine-pressure-rescue.mp4" type="video/mp4"></video></div>
+      <div class="caption">GPT-5.5/Codex 的真實遊玩錄影。艙室水位、壓力、氧氣、船體損壞、船員與修復／電力決策互相影響。官方分項顯示系統與可讀回饋較強，但藝術呈現分數偏低；這是「完成度和美術可以分離」的實例。尚未由你判斧美術。</div>
+      <div class="facts"><div class="fact"><b>測試難點</b><span>艙室狀態與救援目標連動，資源配置會帶來不同後果；只做漂亮潛艇畫面或會變動的儀表板不足以通過完整循環。</span></div><div class="fact"><b>官方分數</b><span>整體 68.70；核心機制 90、內容深度 85、功能視覺 75、Art and Presentation 41。</span></div><div class="fact"><b>一次任務界線</b><span>官方基準提供 Godot 任務包與固定 agent run，讓 AI 自主建置並產生可重播操作；單題頁沒有完整聊天逐字紀錄或精確生成時間。</span></div></div>
+      <div class="card-body"><div class="links"><a href="https://tongxuluo.github.io/gamecraft-bench-website/static/godot/codex55__tycoon-submarine-pressure-rescue/index.html">直接玩 GPT-5.5 build</a><a href="https://github.com/FreedomIntelligence/gamecraft-bench/blob/main/tasks/tycoon-submarine-pressure-rescue/instruction.md">讀原始任務</a><a href="https://github.com/FreedomIntelligence/gamecraft-bench/blob/main/tasks/tycoon-submarine-pressure-rescue/tests/rubric.json">讀驗收 rubric</a><a href="ai-game-research/records/G0261.md">研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">視覺校準參照 · 不代表使用者已驗收</span><h3>Tycoon Garden Ecosystem Keeper｜G0262</h3><p class="subtitle">園藝生態經營｜GameCraft-Bench｜Seele02-pro 與 Claude Opus-4.7</p><div class="chips"><span class="chip green">Seele02-pro 官方 Art 85.04</span><span class="chip">Mechanics 90.63 · Visuals 80.70</span><span class="chip gold">2D 任務 · 美術待你判定</span></div></div>
+      <div class="gallery two"><video controls muted playsinline preload="metadata" style="display:block;width:100%;max-height:340px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"><source src="https://tongxuluo.github.io/gamecraft-bench-website/static/videos/seele02pro__tycoon-garden-ecosystem-keeper.mp4" type="video/mp4"></video><video controls muted playsinline preload="metadata" style="display:block;width:100%;max-height:340px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"><source src="https://tongxuluo.github.io/gamecraft-bench-website/static/videos/opus47__tycoon-garden-ecosystem-keeper.mp4" type="video/mp4"></video></div>
+      <div class="caption">左為 Seele02-pro，右為 Opus-4.7 的官方遊玩錄影。Seele02-pro 的 art 分數為 85.04，但 Opus-4.7 的同項為 51，兩個成品在官方量表上有落差；最終是否達你的美術門檻仍由你直接看畫面判斷。</div>
+      <div class="facts"><div class="fact"><b>官方分數比較</b><span>Seele02-pro：80.23（Mechanics 90.63／Depth 70.76／Visuals 80.70／Art 85.04）。Opus-4.7：70.50（100／82／58／51）。</span></div><div class="fact"><b>系統與範圍</b><span>作物照料、生態互動、環境／季節和經營進度形成閉環；它適合看視覺風格與狀態呈現，不取代最廣系統或 3D 技術上限題。</span></div><div class="fact"><b>證據限制</b><span>有實際模型錄影；官方卡未標單題精確生成時間與完整 session。Seele02-pro 影片可看，Opus-4.7 另有可玩版；兩者美術皆待你驗收。</span></div></div>
+      <div class="card-body"><div class="links"><a href="https://github.com/FreedomIntelligence/gamecraft-bench/blob/main/tasks/tycoon-garden-ecosystem-keeper/instruction.md">讀原始任務</a><a href="https://tongxuluo.github.io/gamecraft-bench-website/static/godot/opus47__tycoon-garden-ecosystem-keeper/index.html">玩 Opus-4.7 build</a><a href="https://tongxuluo.github.io/gamecraft-bench-website/">開官方成品與分數總覽</a><a href="ai-game-research/records/G0262.md">研究紀錄</a></div></div>
+    </article>
+  </div>
+  <p class="sources">GameCraft-Bench 提供完整 Godot 專案、可重播互動軌跡與 mechanics／depth／visuals／art 分項驗收，但其題庫聚焦 2D。Astroman／Fast Food Tycoon／Grand Theft Astro／Tankor Arena 是 3D 任務規格，不是已生成作品；新模型交件後仍需依你的標準逐一驗收美術。</p>
+</section>
+<section class="section">
+  <div class="section-head"><h2>新補入：單次委託下的系統上限</h2><p>一題有嚴格一次 prompt 紀錄，一題壓長時多代理自主開發；分開看證據。</p></div>
+  <div class="cards">
+    <article class="card primary">
+      <div class="card-top">
+        <span class="badge">強系統候選 · 一次 prompt／無追問紀錄</span>
+        <h3>Fable Theft Auto 5.1</h3>
+        <p class="subtitle">程序 voxel 城市｜第三人稱射擊、劫車駕駛、警察追捕與任務閉環｜G0191</p>
+        <div class="chips"><span class="chip green">原始 prompt 與可玩 build</span><span class="chip">約 72 分鐘／54 turns</span><span class="chip gold">美術不合格（使用者判定）</span></div>
+      </div>
+      <div style="padding:0 20px 18px"><iframe title="Fable Theft Auto 5.1 實際成品預覽" src="https://sorrycc.github.io/fable-arcade/games/voxel-gta-city/" loading="lazy" referrerpolicy="no-referrer" style="display:block;width:100%;height:460px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div>
+      <div class="caption">實際 playable build。研究者檢視了開場畫面：色彩分區的 voxel 城市與像素介面完整一致，但場景以方塊幾何呈現；美術不合格（使用者判定）。</div>
+      <div class="facts">
+        <div class="fact"><b>任務組合</b><span>走路／瞄準／三種槍械／換彈，接著可劫車、駕駛、漂移與碰撞；交通車流、行人、犯案累積通緝星、警察追捕都要連動。</span></div>
+        <div class="fact"><b>遊戲閉環</b><span>單一市區任務含開場 briefing、目標地點、小地圖、護衛、現金獎勵、受傷、死亡和醫院重生。</span></div>
+        <div class="fact"><b>一次輸入證據</b><span>repo 記錄 Claude Fable 5.1、非互動 single turn、no follow-up、原樣提交檔案與 SHA-256；README 未提供自動遊玩／修 bug 的詳細 QA log。</span></div>
+        <div class="fact"><b>適合測什麼</b><span>把原 prompt 給當前模型，讓 AI 自己建立、測試和修正，再驗收最後 build。最能拉開跨系統整合差異；長流程內容少於 Ruinseed。</span></div>
+      </div>
+      <div class="card-body"><div class="callout warn">這是任務系統值得重跑的推薦，並非美術通過推薦。若你不接受 voxel 方塊風格，保留其射擊／駕駛／通緝系統規格，改成你認可的視覺方向再作固定測試 brief。</div><div class="links"><a href="https://raw.githubusercontent.com/sorrycc/fable-arcade/main/games/voxel-gta-city/README.md">讀精確 prompt 與 run 證據</a><a href="https://sorrycc.github.io/fable-arcade/games/voxel-gta-city/">新分頁遊玩</a><a href="https://github.com/sorrycc/fable-arcade">看整個 one-shot 作品庫</a><a href="ai-game-research/records/G0191.md">看研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">超大規模壓力參照 · 多代理長時自治</span><h3>Fable Cities</h3><p class="subtitle">城市建造、交通、經濟與環境模擬｜G0193｜美術：使用者無法確認（例外）</p><div class="chips"><span class="chip green">一次指令後多代理分工</span><span class="chip">截圖評論與反覆修正</span><span class="chip gold">作者自評尚未過美術／效能標準</span></div></div>
+      <div class="gallery"><img src="https://raw.githubusercontent.com/rawprogress/fable-cities/main/assets/hero.jpg" alt="Fable Cities 實際成品截圖：程序生成海岸、森林與城市 HUD" loading="lazy"><img src="https://raw.githubusercontent.com/rawprogress/fable-cities/main/assets/night-city.jpg" alt="Fable Cities 實際成品截圖：夜間市中心與施工大樓" loading="lazy"><img src="https://raw.githubusercontent.com/rawprogress/fable-cities/main/assets/street-level.jpg" alt="Fable Cities 實際成品截圖：街道、交通號誌、行人與車流" loading="lazy"></div>
+      <div class="caption">三張圖均連到原作者 repo 內的遊戲輸出畫面；作者同時公開視覺盲測失敗與效能缺口，不把成品圖當作達標證據。</div>
+      <div class="facts"><div class="fact"><b>範圍</b><span>地形、日夜與天氣、道路、分區、五階建物、交通、人口／工作／RCI 經濟、市政服務、HUD 與程序音效。</span></div><div class="fact"><b>自我 QA</b><span>單一 instruction 要求先寫架構與驗證工具；建置代理分區，評論代理用真實瀏覽器 GPU 截圖、錯誤與效能回報驅動最多四輪修正，最後盲測。</span></div><div class="fact"><b>誠實結果</b><span>作者公開三輪視覺盲測均輸給商業參考、首次體驗 5.5/10，並指出缺少教學和部分場景效能問題。它展示可挑戰的系統規模，也展示長任務仍可能交不出達標品質。</span></div><div class="fact"><b>比較限制</b><span>多代理與長時工作；要拿它測模型上限，需所有模型享有相同代理、工具與時間／token 預算，不能與短時單檔 run 混成一個分數。</span></div></div>
+      <div class="card-body"><div class="callout">使用者表示無法確認 Fable Cities 美術是否合格，列為例外；視覺證據與失敗 QA 檔在 repo 的 README／docs。</div><div class="links"><a href="https://github.com/rawprogress/fable-cities">看真實成品截圖、source 與 QA</a><a href="https://github.com/rawprogress/fable-cities/blob/main/PROMPT.md">讀完整 prompt</a><a href="https://fablecities.rawscollections.com">開啟 playable build</a><a href="ai-game-research/records/G0193.md">看研究紀錄</a></div></div>
+    </article>
+    <article class="card primary">
+      <div class="card-top"><span class="badge">美術與駕駛物理副測 · 同題四個成品</span><h3>OneShotGTA：Palm Bay／Golden Hour</h3><p class="subtitle">低多邊形開放城市駕駛｜作者提供精確 prompt、自我測試流程與四個 playable builds｜G0188</p><div class="chips"><span class="chip green">明確美術方向</span><span class="chip">要求截圖、挑錯、修正、重跑</span><span class="chip gold">玩法範圍窄於系統上限題</span></div></div>
+      <div style="padding:0 20px 18px"><iframe title="OneShotGTA Opus 5.5 Golden Hour 實際成品預覽" src="https://nitzan.games/experiments/one-shot-gta/opus/index.html" loading="lazy" referrerpolicy="no-referrer" style="display:block;width:100%;height:460px;border:1px solid #d9e0e8;border-radius:12px;background:#10151d"></iframe></div>
+      <div class="caption">上方是較新的 Opus 5.5 Max build。使用者已判定 Palm Bay／Golden Hour 美術合格；研究者直接檢視開場，看到運河兩側彩色建築、暖色日落和一致的標題／控制列。</div>
+      <div class="facts"><div class="fact"><b>精確任務</b><span>在小型陽光城市步行、偷車、在車流中超速、撞毀車輛、下車再偷下一台；核心循環就是持續駕駛與換車。</span></div><div class="fact"><b>視覺與 QA 要求</b><span>乾淨平塗低多邊形、少紋理雜訊、強剪影、誇張比例、單一暖色時段與長陰影；AI 要自主遊玩、截圖、苛刻評論、修正並重跑。</span></div><div class="fact"><b>實際模型</b><span>同題有 Fable 5.1 High、GPT-6 Astra、Fable 5.1 Extra High、Opus 5.5 Max 四版。作者報告 Opus 版約 81 小時 54 分 wall-clock、多代理長時工作；此任務可讓 agent 長時自修，但公平比較須固定預算。</span></div><div class="fact"><b>為何是副測</b><span>它聚焦短駕駛循環，不含任務、武器、警察、行人或劇情；適合看美術、駕駛手感、碰撞與車損，不代表長流程／多系統完成能力。</span></div></div>
+      <div class="card-body"><div class="callout">使用者已判定美術合格；這是美術與駕駛物理副測。可和 Fable Theft Auto 搭配：前者測視覺與駕駛，後者測射擊／追捕等跨系統整合。</div><div class="links"><a href="https://nitzan.games/OneShotGTA.html">看四個成品、原始 prompt 與建置資料</a><a href="https://nitzan.games/experiments/one-shot-gta/opus/index.html">直接玩 Opus 5.5 Golden Hour</a><a href="https://github.com/nitzangames/joyride">看 Golden Hour source</a><a href="ai-game-research/records/G0188.md">看研究紀錄</a></div></div>
+    </article>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>怎麼比較「最後交出的產品」</h2><p>測試過程可以不同；交件規則、評分方式和遊玩時間要固定。</p></div>
+  <table class="compare">
+    <thead><tr><th>評測維度</th><th>建議比重</th><th>看最終 build 的什麼</th></tr></thead>
+    <tbody>
+      <tr><td>核心玩法成立</td><td>30%</td><td>玩家能否理解目標並完成主要遊戲循環；輸入是否真的改變遊戲狀態。</td></tr>
+      <tr><td>任務規格完成度</td><td>25%</td><td>關鍵系統是否存在且彼此連動；不可只看標題、HUD 或未接通的按鈕。</td></tr>
+      <tr><td>操作與可用性</td><td>15%</td><td>啟動後是否有清楚教學；控制、選單、暫停、重開和狀態提示能否正常使用。</td></tr>
+      <tr><td>穩定與完整交付</td><td>20%</td><td>是否能持續遊玩、沒有阻斷流程的錯誤／軟鎖，且有明確成功或失敗收尾。</td></tr>
+      <tr><td>視聽完成度</td><td>10%</td><td>畫面可讀性、回饋、音效和整體一致性；不以單張截圖取代實際遊玩。</td></tr>
+    </tbody>
+  </table>
+  <div class="callout" style="margin-top:13px">每個模型交付後凍結 build，再由不知道模型身分的人依同一流程遊玩並填分。記錄模型／版本、工具環境、推理設定、耗時、成本和自我修正次數，但這些列為工作效率，不混入最終產品品質分。</div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>新增強重跑題種子：Phantasy Codex Adventure</h2><p>官方公開初始任務、goal 階段紀錄和可玩成品。原模型較舊，但這是目前最值得交給最新模型重跑的長流程 RPG 題型。</p></div>
+  <div class="cards"><article class="card primary"><div class="card-top"><span class="badge">GPT-5.6 Codex 原作 · 最新模型重跑題種子 · G0242</span><h3>Phantasy Codex Adventure</h3><p class="subtitle">程序世界俯視動作 RPG｜武器／職業／Boss／持續成長｜官方初始任務要求自主 goal 與迭代</p><div class="chips"><span class="chip green">長流程系統整合</span><span class="chip">原始 brief 與建置階段公開</span><span class="chip gold">美術不合格（使用者判定）</span></div></div>
+    <div class="gallery"><img src="https://developers.openai.com/showcase/gpt-5-6-phantasy-codex-adventure.webp" alt="OpenAI 官方展示的 Phantasy Codex Adventure 實際遊戲成品畫面" loading="lazy"></div>
+    <div class="caption">官方 showcase 的 final-result 成品圖；另可直接進入 hosted build 操作。使用者已判定此作美術不合格；任務規格及長流程系統仍可供最新模型重跑。</div>
+    <div class="facts"><div class="fact"><b>初始任務</b><span>建立 Game Boy Color 風格俯視動作 RPG；程序探索、劍／矛／杖、敵人行為、耐力與經驗、升級選擇、武器改善、AI 生成圖像和共用排行榜。要求建立 ongoing goal、自主創作並迭代到 polish、驗證及發佈。</span></div><div class="fact"><b>最終遊戲範圍</b><span>官方階段記錄包括從無盡場地擴成八種生態區域的 Journey、不同敵人與 Boss、地標與秘密、城鎮、三種職業、遺物、武器精通、合約及獨立生存模式。</span></div><div class="fact"><b>一次委託界線</b><span>初始 prompt 與多階段過程公開，但沒有逐訊息 session；不能獨立排除作者期間追加指示。原作為 GPT-5.6 Codex，不是最新模型表現。建議以最新模型重跑並完整保存互動紀錄與凍結 build。</span></div><div class="fact"><b>你可檢視</b><span>真實 hosted build 可操作探索、戰鬥與進度系統；請檢視實際遊戲畫面與完整性。研究尚未替你判定它的美術是否合格。</span></div></div>
+    <div class="card-body"><div class="links"><a href="https://phantasy-codex-adventure.openai.chatgpt.site/">直接玩遊戲</a><a href="https://developers.openai.com/showcase/phantasy-codex-adventure">看官方初始任務與每階段建置紀錄</a><a href="https://developers.openai.com/showcase/gpt-5-6-phantasy-codex-adventure.webp">開啟官方最終成品圖</a><a href="ai-game-research/records/G0242.md">完整研究紀錄</a></div></div>
+  </article></div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>我的建議</h2><p>用一題測整體交付，再用一題壓不同技術能力。</p></div>
+  <div class="rubric">
+    <article><span class="weight">近期強候選 · Fable Theft Auto</span><h3>測射擊、駕駛、追捕能否接成遊戲</h3><p>一份單次 prompt/no-follow-up 證據清楚的固定任務，包含程序城市、車輛、交通、警方、武器與任務循環。使用者已判定其美術不合格；它仍可作系統重跑 brief。</p></article>
+    <article><span class="weight">長時 agentic 極限參照 · Fable Cities</span><h3>測大型模擬與自主 QA</h3><p>城市建造範圍更廣，prompt 內建多代理協作、截圖評論、效能檢查和多輪返工。但公開結果仍未過作者自訂畫面／效能門檻，適合用來測極限，不適合先當美術合格成品。</p></article>
+    <article><span class="weight">整體上限主測 · Ruinseed</span><h3>測能否完成一段完整冒險</h3><p>以程序地圖、三座地城、戰鬥、最終 Boss 與結局為主軸，最能看長流程與跨系統整合。若只選一題，我建議先選它。</p></article>
+    <article><span class="weight">互補主測 · MALL ACTION</span><h3>測多視角動作和關卡狀態</h3><p>六層商場、橫向動作與店內俯視探索互相切換，適合與 Ruinseed 對照不同類型的整合上限。</p></article>
+    <article><span class="weight">物理與競速 · Kart Blitz</span><h3>測操控、AI 與競賽完整度</h3><p>涵蓋賽車物理、漂移、道具、賽道、對手與多模式；原作者公開實玩成果和任務 prompt。</p></article>
+    <article><span class="weight">即時系統 · Armor Alley</span><h3>測空中操控與地面戰線整合</h3><p>更看重即時控制、資源調度、敵我單位 AI 與同步勝敗條件；規格附明確可觀察驗收點。</p></article>
+    <article><span class="weight">客觀回放 · Airship Trader</span><h3>測規格和循環是否真的運作</h3><p>商業、燃料、船隻升級和海盜構成完整經濟循環，官方提供固定操作回放與 rubric。</p></article>
+    <article><span class="weight">3D 物理副主測 · NEON BAY</span><h3>測程序城市與駕駛系統</h3><p>可玩 build 和自動測試紀錄都公開，適合測程序城市與駕駛物理；但只涵蓋駕駛，不能代表完整長流程冒險。</p></article>
+    <article><span class="weight">極限高風險題 · Grand Theft Astro</span><h3>測 3D 城市跨系統上限</h3><p>範圍最大，最容易拉開任務、載具、NPC、追捕與任務進度是否接通的差距；缺 AI 成品圖廊，建議先讀規格再決定是否承擔高失敗率。</p></article>
+    <article><span class="weight">美術不合格 · Drone Backlash</span><h3>可查驗的手機射擊成品與進度系統</h3><p>作者稱 GPT-6 Astra 第一個 prompt 產生遊戲，實際 iPhone 成品有多任務、武器升級與長期進度；但沒有公開原始委託、首版快照或工作階段紀錄，所以只列重跑候選。App Store 頁提供實際產品截圖，使用者已判定其美術不合格。</p><p><a href="https://apps.apple.com/au/app/drone-backlash/id6809423584">看 App Store 實際截圖與成品</a> · <a href="ai-game-research/records/G0230.md">查看證據限制</a></p></article>
+    <article><span class="weight">高難度技術副測 · 行星無縫降落</span><h3>測自製 3D 世界能否撐完一趟旅程</h3><p>單一委託、無引擎／外部函式庫，從太空駕船穿過大氣層降落球形行星、下船步行，再回船升空。Opus 5.5、GPT-6 Astra、Grok 4.7 的凍結成品、實際截圖和評分都在同一頁；這題強測 3D 與狀態連續性，但缺長期任務系統，應搭配長流程主測。原 roster 沒包含當前所有前沿模型，重跑時按測試日補齊。</p><p><a href="https://www.bitsminds.com/news/claude-opus-5-5-vs-gpt-6-astra-vs-grok-4-7-planet-landing-2026">看三款實際畫面與遊玩版</a> · <a href="ai-game-research/records/G0233.md">研究紀錄與公平性限制</a></p></article>
+  </div>
+  <div class="callout">候選篩選原則：已有多模型結果並非必要。看的是任務系統深度、可信的遊戲實物／玩法參照，以及能否在一次使用者委託後由 AI 自主完成。Armor Alley 入列依據是其多系統即時戰局與可驗收規格；頁面中的 Armor Alley 圖是原作畫面，並非 AI 成品。</div>
+</section>
+
+<section class="section">
+  <div class="section-head"><h2>新增：值得重跑的平台型題目與固定 Agent 框架</h2><p>新加入的作品尚未有你的美術驗收；這裡分開列出平台專屬原作與可替換模型的重跑工具。</p></div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-top"><span class="badge">開放式重跑題 · 原始平台自選模型</span><h3>Rubberhose Ruckus｜程序美術與 Boss Rush｜G0237</h3><p class="subtitle">作者稱一則短 prompt 啟動 Tesana LOOP，約九小時無人看管建置</p><div class="chips"><span class="chip green">實際可玩作品</span><span class="chip">彈反／分階段 Boss／雙人合作</span><span class="chip gold">底模與首版 trace 未核實</span><span class="chip gold">新增作品，尚待你的美術評價</span></div></div>
+      <div class="facts"><div class="fact"><b>原始 brief</b><span>1930s 橡皮管風格的 2D boss-rush shooter，要求程序動畫、多階段 Boss、精準 hitbox、parry、墨水質感與爵士音樂。作者另稱成品有三 Boss 和合作模式，這些沒有全部寫在該 prompt 裡。</span></div><div class="fact"><b>一次交付證據</b><span>作者稱輸入一次後讓 LOOP 約九小時自行建置；官方文件確認可 unattended 建置、playtest 與返工。但沒有 run trace、usage ledger 或凍結首版可核對。</span></div><div class="fact"><b>模型比較限制</b><span>Tesana 每次由平台選模型，不能在原始 run 中鎖定任意 frontier 模型。適合把公開 prompt 搬到同一套可鎖模 agent harness 重跑；原作只當平台參照。</span></div><div class="fact"><b>視覺與實物</b><span>有官方可玩頁和作者原始影片／討論可看。頁面的風格描述是官方說明，不等於你的美術評價。</span></div></div>
+      <div class="card-body"><div class="links"><a href="https://tesana.com/game/rubberhose-ruckus">玩官方目前版本</a><a href="https://www.reddit.com/r/aigamedev/comments/1v9bqzx/ai_made_platformer_trying_long_horizon_prompting/">看原始 prompt、影片與 run 說明</a><a href="https://docs.tesana.ai/building/loop-mode">看 LOOP 官方流程</a><a href="ai-game-research/records/G0237.md">完整研究紀錄</a></div></div>
+    </article>
+    <article class="card">
+      <div class="card-top"><span class="badge">可重跑的固定 Agent harness</span><h3>OpenGame｜公開任務、build 與 source gallery｜B0029</h3><p class="subtitle">固定遊戲技能與自主 Debug 流程，模型可由 OpenAI-compatible endpoint 替換</p><div class="chips"><span class="chip green">空白資料夾＋單 prompt</span><span class="chip">Browser QA／自動修復</span><span class="chip gold">150 題完整 evaluator 尚未釋出</span></div></div>
+      <div class="facts"><div class="fact"><b>可測內容</b><span>公開樣例包含多角色、三關平台動作遊戲、答題卡牌格鬥、塔防等；repo 提供 prompt、可玩 build 和 source archive。</span></div><div class="fact"><b>自主工具</b><span>OpenGame 使用模板技能架構專案、Debug Skill 啟動遊戲並檢查 console／互動，修復到端到端可玩。</span></div><div class="fact"><b>比較方式</b><span>同一 OpenGame 版本、相同 prompt、相同工具與資產 provider，逐一替換主模型；這比較的是模型在固定 Agent 系統中的表現，不是裸模型。</span></div><div class="fact"><b>證據限制</b><span>圖廊未逐項標模型版本、run 日期或 session trace；論文的 150 題不等於目前已全部釋出的 benchmark 資料。新增 gallery 遊戲的美術尚待使用者檢視。</span></div></div>
+      <div class="card-body"><div class="links"><a href="https://github.com/leigest519/OpenGame">看程式、prompt、live builds 與 source</a><a href="https://arxiv.org/abs/2604.18394">看 OpenGame 論文</a><a href="ai-game-research/records/B0029.md">完整研究紀錄</a></div></div>
+    </article>
+  </div>
+</section><footer class="footer"><span>評選口徑與目前結論見<a href="ai-game-one-shot-index.md">研究索引</a>；候選證據見<a href="ai-game-one-shot-candidates.md">精選候選</a>；全部已查名稱見<a href="ai-game-research/catalog.html">可搜尋全目錄</a>，查詢與排除過程見<a href="ai-game-research/history/index.md">完整歷史段落</a>。</span><span>檢閱版 · 2026-10-07</span></footer>
+</main>
+</body>
+</html>
+
+

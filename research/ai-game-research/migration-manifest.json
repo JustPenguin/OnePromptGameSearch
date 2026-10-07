@@ -1,0 +1,752 @@
+{
+  "source": "C:\\Users\\Jeff\\Downloads\\test\\archive\\ai-game-one-shot-research-history-2026-10-04.md",
+  "source_sha256": "e58b56af057be33734f3ccd734c13e3e5d470a2c8a8c04de089da3b791222865",
+  "source_bytes": 273084,
+  "source_lines": 954,
+  "sections": [
+    {
+      "id": "N0001",
+      "title": "AI 一次提示生成遊戲：案例與基準研究",
+      "start_line": 1,
+      "end_line": 8,
+      "path": "history/sections/N0001.md",
+      "sha256": "1211a534462417185b73206c5c1e6f9737f23d22fa18268bb8a26830b37395e8"
+    },
+    {
+      "id": "N0002",
+      "title": "候選短名單與目前建議（2026-10-04；依使用者澄清修訂）",
+      "start_line": 9,
+      "end_line": 24,
+      "path": "history/sections/N0002.md",
+      "sha256": "14d7930021e73be42d38740ffdfe413a4b85db8aceaa00dc1c434a7a453f5bb2"
+    },
+    {
+      "id": "N0003",
+      "title": "2026-10-04 最新核查：GameCraft-Bench 的 Airship Trader",
+      "start_line": 25,
+      "end_line": 31,
+      "path": "history/sections/N0003.md",
+      "sha256": "39f4806b580a00d3803967bd2df8f9bf7934d4f149f43e8139f27181281bfaec"
+    },
+    {
+      "id": "N0004",
+      "title": "2026-10-04 增補：3D 物理關卡同題比較",
+      "start_line": 32,
+      "end_line": 38,
+      "path": "history/sections/N0004.md",
+      "sha256": "44565673f2505a230716af014958c6efd95546e409343ca81d28cbf69d79acd1"
+    },
+    {
+      "id": "N0005",
+      "title": "2026-10-04 增補：PUBG 風格同 prompt 對照與 One Shot Challenge 核查",
+      "start_line": 39,
+      "end_line": 44,
+      "path": "history/sections/N0005.md",
+      "sha256": "45752d42e5868c2f9cb2fcbebab9a70e21f26f71080a392ab8697584b75175ff"
+    },
+    {
+      "id": "N0006",
+      "title": "2026-10-04 新增優先候選：Backrooms 五模型盲測",
+      "start_line": 45,
+      "end_line": 55,
+      "path": "history/sections/N0006.md",
+      "sha256": "2fcc527f61bcb63fce3da9679937f2ca40a131e8b8e2961b381ec33599af8154"
+    },
+    {
+      "id": "N0007",
+      "title": "2026-10-04 增補：近期高複雜度成品與生成基準邊界",
+      "start_line": 56,
+      "end_line": 64,
+      "path": "history/sections/N0007.md",
+      "sha256": "9196bafd6e3f44cfd781cd2bbb50b6a94170da02cb3c0609eeb37cfa5fe9d410"
+    },
+    {
+      "id": "N0008",
+      "title": "2026-10-04 追加核實：Backrooms 原始條件、NEXUS 與相鄰論文",
+      "start_line": 65,
+      "end_line": 72,
+      "path": "history/sections/N0008.md",
+      "sha256": "d0aed5069e8bbc7ca9557c6471ffd422a6608f73119f35c1bd7e2e06ba5c617a"
+    },
+    {
+      "id": "N0009",
+      "title": "使用者意圖與搜尋標準",
+      "start_line": 73,
+      "end_line": 84,
+      "path": "history/sections/N0009.md",
+      "sha256": "cce58d74c7b22062896b193d4455a6cccdc86b97477752ade7ac8ff34e00a1bf"
+    },
+    {
+      "id": "N0010",
+      "title": "目前建議",
+      "start_line": 85,
+      "end_line": 86,
+      "path": "history/sections/N0010.md",
+      "sha256": "f0f9482b921262f00221b5387261d9e2496881b2f8a067b3edfce96deedc55d0"
+    },
+    {
+      "id": "N0011",
+      "title": "如果現在只能選一題",
+      "start_line": 87,
+      "end_line": 100,
+      "path": "history/sections/N0011.md",
+      "sha256": "487f10a7dc090d2dfcf12ef6b97c3f307a22f5ae3f05a43479bb10f34c052ec6"
+    },
+    {
+      "id": "N0012",
+      "title": "主測建議納入的最新模型（截至 2026-10-04）",
+      "start_line": 101,
+      "end_line": 117,
+      "path": "history/sections/N0012.md",
+      "sha256": "3cc83a18fd16ba7b32b5481ee8bdf052532e44c47f04cba4fab13c9553019566"
+    },
+    {
+      "id": "N0013",
+      "title": "延伸案例：MALL ACTION（長規格 agentic 開發比較）",
+      "start_line": 118,
+      "end_line": 134,
+      "path": "history/sections/N0013.md",
+      "sha256": "cac0fc00c32fe888e9ab46be0d27202a848f6a2e18738479b652c1ef9a7eb6e3"
+    },
+    {
+      "id": "N0014",
+      "title": "高豐富度單提示展示：Kart Blitz（Sonnet 5.5）",
+      "start_line": 135,
+      "end_line": 144,
+      "path": "history/sections/N0014.md",
+      "sha256": "4a89998e5e7bd0f11f810a63974e8e8defaa65e4bf3c256863044bcece3deb83"
+    },
+    {
+      "id": "N0015",
+      "title": "高複雜度單句展示：Opus 5.5 三款 3D 遊戲",
+      "start_line": 145,
+      "end_line": 151,
+      "path": "history/sections/N0015.md",
+      "sha256": "85f7681ae7ea7b850f0844bf52170941432272f87c76867ecf8c16659ac046a0"
+    },
+    {
+      "id": "N0016",
+      "title": "冒險玩法壓力測試：8-Bit AI Arena / Ruinseed",
+      "start_line": 152,
+      "end_line": 158,
+      "path": "history/sections/N0016.md",
+      "sha256": "05658973156379c9f66ae3e66aed2b4f4812ad0a9206d457a5c3fee20479afa5"
+    },
+    {
+      "id": "N0017",
+      "title": "嚴格原始輸出對照：Single HTML Game Bench",
+      "start_line": 159,
+      "end_line": 170,
+      "path": "history/sections/N0017.md",
+      "sha256": "3598a43c99bfccc266688d41291c9dac6f1ccbff421505693342808e2032313d"
+    },
+    {
+      "id": "N0018",
+      "title": "其他近期案例與校準材料",
+      "start_line": 171,
+      "end_line": 172,
+      "path": "history/sections/N0018.md",
+      "sha256": "a8c4aeb6032e11723b13563fb4fde4557a8fd17848dada721936978a99ce834c"
+    },
+    {
+      "id": "N0019",
+      "title": "Tumble：自製物理與建造工具上限題（優先新增）",
+      "start_line": 173,
+      "end_line": 181,
+      "path": "history/sections/N0019.md",
+      "sha256": "f5ba5bc860edbbc5d248e8db26378b1677b42b996cd6cdec9206f21285554afc"
+    },
+    {
+      "id": "N0020",
+      "title": "GameCraft-Bench：Open-World Airship Trader（重跑最新模型的完整遊戲候選）",
+      "start_line": 182,
+      "end_line": 192,
+      "path": "history/sections/N0020.md",
+      "sha256": "5f6b4ab4dacb55dec10654f7107b3269f2032ab5e35f84bb0e87f8189cff83c9"
+    },
+    {
+      "id": "N0021",
+      "title": "Planet Pop / Tiny Comic Planet：重跑穩定度",
+      "start_line": 193,
+      "end_line": 201,
+      "path": "history/sections/N0021.md",
+      "sha256": "560e672636065cc2cef3aa943fb8f245d3b2d32b7623e7114593cbdda017cbf5"
+    },
+    {
+      "id": "N0022",
+      "title": "EvalMap Jeep gallery：近期同題可玩性與失敗率校準",
+      "start_line": 202,
+      "end_line": 208,
+      "path": "history/sections/N0022.md",
+      "sha256": "f76aa4a5de8afa478bb0c3eed79f8f232fa46e52ee6bdd2ab1ded4860b03ecdb"
+    },
+    {
+      "id": "N0023",
+      "title": "Vibecode Bench：快速類型校準",
+      "start_line": 209,
+      "end_line": 216,
+      "path": "history/sections/N0023.md",
+      "sha256": "6094e7ff9d073153f59fe34ac52cc554de6c67d492addd923ddbd22b8c64fbd4"
+    },
+    {
+      "id": "N0024",
+      "title": "Lunar Scream：嚴格 one-shot 對照",
+      "start_line": 217,
+      "end_line": 223,
+      "path": "history/sections/N0024.md",
+      "sha256": "49575a727d6edb5349645db7ea7e7ab9ca889670652e5303ce6bf894bd1bb62b"
+    },
+    {
+      "id": "N0025",
+      "title": "Senko 三類遊戲同題比較：值得追蹤的多任務校準組",
+      "start_line": 224,
+      "end_line": 228,
+      "path": "history/sections/N0025.md",
+      "sha256": "f290d86ce2c7d298bf33c40eb6185937704e28f4cf86779ca44ca6db2a7a0fbe"
+    },
+    {
+      "id": "N0026",
+      "title": "Game Bench：評分方法參考",
+      "start_line": 229,
+      "end_line": 234,
+      "path": "history/sections/N0026.md",
+      "sha256": "84ae537bc81b4293b92a03796243ec798aee0a3b7a260cf025bc501145efd0d0"
+    },
+    {
+      "id": "N0027",
+      "title": "Goldie Bench：多題高量矩陣",
+      "start_line": 235,
+      "end_line": 241,
+      "path": "history/sections/N0027.md",
+      "sha256": "22a45308e5ec4447f2d7d1191074cc3565ace898064d0e870cd90a7189f34a69"
+    },
+    {
+      "id": "N0028",
+      "title": "OneShotLM：大型可玩作品索引",
+      "start_line": 242,
+      "end_line": 247,
+      "path": "history/sections/N0028.md",
+      "sha256": "d6c4afd19c334a29e57a9d5983fe9595a0fcd34a54d537772761db9c1ed3079c"
+    },
+    {
+      "id": "N0029",
+      "title": "One Shot Challenge：大量單次提交方法參考",
+      "start_line": 248,
+      "end_line": 253,
+      "path": "history/sections/N0029.md",
+      "sha256": "14b2584768f32ba06ae098881f9d669664f695117a249e822a4459c9c8a41ac2"
+    },
+    {
+      "id": "N0030",
+      "title": "策展清單",
+      "start_line": 254,
+      "end_line": 259,
+      "path": "history/sections/N0030.md",
+      "sha256": "4ba4467cd801b54f2d16a5e5760c1c72f996033510a4bbf4641bc868ffbea7ae"
+    },
+    {
+      "id": "N0031",
+      "title": "正式比較時建議記錄的資訊",
+      "start_line": 260,
+      "end_line": 278,
+      "path": "history/sections/N0031.md",
+      "sha256": "a0312731e8faac04503b84cf30d22c808acfa5e8d00468ba586e2c312cd45270"
+    },
+    {
+      "id": "N0032",
+      "title": "Backrooms 重跑建議評分表（研究建議，不是原作者成績）",
+      "start_line": 279,
+      "end_line": 291,
+      "path": "history/sections/N0032.md",
+      "sha256": "e064b954b0daf54b0f07c4f56603d532cb905480193df9fa6f4b558a313a3834"
+    },
+    {
+      "id": "N0033",
+      "title": "Tumble 的建議評分草案（研究建議，非原作者分數）",
+      "start_line": 292,
+      "end_line": 305,
+      "path": "history/sections/N0033.md",
+      "sha256": "aa987c973686ebf2881184842221f078d05f3c00b6e2dfcf556f670bf61b1707"
+    },
+    {
+      "id": "N0034",
+      "title": "下一輪研究待辦",
+      "start_line": 306,
+      "end_line": 315,
+      "path": "history/sections/N0034.md",
+      "sha256": "81b4415a6adb07aa0c2fe421fe3f1757699b5ad5ea2ea6c29febba768bcbd993"
+    },
+    {
+      "id": "N0035",
+      "title": "搜尋台帳：已查項目與去重索引",
+      "start_line": 316,
+      "end_line": 355,
+      "path": "history/sections/N0035.md",
+      "sha256": "e40d0d49d84c8f72418ccf4f27918c051b49f2861b51de7c0424b4c6ab1248cd"
+    },
+    {
+      "id": "N0036",
+      "title": "接續研究段落（原始第 356 行）",
+      "start_line": 356,
+      "end_line": 377,
+      "path": "history/sections/N0036.md",
+      "sha256": "6b6f00015dc4218c08b27d33611239e2d2467412d9ab79269d62aa3f26ac05a1"
+    },
+    {
+      "id": "N0037",
+      "title": "OhMyOpus 案例庫中新發現的待查原始案例",
+      "start_line": 378,
+      "end_line": 387,
+      "path": "history/sections/N0037.md",
+      "sha256": "a47a8f8d6f409455fd8620923f4757a404d9611043c71f10dbd2584a714188ce"
+    },
+    {
+      "id": "N0038",
+      "title": "來源與可信度提醒",
+      "start_line": 388,
+      "end_line": 391,
+      "path": "history/sections/N0038.md",
+      "sha256": "9cf0079b32da8368b1b5409487173b4dbb02baf835740086e384cc9af78811c2"
+    },
+    {
+      "id": "N0039",
+      "title": "2026-10-04 新增搜尋結果：最新可玩案例與正式方法",
+      "start_line": 392,
+      "end_line": 393,
+      "path": "history/sections/N0039.md",
+      "sha256": "45b910f881e45e2d79ac01250d78dbd07c17c8d81c826bc3c4b0a730275a7132"
+    },
+    {
+      "id": "N0040",
+      "title": "新增的高價值可玩案例",
+      "start_line": 394,
+      "end_line": 421,
+      "path": "history/sections/N0040.md",
+      "sha256": "d8eaa7b6729121d3cc7c0d04ca25dbc69f57abfaf7ec773b628f177e3f8df8b9"
+    },
+    {
+      "id": "N0041",
+      "title": "正式基準研究：該借方法，不要誤認為最新 demo 榜",
+      "start_line": 422,
+      "end_line": 450,
+      "path": "history/sections/N0041.md",
+      "sha256": "7d9ce5ae93c43d0d00c5b1e825e1f773f2721f0527f9336df2093019d3316f30"
+    },
+    {
+      "id": "N0042",
+      "title": "接續研究段落（原始第 451 行）",
+      "start_line": 451,
+      "end_line": 454,
+      "path": "history/sections/N0042.md",
+      "sha256": "e551ed599124c0df3f201cd10a6f8fcaafe9c5bee2d004a0f31bbf3ff5a49c77"
+    },
+    {
+      "id": "N0043",
+      "title": "本輪搜尋得到的設計結論",
+      "start_line": 455,
+      "end_line": 465,
+      "path": "history/sections/N0043.md",
+      "sha256": "121e08e251915cb6796f8672779f04cca3a18455fbdac058fbffce0ce67eb669"
+    },
+    {
+      "id": "N0044",
+      "title": "後續查詢去重提醒",
+      "start_line": 466,
+      "end_line": 472,
+      "path": "history/sections/N0044.md",
+      "sha256": "fe3674cf0c772aa1168f521ddc16a110c426493796e22359673b9f181a0d4ed9"
+    },
+    {
+      "id": "N0045",
+      "title": "本輪搜尋路徑紀錄（避免重跑相同查詢）",
+      "start_line": 473,
+      "end_line": 507,
+      "path": "history/sections/N0045.md",
+      "sha256": "3549d6fc6a8d825a65e0079943ce050d4a06520fbeb7281bf469f17a6b8060a4"
+    },
+    {
+      "id": "N0046",
+      "title": "接續研究段落（原始第 508 行）",
+      "start_line": 508,
+      "end_line": 523,
+      "path": "history/sections/N0046.md",
+      "sha256": "379b2a2fa4efeb9acae226f8726b2cd369bdb9e85067410ed9f9e8c0e1534750"
+    },
+    {
+      "id": "N0047",
+      "title": "接續研究段落（原始第 524 行）",
+      "start_line": 524,
+      "end_line": 537,
+      "path": "history/sections/N0047.md",
+      "sha256": "623709a2efccf241c1cbff6d1ae58e1888fa2e2e3c10a2f97a8d0218698f242b"
+    },
+    {
+      "id": "N0048",
+      "title": "接續研究段落（原始第 538 行）",
+      "start_line": 538,
+      "end_line": 542,
+      "path": "history/sections/N0048.md",
+      "sha256": "2c1326757a02eb451e6d4c56573a6134a5595fb1b10ae5065111354ae7cb3850"
+    },
+    {
+      "id": "N0049",
+      "title": "2026-10-04 新增：最新模型實物、同系列 build 與長規格種子",
+      "start_line": 543,
+      "end_line": 544,
+      "path": "history/sections/N0049.md",
+      "sha256": "106bce3cac3aa5982f2a9eef0ee73dc6ceabd566295789378ffb8a60bb791f0c"
+    },
+    {
+      "id": "N0050",
+      "title": "同作者 Waterslide 系列：目前最值得核 prompt 的物理副測",
+      "start_line": 545,
+      "end_line": 556,
+      "path": "history/sections/N0050.md",
+      "sha256": "68f19717dd9712ed20021888c090ec559584ae3b225da1ce8d1d854f743c3043"
+    },
+    {
+      "id": "N0051",
+      "title": "GPT-6.1 Sol 的 25 題實測：Goblin FPS 截圖",
+      "start_line": 557,
+      "end_line": 570,
+      "path": "history/sections/N0051.md",
+      "sha256": "1f7b0228a993d2ed46dc88dc6606608e6c36b87ef74a900c70dd6dd84bf85393"
+    },
+    {
+      "id": "N0052",
+      "title": "Unreal 5.8 開放世界 /goal：適合作為高上限任務規格種子",
+      "start_line": 571,
+      "end_line": 574,
+      "path": "history/sections/N0052.md",
+      "sha256": "80581aa6d083d26b3784dd149a8fc6a31354659f558f6467ff9bf83fc37fbda4"
+    },
+    {
+      "id": "N0053",
+      "title": "GPT-6.1 Sol 的 Crowd Rush：高完成度展示但 prompt 已含修訂",
+      "start_line": 575,
+      "end_line": 578,
+      "path": "history/sections/N0053.md",
+      "sha256": "9da0777ea17c18d7bcbd844faaedf4ff1ade18e2328a5b8b127dab1ac9e99d04"
+    },
+    {
+      "id": "N0054",
+      "title": "作品索引中的新高複雜候選",
+      "start_line": 579,
+      "end_line": 585,
+      "path": "history/sections/N0054.md",
+      "sha256": "4d4c6ec9e39b1a123f3d660fc45b4e9be9ffe82dff58c1aa17fd3e39cd4358a6"
+    },
+    {
+      "id": "N0055",
+      "title": "2026-10-04 新增：Fable 5.1 vs GLM-5.3 同提示 3D 遊戲實測",
+      "start_line": 586,
+      "end_line": 602,
+      "path": "history/sections/N0055.md",
+      "sha256": "a83a2db0c111975beb48b1c23bd59a22452481900898734671731e6ef8a11ed9"
+    },
+    {
+      "id": "N0056",
+      "title": "2026-10-04 新增：近期可玩 showcase 與排除項",
+      "start_line": 603,
+      "end_line": 624,
+      "path": "history/sections/N0056.md",
+      "sha256": "853ea5b3cca2f1381877f806186caec996256e018f6b00e0eb42e3c1ad0123eb"
+    },
+    {
+      "id": "N0057",
+      "title": "2026-10-04 方法線增量：strict first-output 與 MMORPG 題型",
+      "start_line": 625,
+      "end_line": 630,
+      "path": "history/sections/N0057.md",
+      "sha256": "01927f317d92f7745b13707de8da0bd892ab747a55962598ee1ec66b82861a94"
+    },
+    {
+      "id": "N0058",
+      "title": "2026-10-04 多語搜尋新增案例：Fez 風格視角旋轉平台遊戲",
+      "start_line": 631,
+      "end_line": 644,
+      "path": "history/sections/N0058.md",
+      "sha256": "e340869308fbb66ba4256b0fb50a9ff31a23e8672c7cdc11337a881657681476"
+    },
+    {
+      "id": "N0059",
+      "title": "2026-10-04 新增的高上限開放式一任務實例與作品圖庫",
+      "start_line": 645,
+      "end_line": 646,
+      "path": "history/sections/N0059.md",
+      "sha256": "c805d170e7c80413fb2593cf12afe3255b38a7ef51a38544c98b980efec3152e"
+    },
+    {
+      "id": "N0060",
+      "title": "BioNeural：Opus 5.5 自行決定玩法的多人射擊遊戲",
+      "start_line": 647,
+      "end_line": 658,
+      "path": "history/sections/N0060.md",
+      "sha256": "be9b66393ac53b1e9fb2a79005f92f1cd1921706571c682fd892191345b06abf"
+    },
+    {
+      "id": "N0061",
+      "title": "OneHack 與 Frontier Games：看新實物，不當作有控制條件的比較",
+      "start_line": 659,
+      "end_line": 665,
+      "path": "history/sections/N0061.md",
+      "sha256": "2fcfc66614787226f92fd21590e9ec218beb8741d3d092053f8bd8240e273a0e"
+    },
+    {
+      "id": "N0062",
+      "title": "2026-10-04 新增優先候選：MALL ACTION 固定長規格、跨模型一次任務",
+      "start_line": 666,
+      "end_line": 691,
+      "path": "history/sections/N0062.md",
+      "sha256": "ba7bb7c8eb6fae55a0a9c0e161b94257c9ac1cdc6f878cf2b1590453b24f3803"
+    },
+    {
+      "id": "N0063",
+      "title": "本輪補充查詢及去重紀錄",
+      "start_line": 692,
+      "end_line": 701,
+      "path": "history/sections/N0063.md",
+      "sha256": "ee1e8729689e157f7c5e9e6a4b8cf988eb1b5746b85fb7d3e31ba85f1a607401"
+    },
+    {
+      "id": "N0064",
+      "title": "2026-10-04 新增高完成度作品展示：Night Courier（非一次生成基準）",
+      "start_line": 702,
+      "end_line": 715,
+      "path": "history/sections/N0064.md",
+      "sha256": "5dad4a62034b1199c988b05254b5e4ba663092915054068cff32bc6b6e02844e"
+    },
+    {
+      "id": "N0065",
+      "title": "鄰接題型線索：Vib3Coded 的互動式中世紀王國長 prompt",
+      "start_line": 716,
+      "end_line": 725,
+      "path": "history/sections/N0065.md",
+      "sha256": "52f7a2609e71d18899359e0ef1e27318f0084286f2b40f80a87212a5bb1b3f4a"
+    },
+    {
+      "id": "N0066",
+      "title": "2026-10-04 新增：Strict first-output 新模型遊戲庫與可重用測試架構",
+      "start_line": 726,
+      "end_line": 727,
+      "path": "history/sections/N0066.md",
+      "sha256": "4440c9b771bb83b2d1faf376feb9c449590fb833ca5e2c1b665d213f619a36ae"
+    },
+    {
+      "id": "N0067",
+      "title": "WorldBuild Bench：可借用的統一 harness，不是最新模型成績",
+      "start_line": 728,
+      "end_line": 733,
+      "path": "history/sections/N0067.md",
+      "sha256": "5320b21d8152bd88dfbd9802f68a2eed16f4c16f64597574a3b4f979a72a7612"
+    },
+    {
+      "id": "N0068",
+      "title": "本輪廣泛搜尋與去重紀錄",
+      "start_line": 734,
+      "end_line": 741,
+      "path": "history/sections/N0068.md",
+      "sha256": "4f8584f74e3ac3990bf1fc1b6e69e1bb404cc460ef48e301d1b0626f9f0c83d8"
+    },
+    {
+      "id": "N0069",
+      "title": "2026-10-04 新增高難度題目種子：Crazy Tanks — Wild Tides",
+      "start_line": 742,
+      "end_line": 753,
+      "path": "history/sections/N0069.md",
+      "sha256": "593fcff9f7c795108b7daea36a57ff28e480bc3293247d2dd86ff26c265ad032"
+    },
+    {
+      "id": "N0070",
+      "title": "本輪查詢與去重紀錄",
+      "start_line": 754,
+      "end_line": 759,
+      "path": "history/sections/N0070.md",
+      "sha256": "16bf1a6b924cd90740419226e3b8b59b29eaf2323fb0cdc3881cad6d754d0a41"
+    },
+    {
+      "id": "N0071",
+      "title": "2026-10-04 新增：Slapjam AI 遊戲徵件中的策略／基地管理案例",
+      "start_line": 760,
+      "end_line": 765,
+      "path": "history/sections/N0071.md",
+      "sha256": "af37096d40789bcafe3ca34c97e5c47844ee10fc52d6840ad291660c7a210a6a"
+    },
+    {
+      "id": "N0072",
+      "title": "最值得採作新長題型參考的兩款作品",
+      "start_line": 766,
+      "end_line": 776,
+      "path": "history/sections/N0072.md",
+      "sha256": "b2c358bd38aa12db7db333999c178388c3d9dea3f6ab05af24956b30302d4635"
+    },
+    {
+      "id": "N0073",
+      "title": "其他新發現與排除邊界",
+      "start_line": 777,
+      "end_line": 782,
+      "path": "history/sections/N0073.md",
+      "sha256": "8e627131259d0007d8d42f6867d6a48168875974a781897d623464abba6f3250"
+    },
+    {
+      "id": "N0074",
+      "title": "本輪搜尋與去重紀錄",
+      "start_line": 783,
+      "end_line": 801,
+      "path": "history/sections/N0074.md",
+      "sha256": "8da77861447e7f73e8ec567481c7b5ee790432098f72f4183c67bd74de1fc530"
+    },
+    {
+      "id": "N0075",
+      "title": "2026-10-04 新增：AI Browser Game Jam 4 評分庫與近期徵件追蹤",
+      "start_line": 802,
+      "end_line": 805,
+      "path": "history/sections/N0075.md",
+      "sha256": "b4c3eb91a42a6bba12ababb1aa950341689100f6574bc4753db2d14cc6cb79a9"
+    },
+    {
+      "id": "N0076",
+      "title": "AI Browser Game Jam 4：有成品、有公開評分，但不能比較模型",
+      "start_line": 806,
+      "end_line": 818,
+      "path": "history/sections/N0076.md",
+      "sha256": "f67011ca4e5812d636a3dd6bd8fa96bae5f614024795600810b8e0d0363a0f3f"
+    },
+    {
+      "id": "N0077",
+      "title": "近期可追的三場 jam",
+      "start_line": 819,
+      "end_line": 826,
+      "path": "history/sections/N0077.md",
+      "sha256": "d928e21351ea06324ba8a13f3833ad0c4899729c8101f959a3a10aba3ddade77"
+    },
+    {
+      "id": "N0078",
+      "title": "本輪搜尋台帳與去重規則",
+      "start_line": 827,
+      "end_line": 837,
+      "path": "history/sections/N0078.md",
+      "sha256": "9155a30e7fe242604456849f94c93a6f6b51af03a75f250328dee42c44aa22b7"
+    },
+    {
+      "id": "N0079",
+      "title": "2026-10-04 新增：GameASG-Bench 與《Armor Alley》長規格任務",
+      "start_line": 838,
+      "end_line": 839,
+      "path": "history/sections/N0079.md",
+      "sha256": "b23e150ecee7c456163f9cae4f6fb018be42804dd3c07ca63d0bd044bc3d26db"
+    },
+    {
+      "id": "N0080",
+      "title": "GameASG-Bench：目前最有用的新「一次任務自主完成」正式基準",
+      "start_line": 840,
+      "end_line": 845,
+      "path": "history/sections/N0080.md",
+      "sha256": "3194dfbe5ec77f6306852b3e672af29c8c34de33dac57e896feae9c9e7c119cd"
+    },
+    {
+      "id": "N0081",
+      "title": "值得抽出來做高難度題的官方任務：《Armor Alley》",
+      "start_line": 846,
+      "end_line": 855,
+      "path": "history/sections/N0081.md",
+      "sha256": "d423aaf51a6205650b61f8a9ba905bb9eb2436e4e2d41ea9f2d25047a86168e4"
+    },
+    {
+      "id": "N0082",
+      "title": "新近錯誤標籤的一次提示線索：《MACH RUN》",
+      "start_line": 856,
+      "end_line": 859,
+      "path": "history/sections/N0082.md",
+      "sha256": "e982b04f36d52928dd0bacdb94112a1ced841fbcae0c8951265dbac6ec5c5681"
+    },
+    {
+      "id": "N0083",
+      "title": "本輪搜尋／去重台帳",
+      "start_line": 860,
+      "end_line": 870,
+      "path": "history/sections/N0083.md",
+      "sha256": "1a209217f6b2c76afa242d02656868637df23d4cf45ad5ef67b7b4624bb126e0"
+    },
+    {
+      "id": "N0084",
+      "title": "2026-10-04 收尾新增：可玩的單次展示與第二批正式研究",
+      "start_line": 871,
+      "end_line": 872,
+      "path": "history/sections/N0084.md",
+      "sha256": "4ea1dbc45f948cc353c8280f98378436f24fc1131f4d72dc45359d3049d8dd1a"
+    },
+    {
+      "id": "N0085",
+      "title": "新找到的 strict one-shot 候選：《Sky Reach》",
+      "start_line": 873,
+      "end_line": 878,
+      "path": "history/sections/N0085.md",
+      "sha256": "283c5b5a2cbaf85b2866b09134acd903b2122a3be0dd5b9707dff11a86e72a69"
+    },
+    {
+      "id": "N0086",
+      "title": "高複雜成品參照：《Tidewater》",
+      "start_line": 879,
+      "end_line": 882,
+      "path": "history/sections/N0086.md",
+      "sha256": "a92e04d2adc617f97d80c8769ac05be3a6ae9462066257ece27f89a405a98c43"
+    },
+    {
+      "id": "N0087",
+      "title": "新的正式基準：如何使用、為何不能直接混入同一榜",
+      "start_line": 883,
+      "end_line": 896,
+      "path": "history/sections/N0087.md",
+      "sha256": "3fcfa0ba13882ac9ccb83f932ad484b52aeef4c292546e7410b33c8671af8a7e"
+    },
+    {
+      "id": "N0088",
+      "title": "本輪新增搜尋與去重台帳（合併重複 query）",
+      "start_line": 897,
+      "end_line": 911,
+      "path": "history/sections/N0088.md",
+      "sha256": "3e7f093008bb19b3f62c20ab74118a25916772a3208dc0947539228161376fc0"
+    },
+    {
+      "id": "N0089",
+      "title": "2026-10-04 補漏複查：新增可重跑候選與證據分級",
+      "start_line": 912,
+      "end_line": 915,
+      "path": "history/sections/N0089.md",
+      "sha256": "fcb18d486cb849af44dae096854783625b5516916f6db257c2aa40c856b27c7a"
+    },
+    {
+      "id": "N0090",
+      "title": "新增最優先重跑候選",
+      "start_line": 916,
+      "end_line": 923,
+      "path": "history/sections/N0090.md",
+      "sha256": "baaa47359c21bde5f0d9f2b237df29694555b71591e9cacdabad5bc238452d26"
+    },
+    {
+      "id": "N0091",
+      "title": "新增正式 benchmark 任務",
+      "start_line": 924,
+      "end_line": 933,
+      "path": "history/sections/N0091.md",
+      "sha256": "1fb80da99f8c73277f2641592f862a42498b05b563c98b8dbcc236b059ec3546"
+    },
+    {
+      "id": "N0092",
+      "title": "原有高潛力題的再檢視與保留／不納入理由",
+      "start_line": 934,
+      "end_line": 945,
+      "path": "history/sections/N0092.md",
+      "sha256": "3ab570e9d52bd3a8d154e58c16031a67d5903aca40f96c3bef265d8c784d0cfb"
+    },
+    {
+      "id": "N0093",
+      "title": "本輪已做的新增搜尋與去重記錄",
+      "start_line": 946,
+      "end_line": 954,
+      "path": "history/sections/N0093.md",
+      "sha256": "db83f11d62f133bb7cbaf246b5e0d005bf8d3ec487bff2034d4d1eb0a1b31d63"
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+# AI 一次委託遊戲能力評測｜研究索引
+
+**狀態：**持續研究中　**最後整理：**2026-10-07（台北時間）
+
+## 研究目標
+
+比較不同 AI 在**收到一則遊戲開發任務後，自主完成並交付遊戲**的能力。AI 可自行規劃、使用工具或代理、遊玩測試與修改；使用者不在開發途中補充指示，最後只驗收交付的 build。這裡的「一次」是一次使用者委託，不是限制模型只能呼叫一次。
+
+候選不必已經有多模型比較。主要看任務是否足以測試遊戲完成度、系統整合和自主 QA，以及是否有可檢閱的任務規格或實際成品。已發布結果的模型較舊，仍可作為新模型重跑的任務；執行時應再確認當前可用型號。
+
+**美術是獨立且高權重的評分軸。**研究優先找具有清楚美術方向、細節與完成度的實際遊戲畫面，特別留意接近 3A 呈現水準的場景、光照、材質、角色／物件造型、動畫、特效和介面；高品質風格化美術也可入選，不要求模仿寫實 3A。美術檢視要分開看風格一致性、可讀性、場景構圖、資產輪廓與細節、光影材質、動畫特效和選單／HUD，並與功能視覺（是否看得清遊戲狀態）分開。分開記錄美術、可玩性、系統／內容完整度、一次委託條件及證據強度，不能以高解析度、幾何複雜、作者稱「AAA」、玩法完整或 benchmark art 分數替代美術判斷。程序生成本身不扣分，採用什麼資產管線也不等同使用者看到的美術品質。使用者保留最終美術評價權；尚未看過或未評的成品標為「待使用者評價」，研究觀察與作者自述另行標示。美術分數權重高，但不先作硬性淘汰門檻，以免漏掉值得使用者直接檢視的候選。
+
+## 目前建議
+
+- **近期同題比較最值得直接檢視：newmodel-games。**GPT-6.1 Sol 與 Sonnet 5.5 各依同三題 RPG／卡丁車／FPS 生成可玩的 source build，配套原始任務、逐題 10 項機器驗收與作者手動測試觀察。六款均由作者報告 10/10，但作者同時記下敵人不射擊、操控方向反轉、賽道單一等缺陷；測試沒有評畫面／玩法完整度。兩邊 harness 不同，回饋往返和是否零使用者介入未有 session 可核，不能拿來排模型名次；但題目／artifact／QA 組合適合用固定 harness 重跑。[B0055](ai-game-research/records/B0055.md) · [六款直接遊玩與截圖](https://haruka8846.github.io/newmodel-games/) · [S53](ai-game-research/search/S-20261007-53-frontier-model-github-game-artifacts.md)。
+- **近期短循環自主 QA 樣本：Game Bench《Itsy Bitsy Spider》GPT-6 Astra build。**2026-09-24 可玩成品對應一份公開凍結任務，明列模型需自己從頭玩到 game over、修正問題，並驗證 mobile、聲效、雨／避難與重玩。榜頁有 Gameplay／Adherence／Engineering／Art 分軸分數，另提供 25 款匿名試玩流程；但沒有實際盲評結果，Astra 此 row 更標 `processStatus: review` 並留有 VM containment 未解，因此不算已完全稽核的一次委託。任務自稱 small game、僅單一無盡循環，依你的要求只作自主 QA／mobile／audio 副測，不作完整遊戲上限主測；美術待你評價，作者 Art 98.5 不代表你的判定。[G0266](ai-game-research/records/G0266.md) · [直接玩](https://game-bench.piccini.app/games/gpt-6-astra-20260924/) · [原始凍結 prompt](https://game-bench.piccini.app/frozen-prompt.md) · [S54](ai-game-research/search/S-20261007-54-player-facing-evaluation-coverage.md)。
+- **高系統持續 AI-agent 開發線索（不是一次交付案例）：Bash Fighter。**公開 browser／itch build、完整 source、CI 與測試；README 明確稱日常大部分程式碼由代表 owner 的 AI agent 持續開發。包含 20 人 free-for-all、deterministic fixed-point simulation、server-authoritative netcode、lobby/bot fill、觀戰與 reconnect，系統深度足以值得留待查原始委託。README 同時說這是 ongoing day-to-day development；目前沒有初始 prompt、模型／工具版本或 session trace，所以不能拿它當 one-shot 成績或候選排名。[G0267](ai-game-research/records/G0267.md) · [線上遊戲](https://bashfighter.com/) · [原始碼與 agent attribution](https://github.com/Bash-Entertainment/bash-fighter) · [S55](ai-game-research/search/S-20261007-55-ai-coding-platform-game-builds.md)。
+- **一次 prompt 聲稱的塔防樣本（待核副候選）：Bolt Tower。**Devpost 將它報在官方規則限制後續只能修錯的 Bolt One-Shot track，提供公開 browser build；有波次、不同塔／敵人、放置升級與勝敗循環。原 session 現在導登入、model／prompt／凍結版本不明，作品流程及品質未獨立核實，系統規模也低於主測。適合留意同賽道其他作品或之後 session 解鎖，不列目前成績排名。[G0269](ai-game-research/records/G0269.md) · [直接玩](https://bolt-tower.netlify.app/) · [S59](ai-game-research/search/S-20261007-59-bolt-tower-devpost-run-verification.md)。
+- **MathBombs 與 CosmicTacToe 是 One-Shot track 的小型實際遊戲：**兩者有可玩連結和賽制標籤，但分別是算術炸彈反應循環、經典井字棋變體，系統／內容不足以測完整遊戲生成上限。MathBombs 獲 one-shot bonus-prize badge；沒有個別原始 prompt／模型 trace。本次逐件排除並保存，不納入主測。[G0270](ai-game-research/records/G0270.md) · [G0271](ai-game-research/records/G0271.md) · [S60](ai-game-research/search/S-20261007-60-bolt-one-shot-winners-and-game-submissions.md)。
+- **最適合直接重跑「AI 自己測試修正、使用者只看交件」的完整高難題：DEAD SIGNAL 撤離 FPS brief。**BridgeBench 公開了完整 438 行規格，要求 AI 在一次使用者任務內完成並自行執行、遊玩、檢查、修正；殭屍導航、槍械、經濟、合約、撤離和結局都有可驗收條件。它是強任務規格，沒有已核實的同規格 playable 原作，所以不把它說成已有模型成功案例。若想更開放，再加短 prompt 的 **Claude of Duty**，讓模型自行決定 FPS 細節；原 run 用 Opus 5，repo 有後續修改，重跑應從空專案開始。見 [G0047](ai-game-research/records/G0047.md)、[G0035](ai-game-research/records/G0035.md)。
+- **最直接符合「使用者只輸入一次、AI 自行修正直到交付」的公開長程遊戲 run：Fusepoint。**上海人工智慧實驗室報告以一份 PRD 和空工作區開始，用 Codex CLI＋GPT-5.6-Sol high 自主執行 70 輪，期間人類只處理網路/API 中斷；有官方遊戲錄影、下載入口與 GitHub source。它不是一次模型呼叫，且 GPT-5.6-Sol 已非最新；完整 PRD 與 Loop 70 凍結 build 未找到，70 輪仍有 16 個未解 issue，後續公開 repo 也留有 QA 缺口。因此它是「自主長時程流程」的強實例與現行模型重跑題，不是無缺陷成績或最新模型排名。[實際遊戲影片](https://flesymeb.github.io/HarnessOfHarness/assets/video/fusepoint-real-gameplay-preview.mp4) · [論文](https://arxiv.org/abs/2609.01481) · [G0263](ai-game-research/records/G0263.md) · [M0028 HoH 方法](ai-game-research/records/M0028.md) · [S46 查核紀錄](ai-game-research/search/S-20261007-46-long-horizon-autonomous-game-runs.md)。
+- **較新模型的可玩遊戲與自主 QA 副測：GPT-6.1 Sol《Ridge Run》**（已併入既有 [G0077](ai-game-research/records/G0077.md)）。作者稱 Codex max 單次 brief、一次執行、無 follow-up／交件清理；Sol 與 Opus 收到除輸出路徑外逐行相同的任務，但原始 prompt 和完整 session 未公開。可直接玩單檔 HTML，也有作者保存的遊戲畫面與定量測試。9 月 30 日 run 用時 57m38s；作者 hands-on 評分 13/20，同題 Opus 5.5 為 19/20，但兩者 harness 不同、Opus 沿用舊 build，且 Sol 讀過一般 Codex one-shot memory。作者量得 900m 賽道、30–50 km/h 可完賽、全完賽 run 收齊 80 枚金幣；這是作者測試，不是獨立重現。它是單關物理／自主 QA 副測，不是完整長流程上限或盲測排名；**美術待你直接檢視**。[GPT-6.1 Sol 實際輸出畫面](https://www.bitsminds.com/buildoff-2026-09/hillclimb_sol61_play.jpg) · [直接玩](https://www.bitsminds.com/buildoff-2026-09/hillclimb_sol61.html) · [作者 hands-on 報告](https://www.bitsminds.com/news/claude-opus-5-5-vs-gpt-6-1-sol-hill-climb-2026) · [G0077](ai-game-research/records/G0077.md) · [S47](ai-game-research/search/S-20261007-47-latest-model-one-prompt-game-runs.md)。
+- **最新官方高系統成品參照：Hollowflux。**GPT-6 Astra 公開可玩七層地城 RPG，水流物理會影響移動和戰鬥；官方逐階段記錄多輪後續指示，因此它適合重跑題與遊戲輸出參照，不是一次交付證據。[直接玩](https://tideglass-drowned-vein.openai.chatgpt.site/) · [G0225](ai-game-research/records/G0225.md)。Void Explorer 適合作程序宇宙／大尺度 3D 空間副測，缺傳統任務和勝負閉環；你已判定其美術合格，並指出任務提示詞含美術精修指引。[直接玩](https://void-explorer.openai.chatgpt.site/) · [G0226](ai-game-research/records/G0226.md)。
+- **高系統模擬題種子：WHAT IF? Civilization Lab。**同一長 prompt 對照 GPT-6 Astra High 與 Gemini 3.8 Flash High 的 playable vertical slices，作者留下互動錄影、截圖和手動 QA，發現 Gemini 視角按鈕不動、文明數值增長異常；來源沒有 source、可玩網址或完整 trace，且執行環境不同、Astra 曾因 plan limit resume。保留為新模型重跑任務與驗收反例，不當成公平模型排名。[B0056](ai-game-research/records/B0056.md) · [原任務與互動錄影](https://github.com/cagrikacmaz/gpt-6-astra-vs-gemini-3-8-flash)。
+- **最新高難度技術副主測：No Man’s Sky 行星降落 brief。**2026-10-05 的同題 run 要求單檔、無 3D 引擎／外部 library，從太空連續飛到球形行星、玩家手動降落、下船行走並可回船升空；Opus 5.5、GPT-6 Astra、Grok 4.7 都有可玩凍結 build 與真實截圖。它高壓測 3D rendering、球面座標、飛行操控和自我 QA，但沒有任務／敵人／經濟等長期循環，應和 Ruinseed／DEAD SIGNAL 等長流程題搭配，不能單獨代表完整遊戲上限。[直接看三款成品與實際截圖](https://www.bitsminds.com/news/claude-opus-5-5-vs-gpt-6-astra-vs-grok-4-7-planet-landing-2026) · [G0233](ai-game-research/records/G0233.md)。
+- **近期前沿模型五題 UE5 實玩影片（S36）：**Brendan Jowett 於 2026-09-24 展示 GPT-6 Astra × Opus 5.5 的平台、賽車、六軸空戰、生存 FPS 與 Boss 五題成果，影片可直接觀看遊戲片段及時間／成本面板；值得用來看近期輸出並挑選題型。原始逐字 prompt、session、source／build 與獨立 rubric 未公開，所以只列畫面／題型參照，不能說已核實符合無人介入的一次委託。五款美術均待使用者判定。[看影片](https://www.youtube.com/watch?v=w4JMLjnY1xY) · [B0049](ai-game-research/records/B0049.md) · [S36 查詢與排除紀錄](ai-game-research/search/S-20261007-36-current-model-game-generation-runs.md)。
+- **近期有原任務與可看成品的 one-shot 種子：Muse Spark 1.3。**此模型於 2026-09-02 公開，不是當前最新型號，但 Meta 的 Crossy Road cookbook 有官方實際一次生成畫面和可重用規格；同一作者另有 3D Roguelike《DUNGEONFALL》與開放世界生存 sandbox 的原 prompt／可玩輸出。此批作者申報的模型設定、一次生成和無 follow-up 均未有完整 session 可獨立稽核。若只挑高上限題，優先看 DUNGEONFALL；開放世界生存作互補題，Voxel 建造則只作技術副測。新作品美術均未由使用者評價，詳見 [候選摘要](ai-game-one-shot-candidates.md#近期前沿模型實測畫面參照)、[S41 查詢與排除紀錄](ai-game-research/search/S-20261007-41-current-one-shot-model-game-runs.md) 及 G0254–G0257。
+- **新近模型高系統重跑題種子：Sonnet 5.5 Fortnite 風格大逃殺。**公開原 prompt 與 42 秒實玩影片，任務同時要求第三人稱射擊、bot、武器／生命／護盾／背包、小地圖、牆與斜坡建造、縮小安全區及島嶼場景，明顯高於簡單小遊戲；作者稱 2026-09-29 一次生成、約 2h54m，但沒有 build、source 或 session 可獨立核實，故列重跑種子而非已驗證成績。新作品美術待你評價。[原 prompt 與影片](https://jasonzhu.ai/en/prompts/claude-opus-5-5/2104779190277181699) · [G0258](ai-game-research/records/G0258.md) · [S42 查詢紀錄](ai-game-research/search/S-20261007-42-frontier-model-high-complexity-runs.md)。
+- **GPT-6 Astra 官方互動卡丁車：TIDAL RUSH — Paradise GP。**OpenAI 官方發布頁連結可玩作品並標註 Pietro Schirano；三圈、八位車手，適合你直接檢視競速畫面與物理，**美術待你判定**。但沒有原始 prompt／session，題目範圍也較短，只列視覺／物理副測，不作已驗證 one-shot 或上限主測。[直接玩](https://tidal-rush-paradise-gp.skirano.chatgpt.site/) · [OpenAI 官方介紹](https://openai.com/index/gpt-6-astra/) · [G0250](ai-game-research/records/G0250.md)。
+- **近期 GPT-6.1 Sol 自主 QA／物理副題：Slipstream。**作者標為 0-shot／Extra-high，公開從空白 workspace 起始的記錄、原 prompt 摘要、可玩 Three.js 成品與涵蓋賽事閉環、坡道／缺口著陸、NPC、觸控及離線的 Playwright 測試。它是範圍集中的水上滑道賽車，不是長流程主測；作者 repo 沒有完整 session transcript，zero-follow-up 仍屬申報。**美術待你判定**，策展頁無遊戲截圖；其 8.5 分不是美術或 runtime 分數。[直接玩](https://kjlkurt.github.io/waterslide-game-gpt-6.1-sol/) · [任務與 QA 資料](https://github.com/KJLKurt/waterslide-game-gpt-6.1-sol) · [G0143](ai-game-research/records/G0143.md) · [S37](ai-game-research/search/S-20261007-37-current-model-physics-game-audit.md)。
+- **新增開放式視覺／Boss Rush 重跑題：Rubberhose Ruckus。**作者公布短起始 prompt、可玩 build，稱 Tesana LOOP 在約九小時內無人看管地多輪建置／playtest，成品有三階段 Boss、彈反及鮮明橡皮管風格。原 run 的底模／trace 未公開且平台自選模型，所以只列開放式任務重跑種子和平台專屬參照，不作公平模型成績；使用者尚未判定這個新作品的美術。[可玩版](https://tesana.com/game/rubberhose-ruckus) · [原 prompt 與作者流程說明](https://www.reddit.com/r/aigamedev/comments/1v9bqzx/ai_made_platformer_trying_long_horizon_prompting/) · [G0237](ai-game-research/records/G0237.md)。
+- **新可重跑固定 agent harness：OpenGame。**官方 repo 現在提供單 prompt 生成的 playable demo gallery、source archives，以及可由 OpenAI-compatible provider 換模型的 headless 工具流程；Debug Skill 會自動跑 build/browser、查互動錯誤並修到可玩。可從原創化後的高系統 prompt 重跑，以公平比較固定代理框架下的模型差異。完整 150 任務 benchmark evaluator 未確認公開，gallery build 沒逐項模型／日期／trace，所以是可重跑工具與任務來源，不是其作者 leaderboard 可直接引用。[OpenGame repo](https://github.com/0xinnovator/opengame) · [B0029](ai-game-research/records/B0029.md)。
+- **可重跑正式題庫優先看 GameCraft-Bench 與 GameASG-Bench。**GameCraft 有 140 個 Godot 題及 replay／hidden rubric，現存題型比 Open20 compact briefs 更適合選高系統題重跑；已登錄 Airship Trader 可作經濟／開放世界候選。GameASG 有 47 個單次任務和隔離式行為 evaluator，適合嚴格驗證完成度；其單頁與測試介面屬額外規格。最新 GPT-6.1 Sol／Astra 尚未出現在 GameCraft 公開 roster；GameASG 的論文結果也需要現行模型重跑。**新增高系統密度商業模擬副主測：Fast Food Tycoon**，具 3D 餐廳經營、資源守恆、NPC 服務、員工自動化與長期成長的公開任務及行為測試；尚無 AI 成品畫面，故美術未核實。[G0056](ai-game-research/records/G0056.md)。GameXpert 的 97 題仍無可下載 corpus；PlaytestArena 200 題也未公開完整題庫。GameForge Harness 可參考其自主開發與外部驗收做法，但它的 Open20 題目明確偏小，不當上限主題。[S24](ai-game-research/search/S-20261007-24-academic-generation-benchmarks.md) · [S33](ai-game-research/search/S-20261007-33-benchmark-task-release-audit.md) · [GameForge](ai-game-research/records/B0047.md)。
+
+- **本輪新增最值得追的正式高上限題庫：A2Z GameSpec-Bench。**其 50 份 Big GDD 平均約 26K tokens、84 項 outcome requirements，題型涵蓋 simulation/management、platformer/metroidvania、adventure、strategy、RPG、shooter 等互相牽動系統；固定 requirement contract 透過 source、scenario replay、adaptive playtesting 驗收，也有同一 initial build 經 agent 兩輪自主修訂的對照。公開 roster 含 GPT-6 Astra／Claude Fable 5.1，Big split 能顯示長規格整合差距。這是目前正式基準中最像「一次長任務、agent 自己做並迭代，最後看 playable build」的強追蹤候選；**但本次官方 repo 仍寫完整 code/data 即將釋出**，所以尚不能把它列為可下載重跑題或已核實 no-human-intervention run。[B0052](ai-game-research/records/B0052.md) · [論文](https://arxiv.org/abs/2609.39564) · [官方 repo](https://github.com/krafton-ai/a2z-gamespec-bench) · [S40](ai-game-research/search/S-20261007-40-formal-generation-benchmark-audit.md)。
+- **S45 任務級重跑建議：若要挑 3D 跨系統上限題，Astroman 優先；若重視可完成的 3D 系統閉環，Fast Food Tycoon 更穩；Grand Theft Astro 是兩者之間的城市 sandbox。**GameASG 目前 47 個任務有 target/GDD/TDD 工作區材料及隔離行為測試，原始設定需標明不是單一自然語言檔案。GameCraft 方面，Submarine Pressure Rescue 有 GPT-5.5 高系統實測 build 但 art41；Garden Ecosystem Keeper 有 Seele02-pro art85.04 的遊玩影片，較適合你親自校準美術但不是 3D 上限題。這些 benchmark 分數都不是你的美術判定，新增輸出均標為待你評價。[S45 題目／成品比較](ai-game-research/search/S-20261007-45-benchmark-task-screening.md) · [Astroman](ai-game-research/records/G0259.md) · [Submarine](ai-game-research/records/G0261.md) · [Garden Keeper](ai-game-research/records/G0262.md)。
+
+- **評測流程參考：WebGameBench。**111 題各對 coding agent 做一次 generation attempt，保存 source、部署 URL 和 trajectory；約 20 turns 的 agent 可在同一任務內自主使用工具，再由獨立 browser agent 操作最終成品。其「可玩」和「完整滿足要求」分開評分，十分貼近你的驗收原則；但高難 D4 題數少、模型榜未覆蓋當前最新型號，且完整任務／evaluator artifact 尚未核實公開，不足以單獨作長流程上限主題。[B0043](ai-game-research/records/B0043.md)。Spec2Game 的四軸 spec/runtime 評價可補 rubric，但題目偏小且 generation 不含自我修正；OpenGameEval 偏 Roblox stateful editing/debugging；JAMER repo 釋出尚未核實。詳見 [S40](ai-game-research/search/S-20261007-40-formal-generation-benchmark-audit.md) 及 [B0050–B0053](ai-game-research/catalog.html)。
+- **一次委託挑戰方法補證（S43）：**ProfIQ 官方賽制允許 agent 在單次 prompt 內自主測試修錯，提交原 prompt 與模型／工具設定，且主辦方會用同 prompt 重跑；這貼近「使用者退出，AI 自己交件」。但評分把 prompt 品質占 20% 混入成品總分，題型限 minigame、單檔與一小時，且畫廊缺逐件 prompt／model／session 對照，因此只保留方法參考，不列上限主題。[E0007](ai-game-research/records/E0007.md) · [S43 查詢紀錄](ai-game-research/search/S-20261007-43-public-one-prompt-game-challenge-rules.md)。
+
+- **最近的基準／成品補查（S26）：**GameLogicBench 現有 72 題 Godot 機制修補任務，WorldCoder-Bench 公開 2,004 題互動 3D snapshot；兩者都能補足已交成品的行為驗收，但不是空白起始的完整遊戲生成基準。GameDevBench 的新榜含 GPT-6.1 Sol，但測的是修改 333 個既有 Godot 專案。近期 playable leads 包含 Cindermere（Sonnet 5.5，原 prompt 受限）與 DRIFTWING V1（兩次人手 continue、無失敗／長流程閉環），不升為完整遊戲強候選。細節及實際查詢見 [S26](ai-game-research/search/S-20261007-26-current-game-showcases-and-benchmark-updates.md)。
+
+- **repo 時間線與一次交付稽核（S27）：**Turbo Kart Rally 有第三方把同版 build 跑完一圈，但 one-shot 流程仍只有作者自述，且題型與 Kart Blitz 重疊；Sakura Rally、Long Wind 的公開時間線明確含多輪人類試玩回饋；OpenRally 宣稱 AI 生成，卻缺模型、prompt、版本與介入紀錄。這輪沒有因此新增強候選。策展清單只能找線索，不能證明來源條件；下一批轉查官方模型／agent 的遊戲 build 與 session artifact。完整查詢及排除依據見 [S27](ai-game-research/search/S-20261007-27-repo-history-and-curated-gallery-provenance.md)。
+
+- **官方自主 Goal 成品稽核（S28）：**找到《Phantasy Codex Adventure》的原始任務明確要求建立 ongoing goal、自主迭代與發布；官方頁列出從初始 RPG 到多生態區域旅程、職業／首領／持續成長的階段，並提供 GPT-5.6 Codex 可玩版。它是目前值得優先用最新模型重跑的長流程題種子，但公開頁沒有逐訊息 trace，舊 build 不能當最新模型成績。另新增《Tiny Rails Rollercoaster》作 3D 駕駛／物理副題；其美術均待使用者另行判定，不套用舊頁面整體驗收。詳見 [S28](ai-game-research/search/S-20261007-28-official-showcase-goal-runs.md)、[G0242](ai-game-research/records/G0242.md)、[G0243](ai-game-research/records/G0243.md)。
+
+- **系統重跑題：THE NINTH BELL（GPT-6.1 Sol Max／GPT-6 Astra Max；美術不合格）。**它是目前找到最符合一次輸入協定、遊戲系統不簡單且有實際 3D build 可看的近期候選。共同 prompt 和 zero-shot one-pass 規則明確；修道院場景、氛圍燈光、第一人稱戰鬥與 roguelike 進度整合。研究代理檢視過 Astra 版，認為值得你與 Kart Blitz 對照，但畫面偏暗、模型仍簡化，**使用者已判定美術不合格**；兩版畫面仍可作為系統比較參照。先看[GPT-6.1 Sol 可玩版](https://chojondocho.github.io/single-html-game-bench/codex-gpt-6-1-sol-max.html)及[Astra 版](https://chojondocho.github.io/single-html-game-bench/codex-gpt-6-astra-max.html)。該基準不展示 AI 自主工具迭代，偏首輪輸出測試；正式重跑可允許 AI 自行修正。
+- **若只看系統／長流程上限：Ruinseed。**程序生成世界、探索、戰鬥、三座地城、Boss 與結局構成完整長流程；有詳細 prompt 和多個可玩的模型版本。使用者已判定美術不合格；仍可依系統難度評估其重跑價值。
+- **同題參照：THE TALLOW DEEP（Claude Opus 5.5 Max；美術不合格，使用者判定）。**與 THE NINTH BELL 同一 zero-shot 基準、同一 prompt，作者主觀排行第一；[實際 build](https://chojondocho.github.io/single-html-game-bench/claudecode-opus-5-5-max.html) 可並排看。你的模型比較並不依賴這項現成比較；用途是保留相同 prompt 下的遊戲系統對照。
+- **想直接檢視不同成品：Backrooms。**第一人稱 3D 迷宮、聲音線索、追逐與逃脫；公開同題多個 build 和作者實玩素材，但原測試工具條件不完全相同。
+- **想測更長的跨系統規格：MALL ACTION。**六層商場、橫向動作和俯視商店探索切換；規格、模型分支和部分測試紀錄公開。
+- **美術已驗收通過：Kart Blitz、Pelican Bicycle、OneShotGTA：Palm Bay／Golden Hour、Void Explorer。**Void Explorer 的主要通過理由是任務提示詞包含美術精修指引。這是使用者明確給出的作品級判定；已評作品逐項清單見 [檢閱頁美術評價表](ai-game-one-shot-review.html#user-art-evaluations) 與 [E0008](ai-game-research/records/E0008.md)。
+- **若要加一題技術副測：NEON BAY。**程序城市與複雜駕駛物理有實際 build、自動測試和修正紀錄；它偏駕駛模擬，不是長流程冒險；美術不合格（使用者判定）。
+- **新增單次委託的跨系統候選：Fable Theft Auto 5.1（美術不合格；使用者判定）。**公開檔案明確記錄一則 prompt、no follow-up，原始任務要求把步行射擊、劫車／駕駛、NPC／交通、通緝追捕與一個任務整成單檔可玩遊戲。它可作系統重跑題，視覺不列合格候選。細節見[G0191](ai-game-research/records/G0191.md)。
+- **新找到值得優先看畫面的副測：OneShotGTA／Golden Hour（Opus 5.5 Max）。**固定 brief 要求低多邊形、暖色光照和清晰輪廓，並讓 agent 自行遊玩、截圖、挑錯與重跑；同題有四個可玩輸出。它不含槍戰、警察或長流程，主要測畫面與駕駛物理。我已看過實際開場，成品是海灣運河和暖色低多邊形城市；使用者已判定美術合格。[看 Opus 5.5 成品](https://nitzan.games/experiments/one-shot-gta/opus/index.html)，完整證據見[G0188](ai-game-research/records/G0188.md)。
+- **若要壓長時自主開發上限：Fable Cities。**城市建造與模擬範圍更大，有一次指令、多代理分工、截圖批評、效能測試和多輪修正；但執行時間長，公開結果仍未達作者自訂的美術／效能門檻，適合作極限壓力參照，不應先假設它是視覺合格的最終成品。見[G0193](ai-game-research/records/G0193.md)。
+- **若要直接測長時自主建置與自我 QA：FALL LINE。**Opus 5.5 xhigh 收到一次詳盡 brief 後，在六小時上限內自行建置滑雪／單板自由山域遊戲、反覆 Playwright 試跑／截圖／測效能／修正；作者稱 339 分鐘後自行停止、無人介入。完整任務和可玩 build 都公開。這是長程 agentic 強候選，但 brief 規格很密、風格以《Steep》為參照，美術不合格（使用者判定）。見[G0195](ai-game-research/records/G0195.md)。
+- **若要用一句開放委託測玩法擴展：NOVA LANCER。**「做一款盡可能豐富的 Star Fox 類遊戲」擴成完整 3D 軌道射擊任務、三段環境、僚機、升級與 Boss；作者用 bot 從頭到尾自動試玩。留意目前公開 build 有發佈後人工修補，正式模型比較應保存原始停止時交件。美術不合格（使用者判定）。見[G0194](ai-game-research/records/G0194.md)。
+- **值得新增的視覺／物理副測：SUNBREAK — Downhill Club。**GPT-6 Astra 歸因有作者貼文、開源 source、完整 2.3 公里 cel-shaded BMX 賽事與真實畫面；地形、車手動畫、下坡物理、特技、AI 對手、雨天與 replay 整合度高。沒有原始 prompt／session，故只能作重跑題型與畫面檢閱，不是已核實 one-shot 成績；可看[非官方遊玩複本](https://tikgame.org/game/sunbreak/)及[來源 repo 的實際畫面](https://raw.githubusercontent.com/Imirushik/sunbreak-downhill-3D-game/main/media/SUNBREAK-showcase-poster.jpg)。見[G0214](ai-game-research/records/G0214.md)。
+- **新列入值得用現行模型重跑的完整 ARPG brief：Diablo-style ARPG。**任務把四層程序地城、技能／升級、五種敵人行為、裝備詞綴／商店／存檔、多階段 Boss 和 AI 自動通關都列成完成條件。已有不同模型的真實 build 截圖，但未找到可供你直接遊玩的公開版，早期 run 是否零追問也未確認；它目前是強重跑題，不是現成成品通過證明。看[四個 build 截圖與完整 prompt](https://www.aiformortals.co/built-by-pat/build-a-diablo-style-action-rpg-5koom8)，細節見[G0049](ai-game-research/records/G0049.md)。
+- **多人網路與戰鬥系統上限新強候選：GPT-6 Astra Smash Karts Arena。**公開 trajectory 逐筆確認核心開發期間只有一則真正的 user task；約 42 分鐘做成 8 人、11 武器、三分鐘賽事，含 WebSocket 房間、服務端權威狀態、斷線恢復、bot、合成音效與客戶端 controls。可看[實際遊戲影片](https://youtu.be/3laRe_z_gbI)及[完整主 session trajectory](https://huggingface.co/datasets/amsminn/smash-karts-multiplayer-trajectory/blob/main/traces/rollout-2026-09-05T17-40-19-01a070b9-c9b8-7d00-8cbf-8fd0416df521.jsonl)，也有 source 和測試報告。缺點是沒有一鍵 hosted build、需要自己啟 server；曾 spawn 一個代理但其 transcript 未公開，畫面美術不合格（使用者判定）。細節見[G0206](ai-game-research/records/G0206.md)。
+- **外送職涯模擬重跑備選：DASH / DINNER（GPT-6 Astra）。**作者頁公開完整任務文字與可玩 3D browser build；題目把城市駕駛、接送訂單、倒數、門禁碼記憶、食物品質／小費、疲勞與睡眠、跨日載具升級整合成職涯循環。比單一操作小遊戲更能測跨系統完成；平台未公開 no-follow-up transcript 或首版快照，不能當成已稽核的一次生成成績。先看[研究員實際截圖](https://github.com/MartinDelophy/awesome-gpt-6-astra/blob/main/assets/screenshots/dash-dinner/gameplay.jpg)和[可玩 build](https://play.agentgames.dev/g/g_Gkna3a8DsdOR3NCL/index.html)，美術不合格（使用者判定）。完整 evidence 見[G0209](ai-game-research/records/G0209.md)。
+- **系統重跑線索：Drone Backlash（GPT-6 Astra；美術不合格，使用者判定）。**Apple App Store 有可安裝 iPhone 成品及商店截圖；頁面列六個短任務、五分鐘巡邏、三階段合約、九種武器、八種敵機、升級與持久成長。作者稱第一個 prompt 產生遊戲，但未公開原始 prompt、session trace 或首版凍結版本；目前商店版也已有更新。可保留為手機射擊／成長系統重跑題，不列視覺候選。完整紀錄：[G0230](ai-game-research/records/G0230.md)。
+- **較新模型、可重跑動作 Roguelite：Afterlight（GPT-6.1 Sol）。**作者頁列 2026-10-01、high effort、約 41 分鐘，並公開完整 prompt 與目前可玩的遊戲：三名角色、九場遭遇、三個 boss、局內疊加強化、跨 run 永久成長、觸控與存檔。prompt 要求模型自由選題並完成、自測及發布。由於沒有 session transcript，這是近期 build／題目參照，不宣稱無人追加已被稽核。作者封面是 key art，遊戲實際畫面用程序 Canvas，請直接玩[gameplay build](https://play.agentgames.dev/g/g_5bDBTNoVMJLfPNeZ/index.html)再評美術。完整 evidence 見[G0211](ai-game-research/records/G0211.md)。
+- **開放委託多人／部署上限：BioNeural（Opus 5.5 Medium）。**原始任務幾乎只說「做一款可部署、可玩的線上多人遊戲，玩法由模型決定」；作者自述 5 小時 session 內加入 multiplayer、bots、可破壞場景、語音及音訊並部署。這是測自主決策和工具鏈整合的高難度重跑題；但作者給了 PC 完整權限、已登入工具和 Suno，現在網站是 1.8、包含後續版本，不可當首版一次交付證明。重跑前須固定帳號、主機、網路與外部服務。看[目前遊戲](https://bioneural.de/)，原 prompt 和版本界線見[G0026](ai-game-research/records/G0026.md)。
+- **物理／經濟／長流程重跑強題：DEAD AHEAD（Fable 5.1 Max）。**車輛剛體物理、燃料與碰撞、固定長路線、三種車、六條升級線、逐日收入及逃生終點彼此牽制；作者稱用 Node bot 模擬完整經濟循環、修正穿牆／卡住問題。公開 prompt 和目前 playable build，但沒有 session transcript 或初版快照；適合當新模型重跑 brief，不視為已獨立證實無人介入的成績。美術不合格（使用者判定）；遊戲連結供系統檢視：[遊戲](https://agentgames.dev/play/dead-ahead)判斷。見[G0223](ai-game-research/records/G0223.md)。
+- **低約束玩法創作題：FROM ZERO（Fable 5.1 High）。**短 prompt 只給異世界轉生題材和兔耳角色，模型自行設計「八分鐘一天、死亡保留探索情報、打倒首領推進重生點」等核心循環；作者稱有 headless Chrome 長日模擬。它測模型自行發明並整合玩法，適合乾淨上下文重跑。作者提到這是第五或第六款遊戲，且公開 build 為 1.6；可能帶有先前對話，不能用現版宣稱已驗證 zero-start 成績。看[可玩版及原 prompt](https://agentgames.dev/play/from-zero)，美術不合格（使用者判定）。見[G0221](ai-game-research/records/G0221.md)。
+- **較窄戰鬥平衡副題：Tank Rush。**29 個程序關卡、六種武器、升級經濟、敵人尋路和逐關難度校準；作者稱讓 AI 長時間 play-test 並修正穿牆火箭、撞牆與卡死。可重跑但系統範圍低於上述主測，且過程無 transcript；視為副題。看[原始 prompt／目前 build](https://agentgames.dev/play/tank-rush)，見[G0224](ai-game-research/records/G0224.md)。
+- **開放式部署上限副測：BioNeural（Opus 5.5 Medium）。**作者公開極少規則的任務與可玩多人射擊遊戲，自述 AI 自選玩法、完成 bot／語音／破壞環境並上線；1.0 已有多張地圖與多人，後續 1.1–1.8 又增加功能，作者另外提出手機支援要求。非常適合測自主選題和全棧部署，但必須把主機、帳號、外部工具及權限固定；不能把目前 1.8 算成一個 prompt 的首版成績。見[G0026](ai-game-research/records/G0026.md)。
+- **物理／經濟長流程重跑強題：DEAD AHEAD（Fable 5.1 Max）。**橫向車輛物理、燃料與碰撞、三種車、六條升級線、日循環收入和逃生終點互相牽制；作者稱用 Node bot 模擬完整經濟流程並自行修正尋路／碰撞問題。公開 prompt 和可玩 build，但沒有 session transcript／首版快照；適合新模型重跑，流程證據仍屬作者申報。見[G0223](ai-game-research/records/G0223.md)。
+- **低約束創作自主性題：FROM ZERO（Fable 5.1 High）。**短提示只給異世界題材與兔耳角色，模型自行發明八分鐘時間循環、死亡後保留探索情報、首領推進存檔點等玩法；可玩版及作者所稱自動長日測試公開。原 prompt 提到「第五或第六款遊戲」，前置上下文可能影響結果；現版 1.6 不是初版。建議乾淨上下文重跑，不宣稱已驗證 blank-start 成績。見[G0221](ai-game-research/records/G0221.md)。
+- **較窄的戰鬥平衡副題：Tank Rush。**29 個程序關卡、六種武器、升級經濟與尋路敵人；作者描述長程 play-test loop。可重跑，但範圍小於完整 RPG／多人題，無 session transcript。見[G0224](ai-game-research/records/G0224.md)。
+- **高 effort FPS／展示系統重跑題：Shift Zero（GPT-6 Astra；美術不合格，使用者判定）。**一則高 effort 任務先要求 AK-47／AR-15 零件展示動態組裝，再將同一資產接進工廠防衛 FPS；同一 playable 網頁可以看組裝材質、動畫、照明並接著操作遊戲，需拯救同事、維持電力、迎戰三波入侵和重開。Model test 頁列 2026-09-04、1 prompt／1 run，直接 build 可供你看；但沒有原始 session trajectory 或 source repo。使用者已判定美術不合格；保留系統重跑價值。見[G0207](ai-game-research/records/G0207.md)。
+- **更直接測高品質角色美術與 3D FPS 系統：Call of Duty-Style Browser FPS brief。**原 prompt 嚴格要求 rigged 角色、真動畫、槍械差異、掩體 AI、killcam、完整 match 和 60fps，並讓 agent 看多張 QA 截圖後修正。舊模型的展示圖是實際輸出，但這個題目原測試有 follow-up passes，故只能視為值得用現行模型重跑的 brief；不是已確認的一次交付案例或美術過關作品。見[G0201](ai-game-research/records/G0201.md)。
+- **近期單句開放委託的實物參照：Pelican Bike／CrossFire Transport Ship／QQ Speed。**同一個 Claude Opus 5.5 repo 公開單句原始 prompt、source、可玩 3D build，並稱一次 session 後由模型自測和修正。三題分別測角色／布料物理與場景、FPS bot／武器／關卡、四賽道漂移與 AI 對手；適合當現行模型重跑 brief。流程細節尚未有 session transcript 或獨立稽核，Pelican Bicycle 美術合格；CrossFire 與 QQ Speed 美術不合格（使用者判定）。看[G0117](ai-game-research/records/G0117.md)、[G0203](ai-game-research/records/G0203.md)、[G0204](ai-game-research/records/G0204.md)。
+- **物理專項副題：Happy Wheels Pogo 長關卡。**作者稱 Fable 5 Max 約兩小時做成約 25 分鐘首通的單關，附實玩錄影；玩法物理有難度，但原 prompt、source 與 playable build 未公開，且作者找到傾斜加速 bug。適合作物理副測題材，不是主測或已驗證成品。見[G0205](ai-game-research/records/G0205.md)。
+- **嚴格排除但保留作上限參照：Descente。**Roguelite 規模、程序美術和超過 200 次 bot 試玩很強，但作者在開發中途明確留言三、四次，因此不符合你「輸入後不再干預」的條件。見[G0196](ai-game-research/records/G0196.md)。
+- **要官方行為驗收：Airship Trader 或 Armor Alley。**有固定規格／操作驗收，但公開模型成品較舊或缺少 AI 成品圖廊；適合以新模型重跑。
+- **想看多模態工具鏈能做到什麼：NEON WARDEN／VESPERA。**有實際 3D 成品與自動遊玩材料；需 Blender、ComfyUI 和高階 GPU 等工具環境，適合看整套 agent/tool 上限。
+
+其他候選按證據和測試方向列在[候選名錄](ai-game-one-shot-candidates.md)。選題時不必把不同遊戲類型合成單一排名；至少保留每款遊戲的完成度與工作效率分項。
+
+## 美術門檻紀錄
+
+**近期 AI 遊戲美術參照（非一次委託成績）：Aethel Fold。**公開 HTML5 摺紙繪本遊戲；作者說 Claude Code 在多個 cloud sessions 實作遊戲內 art／sound／text，但人類主導 game design 與 art/sound direction，Gemini 另做 cover/page art。研究者看到一致的手繪紙本、暖色、折紙地景與手機 UI；**美術待你評價**，不等同 3A 3D 案例，也不列一次委託候選。可[直接玩](https://konstantinsteinmiller.itch.io/aethel-fold)、看[實際遊戲畫面](https://img.itch.zone/aW1hZ2UvNTA3MzYxNS8zMDQzOTg0MS5qcGc=/original/y37f1H.jpg)；來源與多輪／人類介入界線見 [G0274](ai-game-research/records/G0274.md)、[S65](ai-game-research/search/S-20261007-65-recent-ai-game-jam-visual-builds.md)。
+
+**近期 3D playable 作品庫參照（one-shot 未核實）：VeltosGames／Sky Isles。**官方作品頁可載入 HTML5／Three.js build；平台縮圖呈現色彩鮮明的低多邊形浮島戰略畫面，但不是經核實的 gameplay 截圖。原始 prompt、模型、session 與人工介入都未公開，不能列作一次生成成績；遊戲內美術**待你評價**。可[開啟 Sky Isles](https://games.veltos.ai/game/sky-isles-YrAJJg0ggMUy)，細節見 [G0275](ai-game-research/records/G0275.md)、[C0025](ai-game-research/records/C0025.md) 及 [S66](ai-game-research/search/S-20261007-66-veltos-3d-playable-artifacts.md)。
+
+**使用者美術驗收紀錄（2026-10-07；完整範圍見[驗收事件 E0008](ai-game-research/records/E0008.md)）：**
+
+| 作品 | 使用者美術判定 | 其他遊戲品質回饋 |
+|---|---|---|
+| [Kart Blitz](ai-game-research/records/G0080.md) | 合格 | — |
+| [Pelican Bicycle／Pelican Bike Ride](ai-game-research/records/G0117.md) | 合格 | — |
+| [OneShotGTA：Palm Bay／Golden Hour](ai-game-research/records/G0188.md) | 合格 | — |
+| [BioNeural](ai-game-research/records/G0026.md) | 不合格 | 使用者認為遊戲各項品質都已達遊玩程度；保留高系統重跑價值，不因美術淘汰玩法／完成度評價。 |
+| [Fable Cities](ai-game-research/records/G0193.md) | 未能確認，特例 | 不將其套入其他作品的通過／不合格判定。 |
+
+**檢閱頁其餘遊戲作品：**截至 2026-10-07 [候選檢閱頁](ai-game-one-shot-review.html)已列出的上述五項以外遊戲作品，美術皆不合格。這一判斷覆蓋當時頁面中的「待你檢視／待判斷」文字；基準或平台介紹卡不屬於遊戲作品評等，後續新增作品也不自動沿用，須由使用者另行判定。遊戲的美術與任務／玩法／工程品質分開記錄。
+
+## 檔案怎麼分工
+
+| 文件 | 放什麼 | 何時查 |
+|---|---|---|
+| [精選候選](ai-game-one-shot-candidates.md) | 適合討論的候選用途、難點與證據 | 選題時 |
+| [可搜尋全目錄](ai-game-research/catalog.html) | 所有已登錄名稱、別名、類型與狀態，連到獨立紀錄 | 查重、查排除或待核實項目時 |
+| [研究紀錄與去重索引](ai-game-one-shot-research-log.md) | 搜尋方向與重查條件，連到各批次 | 開始新搜尋前 |
+| [完整歷史段落](ai-game-research/history/index.md) | 舊台帳 954 行完整拆分，保存原始查詢和過程 | 從項目連結追查證據時 |
+| [維護指南](ai-game-research/README.md) | 新增、查重、保留證據、同步摘要的方式 | 接續研究時 |
+| [封存的舊台帳](archive/ai-game-one-shot-research-history-2026-10-04.md) | 獨立保留的遷移前原檔 | 備份與比對；日常查找使用分檔 |
+| [HTML 檢閱頁](ai-game-one-shot-review.html) | 給人快速看候選玩法、成品圖片與推薦的視覺版 | 瀏覽與討論候選時 |
+
+## 後續更新方式
+
+1. 開始查找前，先看本索引和去重索引；查全目錄的名稱、別名與來源，再讀命中的獨立紀錄及相關歷史段落。
+2. 新具名項目建立固定編號的獨立紀錄，即使待核實或排除也保存；足夠好的候選才進精選名錄。
+3. 搜尋過程、日期、實際 query、結果、無結果與重查條件放入獨立搜尋批次，與項目互相連結。
+4. 如果新資料改變推薦排序或證據判斷，同步更新本索引和 HTML 檢閱頁。
+5. 由獨立紀錄重新產生全目錄，避免手動維護多套名單；本索引維持精簡。完整步驟見[維護指南](ai-game-research/README.md)。
+
+本次 342 條具名盤點輸入對應到 281 個項目（184 個遊戲／具體題目，其他為基準、平台、活動與方法），舊台帳全部拆成 93 個段落，重新拼接與原檔一致。見[覆蓋報告](ai-game-research/coverage-report.json)。這些數字是保存範圍，不是推薦數量。
+
+## 選題時的固定條件
+
+同一候選要用相同任務文本與交付條件。記錄模型 ID、coding agent／工具、推理設定、時間與 token／成本上限、是否允許代理、AI 自我修正方式，以及任何使用者介入。凍結最終 build 後再用同一遊玩／行為清單驗收；工作過程指標另列，不混進產品品質分數。
+
+每個有 build／錄影的候選都另做美術證據檢視：優先看實際 gameplay 畫面而非封面或 key art，記錄風格一致性、場景／資產細節、光影材質、動畫特效與 UI 的可見品質及畫面來源。作者宣稱與研究者觀察不可代替使用者評價；單純 3D 世界或視覺展示可保存作美術參照，但須說明缺少遊戲玩法，不能升作完整遊戲候選。
+
+正式基準的 Art and Presentation 分數可以用來找待看的輸出，不是使用者的審美結論。若 rubric 將 primitive／程序幾何一律設分數上限，需記下它是該 benchmark 的資產規則；本研究仍按畫面呈現品質評估，不把資產來源當美術分數代理。
+
+
+- **AI Browser Game Jam 4／3 高排名作品稽核（S31）：**五個高分 playable 都不符合已核實的一次委託成績。《AI2U》明示 72 小時 gauntlet-loop prompting；《Pyramid Wars》明示三週 AI 輔助並依玩家意見修訂；《A Low Poly Dungeon Game》也在玩家回饋後改難度／操作；《Plug & Prosper》缺 prompt／session 且回應試玩後修補；《Monster Mash》只有 Codex/Suno 和多人作者資料。保留作 RTS、地城戰鬥與管理物理的題型／品質參照，沒有因 jam 排名加進精選。詳細證據與來源見 [S31](ai-game-research/search/S-20261007-31-ai-browser-jam-top-entries.md)。
+- **最新 Agent Games 可玩作品核對（S32）：**更新 G0228 Metro Rush 與 G0211 Afterlight 的公開原始任務；兩者都有 build，但前者系統規模仍窄、後者沒有 session trace／凍結首版證據。Crowd Rush 頁面是修補既有遊戲的 prompt，Crowd Gate Runner 是 hyper-casual 跑酷；都不升成上限主測。[S32](ai-game-research/search/S-20261007-32-current-agentgames-runs.md)。
+- **正式基準／固定任務規格查核（S33）：**GameDevBench 已列 GPT-6.1 Sol 和 GPT-6 Astra 新分數，但測既有 Godot 專案修改，不是完整遊戲生成；GameXpert 仍未釋出 97 題 corpus。從 GameASG 核實 Fast Food Tycoon 的 3D 生產、運送、服務、經濟、雇員與長程成長任務，納入商業模擬重跑題；暫無 AI build，畫面美術尚未驗收。[S33](ai-game-research/search/S-20261007-33-benchmark-task-release-audit.md) · [G0056](ai-game-research/records/G0056.md)。
+- **正式生成基準、長篇規格與自主修訂查核（S40）：**找到 A2Z GameSpec-Bench 這個目前最值得追的長 GDD corpus，但實際 repo 尚未放出 100 題及 harness；WebGameBench 補足「單次 generation + agent 多輪內部工具使用 + 獨立 browser 成品驗收」方法；Spec2Game 證實細規格落實需要和可執行性分開評分，但 generation 明確無 runtime feedback。OpenGameEval 屬既有 Roblox place 編輯，JAMER 仍無可驗證 task release。[S40](ai-game-research/search/S-20261007-40-formal-generation-benchmark-audit.md)。

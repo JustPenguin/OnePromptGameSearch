@@ -1,0 +1,84 @@
+# AI 一次委託遊戲評測｜研究紀錄與去重索引
+
+**最後整理：**2026-10-07（台北時間）  
+**用途：**本頁是研究方向摘要；查重用[全項目目錄](ai-game-research/catalog.html)，完整原始查詢用[歷史段落](ai-game-research/history/index.md)。未來搜尋各自寫入[獨立批次](ai-game-research/search/index.md)，本頁只更新方向與重查條件。新增方式見[維護指南](ai-game-research/README.md)。
+
+## 已涵蓋的研究方向
+
+下列方向已有相當完整的搜尋；同一泛用 query 不需重跑。只有來源版本更新、新模型 build、精確 prompt／session 證據新增、benchmark 資料與 evaluator 正式釋出時才回查。
+
+| 搜尋範圍 | 已查主要內容 | 何時值得再查 |
+|---|---|---|
+| 高複雜度 AI 生成遊戲與實際 build | Backrooms、Ruinseed、MALL ACTION、Kart Blitz、NEON BAY、Claude of Duty、LAST COURIER、BioNeural 等 | 新 model/build、原始 prompt 或作者 session log 有更新 |
+| 正式遊戲生成 benchmark | GameASG-Bench、GameCraft-Bench、GameXpert-Bench、PlaytestArena、OpenGame-Bench、WebGameBench、AutoUE／PlayGen-20、OneShotLM、WorldBuild Bench | 新版任務集、評估器釋出、frontier model 新結果 |
+| 物理／3D 專項 | Tumble、3D Mini Golf、Waterslide 系列、Hill Climb、Jeep gallery、Unreal／Unity 場景任務 | 有新可玩 build、精確任務 prompt 或統一測試條件 |
+| 嚴格 one-shot／單次輸出 | Single HTML Game Bench、PacBench、Lunar Scream、One Shot Challenge，以及與 agentic one-task 的區別 | 只有找到真正可重跑的高難度題與清楚輸出規則時再擴充 |
+| 類型／成品校準與競賽庫 | Senko 三類遊戲、Goldie Bench、Game Bench、Vibecode Bench、Slapjam、AI Browser Game Jam、EvalMap | 新評分樣本可補成品或 rubric，不以畫面熱度當模型能力排名 |
+| 其他鄰接方向 | GameDevBench（既有專案開發）、MAGIC（多場景導航）、Unity scene-generation failure studies、GAMED.AI 等 | 研究範圍改成既有遊戲開發、3D 場景生成或教育內容時再啟用 |
+
+## 美術接受度更新（2026-10-06）
+
+使用者的先前回饋：既有候選中只有 Kart Blitz 的美術目前已確認合格；這是「已確認通過」的紀錄，不表示所有其他候選都已被使用者否決。未來維護時分開記錄系統挑戰性和使用者美術驗收，不將 voxel、像素、低多邊形或作者的高品質形容詞自動當成美術達標。
+
+本輪找到最值得使用者先看實物的是 **THE NINTH BELL（GPT-6 Astra Max）**：統一的零-shot、單次生成基準有同一 prompt、明確 one-pass 和不得手動調整規則；有公開可玩的 3D 恐怖 roguelike 成品。研究代理檢視後認為值得與 Kart Blitz 並看，但最終是否跨過美術門檻由使用者判斷。詳見[G0137](ai-game-research/records/G0137.md)與[搜尋批次](ai-game-research/search/S-20261006-02-art-quality-and-one-shot-leads.md)。
+
+## 核心候選查重清單
+
+- **已列入主要候選／檢閱頁：**Ruinseed、MALL ACTION、Kart Blitz、Backrooms、Airship Trader、Armor Alley、NEON BAY、Claude of Duty、LAST COURIER、Grand Theft Astro、Ancient Beast、Bikini Bottom Survivor；多模態 showcase NEON WARDEN／VESPERA 與 Diablo-style ARPG。
+- **有價值但證據／prompt 不足：**Tumble、3D Mini Golf、BioNeural、Bastion、Crazy Tanks、Tiny Necromancer、Opus FPS／漂移／單車 demo、Sky Reach。
+- **明確不符或只作方法校準：**MACH RUN（完整遊戲有後續多週人工／迭代）、Pac-Man／Hill Climb 等較短題（可作入門校準，不能單獨當完整遊戲上限）、GameDevBench（既有 Godot 專案功能開發）、單純排行榜／作品索引（沒有可追溯原始 run 不能作實測證據）。
+
+精選題的用途見[精選候選](ai-game-one-shot-candidates.md)。其他曾查過的名稱、來源與限制見[全項目目錄](ai-game-research/catalog.html)連到的獨立紀錄；完整 query 與舊判斷保存在相關[歷史段落](ai-game-research/history/index.md)。
+
+## 搜尋與收錄規則
+
+1. 先查全目錄的名稱、別名、作者／repo，再讀命中紀錄和相關批次；出現既有命中時先讀原判斷和重查條件。
+2. 所有具名搜尋線索都登錄，含排除和待核實項目；只有遊戲系統深度、可重用任務或可信實物足夠強，才收進精選候選，並說清楚它測什麼。沒有具名成果的搜尋也留下批次。
+3. 分開標記作者自述、可直接檢視的 build／source、benchmark 規格／機器驗收、第三方獨立驗證。不要把作者宣稱寫成已獨立證實。
+4. 同一題目已發布多模型比較不是必要門檻；缺 exact prompt 時標作題材參考，不稱公平 one-task 結果。
+5. 原作圖、類型參考圖、AI build 圖各自標籤；未找到 AI 圖不以無關示意圖填空。
+
+## 下一次查找的優先順序
+
+1. 等待使用者檢視 [THE NINTH BELL](https://chojondocho.github.io/single-html-game-bench/codex-gpt-6-astra-max.html)；若未過美術門檻，依真實 build 逐款再找，不把任何未看項目預先列作合格。Diablo-style ARPG 暫列系統重跑題，公開截圖可先看但無 playable 證據。
+2. 查模型更新：以執行當日可用型號重新核實；不因參照遊戲產生時模型較舊就淘汰好 prompt。
+3. 查流程補證：Claude of Duty、LAST COURIER、BioNeural、TOKYO DRIFT 尋找精確初始 prompt、首版交付時間線及人類介入證據。
+4. 查高價值 benchmark 更新：GameASG-Bench 新模型／任務版本，GameXpert-Bench、PlaytestArena、OpenGame-Bench 的完整題庫／evaluator 狀態。
+5. 如果沒有新候選或新證據，避免重跑泛查；轉到固定 brief 與玩家驗收項設計或實際執行模型。
+
+## 新查詢紀錄
+
+| 日期 | 搜尋／核對內容 | 發現及處置 | 何時重查 |
+|---|---|---|---|
+| 2026-10-04 | 既有高複雜度但證據不足項目；GameASG-Bench 全題庫；近期 Opus／GPT 遊戲 repo 與 one-task 主張 | 納入候選名錄新增六題並保留 Tumble、Mini Golf 等待補證項；未加入多人伺服器／多階段開發且無單次任務證據的作品。逐次 query 和細節在封存台帳尾段「補漏複查」。 | 新 build／prompt／session 證據出現時 |
+| 2026-10-06 | 重整文件入口、候選紀錄及去重規則；核對原台帳不同段落的建議排序 | 發現早期「目前建議」與較新的候選短名單排序不一致；本索引統一採 Ruinseed 為整體上限首選，並將 Backrooms、MALL ACTION 定位為不同的互補方向。舊台帳保留封存，不刪內容。 | 推薦排序或 user test 定義改變時 |
+| 2026-10-06 | [全部既有資料分檔遷移](ai-game-research/search/migration-2026-10-06.md) | 342 條盤點對應 281 個項目；954 行完整保存於 93 個段落，校正來源誤連及歷史推薦混淆。沒有新增網路研究。 | 新資料依獨立項目與搜尋批次接續 |
+| 2026-10-06 | [近期一次委託與美術候選](ai-game-research/search/S-20261006-02-art-quality-and-one-shot-leads.md) | 新納入 THE NINTH BELL 作最優先美術審閱、補錄 Palm Bay；將 REGOLITH、The Dark Stair 記為協定近似／排除，保存完整查詢與原因 | user 看完美術決定；來源出現原始 run／首版證據時更新 |
+| 2026-10-06 | [單次委託、高系統範圍與自主 QA](ai-game-research/search/S-20261006-03-current-agentic-candidates.md) | 新增 Fable Theft Auto（固定系統題）、Fable Cities（長時自治壓力參照）；更新 OneShotGTA 四版本／Opus 5.5 視覺副測、TETHER provenance；記錄 Raccoon Heist、RSIGame QA 方法與明確排除項 | 使用者評圖、原始 run 證據或新模型重跑後更新 |
+| 2026-10-06 | [單次委託、高系統範圍與自主 QA](ai-game-research/search/S-20261006-03-current-agentic-candidates.md) | 補入具明確 single-turn/no-follow-up 紀錄的 Fable Theft Auto；收錄規模極大但視覺／效能未過自設門檻的 Fable Cities；更正 TETHER 的介入證據限制；留下 Raccoon Heist 校準案例與多項近似案例排除理由 | 有新原始 run、無人介入證據、AI build 視覺檢閱，或近期模型重跑結果時 |
+| 2026-10-06 | [近期長時 one-shot 遊戲](ai-game-research/search/S-20261006-04-long-form-one-shot-games.md) | 新增 Opus 5.5 的 FALL LINE（長時規格／Playwright 自我 QA）與 NOVA LANCER（一句開放委託／自動通關）；核實 Turbo Kart Rally 後列賽車備選，Arkenfall 與數個近期展示依 prompt 證據／系統範圍保留待核或排除 | 新模型 build、原始 run 與畫面檢閱結果出現時 |
+| 2026-10-06 | [新 frontier one-shot 遊戲與高價值任務 brief](ai-game-research/search/S-20261006-05-frontier-one-shot-rpg-briefs.md) | 把 Diablo ARPG 補成完整系統／自動通關 brief；新增 CoD-style FPS 的高視覺門檻重跑題（原 build 曾 follow-up）；Descente、Chainmate 有高系統價值但中途有人類指示而排除嚴格評測；Dark-Fantasy RPG、Flight Sim 保存為待核任務素材；Roblox Racer 成品待補；PATCH 因玩法窄僅作規則校準 | 新 playable build／run log 或現行模型重跑證據出現時 |
+| 2026-10-06 | [新 frontier one-shot 遊戲與高價值任務 brief](ai-game-research/search/S-20261006-05-frontier-one-shot-rpg-briefs.md) | 把 Diablo ARPG 從一句舊摘要補成可讀懂的完整系統與自動通關 brief；將中途留言三、四次的 Descente 排除嚴格主候選；Dark-Fantasy RPG 與 Flight Simulator 保留為未核實任務素材，避免把預覽圖誤說成可玩成品 | 新 playable build／run log 或現行模型重跑證據出現時 |
+| 2026-10-07 | [長時程自主完成遊戲的公開 run 與獨立證據（S46）](ai-game-research/search/S-20261007-46-long-horizon-autonomous-game-runs.md) | 核實 HoH 的 Fusepoint：單一 PRD、GPT-5.6-Sol high、Codex CLI、70 輪自主 QA，附官方真實遊戲影片與 source；原始 PRD／70 輪 frozen build 未找到，Loop 70 尚有 16 個 issue 未解，公開 repo 後續仍有 QA 缺口。獨立記錄 Fusepoint 案例和 HoH 方法，區分 GameCraft 三輪受控實驗 | 新模型重跑、原始 PRD、Loop 70 固定 build／hash 或正式驗收材料公開時 |
+| 2026-10-07 | [最新模型的一次委託可玩遊戲輸出（S47）](ai-game-research/search/S-20261007-47-latest-model-one-prompt-game-runs.md) | 補強既有 G0077：納入 GPT-6.1 Sol《Ridge Run》可玩 build、遊戲畫面及 hands-on 分項測試；確認是單關物理／自主 QA 副測，明示原始 prompt／session 未公開、作者流程未獨立稽核、不同 harness 不構成嚴格模型排名，且美術待使用者評價。Sonnet 5.5 FPS 僅保留待核線索；GameDevBench 屬既有專案修改基準 | 原作者公開 prompt、完整 session 或獨立 run 證據；新版本 build／同條件重跑時 |
+| 2026-10-07 | [固定完整任務的公開模型盲測與可玩交付集（S48）](ai-game-research/search/S-20261007-48-public-blind-full-game-delivery-comparisons.md) | 多組精確查詢未找到同一高系統完整遊戲任務的多模型盲測／凍結 playable build 集。新登錄 GDMC 2026 settlement generation challenge 與 GameWorld state-verifiable gameplay benchmark；前者不是新遊戲，後者測操作既有遊戲。沒有新強候選或顯著證據補強，無增益方向累計 1／至少 3 | 只在出現公開同題多模型完整遊戲輸出、盲評或可核實 session／凍結 build 時重查 |
+| 2026-10-07 | [正式遊戲生成基準釋出及近期 roster 變化覆查（S49）](ai-game-research/search/S-20261007-49-benchmark-release-and-roster-delta.md) | 查 A2Z、GameXpert、PlaytestArena、GameASG、GameCraft 的官方 repo 最新 commit／README 與最新模型 query；無新題庫、評測器或 GPT-6.1 Sol／Sonnet 5.5／Opus 5.5 run。G0077 補強後第二個無增益方向，累計 2／至少 3 | 沿既有索引排除 S36–S42 已查項後，查近期公開原始碼／遊戲作品的高系統 playable build、初始任務與首版時間線；有新實測證據或新強候選即重設累計 |
+| 2026-10-07 | [GPT-6.1 Sol light 多題遊戲 build 與原始任務（S50）](ai-game-research/search/S-20261007-50-gpt61-sol-light-game-builds.md) | 新增 C0024：七款近期模型 Three.js source builds 與逐題 prompt pack，四題具長循環／多系統重跑價值。記錄 Git 順序、作者申報、缺少 session／無介入證據與 README 測試的證據限制；作品美術待使用者評價。這是實質新證據，先前無增益計數重設為 0／至少 3 | 改查 2026 新公開代理式 browser-game competition／benchmark run，核對規則、完整任務、交件 artifact、自主測試 trace；先查重已有 benchmark records |
+| 2026-10-07 | [代理式遊戲創作競賽與 browser-game benchmark（S51）](ai-game-research/search/S-20261007-51-agentic-game-creation-competitions.md) | 查 2026 agentic game creation competition／benchmark。無新遊戲創作賽制或新 front-model run；CoG 是既有遊戲 agent，OpenGame／WebGameBench 已入帳；Devpost 頁 HTTP 403，列未確認，不作排除依據。C0024 補強後第一個無增益方向（1／至少 3） | 改查近期 developer conference／官方模型 showcase 的端到端 playable game artifact、run 紀錄與新證據；避開競賽與已查 benchmark |
+| 2026-10-07 | [開發者大會與模型官方展示中的完整遊戲 artifact（S52）](ai-game-research/search/S-20261007-52-official-developer-event-game-artifacts.md) | 核對 OpenAI DevDay、Anthropic Sonnet 5.5、Google I/O 的官方頁面，無新 playable generation artifact。Infinite Scaler 只見第三方命中，官方頁無佐證、第三方頁 403，保留未確認而不建立候選。C0024 後第二個無增益方向（2／至少 3） | 轉查 coding-model repo release/tag 與 hosted playable build，重點為高系統作品的完整 source、玩家／QA artifact；先對照既有同類項目 |
+| 2026-10-07 | [近期模型 GitHub 遊戲 artifacts、source 與 matched tasks（S53）](ai-game-research/search/S-20261007-53-frontier-model-github-game-artifacts.md) | 新增 B0055：GPT-6.1 Sol 與 Sonnet 5.5 對 RPG／kart／FPS 同題六個 source builds；本研究獨立重跑兩個 RPG grader 各 10/10。3D grader 受 Linux Chromium/D3D11/CDN 環境限制未完成，不把環境錯誤記作遊戲失敗。作者公開不同 harness 與手動遊玩仍發現的錯誤，one-task／回饋過程未能從 session 獨立核實。新增 B0056 高系統文明模擬 prompt／互動影片、G0265 Opus 重建後不能歸因 Sol 的 FPS task。是重要新 evidence，無增益計數重設為 0／至少 3 | 對照 B0055 acceptance coverage 和手動遊戲缺陷，檢查 rubric 是否有能力測最後交件；之後再做三批不同方向無增益搜尋 |
+
+之後新增查詢請寫入[搜尋批次索引](ai-game-research/search/index.md)連到的獨立檔，保存可重現的 query、來源、無結果、排除與結論。本頁維持研究方向摘要，不再累積逐次全文。
+| 2026-10-07 | [玩家實際遊玩評量、盲測流程與近期 one-shot build（S54）](ai-game-research/search/S-20261007-54-player-facing-evaluation-coverage.md) | 對照 B0055 的 10 項 machine contracts 與作者手動發現；新查 Game Bench 現行 25 build／匿名試玩 rubric，新增 GPT-6 Astra《Itsy Bitsy Spider》2026-09-24 成品 G0266，更新 B0009。它補入凍結原始 task、近期實際 playable run、作者四軸資料與 player-facing QA 方法；個別 Astra run 標 `processStatus: review`、small-game 單循環且盲評無公開 results，故只列 QA／mobile／audio 副測，不升上限主測。屬實質 evidence，無增益計數重設 0／至少 3 | 下一方向避開 Game Bench／B0055 覆查，讀最新索引後搜近期前沿模型參與公開 game jam／玩家提交活動的 build、原始任務和開發紀錄；若無新強案例，記為 S54 後第一批無增益 |
+| 2026-10-07 | [AI coding platform 公開遊戲案例與 agent provenance（S55）](ai-game-research/search/S-20261007-55-ai-coding-platform-game-builds.md) | 搜 Replit、Bolt、Lovable、Cursor 公開案例；沒有一個平台命中可核的高系統 one-shot run。VibeMart／平台官方頁是產品流程行銷或教學，不能證明無 follow-up。發現 Bash Fighter：AI agent 長期代 owner 開發大部分 source，有 20 人線上 playable game、架構與測試公開；新增 G0267 標高系統 lead，缺 initial task/model/session，不能列 one-shot case。無新強候選或既有 evidence 顯著提升，S54 後第一個無增益方向累計 1／至少 3 | 下一方向讀索引後查最近公開 coding-agent 完整軟體交付 runs 的 game-specific tasks、凍結 playable artifact 與初始／最終提交；避開遊戲競賽、平台 showcase、GitHub curated list與 generic repo search |
+| 2026-10-07 | [中日韓 AI 遊戲生成案例與一手任務證據（S56）](ai-game-research/search/S-20261007-56-multilingual-game-generation-evidence.md) | 以日、韓、中文查近期 AI 遊戲實作；一行 prompt 教學只有泛化 prompt 範例，無具名 run。新增 G0268《夜巡录：荒庙篇》保存可玩的 Codex 多輪第一幕 roguelike 及 source/release；作者明言模糊 kickoff 後反覆補充迭代，非 one-shot。未核 CSDN／知乎命中保留來源阻礙，不從標題推證。S54 後第二個無增益方向累計 2／至少 3 | 下一方向避開 coding-agent SaaS showcase，查專用 prompt-to-game 平台 gallery／輸出來源，找具名高系統 task、首輸入與 frozen playable build |
+| 2026-10-07 | [專用 prompt-to-game 產品與公開作品庫來源稽核（S57）](ai-game-research/search/S-20261007-57-specialized-prompt-to-game-platform-galleries.md) | 核對 Rosebud、Astrocade、GDevelop、Ludo.ai 官方 gallery／創作流程；三家明示 playtest、chat iterate、remix 或編輯器 feature workflow，Ludo 偏 design/assets；無具名作品的一次 task、model/session 及 frozen build。GDevelop/itch AI-generated 標籤頁 403 未能逐條查看，保留阻礙。沒有新強候選或顯著補證，S54 後第三個不同無增益方向累計 3／至少 3 | 下一批針對性查 Bash Fighter／Night Patrol 作者可公開的 task、run、commit 及 release 時序；若 trace 不公開，精確保留未解缺口 |
+| 2026-10-07 | [Bash Fighter 與 Night Patrol 公開 provenance 線索追查（S58）](ai-game-research/search/S-20261007-58-public-lead-provenance-followup.md) | Bash Fighter repo owner 承認日常由 AI agent 持續開發，commit history 呈現多日真實新手 playtest/telemetry 導向修改；Night Patrol 作者 X 原文及 Git commit 先記 playable prototype，再加 GPT-Image／美術／音效／勝利流程並當天發布 demo。補強非 one-shot 分類，無 single-run transcript/model/frozen artifact；沒新強候選或顯著 one-shot 證據，S54 後 no-gain count 保持 4 | 若繼續，查 S56 CSDN 教學與 S55 Bolt Tower 403 命中的可讀 mirror／author repo；不可從搜尋標題推結論 |
+| 2026-10-07 | [Bolt Tower Devpost one-shot 塔防作品查核（S59）](ai-game-research/search/S-20261007-59-bolt-tower-devpost-run-verification.md) | 從 Devpost mirror 讀到 Bolt Tower 作者將作品報在 One-Shot Prompt Challenge，配有 tower defense loop／live demo；hackathon 規則允許只修錯、不加功能。Bolt 原始 session 登入受限，無精確 prompt、model ID、build hash／獨立遊玩；新增 G0269 待核副候選，不提升為主 shortlist。CSDN 原文 canonical URL 仍找不到。S54 後第 5 個無增益方向 | 重讀索引後查 one-shot hackathon roster／獲獎作品及 Bolt Tower 評分、同類較高系統實例 |
+| 2026-10-07 | [Bolt One-Shot 名錄與遊戲作品篩查（S60）](ai-game-research/search/S-20261007-60-bolt-one-shot-winners-and-game-submissions.md) | 官方 winners page 和 Devpost track entries 核出 MathBombs（單頁算術防守）與 CosmicTacToe（經典井字棋）兩款有 one-shot badge 的 live game，但玩法／內容太窄；新增 G0270、G0271 留存賽制、build 與排除理由。GameSounder 是 sound sequencer；Climate story 是 ChatGPT 預製 prompt 後建立的 app。S54 後第 6 個方向沒有新強候選或上限證據重大補強 | 重讀索引後再追 CSDN canonical article 與 Bolt Tower session；若已嘗試路徑仍無 source，記錄阻礙及重查條件 |
+| 2026-10-07 | [CSDN Codex 遊戲教程 canonical URL 查找（S61）](ai-game-research/search/S-20261007-61-csdn-codex-game-article-source-resolution.md) | 依 exact title／phrase 用 Bing、Sogou、CSDN 站內搜尋及 CSDN readable proxy 查詢；未找到 canonical URL，CSDN search app 顯示 WAF CAPTCHA，既有直接頁回 521。沒有 article 內容證據，不建項、不排除案例。S54 後第 7 個不同無增益方向；CSDN 缺原 URL、Bolt Tower session login-gated 仍是兩項具名來源阻礙 | 需要原 CSDN URL／作者 repo 或可讀鏡像；Bolt Tower 需匿名可讀 transcript 或 task/model/build trace。後續先讀索引再換另一研究方向 |
+| 2026-10-07 | [高視覺品質的一次委託遊戲與 3D 藝術輸出（S62）](ai-game-research/search/S-20261007-62-high-visual-quality-one-shot-game-artifacts.md) | 將美術提升為獨立高權重軸，3A 呈現列搜尋優先但不作預設硬門檻；重查 Opus 5 3D showcase 並逐項看原始 X 貼文／影片。Claude of Duty 去重到 G0035；新增 G0272 記錄 Lentils 程序式繪畫草原，研究者可見一致環境風格，但無可核玩法，CodePen 訪客頁 403，只作視覺參照。S54 後第 8 個無增益方向。下一批查正式 benchmark 高美術成品與玩家美術評估 rubric |
+| 2026-10-07 | [正式遊戲生成基準的美術評量與實際輸出（S63）](ai-game-research/search/S-20261007-63-formal-art-evaluation-crosswalk.md) | 查官方 GameCraft／Game Bench／OpenGame 評分。GameCraft 把功能視覺與 Presentation & Art 分開，但對程序形狀設 art 上限，這是 benchmark pipeline 偏好而非本研究使用者美術規則；據其公開 rubric 補充 G0262。Game Bench 可見盲玩流程但沒有公開結果；未找到新強候選／人類美術證據。S54 後第 9 個不同無增益方向。下一批查 AI 美術工具整合到可玩遊戲的真實 workflow 與 frozen build |
+| 2026-10-07 | [AI 美術資產進入可玩遊戲的生成流程（S64）](ai-game-research/search/S-20261007-64-image-asset-game-workflows.md) | 查 GPT Image、AI tileset／3D asset 與 coding-agent playable build。新增 G0273 保存 Cozy Island Farm：作者先用 GPT Image 2.0 建概念圖／tileset，再把自訂 prompt 交 Codex + GPT-5.5；是人類分階段 input，缺原 prompt、session、repo、可玩 URL，不符嚴格一次委託。影片為 2D 像素風 farm prototype，美術待使用者評價，不作 3A／完整遊戲候選。無新強案例，S54 後第 10 個方向；下一批查具名新 roster／作品庫來源 |
+| 2026-10-07 | [近期 AI 遊戲 jam 的高視覺 build 與一次委託證據（S65）](ai-game-research/search/S-20261007-65-recent-ai-game-jam-visual-builds.md) | 核 Slapjam AI #1（E0005）當前官方頁：48h AI-assisted jam、itch 列 142 entries／Slapjam 首頁稱 145，judge rubric 評 Fun/Visual Appeal/Theme Following；無單一 task/no-follow-up 流程，results 連結尚未顯示排名／分項。Aethel Fold 新增 G0274：HTML5 2D 繪本摺紙遊戲，Claude Code 多個 cloud sessions 產遊戲內 art/sound/text、人類主導 design 和 art direction，封面另由 Gemini 生成；實際玩法截圖風格一致，待使用者評價，不是 one-shot／3A 案例。更新 E0005、新增 E0010 記錄 Ultimate AI-Powered Game Jam #4 的 long-term AI-assisted 格式並排除。S54 後第 11 個無增益方向；下一批找有原始 session/task provenance 的近期美術 output |
+| 2026-10-07 | [VeltosGames 3D playable artifact 與來源查核（S66）](ai-game-research/search/S-20261007-66-veltos-3d-playable-artifacts.md) | 官方產品頁宣稱 prompt-to-game；作品目錄頁可載入，Sky Isles 有 HTML5／Three.js build 與 strategy metadata，但沒原始 prompt、模型／版本、session、人工介入或 frozen artifact。目錄縮圖呈 3D 低多邊形畫面，未核實為遊戲執行畫面；新增 C0025／G0275 作平台參照，one-shot 未核實，美術待使用者評價。S54 後第 12 個不同無增益方向；下一步查有精確 task/session provenance 的近期官方 3D／stylized build |

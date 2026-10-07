@@ -1,0 +1,8 @@
+{
+  "existing_records_unchanged": true,
+  "fixture_record_count": 1000,
+  "initial_id": "G0001",
+  "duplicate_name_blocked": true,
+  "next_id_after_1000": "G1001",
+  "synthetic_data_not_in_research": true
+}
