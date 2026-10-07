@@ -4,9 +4,9 @@
   "sections": 93,
   "inventory_entries": 342,
   "mapped_inventory_entries": 342,
-  "records": 401,
+  "records": 402,
   "types": {
-    "game": 281,
+    "game": 282,
     "benchmark": 57,
     "catalog": 25,
     "event": 10,

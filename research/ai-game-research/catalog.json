@@ -2337,7 +2337,7 @@
       "Slapjam AI castle jam"
     ],
     "type": "event",
-    "status": "方法參考；48 小時 AI-assisted game jam，官方 human judge rubric 含 Visual Appeal；無 single-user-task/no-follow-up 規則或模型/session evidence",
+    "status": "方法參考；48 小時 AI-assisted game jam，官方 human judges rubric 含 Visual Appeal，規則允許 autonomous agent 但非一次委託 protocol；作品流程需逐項查證",
     "updated": "2026-10-07",
     "origin": "legacy-migration",
     "sections": [
@@ -2365,7 +2365,8 @@
       "142 itch entries"
     ],
     "batches": [
-      "S-20261007-65-recent-ai-game-jam-visual-builds"
+      "S-20261007-65-recent-ai-game-jam-visual-builds",
+      "S-20261007-74-high-visual-game-jam-build-provenance"
     ],
     "path": "records/E0005.md"
   },
@@ -9467,6 +9468,41 @@
       "session provenance missing"
     ],
     "path": "records/G0281.md"
+  },
+  {
+    "id": "G0282",
+    "name": "Candle-Keeper's Parchment (Slapjam / Claude via oh-my-pi)",
+    "aliases": [
+      "Candle-Keeper’s Parchment",
+      "Candle Keeper's Parchment",
+      "Slapjam 2026 candle paper-plane game"
+    ],
+    "type": "game",
+    "status": "公開 HTML5 風格化短遊戲；作者稱 Claude 經 oh-my-pi 製作程式、關卡、shader、程序美術與特效，但人工負責方向／整合／測試，無原始 prompt 或 session，非已核一次委託；封面另由 OpenAI image generation 生成，不當遊戲畫面，美術待使用者評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://theblazehen.itch.io/candle-keepers-parchment",
+      "https://itch.io/jam/slapjam-ai-1/entries",
+      "https://img.itch.zone/aW1nLzMwNDA3NTE5LnBuZw==/original/p9GIxO.png",
+      "https://img.itch.zone/aW1nLzMwNDA3NTE5LnBuZw==/508x254%23mb/l%2FWjFZ.png"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-74-high-visual-game-jam-build-provenance"
+    ],
+    "keywords": [
+      "Slapjam AI 2026",
+      "Claude",
+      "oh-my-pi",
+      "procedural art",
+      "low-poly",
+      "HTML5",
+      "human integration",
+      "cover art separate",
+      "one-shot unverified"
+    ],
+    "path": "records/G0282.md"
   },
   {
     "id": "M0001",

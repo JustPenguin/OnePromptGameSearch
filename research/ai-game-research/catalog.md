@@ -90,7 +90,7 @@
 | [E0002](records/E0002.md) | AI Browser Game Jam 5 | 活動 | 方法參考 |
 | [E0003](records/E0003.md) | Jamference: AI Game Jam Hack 1 | 活動 | 開放至 2026-10-09；可作單 prompt 線索池，逐作品仍須核 AI／人類互動與 build |
 | [E0004](records/E0004.md) | One Shot Challenge | 活動 | 嚴格首輪輸出方法參考（不含 agent 自主迭代） |
-| [E0005](records/E0005.md) | Slapjam AI #1 | 活動 | 方法參考；48 小時 AI-assisted game jam，官方 human judge rubric 含 Visual Appeal；無 single-user-task/no-follow-up 規則或模型/session evidence |
+| [E0005](records/E0005.md) | Slapjam AI #1 | 活動 | 方法參考；48 小時 AI-assisted game jam，官方 human judges rubric 含 Visual Appeal，規則允許 autonomous agent 但非一次委託 protocol；作品流程需逐項查證 |
 | [E0006](records/E0006.md) | Ultimate AI-Powered Game Jam #5 | 活動 | 方法參考 |
 | [E0007](records/E0007.md) | profiq Summer Coding Challenge 2026 | 活動 | 一次委託／自主 QA／同 prompt 重跑的方法參考；迷你遊戲範圍與 60 分鐘限制，不適合完整遊戲上限主測 |
 | [E0008](records/E0008.md) | 使用者美術驗收：檢閱頁作品 | 活動 | 已記錄；只適用於驗收時檢閱頁中已列出的作品 |
@@ -377,6 +377,7 @@
 | [G0279](records/G0279.md) | DEAD AIR (Claude Opus 5.5 co-op browser horror) | 遊戲／具體題目 | 高系統多人遊戲與 playtest QA 參照；多輪建置，任務及可玩畫面未公開，非 one-shot 候選；美術證據不足 |
 | [G0280](records/G0280.md) | Hearthlight (Opus 5.5 procedural pixel-art adventure) | 遊戲／具體題目 | 公開可玩、具多章故事與多人模式的 stylized pixel-art 參照；Claude Code／Opus 5.5 歸因來自作者文章引用的社群貼文；原始任務、session、人工介入 timeline 未核，非 one-shot 候選；美術待使用者評價 |
 | [G0281](records/G0281.md) | Blocky Realm: Cloud Parkour (SeaVerse GPT-6 claim) | 遊戲／具體題目 | 待核高視覺短題副候選：SeaVerse 公開一行 prompt、託管輸出及 single-prompt／unedited 聲稱；沒有模型精確版本、session、source 或可獨立驗證的互動通關證據。美術待使用者評價 |
+| [G0282](records/G0282.md) | Candle-Keeper's Parchment (Slapjam / Claude via oh-my-pi) | 遊戲／具體題目 | 公開 HTML5 風格化短遊戲；作者稱 Claude 經 oh-my-pi 製作程式、關卡、shader、程序美術與特效，但人工負責方向／整合／測試，無原始 prompt 或 session，非已核一次委託；封面另由 OpenAI image generation 生成，不當遊戲畫面，美術待使用者評價 |
 | [M0001](records/M0001.md) | Age of Empires | 方法／鄰接研究 | 方法參考 |
 | [M0002](records/M0002.md) | CoD Zombies | 方法／鄰接研究 | 方法參考 |
 | [M0003](records/M0003.md) | Doom | 方法／鄰接研究 | 方法參考 |
