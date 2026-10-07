@@ -394,6 +394,9 @@
 | [G0293](records/G0293.md) | GPT-6.1 Sol Kart (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
 | [G0294](records/G0294.md) | Sonnet 5.5 FPS (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
 | [G0295](records/G0295.md) | GPT-6.1 Sol FPS (newmodel-games matched build) | 遊戲／具體題目 | 具名模型 build；作者申報同題多輪 feedback、無完整 session／無介入未核；使用者美術不合格（2026-10-07） |
+| [G0296](records/G0296.md) | MoxRide | 遊戲／具體題目 | 近期風格化 3D 畫面參照；創作者稱 GPT-6 Astra 並按三次要求提升畫面；有創作者提供的實機截圖、itch.io playable embed 和三張額外 gameplay/menu captures；明確多輪引導，非 one-shot；美術待使用者評價 |
+| [G0297](records/G0297.md) | MIDWAY 1942: Air Strike | 遊戲／具體題目 | 可玩 3D 空戰／風格化視覺參照；創作者以自己 2026-09-27 開發紀錄確認 GPT-6 Astra 經 Codex 多輪參與；明確不是 one-shot；第三方資產混用；美術待使用者評價 |
+| [G0298](records/G0298.md) | Generational Survival Australia (GPT-6 assisted Godot project) | 遊戲／具體題目 | 排除嚴格一次委託候選；公開 Godot source 與高密度 2D 地圖／交通系統，repo 稱以 GPT-6 協作開發但無原始 task/session/model run trace；畫面是簡潔像素 top-down map，非本輪高美術方向強候選；使用者美術未評 |
 | [M0001](records/M0001.md) | Age of Empires | 方法／鄰接研究 | 方法參考 |
 | [M0002](records/M0002.md) | CoD Zombies | 方法／鄰接研究 | 方法參考 |
 | [M0003](records/M0003.md) | Doom | 方法／鄰接研究 | 方法參考 |
@@ -418,8 +421,10 @@
 | [M0022](records/M0022.md) | Vampire Survivors | 方法／鄰接研究 | 方法參考 |
 | [M0023](records/M0023.md) | VibeGame | 方法／鄰接研究 | 方法參考 |
 | [M0024](records/M0024.md) | 城門增兵攔截敵潮Boss影片 | 方法／鄰接研究 | 排除 |
-| [M0025](records/M0025.md) | Code2Games / GameCode4D | 方法／鄰接研究 | 3D gaming-world generation 方法與公開任務集；非純空白起始的完整遊戲 benchmark |
+| [M0025](records/M0025.md) | Code2Games / GameCode4D | 方法／鄰接研究 | 3D gaming-world generation 方法與公開任務集；非純空白起始的完整遊戲 benchmark；新增 15 人盲評結果與視覺／藝術呈現量表 |
 | [M0026](records/M0026.md) | Code4Scene | 方法／鄰接研究 | 鄰接場景建構評測；不含完整遊戲玩法，不列候選 |
 | [M0027](records/M0027.md) | 自主遊戲代理的長流程任務與可觀測方法 | 方法／鄰接研究 | 鄰接方法參考；測自主玩既有遊戲，不測遊戲生成，不能納入生成成績 |
 | [M0028](records/M0028.md) | Harness-of-Harness (HoH) | 方法／鄰接研究 | 高相關自主長程遊戲開發方法；公開角色協定、跨輪證據、受控基準對照與 Fusepoint 案例；完整複現材料有限 |
 | [M0029](records/M0029.md) | AVR-Eval / AVR-Agent audiovisual recording evaluation method | 方法／鄰接研究 | 多模態遊戲畫面／聲音比較方法與反覆生成框架；評估面向可供美術／可玩性 rubric 參考，但一對一自動 judge 未在人類偏好上直接驗證；AVR-Agent 屬多輪而非一次委託 |
+| [M0030](records/M0030.md) | Game aesthetic and video preference evaluation references | 方法／鄰接研究 | 視覺／美術 rubric 方法參考；未找到可直接代表使用者偏好或 3A 遊戲生成品質的公開人類偏好資料集 |
+| [M0031](records/M0031.md) | Player studies for AI-mediated game creation and play | 方法／鄰接研究 | 玩家研究方法參考；測使用者與生成式 AI 互動／遊玩體驗，非 AI 自主交付遊戲的美術或完整度評測 |

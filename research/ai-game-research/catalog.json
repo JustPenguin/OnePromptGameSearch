@@ -1985,11 +1985,16 @@
       "https://gamesbyai.win/games/rimehold/",
       "https://gamesbyai.win/games/sumo-boulders/",
       "https://github.com/gamesbyai/catalog/issues/54",
-      "https://github.com/gamesbyai/catalog/issues/94"
+      "https://github.com/gamesbyai/catalog/issues/94",
+      "https://github.com/gamesbyai/catalog/issues/115",
+      "https://github.com/gamesbyai/catalog/issues/117",
+      "https://github.com/gamesbyai/catalog/issues/119",
+      "https://github.com/gamesbyai/catalog/issues/121"
     ],
     "keywords": [],
     "batches": [
-      "S-20261007-84-ai-game-catalog-3d-highlights-audit"
+      "S-20261007-84-ai-game-catalog-3d-highlights-audit",
+      "S-20261007-89-current-catalog-gameplay-artifact-audit"
     ],
     "path": "records/C0013.md"
   },
@@ -2319,11 +2324,18 @@
       "https://github.com/MartinDelophy/awesome-gpt-6-astra",
       "https://github.com/MartinDelophy/awesome-gpt-6-astra/blob/main/README.md",
       "https://github.com/MartinDelophy/awesome-gpt-6-astra/blob/main/docs/x-games-2026-10-06.md",
-      "https://astragames.aigccreative.com/en"
+      "https://astragames.aigccreative.com/en",
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/issues/110",
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/issues/110#issuecomment-5893086419",
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/issues/114",
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/issues/114#issuecomment-5996080543",
+      "https://moxazza.itch.io/moxride",
+      "https://ihca.cn/midway/"
     ],
     "sections": [],
     "batches": [
-      "S-20261007-80-gpt6-astra-curated-gallery-audit"
+      "S-20261007-80-gpt6-astra-curated-gallery-audit",
+      "S-20261007-89-current-catalog-gameplay-artifact-audit"
     ],
     "keywords": [
       "GPT-6 Astra",
@@ -9124,12 +9136,14 @@
       "https://github.com/Bash-Entertainment/bash-fighter/blob/main/docs/ROADMAP.md",
       "https://github.com/Bash-Entertainment/bash-fighter/commits/main",
       "https://bashfighter.com/",
-      "https://bashfighter.itch.io/bash-fighter"
+      "https://bashfighter.itch.io/bash-fighter",
+      "https://github.com/gamesbyai/catalog/issues/121"
     ],
     "sections": [],
     "batches": [
       "S-20261007-55-ai-coding-platform-game-builds",
-      "S-20261007-58-public-lead-provenance-followup"
+      "S-20261007-58-public-lead-provenance-followup",
+      "S-20261007-89-current-catalog-gameplay-artifact-audit"
     ],
     "keywords": [
       "AI coding agent",
@@ -10026,6 +10040,114 @@
     "path": "records/G0295.md"
   },
   {
+    "id": "G0296",
+    "name": "MoxRide",
+    "aliases": [
+      "MoxRide GPT-6 Astra",
+      "Moxazza downhill skateboarding game",
+      "Street Sesh remake"
+    ],
+    "type": "game",
+    "status": "近期風格化 3D 畫面參照；創作者稱 GPT-6 Astra 並按三次要求提升畫面；有創作者提供的實機截圖、itch.io playable embed 和三張額外 gameplay/menu captures；明確多輪引導，非 one-shot；美術待使用者評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/issues/114",
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/issues/114#issuecomment-5996080543",
+      "https://www.moxride.com/",
+      "https://moxazza.itch.io/",
+      "https://moxazza.itch.io/moxride",
+      "https://github.com/user-attachments/assets/db720e91-89c1-4c26-81ae-9616b0332352",
+      "https://img.itch.zone/aW1hZ2UvNTEwNDM5Ny8zMDU1ODI1Mi5wbmc=/original/2GjlDZ.png",
+      "https://img.itch.zone/aW1hZ2UvNTEwNDM5Ny8zMDU1ODI1MS5wbmc=/original/Pw6IRL.png",
+      "https://img.itch.zone/aW1hZ2UvNTEwNDM5Ny8zMDU1Nzc0MS5wbmc=/original/yP7Yev.png",
+      "https://www.youtube.com/embed/KzEMPJ7_84s"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-89-current-catalog-gameplay-artifact-audit",
+      "S-20261007-90-moxride-and-midway-source-history"
+    ],
+    "path": "records/G0296.md"
+  },
+  {
+    "id": "G0297",
+    "name": "MIDWAY 1942: Air Strike",
+    "aliases": [
+      "中途島海戰·空中突擊",
+      "MIDWAY 1942",
+      "MIDWAY 1942: Air Strike"
+    ],
+    "type": "game",
+    "status": "可玩 3D 空戰／風格化視覺參照；創作者以自己 2026-09-27 開發紀錄確認 GPT-6 Astra 經 Codex 多輪參與；明確不是 one-shot；第三方資產混用；美術待使用者評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/issues/110",
+      "https://github.com/MartinDelophy/awesome-gpt-6-astra/issues/110#issuecomment-5893086419",
+      "https://ihca.cn/midway/",
+      "https://github.com/user-attachments/assets/421ae870-9583-47c1-8e02-cedd5e12f2da",
+      "https://zhuanlan.zhihu.com/p/2087823478498116983",
+      "https://mp.weixin.qq.com/s/-V5OZM4e0EPeYJ9uuZvlxg",
+      "https://github.com/xilinnihao-afk/tidewater",
+      "https://github.com/xilinnihao-afk/sandline-threejs-fps",
+      "https://ihca.cn/midway/boot.js?v=c29d912b0c8c",
+      "https://ihca.cn/midway/styles.css?v=c29d912b0c8c"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-89-current-catalog-gameplay-artifact-audit",
+      "S-20261007-90-moxride-and-midway-source-history"
+    ],
+    "keywords": [
+      "GPT-6 Astra",
+      "Codex",
+      "Three.js",
+      "3D aircraft combat",
+      "spectral ocean",
+      "gameplay capture",
+      "ten context turns",
+      "multi-iteration",
+      "third-party GLB assets",
+      "one-shot excluded"
+    ],
+    "path": "records/G0297.md"
+  },
+  {
+    "id": "G0298",
+    "name": "Generational Survival Australia (GPT-6 assisted Godot project)",
+    "aliases": [
+      "Wodonga life simulation",
+      "Generational Survival Australia"
+    ],
+    "type": "game",
+    "status": "排除嚴格一次委託候選；公開 Godot source 與高密度 2D 地圖／交通系統，repo 稱以 GPT-6 協作開發但無原始 task/session/model run trace；畫面是簡潔像素 top-down map，非本輪高美術方向強候選；使用者美術未評",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/Shane-Currie/Generational_Survival_Australia",
+      "https://github.com/Shane-Currie/Generational_Survival_Australia/blob/main/README.md",
+      "https://github.com/Shane-Currie/Generational_Survival_Australia/blob/main/ART_DIRECTION.md",
+      "https://github.com/Shane-Currie/Generational_Survival_Australia/blob/main/CHANGELOG.md",
+      "https://github.com/Shane-Currie/Generational_Survival_Australia/blob/main/assets/towns/central_wodonga/previews/preview.png",
+      "https://github.com/Shane-Currie/Generational_Survival_Australia/blob/main/assets/towns/central_wodonga/previews/overview.png"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-93-recent-coding-agent-game-repositories"
+    ],
+    "keywords": [
+      "GPT-6",
+      "Godot",
+      "2D survival",
+      "Wodonga",
+      "traffic simulation",
+      "top-down pixel map",
+      "human iterative project"
+    ],
+    "path": "records/G0298.md"
+  },
+  {
     "id": "M0001",
     "name": "Age of Empires",
     "aliases": [],
@@ -10513,8 +10635,8 @@
       "Code2Games gaming-world generation"
     ],
     "type": "method",
-    "status": "3D gaming-world generation 方法與公開任務集；非純空白起始的完整遊戲 benchmark",
-    "updated": "2026-10-06",
+    "status": "3D gaming-world generation 方法與公開任務集；非純空白起始的完整遊戲 benchmark；新增 15 人盲評結果與視覺／藝術呈現量表",
+    "updated": "2026-10-07",
     "origin": "new-research",
     "sources": [
       "https://arxiv.org/abs/2610.05033",
@@ -10524,14 +10646,17 @@
     ],
     "sections": [],
     "batches": [
-      "S-20261006-23-agent-platforms-opengame-and-world-benchmarks"
+      "S-20261006-23-agent-platforms-opengame-and-world-benchmarks",
+      "S-20261007-91-game-art-preference-and-task-benchmarks"
     ],
     "keywords": [
       "game generation benchmark",
       "Blender",
       "Unreal Engine 5",
       "playable game quality",
-      "3D gaming worlds"
+      "3D gaming worlds",
+      "human evaluation",
+      "art and presentation"
     ],
     "path": "records/M0025.md"
   },
@@ -10655,5 +10780,69 @@
       "iterative generation"
     ],
     "path": "records/M0029.md"
+  },
+  {
+    "id": "M0030",
+    "name": "Game aesthetic and video preference evaluation references",
+    "aliases": [
+      "VideoAesBench",
+      "Multi-Modal Aesthetic Assessment for MObile Gaming Image",
+      "human game art rubric"
+    ],
+    "type": "method",
+    "status": "視覺／美術 rubric 方法參考；未找到可直接代表使用者偏好或 3A 遊戲生成品質的公開人類偏好資料集",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://arxiv.org/abs/2101.11700",
+      "https://arxiv.org/abs/2110.11744",
+      "https://arxiv.org/abs/2601.21915",
+      "https://huggingface.co/datasets/michaelliyunhao/VideoAesBench",
+      "https://github.com/michaelliyunhao/VideoAesBench"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-91-game-art-preference-and-task-benchmarks"
+    ],
+    "keywords": [
+      "game image aesthetics",
+      "art and presentation",
+      "video aesthetic QA",
+      "human preference",
+      "visual composition",
+      "lighting and color"
+    ],
+    "path": "records/M0030.md"
+  },
+  {
+    "id": "M0031",
+    "name": "Player studies for AI-mediated game creation and play",
+    "aliases": [
+      "Lottery and Sprint Arcade",
+      "Pharos Night Crown Pursuit",
+      "AI game co-creation user study"
+    ],
+    "type": "method",
+    "status": "玩家研究方法參考；測使用者與生成式 AI 互動／遊玩體驗，非 AI 自主交付遊戲的美術或完整度評測",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://arxiv.org/abs/2607.10711",
+      "https://arxiv.org/abs/2608.12216",
+      "https://arxiv.org/abs/2307.00348",
+      "https://arxiv.org/abs/2508.16596"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-92-player-studies-and-human-game-evaluation"
+    ],
+    "keywords": [
+      "user study",
+      "AI-mediated game editing",
+      "AI-native game",
+      "player experience",
+      "playability"
+    ],
+    "path": "records/M0031.md"
   }
 ]
