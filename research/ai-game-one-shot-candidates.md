@@ -601,6 +601,10 @@ OpenGame 已能從空白遊戲資料夾接收單一 prompt，在固定 template�
 
 [Code2Games / GameCode4D](ai-game-research/records/M0025.md) 的 15 位盲評者把 `Art and presentation` 與核心玩法、內容深度、功能性視覺分開評分；[VideoAesBench 與遊戲畫面 aesthetic 線索](ai-game-research/records/M0030.md) 提供構圖、主體、光線、色彩、創意與情緒等檢視面向。這些可用於一致地描述作品，但作者模型分數與通用影片 QA 都不能代替使用者對作品美術的判定，也沒有被驗證為 3A 風格門檻。完整搜尋與排除理由見 [S91](ai-game-research/search/S-20261007-91-game-art-preference-and-task-benchmarks.md)。
 
+## 官方互動世界視覺參照（非遊戲交付）
+
+[Genie 3／Project Genie](ai-game-research/records/M0032.md) 是 Google 官方 world model prototype：能依文字／圖片生成即時可探索的高擬真互動環境，但 prototype 片段有 60 秒限制，公開資料沒有 coding agent 交付完整遊戲、玩法系統及可凍結 build 的證據。它只能作互動世界生成能力參照；不列遊戲候選，也不計入使用者對遊戲美術的通過／不通過數。來源與界線見 [S94](ai-game-research/search/S-20261007-94-official-interactive-world-models-and-game-output.md)。
+
 ### 近期排除項
 
 - **Generational Survival Australia｜G0298。**GPT-6-assisted 的 Godot 4 2D 城市／生活模擬專案，包含步行、駕車、車流、NPC、地圖與大規模地址／建築資料；作者公開 source 和 gameplay/map previews。repo 沒有初始 prompt、session 或無介入證據，ART_DIRECTION 還引用使用者提供的地圖作方向；使用者判定美術不合格。玩法／系統內容仍獨立存檔，該項不列 one-shot 候選。[G0298](ai-game-research/records/G0298.md) · [S93](ai-game-research/search/S-20261007-93-recent-coding-agent-game-repositories.md)

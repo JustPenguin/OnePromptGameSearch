@@ -10844,5 +10844,27 @@
       "playability"
     ],
     "path": "records/M0031.md"
+  },
+  {
+    "id": "M0032",
+    "name": "Genie 3 and Project Genie interactive world generation",
+    "aliases": [
+      "Project Genie",
+      "Genie 3"
+    ],
+    "type": "method",
+    "status": "官方即時互動世界模型與高擬真環境生成參照；不是 coding agent 交付完整遊戲的候選",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://deepmind.google/models/genie/",
+      "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/",
+      "https://labs.google/projectgenie"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-94-official-interactive-world-models-and-game-output"
+    ],
+    "path": "records/M0032.md"
   }
 ]

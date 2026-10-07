@@ -4,13 +4,13 @@
   "sections": 93,
   "inventory_entries": 342,
   "mapped_inventory_entries": 342,
-  "records": 424,
+  "records": 425,
   "types": {
     "game": 298,
     "benchmark": 58,
     "catalog": 27,
     "event": 10,
-    "method": 31
+    "method": 32
   },
   "lossless_history": true,
   "every_migrated_record_has_source_section": true,

@@ -428,3 +428,4 @@
 | [M0029](records/M0029.md) | AVR-Eval / AVR-Agent audiovisual recording evaluation method | 方法／鄰接研究 | 多模態遊戲畫面／聲音比較方法與反覆生成框架；評估面向可供美術／可玩性 rubric 參考，但一對一自動 judge 未在人類偏好上直接驗證；AVR-Agent 屬多輪而非一次委託 |
 | [M0030](records/M0030.md) | Game aesthetic and video preference evaluation references | 方法／鄰接研究 | 視覺／美術 rubric 方法參考；未找到可直接代表使用者偏好或 3A 遊戲生成品質的公開人類偏好資料集 |
 | [M0031](records/M0031.md) | Player studies for AI-mediated game creation and play | 方法／鄰接研究 | 玩家研究方法參考；測使用者與生成式 AI 互動／遊玩體驗，非 AI 自主交付遊戲的美術或完整度評測 |
+| [M0032](records/M0032.md) | Genie 3 and Project Genie interactive world generation | 方法／鄰接研究 | 官方即時互動世界模型與高擬真環境生成參照；不是 coding agent 交付完整遊戲的候選 |
