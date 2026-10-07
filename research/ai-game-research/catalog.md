@@ -44,7 +44,7 @@
 | [B0038](records/B0038.md) | SWE-Game | 基準／評測 | 高價值 brief-to-game 任務基準；官方重跑任務包可取得性未確認 |
 | [B0039](records/B0039.md) | Testing Models Coding Arena | 基準／評測 | 方法參考（可玩盲測流程；遊戲題規模中等且模型快照非最新） |
 | [B0040](records/B0040.md) | Unity Scene Generation Failure Taxonomy | 基準／評測 | 方法參考 |
-| [B0041](records/B0041.md) | V-GameGym | 基準／評測 | 排除 |
+| [B0041](records/B0041.md) | V-GameGym / SKYLENAGE-GameCodeGym | 基準／評測 | 方法參考：公開 Pygame 短題集、截圖／影片評分程式與 leaderboard；任務從既有程式改寫成生成需求，樣本多為自動播放小遊戲；非完整複雜遊戲 one-shot 基準，結果 roster 過時，視覺分不等同美術品質或玩家審美 |
 | [B0042](records/B0042.md) | Vibecode Bench | 基準／評測 | 方法參考 |
 | [B0043](records/B0043.md) | WebGameBench | 基準／評測 | 高價值閉環瀏覽器成品評測方法；全量題庫／evaluator artifact 尚未核實公開 |
 | [B0044](records/B0044.md) | WorldBuild Bench | 基準／評測 | 方法參考 |
@@ -376,6 +376,7 @@
 | [G0278](records/G0278.md) | MUTE (Claude Opus 5.5 WebXR co-op horror)  | 遊戲／具體題目 | 高系統 WebXR／stylized-realism 美術流程參照；公開頁部署；原始任務與完整 coding session 未核，非 one-shot 候選；美術待使用者評價 |
 | [G0279](records/G0279.md) | DEAD AIR (Claude Opus 5.5 co-op browser horror) | 遊戲／具體題目 | 高系統多人遊戲與 playtest QA 參照；多輪建置，任務及可玩畫面未公開，非 one-shot 候選；美術證據不足 |
 | [G0280](records/G0280.md) | Hearthlight (Opus 5.5 procedural pixel-art adventure) | 遊戲／具體題目 | 公開可玩、具多章故事與多人模式的 stylized pixel-art 參照；Claude Code／Opus 5.5 歸因來自作者文章引用的社群貼文；原始任務、session、人工介入 timeline 未核，非 one-shot 候選；美術待使用者評價 |
+| [G0281](records/G0281.md) | Blocky Realm: Cloud Parkour (SeaVerse GPT-6 claim) | 遊戲／具體題目 | 待核高視覺短題副候選：SeaVerse 公開一行 prompt、託管輸出及 single-prompt／unedited 聲稱；沒有模型精確版本、session、source 或可獨立驗證的互動通關證據。美術待使用者評價 |
 | [M0001](records/M0001.md) | Age of Empires | 方法／鄰接研究 | 方法參考 |
 | [M0002](records/M0002.md) | CoD Zombies | 方法／鄰接研究 | 方法參考 |
 | [M0003](records/M0003.md) | Doom | 方法／鄰接研究 | 方法參考 |

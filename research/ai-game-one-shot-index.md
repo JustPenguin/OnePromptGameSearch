@@ -132,7 +132,11 @@
 
 正式基準的 Art and Presentation 分數可以用來找待看的輸出，不是使用者的審美結論。若 rubric 將 primitive／程序幾何一律設分數上限，需記下它是該 benchmark 的資產規則；本研究仍按畫面呈現品質評估，不把資產來源當美術分數代理。
 
+S72 補查 V-GameGym：其截圖分含畫面完整、UI、需求功能可見與整體視覺，另以影片評動畫／互動／流程；這拆出功能視覺和動態行為，但沒針對風格一致、角色與環境設計、構圖、光照材質、特效等高階美術建立專項 rubric。Qwen2.5-VL-72B-Instruct 的視覺分是自動 judge，不是人類審美結論。詳見 [B0041](ai-game-research/records/B0041.md) 和 [S72](ai-game-research/search/S-20261007-72-visual-benchmark-artifacts.md)。
+
 使用者已確認美術是**獨立高權重評分軸**，不是硬性篩除門檻。每案分開判斷美術、可玩性、系統／內容、一次委託符合度及證據強度；未有使用者審美回饋的 build 明標「待使用者評價」，stylized high-end art 也可列入檢視。S70 的 MUTE 有略寫實 stylized 3D pipeline 和線上遊戲頁，可由使用者直接看 [MUTE build](https://dippy34.github.io/Ai-vr-game/) 與[美術圖庫](https://github.com/dippy34/Ai-vr-game/blob/claude/vigilant-gates-rfgepm/art/GALLERY.md)給美術評價；目前仍缺原始任務／session，不能當作 one-shot 能力證據。
+
+S73 新增 [Blocky Realm: Cloud Parkour](ai-game-research/records/G0281.md)：SeaVerse 公開單句任務和 voxel 風格 app 分享圖，平台聲稱為 GPT-6 首輪未編修輸出；模型 snapshot、session、source 及實際通關未核。可直接由[分享畫面](https://image.cdn2.seaart.me/upload/static/20260907/ddc8883821137f74048ee434845c1540.png)查看 stylized 3D art，並由使用者評分；只作待核的短流程副候選，不當高系統主測。
 
 
 - **AI Browser Game Jam 4／3 高排名作品稽核（S31）：**五個高分 playable 都不符合已核實的一次委託成績。《AI2U》明示 72 小時 gauntlet-loop prompting；《Pyramid Wars》明示三週 AI 輔助並依玩家意見修訂；《A Low Poly Dungeon Game》也在玩家回饋後改難度／操作；《Plug & Prosper》缺 prompt／session 且回應試玩後修補；《Monster Mash》只有 Codex/Suno 和多人作者資料。保留作 RTS、地城戰鬥與管理物理的題型／品質參照，沒有因 jam 排名加進精選。詳細證據與來源見 [S31](ai-game-research/search/S-20261007-31-ai-browser-jam-top-entries.md)。

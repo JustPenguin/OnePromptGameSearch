@@ -1178,19 +1178,41 @@
   },
   {
     "id": "B0041",
-    "name": "V-GameGym",
-    "aliases": [],
+    "name": "V-GameGym / SKYLENAGE-GameCodeGym",
+    "aliases": [
+      "V-GameGym",
+      "SKYLENAGE-GameCodeGym"
+    ],
     "type": "benchmark",
-    "status": "排除",
-    "updated": "2026-10-06",
+    "status": "方法參考：公開 Pygame 短題集、截圖／影片評分程式與 leaderboard；任務從既有程式改寫成生成需求，樣本多為自動播放小遊戲；非完整複雜遊戲 one-shot 基準，結果 roster 過時，視覺分不等同美術品質或玩家審美",
+    "updated": "2026-10-07",
     "origin": "legacy-migration",
     "sections": [
       "N0047",
       "N0056"
     ],
     "context_sources": [],
-    "sources": [],
-    "keywords": [],
+    "sources": [
+      "https://aclanthology.org/2026.findings-acl.276/",
+      "https://arxiv.org/abs/2509.20136",
+      "https://github.com/alibaba/SKYLENAGE-GameCodeGym",
+      "https://huggingface.co/datasets/alibabagroup/SKYLENAGE-GameCodeGym",
+      "https://v-gamegym.github.io/leaderboard.html",
+      "https://raw.githubusercontent.com/alibaba/SKYLENAGE-GameCodeGym/main/game_evaluator.py"
+    ],
+    "batches": [
+      "S-20261007-72-visual-benchmark-artifacts"
+    ],
+    "keywords": [
+      "Pygame",
+      "benchmark",
+      "screenshots",
+      "video",
+      "Qwen2.5-VL-72B-Instruct",
+      "visual evaluation",
+      "playability",
+      "short tasks"
+    ],
     "path": "records/B0041.md"
   },
   {
@@ -9412,6 +9434,39 @@
       "provenance gap"
     ],
     "path": "records/G0280.md"
+  },
+  {
+    "id": "G0281",
+    "name": "Blocky Realm: Cloud Parkour (SeaVerse GPT-6 claim)",
+    "aliases": [
+      "方块之境 · 云端跑酷",
+      "Cloud Parkour",
+      "GPT-6 Made This Game 3D Parkour",
+      "SeaVerse app dnNPmjzaU0EMPNT2"
+    ],
+    "type": "game",
+    "status": "待核高視覺短題副候選：SeaVerse 公開一行 prompt、託管輸出及 single-prompt／unedited 聲稱；沒有模型精確版本、session、source 或可獨立驗證的互動通關證據。美術待使用者評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://seaverse.ai/ai-game-maker/gpt-6-game",
+      "https://seaverse.ai/apps/dnNPmjzaU0EMPNT2",
+      "https://image.cdn2.seaart.me/upload/static/20260907/ddc8883821137f74048ee434845c1540.png"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-73-recent-frontier-visual-game-runs"
+    ],
+    "keywords": [
+      "GPT-6 claimed",
+      "SeaVerse",
+      "one-sentence prompt",
+      "3D parkour",
+      "voxel art",
+      "hosted output",
+      "session provenance missing"
+    ],
+    "path": "records/G0281.md"
   },
   {
     "id": "M0001",

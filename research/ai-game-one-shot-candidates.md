@@ -14,6 +14,13 @@
 
 是否已發布多模型比較不是入選門檻。成品圖只有在確知來自 AI build 時才標為 AI 輸出；原作畫面會另行註明。
 
+### Blocky Realm: Cloud Parkour — SeaVerse「GPT-6」一行 prompt 短題副候選｜C（平台聲明待核）
+
+完整紀錄：[G0281](ai-game-research/records/G0281.md) · [原始一行任務與 SeaVerse 說明](https://seaverse.ai/ai-game-maker/gpt-6-game) · [託管輸出頁](https://seaverse.ai/apps/dnNPmjzaU0EMPNT2) · [平台分享畫面](https://image.cdn2.seaart.me/upload/static/20260907/ddc8883821137f74048ee434845c1540.png)
+
+- **為何保留：**頁面公開 prompt「Make a 3D parkour platformer HTML game with Minecraft-inspired art」，並聲稱是 GPT-6 的 first-pass、single-prompt、unedited playable output；畫面有一致 voxel 浮島與 HUD，值得使用者評價美術。
+- **限制：**模型供應者／snapshot、session、source、凍結 build 和實際操作通關均未核；本次 app HTTP 只確認載入殼頁。21 平台、3 biome、18 水晶、checkpoint 的系統規模屬短 parkour loop，不是高系統長流程主測。列為待核高視覺副候選，不作已確認 one-shot 排名。
+
 ### GPT-6.1 Sol light 七題 source／prompt collection｜近期模型任務組（作者申報；session 未公開）
 
 完整紀錄：[C0024](ai-game-research/records/C0024.md) · [原始 prompt pack](https://github.com/PromptEngineer48/gpt-6.1-sol-light-games/tree/main/prompt-pack) · [七款 source builds](https://github.com/PromptEngineer48/gpt-6.1-sol-light-games)
@@ -565,3 +572,8 @@ OpenGame 已能從空白遊戲資料夾接收單一 prompt，在固定 template�
 - **Descente：**roguelite／程序美術／200 多場 bot QA 很強，但作者中途留言三、四次，排除嚴格一次委託。[研究紀錄 G0196](ai-game-research/records/G0196.md)
 - **Sky Reach：**概念為無縫星球／太空，但未確認完整可玩 build、source、目標任務與自主流程。[作者貼文](https://www.reddit.com/r/aigamedev/comments/1wrstzo/i_remade_no_mans_sky_with_opus_55_threejs_on/)
 - **MACH RUN：**一提示只做出視覺、谷地與飛行物理；完整遊戲其後花數週完成，不符合一次交付條件。
+
+
+## 補充方法參考：V-GameGym（S72）
+
+[V-GameGym／SKYLENAGE-GameCodeGym](ai-game-research/records/B0041.md) 提供 Pygame 短題生成與截圖／影片評分程式；現行 HF 發布含 requirements／seed code，但不含 metadata 引用的全部 generated media。其自動視覺分數衡量畫面完整、UI、功能可見和 overall completion，非使用者的風格／美術判斷；題庫和榜單也不是當前高系統 3A／stylized 完整遊戲 run。因此保留作流程和短題 rubric 參照，不列主候選。

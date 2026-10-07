@@ -1,0 +1,21 @@
+# S72 · 公開視覺遊戲 benchmark 的實際 testset、輸出媒體與評分 traces
+
+- **日期：**2026-10-07
+- **搜尋方向：**查正式 benchmark 是否真的公開可重跑任務、生成程式／截圖／影片，並檢視所謂 visual/art scores 的具體 rubric、judge 和新舊模型範圍；不重跑 S63 的 general art rubric 調查，而是核實具名 V-GameGym 發布物。
+- **開始前核對：**重讀研究索引、候選摘要、搜尋索引，確認既有 B0041 因「既有 Pygame project task、非完整 blank-start game」被排除；此批只追 release completeness、視覺評分和 leaderboard 版本，避免重做既有題型判斷。
+- **實際 query：**DuckDuckGo HTML `3D game generation benchmark artifact gallery visual scoring game generation benchmark`、`high fidelity game generation benchmark playable output images game agent`、`game creation benchmark AI generated games visual quality evaluation dataset 2026`、`site:arxiv.org game generation benchmark 3D visual evaluation code generation game`、`"VGA-Bench" video game agents 2026 benchmark games generated`、`"V-GameGym" visual game generation code large language models ACL 2026`、`"Game Generation" benchmark visual artifacts game agents screenshot trace 2026`、`site:github.com game generation benchmark output gallery artifact visual quality CLLM`；GitHub repository API `V-GameGym`／`VGameGym`；直接抓 ACL paper/PDF、作者 GitHub、HF metadata/tree/README/seed row、project page/leaderboard、原始 evaluator script。
+- **查閱來源：**[ACL Findings 2026 paper](https://aclanthology.org/2026.findings-acl.276/)、[arXiv paper](https://arxiv.org/abs/2509.20136)、[official code](https://github.com/alibaba/SKYLENAGE-GameCodeGym)、[HF dataset](https://huggingface.co/datasets/alibabagroup/SKYLENAGE-GameCodeGym)、[HF dataset files](https://huggingface.co/datasets/alibabagroup/SKYLENAGE-GameCodeGym/tree/main)、[project page](https://v-gamegym.github.io/)、[official leaderboard](https://v-gamegym.github.io/leaderboard.html)、[`game_evaluator.py`](https://github.com/alibaba/SKYLENAGE-GameCodeGym/blob/main/game_evaluator.py)、[3DGen-Bench repo](https://github.com/3DTopia/3DGen-Bench)、[VGA-Bench paper](https://arxiv.org/abs/2604.10127)。
+
+## 查核結果
+
+- **V-GameGym release：**GitHub repo 有 generator、Pygame evaluator、screenshot recorder；HF API 回報 dataset 已存在，tree 當前只列 `pygame_seeds_2500_filtered.jsonl`（25,494,841 bytes）。JSONL row 含 `requirement`、`code`、`metadata`、`reference_metadata`；其中 reference metadata 僅列本應保存的 screenshot/video 路徑，HF release tree 未見那些媒體檔。GitHub README 說有完整 `gamegym_testset` 及 generated media，但此時 main tree 實際只有 scripts/config/README，未見該資料夾。記錄為「部分可取得」，不宣稱 full 2,219 runs／evaluator outputs 都可重現。
+- **任務範圍：**paper 說 2,219 requirement/code pairs 由 2,190 real-world Pygame repositories、100 clusters 經 filtering、clustering、LLM requirement synthesis、behavior injection、execution verification 和人工檢查產生。公開 sample 要求「教育用迷宮產生 visualizer」，10 秒後退出、沒有人類操作；seed code 也是一個自動播放 maze。每項需求平均約 1,210 chars，但不代表每項都是長系統完整遊戲。基準能衡量由需求重建既有小型 Pygame 專案的 code／visual outputs，不是標準化空工作區上的一則高系統 game brief 加 agent 自主 QA。
+- **Score definition：**`game_evaluator.py` 的 screenshot judge 使用 Qwen2.5-VL-72B-Instruct、temperature 0.3、最多 20 screenshots；每題視覺分含 completeness（window/elements）、UI layout/colors/effects、requirements key feature visibility、overall visual quality/completion，各 25 分。影片 score 額外評動畫、操作反應、game flow、dynamic quality；final score 是 code／screenshot／video 三者可用分數的平均。這拆分出 code、static visual、dynamic interaction，但 screenshot rubric 對 style coherence、角色／環境 art direction、材質光照、資產品質、特效與 UI aesthetics 沒足夠專門維度；不是 3A 美術 rubric，也不是人類玩家／使用者的審美投票。
+- **模型結果：**官方 leaderboard 標示 2025-10-14 生成、72 模型、2,219 games，GPT-5 top 83.25；對當前（2026-10-07）frontier roster 已過時。最初搜尋到的 VGA-Bench 是 generic video-AIGC aesthetic quality，3DGen-Bench 是 text/image-to-3D assets；兩者不評完整可玩 coding-agent games，僅作鄰接方向排除。V-GameGym 網站提供本基準的 code/HF/resources，不代表另外兩者可移植成一次遊戲 build benchmark。
+
+## 更新及判斷
+
+- 更新 [B0041](../records/B0041.md)：升為短題生成／screen+video auto-evaluation 方法參考，保留其對完整高系統 one-shot 主目標的排除理由並記清官方 release 缺口。
+- 沒有新增強 one-shot 遊戲案例，也沒有新增任何現存遊戲案例的 prompt/session/build evidence。故 S54 後第 **18** 個無增益方向；研究仍持續，不以 benchmark leaderboard 分數當近期完整遊戲實績。
+- 未查證／後續：找作者是否另有平台公開未入庫 `gamegym_testset` outputs；檢查 VL judge prompts/versions 和八位學生人工驗證的明確標註 protocol；若發布最新模型在較長 Pygame／3D task 的同任務、凍結 artifact，再更新其可比性。
+- **下一方向：**回到最近模型的實際 game generation runs，專查有 first-pass build plus timestamped agent session/artifact revision history 的 3D／高美術作品；優先找能分辨使用者 follow-up、agent 自主修補和 AI art assets 的原始證據。
