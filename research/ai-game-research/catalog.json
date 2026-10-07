@@ -9204,6 +9204,38 @@
     "path": "records/G0275.md"
   },
   {
+    "id": "G0276",
+    "name": "Playco GPT-6 Astra three game prototypes",
+    "aliases": [
+      "Playco GPT-6 Astra game prototyping",
+      "Playbot game prototypes"
+    ],
+    "type": "game",
+    "status": "OpenAI／Playco 官方案例自述 GPT-6 Astra 從灰盒原型製作三款 themed playable prototypes，另稱多數首輪可用、手動修正減少 50%；開發流程包含數次 gameplay／creative iterations，未公開任務文字、build、repo 或可檢視遊戲畫面，非已核 one-shot 成績",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://openai.com/index/playco-game-prototyping-with-astra/",
+      "https://player.vimeo.com/video/1223381989?h=db54ade737",
+      "https://vimeo.com/1223381989/db54ade737"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-67-official-model-game-showcase-trace"
+    ],
+    "keywords": [
+      "GPT-6 Astra",
+      "Playco",
+      "Playbot",
+      "Unity",
+      "Godot",
+      "game prototypes",
+      "manual fixes",
+      "reference images"
+    ],
+    "path": "records/G0276.md"
+  },
+  {
     "id": "M0001",
     "name": "Age of Empires",
     "aliases": [],

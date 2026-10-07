@@ -86,6 +86,8 @@
 
 **近期 3D playable 作品庫參照（one-shot 未核實）：VeltosGames／Sky Isles。**官方作品頁可載入 HTML5／Three.js build；平台縮圖呈現色彩鮮明的低多邊形浮島戰略畫面，但不是經核實的 gameplay 截圖。原始 prompt、模型、session 與人工介入都未公開，不能列作一次生成成績；遊戲內美術**待你評價**。可[開啟 Sky Isles](https://games.veltos.ai/game/sky-isles-YrAJJg0ggMUy)，細節見 [G0275](ai-game-research/records/G0275.md)、[C0025](ai-game-research/records/C0025.md) 及 [S66](ai-game-research/search/S-20261007-66-veltos-3d-playable-artifacts.md)。
 
+**近期遊戲引擎美術／agent 流程參照（非 one-shot 成績）：Playco × GPT-6 Astra。**OpenAI 表示 Playco 的 Playbot 連接 Unity／Godot，能讓模型編輯場景、遊玩測試與驗證；案例提及空間配置、reference-image recreation、遊戲內 responsive UI 及 3 款 themed prototypes。但整段流程有多次玩法／創意迭代，沒有公開任務原文、build 或可評 gameplay 畫面；50% 少人工修正是未公開方法的客戶自述，不能當成遊戲分數。詳見 [G0276](ai-game-research/records/G0276.md)、[S67](ai-game-research/search/S-20261007-67-official-model-game-showcase-trace.md)。
+
 **使用者美術驗收紀錄（2026-10-07；完整範圍見[驗收事件 E0008](ai-game-research/records/E0008.md)）：**
 
 | 作品 | 使用者美術判定 | 其他遊戲品質回饋 |

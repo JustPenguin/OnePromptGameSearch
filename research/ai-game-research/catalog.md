@@ -370,6 +370,7 @@
 | [G0273](records/G0273.md) | Cozy Island Farm — GPT Image 2.0 + Codex prototype workflow | 遊戲／具體題目 | 作者展示 GPT Image 2.0 concept/tileset 再交 Codex + GPT-5.5 custom prompt 產生 2D browser prototype；視覺資產整合方法參照，不符合單一使用者委託，沒有可核 session 或直接 playable build，且玩法／作品範圍較小 |
 | [G0274](records/G0274.md) | Aethel Fold (Konstantin / Claude Code) | 遊戲／具體題目 | 公開 HTML5 2D illustrated game；作者稱 Claude Code 多個 cloud sessions 實作 art／sound／text，但遊戲設計及 art/sound direction 由人類完成，Gemini 另做 cover/page art；有遊戲截圖和可玩頁，非一次委託案例，模型版本、prompts/session 未公開 |
 | [G0275](records/G0275.md) | Sky Isles (VeltosGames) | 遊戲／具體題目 | 公開 HTML5／Three.js 遊戲 build 可載入；平台目錄縮圖呈現 3D 低多邊形戰略畫面。原始任務、模型、session、人工介入與 frozen build 未公開；非已核 one-shot 成績，遊戲內美術待使用者評價 |
+| [G0276](records/G0276.md) | Playco GPT-6 Astra three game prototypes | 遊戲／具體題目 | OpenAI／Playco 官方案例自述 GPT-6 Astra 從灰盒原型製作三款 themed playable prototypes，另稱多數首輪可用、手動修正減少 50%；開發流程包含數次 gameplay／creative iterations，未公開任務文字、build、repo 或可檢視遊戲畫面，非已核 one-shot 成績 |
 | [M0001](records/M0001.md) | Age of Empires | 方法／鄰接研究 | 方法參考 |
 | [M0002](records/M0002.md) | CoD Zombies | 方法／鄰接研究 | 方法參考 |
 | [M0003](records/M0003.md) | Doom | 方法／鄰接研究 | 方法參考 |
