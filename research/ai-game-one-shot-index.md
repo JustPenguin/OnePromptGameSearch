@@ -88,6 +88,8 @@
 
 **近期遊戲引擎美術／agent 流程參照（非 one-shot 成績）：Playco × GPT-6 Astra。**OpenAI 表示 Playco 的 Playbot 連接 Unity／Godot，能讓模型編輯場景、遊玩測試與驗證；案例提及空間配置、reference-image recreation、遊戲內 responsive UI 及 3 款 themed prototypes。但整段流程有多次玩法／創意迭代，沒有公開任務原文、build 或可評 gameplay 畫面；50% 少人工修正是未公開方法的客戶自述，不能當成遊戲分數。詳見 [G0276](ai-game-research/records/G0276.md)、[S67](ai-game-research/search/S-20261007-67-official-model-game-showcase-trace.md)。
 
+**近期 stylized 3D 遊戲與完整生成 transcript 參照（明確非 one-shot）：Torchboy。**作者提供暗色等角洞穴的三段實玩 GIF、首個原始任務及全 27-prompt transcript，另記錄 Claude Code、Blender／Playwright tool counts 和程序測試；可檢視高系統遊戲、遊戲內 procedural 3D 與 QA 過程。實際經 27 次人類提示／約 25 小時，coding-agent 版本未明，故只作任務重跑、trace 和美術參照；遊戲內畫面**待你評價**。可看[暗道發現](https://github.com/apshoemaker/torchboy/blob/main/docs/media/discovery.gif)、[出口解鎖](https://github.com/apshoemaker/torchboy/blob/main/docs/media/gate.gif)、[結局](https://github.com/apshoemaker/torchboy/blob/main/docs/media/ending.gif)；完整界線見 [G0277](ai-game-research/records/G0277.md)、[S68](ai-game-research/search/S-20261007-68-public-agent-session-traces-and-one-shot-runs.md)。
+
 **使用者美術驗收紀錄（2026-10-07；完整範圍見[驗收事件 E0008](ai-game-research/records/E0008.md)）：**
 
 | 作品 | 使用者美術判定 | 其他遊戲品質回饋 |
@@ -129,6 +131,8 @@
 每個有 build／錄影的候選都另做美術證據檢視：優先看實際 gameplay 畫面而非封面或 key art，記錄風格一致性、場景／資產細節、光影材質、動畫特效與 UI 的可見品質及畫面來源。作者宣稱與研究者觀察不可代替使用者評價；單純 3D 世界或視覺展示可保存作美術參照，但須說明缺少遊戲玩法，不能升作完整遊戲候選。
 
 正式基準的 Art and Presentation 分數可以用來找待看的輸出，不是使用者的審美結論。若 rubric 將 primitive／程序幾何一律設分數上限，需記下它是該 benchmark 的資產規則；本研究仍按畫面呈現品質評估，不把資產來源當美術分數代理。
+
+使用者已確認美術是**獨立高權重評分軸**，不是硬性篩除門檻。每案分開判斷美術、可玩性、系統／內容、一次委託符合度及證據強度；未有使用者審美回饋的 build 明標「待使用者評價」，stylized high-end art 也可列入檢視。S70 的 MUTE 有略寫實 stylized 3D pipeline 和線上遊戲頁，可由使用者直接看 [MUTE build](https://dippy34.github.io/Ai-vr-game/) 與[美術圖庫](https://github.com/dippy34/Ai-vr-game/blob/claude/vigilant-gates-rfgepm/art/GALLERY.md)給美術評價；目前仍缺原始任務／session，不能當作 one-shot 能力證據。
 
 
 - **AI Browser Game Jam 4／3 高排名作品稽核（S31）：**五個高分 playable 都不符合已核實的一次委託成績。《AI2U》明示 72 小時 gauntlet-loop prompting；《Pyramid Wars》明示三週 AI 輔助並依玩家意見修訂；《A Low Poly Dungeon Game》也在玩家回饋後改難度／操作；《Plug & Prosper》缺 prompt／session 且回應試玩後修補；《Monster Mash》只有 Codex/Suno 和多人作者資料。保留作 RTS、地城戰鬥與管理物理的題型／品質參照，沒有因 jam 排名加進精選。詳細證據與來源見 [S31](ai-game-research/search/S-20261007-31-ai-browser-jam-top-entries.md)。

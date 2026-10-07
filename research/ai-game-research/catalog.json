@@ -1571,6 +1571,40 @@
     "path": "records/B0056.md"
   },
   {
+    "id": "B0057",
+    "name": "Code Bench Fun",
+    "aliases": [
+      "code_bench_fun",
+      "One-Shot Bench",
+      "CodeBenchFun"
+    ],
+    "type": "benchmark",
+    "status": "可重現的一次 completion 多模型建置與成本／tokens／延遲展示工具；現行樣本為自動播放 2D physics toy 而非完整互動遊戲，評審依 source code 而非實際畫面，僅作 one-shot 方法與視覺 prompt 參考，不列完整遊戲候選",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/GGCryptoh/code_bench_fun",
+      "https://github.com/GGCryptoh/code_bench_fun/blob/main/README.md",
+      "https://github.com/GGCryptoh/code_bench_fun/blob/main/docs/SCHEMA.md",
+      "https://github.com/GGCryptoh/code_bench_fun/blob/main/data/runs/cars-vs-canyon.json",
+      "https://github.com/GGCryptoh/code_bench_fun/blob/main/games/cars-vs-canyon/opus-4.8.html",
+      "https://ggcryptoh.github.io/code_bench_fun/run.html?id=cars-vs-canyon",
+      "https://ggcryptoh.github.io/code_bench_fun/games/cars-vs-canyon/opus-4.8.html"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-68-public-agent-session-traces-and-one-shot-runs"
+    ],
+    "keywords": [
+      "one-shot benchmark",
+      "matched prompt",
+      "cost and latency",
+      "source-code judge",
+      "visual polish"
+    ],
+    "path": "records/B0057.md"
+  },
+  {
     "id": "C0001",
     "name": "3d-prompt.com",
     "aliases": [
@@ -1647,14 +1681,19 @@
       "https://github.com/AgentsLoop/awesome-opus-5.5-games",
       "https://github.com/AgentsLoop/awesome-opus-5.5-games/blob/main/README.md",
       "https://github.com/AgentsLoop/awesome-opus-5.5-games/blob/main/models/gpt-6-1-sol.md",
-      "https://github.com/AgentsLoop/awesome-opus-5.5-games/blob/main/games/slipstream/readme.md"
+      "https://github.com/AgentsLoop/awesome-opus-5.5-games/blob/main/games/slipstream/readme.md",
+      "https://github.com/AgentsLoop/awesome-opus-5.5-games/commit/7839811da5cc",
+      "https://github.com/AgentsLoop/awesome-opus-5.5-games/commit/dd786c160f3a",
+      "https://github.com/dippy34/Ai-vr-game",
+      "https://github.com/PieterMey/theboys"
     ],
     "keywords": [
       "作品庫",
       "策展索引",
       "模型歸因分級",
       "遊戲截圖評分",
-      "來源核查"
+      "來源核查",
+      "版本對照"
     ],
     "path": "records/C0003.md"
   },
@@ -9234,6 +9273,145 @@
       "reference images"
     ],
     "path": "records/G0276.md"
+  },
+  {
+    "id": "G0277",
+    "name": "Torchboy (Claude Code 27-prompt game)",
+    "aliases": [
+      "Torchboy",
+      "TorchBoy isometric cavern game"
+    ],
+    "type": "game",
+    "status": "可公開檢閱 GitHub source、完整 27-prompt transcript、實玩 GIF 與作者的 Playwright／Blender／程式驗收記錄；Claude Code 多輪約 25 小時、793 工具呼叫，明確不是 one-shot。強系統／重跑任務與 3D 美術流程參照，遊戲內美術待使用者評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/apshoemaker/torchboy",
+      "https://github.com/apshoemaker/torchboy/blob/main/README.md",
+      "https://github.com/apshoemaker/torchboy/blob/main/docs/HOW-THIS-WAS-BUILT.md",
+      "https://github.com/apshoemaker/torchboy/blob/main/docs/transcript/01-i-want-you-to-help-me.md",
+      "https://github.com/apshoemaker/torchboy/blob/main/docs/transcript/README.md",
+      "https://github.com/apshoemaker/torchboy/blob/main/docs/media/discovery.gif",
+      "https://github.com/apshoemaker/torchboy/blob/main/docs/media/gate.gif",
+      "https://github.com/apshoemaker/torchboy/blob/main/docs/media/ending.gif"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-68-public-agent-session-traces-and-one-shot-runs"
+    ],
+    "keywords": [
+      "Claude Code",
+      "27 human prompts",
+      "full transcript",
+      "Blender MCP",
+      "Playwright",
+      "procedural 3D",
+      "gameplay QA",
+      "art reference"
+    ],
+    "path": "records/G0277.md"
+  },
+  {
+    "id": "G0278",
+    "name": "MUTE (Claude Opus 5.5 WebXR co-op horror) ",
+    "aliases": [
+      "MUTE",
+      "dippy34 Ai-vr-game",
+      "MUTE VR horror"
+    ],
+    "type": "game",
+    "status": "高系統 WebXR／stylized-realism 美術流程參照；公開頁部署；原始任務與完整 coding session 未核，非 one-shot 候選；美術待使用者評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/dippy34/Ai-vr-game",
+      "https://github.com/dippy34/Ai-vr-game/commit/cbd6dd0b0345775604a404ca3e880d35d13a9637",
+      "https://github.com/dippy34/Ai-vr-game/blob/claude/vigilant-gates-rfgepm/README.md",
+      "https://github.com/dippy34/Ai-vr-game/blob/claude/vigilant-gates-rfgepm/docs/DESIGN.md",
+      "https://github.com/dippy34/Ai-vr-game/blob/claude/vigilant-gates-rfgepm/art/README.md",
+      "https://github.com/dippy34/Ai-vr-game/blob/claude/vigilant-gates-rfgepm/art/GALLERY.md",
+      "https://dippy34.github.io/Ai-vr-game/"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-70-gallery-version-artifact-alignment"
+    ],
+    "keywords": [
+      "WebXR",
+      "VR horror",
+      "Blender 5.0.1",
+      "Three.js",
+      "programmatic art",
+      "session provenance",
+      "one-shot unknown"
+    ],
+    "path": "records/G0278.md"
+  },
+  {
+    "id": "G0279",
+    "name": "DEAD AIR (Claude Opus 5.5 co-op browser horror)",
+    "aliases": [
+      "DEAD AIR",
+      "PieterMey theboys"
+    ],
+    "type": "game",
+    "status": "高系統多人遊戲與 playtest QA 參照；多輪建置，任務及可玩畫面未公開，非 one-shot 候選；美術證據不足",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://github.com/PieterMey/theboys",
+      "https://github.com/PieterMey/theboys/commit/d4cb042d9493e086084858afff54c92b2de2d79c",
+      "https://github.com/PieterMey/theboys/blob/main/PLAN.md",
+      "https://github.com/PieterMey/theboys/blob/main/docs/research/game-design.core.md",
+      "https://github.com/PieterMey/theboys/blob/main/apps/client/index.html"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-70-gallery-version-artifact-alignment"
+    ],
+    "keywords": [
+      "Claude Opus 5.5",
+      "co-op browser horror",
+      "voice proximity",
+      "playtest",
+      "human iteration"
+    ],
+    "path": "records/G0279.md"
+  },
+  {
+    "id": "G0280",
+    "name": "Hearthlight (Opus 5.5 procedural pixel-art adventure)",
+    "aliases": [
+      "Hearthlight",
+      "Hearthlight browser game",
+      "Hearthlight.github.io"
+    ],
+    "type": "game",
+    "status": "公開可玩、具多章故事與多人模式的 stylized pixel-art 參照；Claude Code／Opus 5.5 歸因來自作者文章引用的社群貼文；原始任務、session、人工介入 timeline 未核，非 one-shot 候選；美術待使用者評價",
+    "updated": "2026-10-07",
+    "origin": "new-research",
+    "sources": [
+      "https://hearthlight.github.io/",
+      "https://github.com/Hearthlight/hearthlight.github.io",
+      "https://github.com/Hearthlight/hearthlight.github.io/blob/main/README.md",
+      "https://github.com/Hearthlight/hearthlight.github.io/tree/main/docs/screenshots",
+      "https://dev.to/tiagovilasboas/i-built-a-full-pwa-game-in-one-day-with-claude-opus-55-and-claude-code-here-is-the-real-token-41p7",
+      "https://www.reddit.com/r/ClaudeAI/comments/1wtcs7k/i_opensourced_the_cozy_pixelart_game_opus_55_made/"
+    ],
+    "sections": [],
+    "batches": [
+      "S-20261007-71-firsthand-agent-game-video-artifacts"
+    ],
+    "keywords": [
+      "Claude Code",
+      "Opus 5.5",
+      "procedural pixel art",
+      "10 chapters",
+      "eight-player local multiplayer",
+      "visual artifact",
+      "provenance gap"
+    ],
+    "path": "records/G0280.md"
   },
   {
     "id": "M0001",

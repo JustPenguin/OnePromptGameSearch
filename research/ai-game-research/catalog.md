@@ -60,6 +60,7 @@
 | [B0054](records/B0054.md) | GameWorld: Multimodal Game Agents Benchmark | 基準／評測 | 鄰接的方法參考；評估 agent 操作既有遊戲，不評估 AI 從一次委託生成完整遊戲，因此排除於遊戲生成主候選 |
 | [B0055](records/B0055.md) | newmodel-games: GPT-6.1 Sol vs Sonnet 5.5 matched browser-game trial | 基準／評測 | 高價值非正式同題成品組：3 份共用任務、6 個 playable source build、機械驗收及手動遊玩發現已公開；one-task feedback flow 未有原始 session 可稽核，不能作模型排名 |
 | [B0056](records/B0056.md) | WHAT IF? Civilization Lab: GPT-6 Astra vs Gemini 3.8 same-brief build comparison | 基準／評測 | 高系統同題建置任務與手動 QA 參考；有 prompt、互動錄影與差異發現，沒有 source／可下載 playable build／完整 agent traces，模型版本已非最新 |
+| [B0057](records/B0057.md) | Code Bench Fun | 基準／評測 | 可重現的一次 completion 多模型建置與成本／tokens／延遲展示工具；現行樣本為自動播放 2D physics toy 而非完整互動遊戲，評審依 source code 而非實際畫面，僅作 one-shot 方法與視覺 prompt 參考，不列完整遊戲候選 |
 | [C0001](records/C0001.md) | 3d-prompt.com | 作品庫／平台 | 方法參考 |
 | [C0002](records/C0002.md) | Agent Games | 作品庫／平台 | 方法參考 |
 | [C0003](records/C0003.md) | AgentsLoop awesome-opus-5.5-games | 作品庫／平台 | 方法參考 |
@@ -371,6 +372,10 @@
 | [G0274](records/G0274.md) | Aethel Fold (Konstantin / Claude Code) | 遊戲／具體題目 | 公開 HTML5 2D illustrated game；作者稱 Claude Code 多個 cloud sessions 實作 art／sound／text，但遊戲設計及 art/sound direction 由人類完成，Gemini 另做 cover/page art；有遊戲截圖和可玩頁，非一次委託案例，模型版本、prompts/session 未公開 |
 | [G0275](records/G0275.md) | Sky Isles (VeltosGames) | 遊戲／具體題目 | 公開 HTML5／Three.js 遊戲 build 可載入；平台目錄縮圖呈現 3D 低多邊形戰略畫面。原始任務、模型、session、人工介入與 frozen build 未公開；非已核 one-shot 成績，遊戲內美術待使用者評價 |
 | [G0276](records/G0276.md) | Playco GPT-6 Astra three game prototypes | 遊戲／具體題目 | OpenAI／Playco 官方案例自述 GPT-6 Astra 從灰盒原型製作三款 themed playable prototypes，另稱多數首輪可用、手動修正減少 50%；開發流程包含數次 gameplay／creative iterations，未公開任務文字、build、repo 或可檢視遊戲畫面，非已核 one-shot 成績 |
+| [G0277](records/G0277.md) | Torchboy (Claude Code 27-prompt game) | 遊戲／具體題目 | 可公開檢閱 GitHub source、完整 27-prompt transcript、實玩 GIF 與作者的 Playwright／Blender／程式驗收記錄；Claude Code 多輪約 25 小時、793 工具呼叫，明確不是 one-shot。強系統／重跑任務與 3D 美術流程參照，遊戲內美術待使用者評價 |
+| [G0278](records/G0278.md) | MUTE (Claude Opus 5.5 WebXR co-op horror)  | 遊戲／具體題目 | 高系統 WebXR／stylized-realism 美術流程參照；公開頁部署；原始任務與完整 coding session 未核，非 one-shot 候選；美術待使用者評價 |
+| [G0279](records/G0279.md) | DEAD AIR (Claude Opus 5.5 co-op browser horror) | 遊戲／具體題目 | 高系統多人遊戲與 playtest QA 參照；多輪建置，任務及可玩畫面未公開，非 one-shot 候選；美術證據不足 |
+| [G0280](records/G0280.md) | Hearthlight (Opus 5.5 procedural pixel-art adventure) | 遊戲／具體題目 | 公開可玩、具多章故事與多人模式的 stylized pixel-art 參照；Claude Code／Opus 5.5 歸因來自作者文章引用的社群貼文；原始任務、session、人工介入 timeline 未核，非 one-shot 候選；美術待使用者評價 |
 | [M0001](records/M0001.md) | Age of Empires | 方法／鄰接研究 | 方法參考 |
 | [M0002](records/M0002.md) | CoD Zombies | 方法／鄰接研究 | 方法參考 |
 | [M0003](records/M0003.md) | Doom | 方法／鄰接研究 | 方法參考 |
